@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart | Royal Trousseau Checkout | DEMO SILKS</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/spin-wheel.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
+
+  
+
+          <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR (PURE CLEAN DESIGN - NO OVERLAYS) -->
+    <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR -->
+  <header class="main-header" id="mainHeader">
+    <div class="nav-fullwidth-container">
+      <!-- 1. Brand Logo -->
+      <a href="index.html" class="nav-brand-logo" title="Demo Silks Royal Heritage Weaves">
+        <img src="assets/images/navbar-logo-clean.png" alt="Demo Silks" class="nav-logo-img">
+      </a>
+
+      <!-- 2. Navigation Menu Items (Single Horizontal Row) -->
+      <nav class="nav-menu-wrapper">
+        <ul class="nav-menu-royal">
+          <li class="nav-item-royal">
+            <a href="index.html" class="nav-link-royal">Home</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="about.html" class="nav-link-royal">About Us</a>
+          </li>
+          <li class="nav-item-royal has-dropdown">
+            <a href="collections.html" class="nav-link-royal">Collections <i class="fa-solid fa-chevron-down nav-chevron"></i></a>
+            <div class="nav-dropdown">
+              <a href="collections.html#kanchipuram">Kanchipuram Silk</a>
+              <a href="collections.html#banarasi">Banarasi Silk</a>
+              <a href="collections.html#softsilk">Soft Silk</a>
+              <a href="collections.html#mysoresilk">Mysore Silk</a>
+              <a href="collections.html#organza">Organza</a>
+              <div class="dropdown-divider"></div>
+              <a href="collections.html" class="dropdown-highlight">Explore All Collections →</a>
+            </div>
+          </li>
+          <li class="nav-item-royal">
+            <a href="videos.html" class="nav-link-royal">Videos & Reels</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="reviews.html" class="nav-link-royal">Customer Reviews</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="contact.html" class="nav-link-royal">Contact Us</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="shop.html" class="nav-btn-shop" title="Shop All Sarees">
+              <i class="fa-solid fa-bag-shopping"></i> Shop
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- 3. Right Action Icons -->
+      <div class="nav-actions-royal">
+        <button type="button" class="royal-icon-btn" onclick="openSearchModal()" title="Search Sarees">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="wishlist.html" class="royal-icon-btn" title="Saved Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-pill wish-badge">2</span>
+        </a>
+        <a href="cart.html" class="royal-icon-btn" title="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-pill cart-badge">3</span>
+        </a>
+        <a href="contact.html" class="royal-icon-btn" title="Account / Concierge">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button type="button" class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileMenu" class="mobile-nav-drawer" style="display:none;">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="videos.html">Videos & Reels</a></li>
+      <li><a href="reviews.html">Customer Reviews</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li style="margin-top:6px;">
+        <a href="shop.html" class="nav-btn-shop mobile-shop-btn">
+          <i class="fa-solid fa-bag-shopping"></i> Shop All Sarees →
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Cart Content -->
+  <div class="container" style="padding: 40px 24px 80px 24px;">
+    <div class="section-header" style="margin-bottom: 30px;">
+      <span class="section-tag">Your Ceremonial Order</span>
+      <h1 class="section-title">Shopping Cart</h1>
+      <div class="section-divider">
+        <span></span><i class="fa-solid fa-bag-shopping"></i><span></span>
+      </div>
+      <p class="section-desc" id="cartSubtitle">Review your selected sarees before proceeding to secure payment.</p>
+    </div>
+
+    <!-- Active Cart Layout (Grid: Items + Summary) -->
+    <div id="cartActiveLayout" class="cart-layout">
+      <!-- Left Column: Items List -->
+      <div class="royal-card" style="padding: 32px;">
+        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--color-gold-border); padding-bottom:14px; margin-bottom:20px; font-weight:700; color:var(--color-maroon-dark);">
+          <span>Selected Products</span>
+          <span id="cartHeaderItemsCount">0 Items</span>
+        </div>
+
+        <div id="cartItemsContainer">
+          <!-- Filled by JS -->
+        </div>
+
+        <div style="margin-top:24px; display:flex; justify-content:space-between; align-items:center;">
+          <a href="shop.html" class="btn-royal-outline" style="font-size:0.82rem;">
+            ? Continue Exploring Sarees
+          </a>
+          <button onclick="clearEntireCart()" style="background:none; border:none; color:#dc2626; font-size:0.8rem; cursor:pointer; text-decoration:underline;">
+            Clear Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Column: Price Summary Card -->
+      <div>
+        <div class="royal-card" style="padding: 32px; border: 2px solid var(--color-gold); position:sticky; top:104px;">
+          <h3 style="font-size:1.3rem; color:var(--color-maroon-dark); margin-bottom:18px; border-bottom:1px solid var(--color-gold-border); padding-bottom:12px;">
+            Order Summary
+          </h3>
+
+          <!-- Coupon Code Input -->
+          <div style="margin-bottom:20px;">
+            <label style="display:block; font-size:0.8rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:6px;">Have a Privilege Coupon?</label>
+            <div style="display:flex; gap:8px;">
+              <input type="text" id="couponInput" placeholder="Try code: ROYAL10" style="flex:1; padding:10px 12px; border-radius:8px; border:1px solid var(--color-gold-border); font-family:monospace; font-weight:700; text-transform:uppercase; outline:none;">
+              <button onclick="applyCoupon()" class="btn-royal-gold" style="padding:8px 16px; font-size:0.75rem;">Apply</button>
+            </div>
+            <div id="couponAppliedMsg" style="display:none; font-size:0.78rem; color:var(--color-emerald); font-weight:700; margin-top:6px;">
+              ? 10% Royal Privilege Discount Applied!
+            </div>
+          </div>
+
+          <!-- Breakdown -->
+          <div style="display:flex; flex-direction:column; gap:12px; font-size:0.9rem; color:var(--color-text-muted); margin-bottom:20px;">
+            <div style="display:flex; justify-content:space-between;">
+              <span>Subtotal:</span>
+              <strong id="summarySubtotal" style="color:var(--color-text-dark);">?0</strong>
+            </div>
+            <div id="discountRow" style="display:none; justify-content:space-between; color:var(--color-emerald); font-weight:700;">
+              <span>Privilege Discount (10%):</span>
+              <span id="summaryDiscount">-?0</span>
+            </div>
+            <div style="display:flex; justify-content:space-between;">
+              <span>Estimated GST (3% Pure Silk):</span>
+              <span id="summaryGst" style="color:var(--color-text-dark);">?0</span>
+            </div>
+            <div style="display:flex; justify-content:space-between;">
+              <span>Express Insured Shipping:</span>
+              <span style="color:var(--color-emerald); font-weight:700;">FREE</span>
+            </div>
+            <div style="display:flex; justify-content:space-between;">
+              <span>Heirloom Muslin Keepsake Box:</span>
+              <span style="color:var(--color-emerald); font-weight:700;">COMPLIMENTARY</span>
+            </div>
+          </div>
+
+          <!-- Grand Total -->
+          <div style="display:flex; justify-content:space-between; align-items:baseline; border-top:2px solid var(--color-gold-border); padding-top:16px; margin-bottom:24px;">
+            <span style="font-family:var(--font-royal); font-size:1.1rem; font-weight:700; color:var(--color-maroon-dark);">Total Amount:</span>
+            <span id="summaryGrandTotal" style="font-family:var(--font-royal); font-size:1.8rem; font-weight:800; color:var(--color-primary-maroon);">?0</span>
+          </div>
+
+          <!-- Checkout Button -->
+          <button onclick="openCheckoutModal()" class="btn-royal-primary" style="width:100%; padding:14px; font-size:0.95rem; margin-bottom:16px;">
+            Proceed To Checkout <i class="fa-solid fa-lock" style="font-size:0.8rem; margin-left:6px;"></i>
+          </button>
+
+          <!-- WhatsApp Direct Order Alternative -->
+          <button onclick="orderViaWhatsApp()" class="btn-royal-outline" style="width:100%; border-color:#25d366; color:#128c7e; font-size:0.8rem; padding:10px;">
+            <i class="fa-brands fa-whatsapp" style="font-size:1rem; color:#25d366;"></i> Quick Order via WhatsApp
+          </button>
+
+          <div style="margin-top:20px; text-align:center; font-size:0.75rem; color:var(--color-text-muted);">
+            <i class="fa-solid fa-shield-halved"></i> 256-Bit SSL Encrypted & 100% Guaranteed Authentic Silk
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div id="cartEmptyState" class="royal-card" style="text-align:center; padding:70px 20px; max-width:600px; margin:0 auto; display:none;">
+      <div style="font-size:3.5rem; color:var(--color-gold); margin-bottom:16px;"><i class="fa-solid fa-bag-shopping"></i></div>
+      <h3 style="font-size:1.6rem; color:var(--color-maroon-dark); margin-bottom:10px;">Your Shopping Cart is Empty</h3>
+      <p style="color:var(--color-text-muted); font-size:0.95rem; line-height:1.7; margin-bottom:24px;">
+        Discover the magic of certified handloom silks. Add your favourite bridal or festive sarees to begin crafting your royal trousseau.
+      </p>
+      <div style="display:flex; justify-content:center; gap:16px;">
+        <a href="shop.html" class="btn-royal-primary">
+          Explore Handloom Sarees <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="wishlist.html" class="btn-royal-outline">
+          View Saved Wishlist
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div id="checkoutModal" class="modal-overlay">
+    <div class="modal-content" style="max-width:680px;">
+      <button class="modal-close-btn" onclick="closeCheckoutModal()">?</button>
+      <div style="text-align:center; margin-bottom:24px;">
+        <span class="section-tag">Royal Order Fulfillment</span>
+        <h2 style="font-size:1.6rem; color:var(--color-maroon-dark);">Secure Checkout Draft</h2>
+        <div class="section-divider">
+          <span></span><i class="fa-solid fa-shield-halved"></i><span></span>
+        </div>
+      </div>
+
+      <form id="checkoutForm" onsubmit="handlePlaceOrder(event)">
+        <h4 style="font-size:1rem; color:var(--color-maroon-dark); margin-bottom:12px;">1. Shipping Address</h4>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+          <div>
+            <label style="display:block; font-size:0.78rem; font-weight:600; margin-bottom:4px;">Full Name *</label>
+            <input type="text" required value="Ananya Sharma" style="width:100%; padding:9px 12px; border:1px solid var(--color-gold-border); border-radius:8px;">
+          </div>
+          <div>
+            <label style="display:block; font-size:0.78rem; font-weight:600; margin-bottom:4px;">Phone Number *</label>
+            <input type="tel" required value="+91 98450 12345" style="width:100%; padding:9px 12px; border:1px solid var(--color-gold-border); border-radius:8px;">
+          </div>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <label style="display:block; font-size:0.78rem; font-weight:600; margin-bottom:4px;">Delivery Address *</label>
+          <input type="text" required value="Villa 14, Royal Palm Enclave, Indiranagar" style="width:100%; padding:9px 12px; border:1px solid var(--color-gold-border); border-radius:8px;">
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+          <div>
+            <label style="display:block; font-size:0.78rem; font-weight:600; margin-bottom:4px;">City & State *</label>
+            <input type="text" required value="Bangalore, Karnataka" style="width:100%; padding:9px 12px; border:1px solid var(--color-gold-border); border-radius:8px;">
+          </div>
+          <div>
+            <label style="display:block; font-size:0.78rem; font-weight:600; margin-bottom:4px;">Pincode *</label>
+            <input type="text" required value="560038" style="width:100%; padding:9px 12px; border:1px solid var(--color-gold-border); border-radius:8px;">
+          </div>
+        </div>
+
+        <h4 style="font-size:1rem; color:var(--color-maroon-dark); margin-bottom:12px;">2. Payment Method</h4>
+        <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:24px;">
+          <label style="display:flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid var(--color-gold-border); border-radius:8px; cursor:pointer; background:#fff;">
+            <input type="radio" name="payMethod" value="upi" checked accent-color="var(--color-primary-maroon)">
+            <span><strong>Instant UPI / QR Code</strong> (Google Pay, PhonePe, Paytm, BHIM)</span>
+          </label>
+          <label style="display:flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid var(--color-gold-border); border-radius:8px; cursor:pointer; background:#fff;">
+            <input type="radio" name="payMethod" value="card" accent-color="var(--color-primary-maroon)">
+            <span><strong>Credit / Debit Card</strong> (Visa, Mastercard, Amex - Domestic & International)</span>
+          </label>
+          <label style="display:flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid var(--color-gold-border); border-radius:8px; cursor:pointer; background:#fff;">
+            <input type="radio" name="payMethod" value="cod" accent-color="var(--color-primary-maroon)">
+            <span><strong>Cash on Delivery (COD)</strong> with Open Box Verification</span>
+          </label>
+        </div>
+
+        <div style="background:rgba(197, 155, 39, 0.1); border-radius:10px; padding:14px; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-weight:700; color:var(--color-maroon-dark);">Payable Total:</span>
+          <span id="modalPayableTotal" style="font-family:var(--font-royal); font-size:1.4rem; font-weight:800; color:var(--color-primary-maroon);">?0</span>
+        </div>
+
+        <button type="submit" class="btn-royal-primary" style="width:100%; padding:14px; font-size:1rem;">
+          Place Royal Order <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+
+      <!-- Order Confirmation State (Hidden initially) -->
+      <div id="orderSuccessBox" style="display:none; text-align:center; padding:30px 10px;">
+        <div style="font-size:3.5rem; color:var(--color-emerald); margin-bottom:12px;"><i class="fa-solid fa-circle-check"></i></div>
+        <h3 style="font-size:1.8rem; color:var(--color-maroon-dark); margin-bottom:8px;">Order Confirmed!</h3>
+        <p style="color:var(--color-gold-dark); font-weight:700; font-family:monospace; font-size:1.1rem; margin-bottom:14px;" id="orderIdText">Order #DS-2026-8941</p>
+        <p style="color:var(--color-text-muted); font-size:0.95rem; line-height:1.7; margin-bottom:24px;">
+          Thank you for choosing DEMO SILKS. Your pure handloom drape will be wrapped in pure cotton muslin and dispatched with an authentic Silk Mark certificate. A tracking link has been sent to your phone!
+        </p>
+        <button onclick="finishCheckout()" class="btn-royal-gold">
+          Return To Home Page
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Master Royal Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+            <div class="logo-symbol" style="width:38px; height:38px; font-size:1.1rem;">D</div>
+            <span style="font-family:var(--font-royal); font-size:1.3rem; font-weight:800; color:#fae29c; letter-spacing:0.1em;">DEMO SILKS</span>
+          </div>
+          <p style="font-size:0.88rem; color:#d6c6b4; line-height:1.7; margin-bottom:20px;">
+            Heirloom handloom sarees woven with pure Mulberry silk, tested zari, and the soul of Indian artisan traditions. Preserving master weavers since 1984.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Pages Directory</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">1. Home</a></li>
+            <li><a href="about.html">2. About Us</a></li>
+            <li><a href="shop.html">3. Shop / All Sarees</a></li>
+            <li><a href="collections.html">4. Collections</a></li>
+            <li><a href="product-details.html?id=1">5. Product Details</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="wishlist.html">6. Wishlist</a></li>
+            <li><a href="cart.html">7. Shopping Cart</a></li>
+            <li><a href="videos.html">8. Videos & Reels</a></li>
+            <li><a href="reviews.html">9. Customer Reviews</a></li>
+            <li><a href="contact.html">10. Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Royal Privilege Club</h4>
+          <p style="font-size:0.85rem; color:#d6c6b4; margin-bottom:16px;">
+            Subscribe to receive private previews of new handloom drops and bridal trunks.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://instagram.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-instagram"></i></a>
+            <a href="javascript:void(0)" onclick="DemoStore.openWhatsApp()" class="social-icon-circle"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://pinterest.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 DEMO SILKS Private Limited. Handcrafted with pride in India. All Rights Reserved.</div>
+        <div style="display:flex; gap:18px;">
+          <a href="shop.html">Privacy Policy</a>
+          <a href="shop.html">Silk Mark Verification</a>
+          <a href="contact.html">Store Locator</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/spin-wheel.js"></script>
+  <script>
+    let discountApplied = false;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGlobalComponents('cart');
+
+      // If cart is empty on first draft view, add a sample saree so the cart table & summary can be evaluated right away!
+      let currentCart = DemoStore.getCart();
+      if (currentCart.length === 0) {
+        DemoStore.addToCart(1, 1); // Swarna Kamal Kanjivaram
+        DemoStore.addToCart(3, 1); // Chandrika Organza
+      }
+
+      renderCart();
+
+      // Check for won coupon from Spin & Win
+      const savedCoupon = sessionStorage.getItem('Demo_applied_coupon');
+      if (savedCoupon) {
+        const input = document.getElementById('couponInput');
+        if (input) {
+          input.value = savedCoupon;
+          applyCoupon();
+        }
+      }
+    });
+
+    function renderCart() {
+      const cart = DemoStore.getCart();
+      const container = document.getElementById('cartItemsContainer');
+      const activeLayout = document.getElementById('cartActiveLayout');
+      const emptyState = document.getElementById('cartEmptyState');
+      const headerCount = document.getElementById('cartHeaderItemsCount');
+
+      if (cart.length === 0) {
+        activeLayout.style.display = 'none';
+        emptyState.style.display = 'block';
+      } else {
+        emptyState.style.display = 'none';
+        activeLayout.style.display = 'grid';
+
+        const totalItemsCount = cart.reduce((acc, i) => acc + i.quantity, 0);
+        headerCount.textContent = `${totalItemsCount} Item${totalItemsCount > 1 ? 's' : ''}`;
+
+        container.innerHTML = cart.map(item => `
+          <div class="cart-item-row">
+            <img src="${item.image}" alt="${item.name}" class="cart-item-thumb" />
+            <div>
+              <span style="font-size:0.75rem; color:var(--color-gold-dark); text-transform:uppercase; font-weight:700;">${item.category} — ${item.sku}</span>
+              <h4 style="font-size:1.05rem; color:var(--color-maroon-dark); margin:4px 0 6px 0;">
+                <a href="product-details.html?id=${item.id}">${item.name}</a>
+              </h4>
+              <div style="font-weight:700; color:var(--color-primary-maroon); font-size:1.1rem;">
+                ${DemoStore.formatPrice(item.price)}
+              </div>
+            </div>
+            <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
+              <div class="qty-control">
+                <button class="qty-btn" onclick="modifyQty(${item.id}, -1)">-</button>
+                <span class="qty-val">${item.quantity}</span>
+                <button class="qty-btn" onclick="modifyQty(${item.id}, 1)">+</button>
+              </div>
+              <button onclick="DemoStore.removeFromCart(${item.id}); renderCart();" style="border:none; background:none; color:#dc2626; font-size:0.78rem; cursor:pointer;">
+                <i class="fa-solid fa-trash-can"></i> Remove
+              </button>
+            </div>
+          </div>
+        `).join('');
+
+        updateSummary(cart);
+      }
+
+      DemoStore.updateBadges();
+    }
+
+    function modifyQty(productId, delta) {
+      DemoStore.updateCartQty(productId, delta);
+      renderCart();
+    }
+
+    function clearEntireCart() {
+      if (confirm("Are you sure you wish to clear your cart?")) {
+        DemoStore.saveCart([]);
+        renderCart();
+      }
+    }
+
+    let discountRate = 0;
+    let appliedCouponName = '';
+
+    function updateSummary(cart) {
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      let discountAmount = 0;
+
+      if (discountApplied && discountRate > 0) {
+        discountAmount = Math.round(subtotal * discountRate);
+        document.getElementById('discountRow').style.display = 'flex';
+        document.getElementById('summaryDiscount').textContent = `-${DemoStore.formatPrice(discountAmount)}`;
+      } else {
+        document.getElementById('discountRow').style.display = 'none';
+      }
+
+      const discountedSubtotal = subtotal - discountAmount;
+      const gst = Math.round(discountedSubtotal * 0.03);
+      const grandTotal = discountedSubtotal + gst;
+
+      document.getElementById('summarySubtotal').textContent = DemoStore.formatPrice(subtotal);
+      document.getElementById('summaryGst').textContent = DemoStore.formatPrice(gst);
+      document.getElementById('summaryGrandTotal').textContent = DemoStore.formatPrice(grandTotal);
+      document.getElementById('modalPayableTotal').textContent = DemoStore.formatPrice(grandTotal);
+    }
+
+    function applyCoupon() {
+      const input = document.getElementById('couponInput').value.trim().toUpperCase();
+      const msgEl = document.getElementById('couponAppliedMsg');
+
+      if (input === 'SILK30') {
+        discountApplied = true;
+        discountRate = 0.30;
+        appliedCouponName = 'SILK30 (30% Off)';
+        if (msgEl) {
+          msgEl.style.display = 'block';
+          msgEl.textContent = '🎉 Spin & Win 30% Privilege Discount Applied!';
+        }
+        DemoStore.showToast("🎉 30% Spin & Win Discount Applied!");
+        renderCart();
+      } else if (input === 'ROYAL20') {
+        discountApplied = true;
+        discountRate = 0.20;
+        appliedCouponName = 'ROYAL20 (20% Off)';
+        if (msgEl) {
+          msgEl.style.display = 'block';
+          msgEl.textContent = '✨ Royal 20% Discount Applied!';
+        }
+        DemoStore.showToast("✨ 20% Discount Applied!");
+        renderCart();
+      } else if (input === 'ROYAL10' || input === 'FESTIVE15') {
+        discountApplied = true;
+        discountRate = input === 'FESTIVE15' ? 0.15 : 0.10;
+        appliedCouponName = `${input} (${discountRate * 100}% Off)`;
+        if (msgEl) {
+          msgEl.style.display = 'block';
+          msgEl.textContent = `✓ Coupon ${input} applied!`;
+        }
+        DemoStore.showToast(`Coupon ${input} applied: ${discountRate * 100}% Off!`);
+        renderCart();
+      } else if (input === 'FREESHIP') {
+        discountApplied = true;
+        discountRate = 0.05; // 5% bonus + free express shipping
+        if (msgEl) {
+          msgEl.style.display = 'block';
+          msgEl.textContent = '🚚 Complimentary Insured Express Shipping Applied!';
+        }
+        DemoStore.showToast("🚚 Free Shipping Voucher Applied!");
+        renderCart();
+      } else if (input === 'CAREKIT') {
+        discountApplied = true;
+        discountRate = 0.05;
+        if (msgEl) {
+          msgEl.style.display = 'block';
+          msgEl.textContent = '🥻 Complimentary Royal Saree Care Kit Added!';
+        }
+        DemoStore.showToast("🥻 Free Saree Care Kit Added to Order!");
+        renderCart();
+      } else {
+        DemoStore.showToast("Invalid code. Use SILK30, ROYAL20 or ROYAL10!");
+      }
+    }
+
+    function openCheckoutModal() {
+      document.getElementById('checkoutForm').style.display = 'block';
+      document.getElementById('orderSuccessBox').style.display = 'none';
+      document.getElementById('checkoutModal').classList.add('active');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkoutModal').classList.remove('active');
+    }
+
+    function handlePlaceOrder(e) {
+      e.preventDefault();
+      const randOrder = 'DS-2026-' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('orderIdText').textContent = `Order #${randOrder}`;
+      document.getElementById('checkoutForm').style.display = 'none';
+      document.getElementById('orderSuccessBox').style.display = 'block';
+      DemoStore.saveCart([]);
+      DemoStore.updateBadges();
+    }
+
+    function finishCheckout() {
+      closeCheckoutModal();
+      window.location.href = 'index.html';
+    }
+
+    function orderViaWhatsApp() {
+      const cart = DemoStore.getCart();
+      if (cart.length === 0) return;
+
+      let msg = "Namaste DEMO SILKS! I want to confirm my order for:\n\n";
+      cart.forEach((i, idx) => {
+        msg += `${idx + 1}. ${i.name} (${i.sku}) x ${i.quantity} = ?${(i.price * i.quantity).toLocaleString('en-IN')}\n`;
+      });
+      msg += "\nPlease confirm delivery timeline and share UPI payment link.";
+
+      window.open(`https://wa.me/919876543210?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
+

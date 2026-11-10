@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMO SILKS | Luxury Handloom Sarees, Kanjivaram & Banarasi Silk</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/spin-wheel.css">
+  <!-- Google Fonts: Cinzel, Cormorant Garamond, Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
+
+  <!-- CINEMATIC SHOWROOM DOOR REVEAL SCROLL EXPERIENCE (PURE VIDEO ALONE - NO WORDS, NO BARS AT TOP) -->
+  <section id="showroomScrollContainer" class="showroom-scroll-container">
+    <div class="showroom-sticky-frame">
+      <video id="showroomVideo" src="assets/videos/showroom-door-reveal.mp4" muted playsinline preload="auto" class="showroom-video-bg"></video>
+    </div>
+  </section>
+
+        <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR (PURE CLEAN DESIGN - NO OVERLAYS) -->
+    <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR -->
+  <header class="main-header" id="mainHeader">
+    <div class="nav-fullwidth-container">
+      <!-- 1. Brand Logo -->
+      <a href="index.html" class="nav-brand-logo" title="Demo Silks Royal Heritage Weaves">
+        <img src="assets/images/navbar-logo-clean.png" alt="Demo Silks" class="nav-logo-img">
+      </a>
+
+      <!-- 2. Navigation Menu Items (Single Horizontal Row) -->
+      <nav class="nav-menu-wrapper">
+        <ul class="nav-menu-royal">
+          <li class="nav-item-royal">
+            <a href="index.html" class="nav-link-royal active-pill">Home</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="about.html" class="nav-link-royal">About Us</a>
+          </li>
+          <li class="nav-item-royal has-dropdown">
+            <a href="collections.html" class="nav-link-royal">Collections <i class="fa-solid fa-chevron-down nav-chevron"></i></a>
+            <div class="nav-dropdown">
+              <a href="collections.html#kanchipuram">Kanchipuram Silk</a>
+              <a href="collections.html#banarasi">Banarasi Silk</a>
+              <a href="collections.html#softsilk">Soft Silk</a>
+              <a href="collections.html#mysoresilk">Mysore Silk</a>
+              <a href="collections.html#organza">Organza</a>
+              <div class="dropdown-divider"></div>
+              <a href="collections.html" class="dropdown-highlight">Explore All Collections →</a>
+            </div>
+          </li>
+          <li class="nav-item-royal">
+            <a href="videos.html" class="nav-link-royal">Videos & Reels</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="reviews.html" class="nav-link-royal">Customer Reviews</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="contact.html" class="nav-link-royal">Contact Us</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="shop.html" class="nav-btn-shop" title="Shop All Sarees">
+              <i class="fa-solid fa-bag-shopping"></i> Shop
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- 3. Right Action Icons -->
+      <div class="nav-actions-royal">
+        <button type="button" class="royal-icon-btn" onclick="openSearchModal()" title="Search Sarees">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="wishlist.html" class="royal-icon-btn" title="Saved Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-pill wish-badge">2</span>
+        </a>
+        <a href="cart.html" class="royal-icon-btn" title="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-pill cart-badge">3</span>
+        </a>
+        <a href="contact.html" class="royal-icon-btn" title="Account / Concierge">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button type="button" class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileMenu" class="mobile-nav-drawer" style="display:none;">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="active-mobile-link">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="videos.html">Videos & Reels</a></li>
+      <li><a href="reviews.html">Customer Reviews</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li style="margin-top:6px;">
+        <a href="shop.html" class="nav-btn-shop mobile-shop-btn">
+          <i class="fa-solid fa-bag-shopping"></i> Shop All Sarees →
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- SECTION 1: HERO BANNER -->
+  <section class="hero-section" id="heroMain">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-tag">
+          <span>👑 Royal Heritage Bridal & Festive Edit 2026</span>
+        </div>
+        <h1 class="hero-heading">
+          Woven For Royalty, <br/>
+          <span class="text-gold-gradient">Cherished For Heirlooms</span>
+        </h1>
+        <p class="hero-subheading">
+          Step into a world of timeless majesty. Handcrafted Kanjivaram pure silks, Banarasi brocades, and luminous tissue organza drapes woven meticulously with certified 24K gold zari by generations of master artisans.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="shop.html" class="btn-royal-primary">
+            Explore Collection <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="videos.html" class="btn-royal-gold">
+            <i class="fa-solid fa-play"></i> Watch Drapes In Motion
+          </a>
+          <a href="collections.html" class="btn-royal-outline">
+            View Curated Edits
+          </a>
+        </div>
+
+        <div class="hero-badges-row">
+          <div class="hero-badge-item">
+            <div class="hero-badge-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div>
+              <strong>100% Silk Mark</strong>
+              <div style="font-size:0.75rem; color:var(--color-text-muted);">Govt. Certified Purity</div>
+            </div>
+          </div>
+          <div class="hero-badge-item">
+            <div class="hero-badge-icon"><i class="fa-solid fa-gem"></i></div>
+            <div>
+              <strong>Tested Gold Zari</strong>
+              <div style="font-size:0.75rem; color:var(--color-text-muted);">Real Silver & 24K Plated</div>
+            </div>
+          </div>
+          <div class="hero-badge-item">
+            <div class="hero-badge-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <div>
+              <strong>Worldwide Shipping</strong>
+              <div style="font-size:0.75rem; color:var(--color-text-muted);">Direct to 45+ Countries</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <div class="hero-main-card">
+          <img src="assets/images/collection-kanchipuram.jpg" alt="Royal Crimson Kanjivaram Bridal Saree">
+        </div>
+        <div class="hero-floating-card">
+          <img src="assets/images/collection-softsilk.jpg" alt="Customer Drape" class="hero-floating-avatar">
+          <div>
+            <div style="font-size:0.75rem; color:var(--color-gold-dark); font-weight:700;">★ ★ ★ ★ ★ (4.9 / 5)</div>
+            <div style="font-size:0.85rem; font-weight:700; color:var(--color-maroon-dark);">"The most regal bridal drape!"</div>
+            <div style="font-size:0.75rem; color:var(--color-text-muted);">Radhika I. • Bangalore Bride</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: BRAND HERITAGE & MISSION (ABOUT US) -->
+  <section id="aboutSection" style="padding: 60px 0;">
+    <div class="container">
+      <div class="royal-card" style="padding: 48px; border:2px solid var(--color-gold);">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:40px; align-items:center;">
+          <div>
+            <span class="section-tag">Purity In Every Thread</span>
+            <h2 style="font-size:2.2rem; color:var(--color-maroon-dark); margin-bottom:16px;">
+              The Demo Assurance: 100% Handloom Integrity
+            </h2>
+            <p style="color:var(--color-text-muted); font-size:0.95rem; line-height:1.7; margin-bottom:20px;">
+              Every saree in our boutique is born on handlooms that beat with the rhythm of Indian heritage. We work directly with over 450 hereditary weaver families in Kanchipuram, Varanasi, Chanderi, and Yeola—eliminating middlemen and ensuring pure, ethically certified heirlooms.
+            </p>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:24px;">
+              <div style="border-left:3px solid var(--color-gold); padding-left:12px;">
+                <strong style="color:var(--color-maroon-dark); display:block;">Tested Zari Purity</strong>
+                <span style="font-size:0.8rem; color:var(--color-text-muted);">Real silver base with 24k gold bath.</span>
+              </div>
+              <div style="border-left:3px solid var(--color-gold); padding-left:12px;">
+                <strong style="color:var(--color-maroon-dark); display:block;">Custom Stitching</strong>
+                <span style="font-size:0.8rem; color:var(--color-text-muted);">Hand-embroidered designer blouses.</span>
+              </div>
+            </div>
+            <a href="about.html" class="btn-royal-primary">
+              Discover Our Story & Mission <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div style="position:relative;">
+            <img src="assets/images/about-hero-pitloom.jpg" alt="Master Weaver at Work" style="border-radius:18px; width:100%; height:380px; object-fit:cover; border:2px solid var(--color-gold);">
+            <div style="position:absolute; bottom:16px; right:16px; background:rgba(0,0,0,0.8); color:#fae29c; padding:10px 18px; border-radius:12px; font-size:0.8rem; font-family:var(--font-royal);">
+              ✨ Master Weaver Shri Gopal Rao • 42 Years of Korvai
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: CURATED SHOP (NEW ARRIVALS & HEIRLOOMS) -->
+  <section id="shopSection" style="padding: 40px 0 60px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Fresh Off The Master Looms</span>
+        <h2 class="section-title">New Arrivals</h2>
+        <div class="section-divider">
+          <span></span><i class="fa-solid fa-sparkles"></i><span></span>
+        </div>
+        <p class="section-desc">Hand-picked drapes straight from the artisan looms of Kanchipuram, Varanasi, and Chanderi.</p>
+      </div>
+
+      <div id="newArrivalsGrid" class="products-grid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div style="text-align: center; margin-top: 36px;">
+        <a href="shop.html" class="btn-royal-gold">
+          Browse Entire Saree Catalog (12+ Sarees)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: FESTIVE OFFERS & PROMOTIONS BANNER -->
+  <section class="offers-section">
+    <div class="container">
+      <div class="offers-card">
+        <div>
+          <span class="offers-badge">✨ Exclusive Royal Offer</span>
+          <h2 class="offers-title">Royal Wedding Privileges & Festive Rewards</h2>
+          <p class="offers-desc">
+            Celebrate the wedding and festive season with curated heirlooms. Enjoy an exclusive 10% instant privilege discount on all Silk Mark certified Kanjivaram and Banarasi bridal sarees.
+          </p>
+
+          <div class="coupon-box">
+            <span style="font-size:0.85rem; color:#fae29c; text-transform:uppercase;">Use Code:</span>
+            <span class="coupon-code">ROYAL10</span>
+            <button onclick="navigator.clipboard.writeText('ROYAL10'); DemoStore.showToast('Copied Coupon Code: ROYAL10');" style="background:var(--color-gold); border:none; padding:4px 10px; border-radius:6px; font-weight:700; cursor:pointer; font-size:0.75rem;">
+              Copy
+            </button>
+          </div>
+
+          <div style="display:flex; gap:16px; flex-wrap:wrap;">
+            <a href="shop.html" class="btn-royal-gold">Shop Offer Sarees</a>
+            <a href="contact.html" class="btn-royal-outline" style="background:transparent; color:#fff; border-color:#fae29c;">Book Bridal Appointment</a>
+          </div>
+        </div>
+
+        <div style="text-align:center;">
+          <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); padding:30px; border-radius:20px; backdrop-filter:blur(8px);">
+            <div style="font-family:var(--font-royal); font-size:1.1rem; color:#fae29c; margin-bottom:12px;">Bridal Stylist Hotline</div>
+            <p style="font-size:0.85rem; color:rgba(255,255,255,0.85); margin-bottom:20px;">
+              Need personalized color matching, matching jewelry guidance, or matching custom unstitched blouse embroidery?
+            </p>
+            <button onclick="DemoStore.openWhatsApp('Hello DEMO SILKS Stylist! I would like bridal saree styling advice.')" class="btn-royal-primary" style="background:#25d366; border:none; width:100%;">
+              <i class="fa-brands fa-whatsapp"></i> Chat On WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: SIGNATURE COLLECTIONS -->
+  <section id="collectionsSection" style="padding: 40px 0 60px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Curated Realms of Luxury</span>
+        <h2 class="section-title">Signature Collections</h2>
+        <div class="section-divider">
+          <span></span><i class="fa-solid fa-crown"></i><span></span>
+        </div>
+        <p class="section-desc">Each weave tells a distinct story of geography, ancestral techniques, and sublime aesthetic harmony.</p>
+      </div>
+
+      <div class="collections-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 28px;">
+        <!-- Collection 1: Kanchipuram Silk -->
+        <div class="collection-card" onclick="window.location.href='shop.html?category=kanjivaram'">
+          <img src="assets/images/collection-kanchipuram.jpg" alt="Kanchipuram Silk" class="collection-bg">
+          <div class="collection-overlay">
+            <span class="collection-tag">Royal Muhurtham Edit</span>
+            <h3 class="collection-title">Kanchipuram Silk</h3>
+            <p class="collection-tagline">Authentic 3-ply mulberry silk with 24K electroplated gold zari and sacred temple spires.</p>
+            <div class="collection-link-row">
+              <span class="collection-count">48 Masterpieces</span>
+              <span class="collection-explore">Explore Realm <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collection 2: Banarasi Silk -->
+        <div class="collection-card" onclick="window.location.href='shop.html?category=banarasi'">
+          <img src="assets/images/collection-banarasi.jpg" alt="Banarasi Silk" class="collection-bg">
+          <div class="collection-overlay">
+            <span class="collection-tag">Imperial Brocade</span>
+            <h3 class="collection-title">Banarasi Silk</h3>
+            <p class="collection-tagline">Varanasi Kadwa Katan brocades featuring Shikargah hunting jaals and meenakari motifs.</p>
+            <div class="collection-link-row">
+              <span class="collection-count">36 Sarees</span>
+              <span class="collection-explore">Explore Realm <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collection 3: Soft Silk -->
+        <div class="collection-card" onclick="window.location.href='shop.html?category=softsilk'">
+          <img src="assets/images/collection-softsilk.jpg" alt="Soft Silk" class="collection-bg">
+          <div class="collection-overlay">
+            <span class="collection-tag">Ethereal Pastel Grace</span>
+            <h3 class="collection-title">Soft Silk</h3>
+            <p class="collection-tagline">Featherlight pure mulberry silk with subtle pastel hues and fluid drape for all-day comfort.</p>
+            <div class="collection-link-row">
+              <span class="collection-count">32 Sarees</span>
+              <span class="collection-explore">Explore Realm <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collection 4: Mysore Silk -->
+        <div class="collection-card" onclick="window.location.href='shop.html?category=mysoresilk'">
+          <img src="assets/images/collection-mysoresilk.jpg" alt="Mysore Silk" class="collection-bg">
+          <div class="collection-overlay">
+            <span class="collection-tag">Royal Heritage Crepe</span>
+            <h3 class="collection-title">Mysore Silk</h3>
+            <p class="collection-tagline">Legendary Mysore royal crepe silk with hallmarked pure gold zari borders and lustrous sheen.</p>
+            <div class="collection-link-row">
+              <span class="collection-count">28 Sarees</span>
+              <span class="collection-explore">Explore Realm <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collection 5: Organza -->
+        <div class="collection-card" onclick="window.location.href='shop.html?category=organza'">
+          <img src="assets/images/collection-organza.jpg" alt="Organza" class="collection-bg">
+          <div class="collection-overlay">
+            <span class="collection-tag">Luminous Sheer Flora</span>
+            <h3 class="collection-title">Organza</h3>
+            <p class="collection-tagline">Ethereal silk tissue organza with delicate floral embroidery and modern scalloped borders.</p>
+            <div class="collection-link-row">
+              <span class="collection-count">29 Creations</span>
+              <span class="collection-explore">Explore Realm <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 36px;">
+        <a href="collections.html" class="btn-royal-primary">
+          Explore All 5 Signature Collections <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: SAREES IN MOTION & STYLING REELS -->
+  <section id="videosSection" style="padding: 40px 0 60px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Watch In Full Motion</span>
+        <h2 class="section-title">Sarees In Motion & Styling Reels</h2>
+        <div class="section-divider">
+          <span></span><i class="fa-solid fa-film"></i><span></span>
+        </div>
+        <p class="section-desc">Experience the liquid drape, zari shimmer, and pleating tutorials straight from our Instagram reels.</p>
+      </div>
+
+      <div class="reels-grid" id="homeReelsGrid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div style="text-align:center;">
+        <a href="videos.html" class="btn-royal-primary">
+          Explore All Reels & Draping Videos <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: CLIENT DIARIES & REVIEWS -->
+  <section id="reviewsSection" style="padding: 40px 0 80px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Royal Words of Trust</span>
+        <h2 class="section-title">Client Diaries & Reviews</h2>
+        <div class="section-divider">
+          <span></span><i class="fa-solid fa-star"></i><span></span>
+        </div>
+        <p class="section-desc">Rated 4.9 / 5 across 2,400+ brides and handloom lovers worldwide.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap:24px;">
+        <div class="royal-card" style="padding:28px;">
+          <div style="color:var(--color-gold); font-size:1.1rem; margin-bottom:12px;">★ ★ ★ ★ ★</div>
+          <h4 style="font-size:1.1rem; margin-bottom:8px;">"Felt like royalty on my wedding day!"</h4>
+          <p style="color:var(--color-text-muted); font-size:0.88rem; line-height:1.6; margin-bottom:16px;">
+            "I ordered the Swarna Kamal Kanjivaram for my wedding muhurtham. The gold zari has the warmest, most exquisite shine—not brassy at all. Customer support arranged a video call to show the drape in daylight."
+          </p>
+          <div style="display:flex; align-items:center; gap:12px; border-top:1px solid rgba(197, 155, 39, 0.2); padding-top:12px;">
+            <div style="width:40px; height:40px; border-radius:50%; background:var(--color-maroon-dark); color:#fae29c; display:flex; align-items:center; justify-content:center; font-weight:700; font-family:var(--font-royal); border:1.5px solid var(--color-gold);">R</div>
+            <div>
+              <div style="font-weight:700; font-size:0.88rem; color:var(--color-maroon-dark);">Dr. Radhika Iyer</div>
+              <div style="font-size:0.75rem; color:var(--color-emerald);"><i class="fa-solid fa-circle-check"></i> Verified Bridal Buyer • Bangalore</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="royal-card" style="padding:28px;">
+          <div style="color:var(--color-gold); font-size:1.1rem; margin-bottom:12px;">★ ★ ★ ★ ★</div>
+          <h4 style="font-size:1.1rem; margin-bottom:8px;">"Unmatched pure zari craftsmanship"</h4>
+          <p style="color:var(--color-text-muted); font-size:0.88rem; line-height:1.6; margin-bottom:16px;">
+            "Being a saree connoisseur from Tamil Nadu, I am very particular about pure zari. DEMO SILKS exceeded expectations. The korvai border joint is immaculate, and the temple pattern is woven cleanly."
+          </p>
+          <div style="display:flex; align-items:center; gap:12px; border-top:1px solid rgba(197, 155, 39, 0.2); padding-top:12px;">
+            <div style="width:40px; height:40px; border-radius:50%; background:var(--color-maroon-dark); color:#fae29c; display:flex; align-items:center; justify-content:center; font-weight:700; font-family:var(--font-royal); border:1.5px solid var(--color-gold);">M</div>
+            <div>
+              <div style="font-weight:700; font-size:0.88rem; color:var(--color-maroon-dark);">Meenakshi Sundaram</div>
+              <div style="font-size:0.75rem; color:var(--color-emerald);"><i class="fa-solid fa-circle-check"></i> Verified Buyer • Chennai</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="royal-card" style="padding:28px;">
+          <div style="color:var(--color-gold); font-size:1.1rem; margin-bottom:12px;">★ ★ ★ ★ ★</div>
+          <h4 style="font-size:1.1rem; margin-bottom:8px;">"Fast DHL shipping to London"</h4>
+          <p style="color:var(--color-text-muted); font-size:0.88rem; line-height:1.6; margin-bottom:16px;">
+            "I ordered from London for Diwali. It arrived in 4 business days in a gorgeous branded keepsake box with a muslin saree preservation bag. The cutdana work caught all the chandeliers!"
+          </p>
+          <div style="display:flex; align-items:center; gap:12px; border-top:1px solid rgba(197, 155, 39, 0.2); padding-top:12px;">
+            <div style="width:40px; height:40px; border-radius:50%; background:var(--color-maroon-dark); color:#fae29c; display:flex; align-items:center; justify-content:center; font-weight:700; font-family:var(--font-royal); border:1.5px solid var(--color-gold);">S</div>
+            <div>
+              <div style="font-weight:700; font-size:0.88rem; color:var(--color-maroon-dark);">Sneha Kapoor</div>
+              <div style="font-size:0.75rem; color:var(--color-emerald);"><i class="fa-solid fa-circle-check"></i> Verified Buyer • London, UK</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:36px;">
+        <a href="reviews.html" class="btn-royal-outline">
+          Read All Customer Reviews & Ratings <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAST SECTION: CONTACT US (Matches Exact Reference Image) -->
+  <section id="contactSection" class="vnila-contact-section" style="padding: 0 0 70px 0; background: #fffcf7;">
+    <div style="padding:0; margin-bottom: 44px;">
+      <!-- Hero Contact Header Banner with Bride Image & Let's Connect -->
+      <div class="vnila-contact-hero-banner">
+        <div class="container" style="padding: 24px 20px;">
+          <div style="max-width: 530px;">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+              <span style="font-family:'Cinzel', serif; font-size:0.8rem; font-weight:700; letter-spacing:2px; color:#9c7042; text-transform:uppercase;">GET IN TOUCH</span>
+              <span style="width:40px; height:1px; background:#cda066;"></span>
+            </div>
+            <h2 style="font-family:'Cinzel', 'Playfair Display', Georgia, serif; font-size:2.2rem; font-weight:700; color:#4a0e1c; margin:0 0 8px; line-height:1.2;">Contact Us</h2>
+            <p style="font-family:'Plus Jakarta Sans', sans-serif; font-size:0.92rem; color:#68544c; line-height:1.6; margin:0;">
+              We'd love to hear from you! Whether you have a question, need assistance or just want to say hello — we're here for you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- 3-Column Grid matching reference image -->
+      <div class="vnila-contact-grid">
+        <!-- Col 1: 4 Contact Info Items -->
+        <div style="display:flex; flex-direction:column; gap:22px; padding-top:6px;">
+          <!-- Item 1: Our Location -->
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div style="width:46px; height:46px; border-radius:50%; background:#f5e2da; display:flex; align-items:center; justify-content:center; color:#621023; font-size:1.15rem; flex-shrink:0;">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <h4 style="font-family:'Cinzel', serif; font-size:0.95rem; font-weight:700; color:#3d0d18; margin:0 0 4px;">Our Location</h4>
+              <p style="font-size:0.85rem; color:#68544c; line-height:1.55; margin:0;">
+                No. 12, Temple Street,<br>
+                Tiruchengode - 637211,<br>
+                Namakkal District, Tamil Nadu.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2: Call Us -->
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div style="width:46px; height:46px; border-radius:50%; background:#f5e2da; display:flex; align-items:center; justify-content:center; color:#621023; font-size:1.1rem; flex-shrink:0;">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div>
+              <h4 style="font-family:'Cinzel', serif; font-size:0.95rem; font-weight:700; color:#3d0d18; margin:0 0 4px;">Call Us</h4>
+              <p style="font-size:0.85rem; color:#68544c; line-height:1.55; margin:0;">
+                <a href="tel:+919876543210" style="color:#621023; font-weight:600; text-decoration:none;">+91 98765 43210</a><br>
+                <span style="font-size:0.78rem; color:#8c7870;">(Mon – Sat, 10:00 AM – 6:00 PM)</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3: WhatsApp Us -->
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div style="width:46px; height:46px; border-radius:50%; background:#f5e2da; display:flex; align-items:center; justify-content:center; color:#621023; font-size:1.2rem; flex-shrink:0;">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div>
+              <h4 style="font-family:'Cinzel', serif; font-size:0.95rem; font-weight:700; color:#3d0d18; margin:0 0 4px;">WhatsApp Us</h4>
+              <p style="font-size:0.85rem; color:#68544c; line-height:1.55; margin:0;">
+                <a href="javascript:void(0)" onclick="DemoStore.openWhatsApp()" style="color:#621023; font-weight:600; text-decoration:none;">+91 98765 43210</a><br>
+                <span style="font-size:0.78rem; color:#8c7870;">(Quick Enquiries & Support)</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 4: Email Us -->
+          <div style="display:flex; gap:16px; align-items:flex-start;">
+            <div style="width:46px; height:46px; border-radius:50%; background:#f5e2da; display:flex; align-items:center; justify-content:center; color:#621023; font-size:1.1rem; flex-shrink:0;">
+              <i class="fa-regular fa-envelope"></i>
+            </div>
+            <div>
+              <h4 style="font-family:'Cinzel', serif; font-size:0.95rem; font-weight:700; color:#3d0d18; margin:0 0 4px;">Email Us</h4>
+              <p style="font-size:0.85rem; color:#68544c; line-height:1.55; margin:0;">
+                <a href="mailto:contact@demosilks.com" style="color:#621023; font-weight:600; text-decoration:none;">contact@demosilks.com</a><br>
+                <span style="font-size:0.78rem; color:#8c7870;">(We reply within 24 hours)</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Follow Our Journey Card -->
+        <div style="background:#fcf5ef; border:1px solid #ebd8c8; border-radius:18px; padding:32px 22px; text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(99, 17, 36, 0.04); position:relative; overflow:hidden;">
+          <img src="assets/images/spin-win-top-lotus-clean.png" alt="Lotus Motif" style="height:32px; margin-bottom:12px; opacity:0.85;">
+          
+          <h3 style="font-family:'Cinzel', serif; font-size:1.25rem; font-weight:700; color:#540e1d; margin:0 0 8px;">Follow Our Journey</h3>
+          <p style="font-family:'Plus Jakarta Sans', sans-serif; font-size:0.84rem; color:#78645a; line-height:1.5; margin:0 0 20px; max-width:230px;">
+            Stay updated with our latest collections, new arrivals and special offers.
+          </p>
+
+          <!-- Social Buttons in Burgundy Circles -->
+          <div style="display:flex; justify-content:center; gap:10px; margin-bottom:14px;">
+            <a href="https://instagram.com" target="_blank" style="width:34px; height:34px; border-radius:50%; background:#621023; color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.9rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#d4a75b'" onmouseout="this.style.background='#621023'"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" style="width:34px; height:34px; border-radius:50%; background:#621023; color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.9rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#d4a75b'" onmouseout="this.style.background='#621023'"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://youtube.com" target="_blank" style="width:34px; height:34px; border-radius:50%; background:#621023; color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.9rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#d4a75b'" onmouseout="this.style.background='#621023'"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://pinterest.com" target="_blank" style="width:34px; height:34px; border-radius:50%; background:#621023; color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.9rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#d4a75b'" onmouseout="this.style.background='#621023'"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+
+          <div style="font-family:'Cormorant Garamond', Georgia, serif; font-style:italic; font-size:1.15rem; color:#621023; margin-bottom:10px;">
+            — @demosilks —
+          </div>
+
+          <img src="assets/images/spin-win-lotus-br.png" alt="Lotus Flourish" style="width:110px; opacity:0.35; margin-top:2px;">
+        </div>
+
+        <!-- Col 3: We're Here to Help Form Card -->
+        <div class="vnila-contact-form-col" style="background:#ffffff; border:1px solid #dfc7b0; border-radius:18px; padding:32px 28px; box-shadow:0 8px 24px rgba(99, 17, 36, 0.06);">
+          <div style="font-family:'Cinzel', serif; font-size:0.75rem; font-weight:700; letter-spacing:1.5px; color:#9c7042; text-transform:uppercase; margin-bottom:4px;">
+            SEND US A MESSAGE
+          </div>
+          <h3 style="font-family:'Cinzel', serif; font-size:1.55rem; font-weight:700; color:#540e1d; margin:0 0 18px;">
+            We're Here to Help
+          </h3>
+
+          <form onsubmit="event.preventDefault(); DemoStore.showToast('✨ Thank you! Your message has been sent to our concierge team.'); this.reset();" style="display:flex; flex-direction:column; gap:14px;">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+              <input type="text" placeholder="Your Name *" required style="padding:11px 14px; border:1px solid #d9c4b2; border-radius:8px; font-size:0.88rem; outline:none; background:#faf7f4; font-family:'Plus Jakarta Sans', sans-serif;">
+              <input type="email" placeholder="Email Address *" required style="padding:11px 14px; border:1px solid #d9c4b2; border-radius:8px; font-size:0.88rem; outline:none; background:#faf7f4; font-family:'Plus Jakarta Sans', sans-serif;">
+            </div>
+
+            <select required style="padding:11px 14px; border:1px solid #d9c4b2; border-radius:8px; font-size:0.88rem; outline:none; background:#faf7f4; color:#55433c; font-family:'Plus Jakarta Sans', sans-serif; cursor:pointer;">
+              <option value="" disabled selected>Subject *</option>
+              <option value="Bridal Saree Consultation">Bridal Saree Consultation</option>
+              <option value="Custom Blouse Stitching">Custom Blouse Stitching</option>
+              <option value="Live Video Call Enquiry">Live Video Call Enquiry</option>
+              <option value="Order Tracking & Shipping">Order Tracking & Shipping</option>
+              <option value="General Query">General Query</option>
+            </select>
+
+            <textarea rows="4" placeholder="Your Message *" required style="padding:11px 14px; border:1px solid #d9c4b2; border-radius:8px; font-size:0.88rem; outline:none; background:#faf7f4; font-family:'Plus Jakarta Sans', sans-serif; resize:vertical;"></textarea>
+
+            <button type="submit" style="background:#621023; color:#ffffff; border:1px solid #d4a75b; border-radius:50px; padding:12px 28px; font-family:'Plus Jakarta Sans', sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; transition:all 0.25s; box-shadow:0 4px 14px rgba(98, 16, 35, 0.25);" onmouseover="this.style.background='#7b172f'" onmouseout="this.style.background='#621023'">
+              <span>Send Message</span>
+              <span style="font-size:1.1rem;">→</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (Exact Match to Reference Image) -->
+  <footer class="vnila-site-footer" style="background: #3a0813; color: #d6c6b8; padding: 48px 0 24px; border-top: 2px solid #cfa052;">
+    <div class="container">
+      <div class="vnila-footer-grid">
+        
+        <!-- Col 1: Brand Logo -->
+        <div style="padding-right: 18px; border-right: 1px solid rgba(212, 167, 91, 0.25); display: flex; flex-direction: column; align-items: flex-start;">
+          <img src="assets/images/spin-win-top-lotus-clean.png" alt="Lotus Logo" style="height: 30px; margin-bottom: 6px; filter: brightness(1.2);">
+          <div style="font-family:'Cinzel', serif; font-size:1.35rem; font-weight:800; letter-spacing:2px; color:#ffffff; line-height:1;">DEMO SILKS</div>
+          <div style="font-family:'Cinzel', serif; font-size:0.65rem; font-weight:600; letter-spacing:3px; color:#fae29c; margin-top:3px;">HERITAGE WEAVES</div>
+        </div>
+
+        <!-- Col 2: Brand Tagline -->
+        <div>
+          <h4 style="font-family:'Cinzel', serif; font-size:1rem; font-weight:700; color:#fae29c; margin:0 0 10px;">About Demo Silks</h4>
+          <p style="font-size:0.84rem; color:#cfbeb0; line-height:1.65; margin:0;">
+            Handloom sarees, a legacy of tradition and timeless elegance.
+          </p>
+        </div>
+
+        <!-- Col 3: Quick Links -->
+        <div>
+          <h4 style="font-family:'Cinzel', serif; font-size:1rem; font-weight:700; color:#fae29c; margin:0 0 10px;">Quick Links</h4>
+          <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:7px; font-size:0.84rem;">
+            <li><a href="index.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Home</a></li>
+            <li><a href="about.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">About Us</a></li>
+            <li><a href="collections.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Collections</a></li>
+            <li><a href="shop.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Shop</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Customer Care -->
+        <div>
+          <h4 style="font-family:'Cinzel', serif; font-size:1rem; font-weight:700; color:#fae29c; margin:0 0 10px;">Customer Care</h4>
+          <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:7px; font-size:0.84rem;">
+            <li><a href="wishlist.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Wishlist</a></li>
+            <li><a href="cart.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Shopping Cart</a></li>
+            <li><a href="videos.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Videos & Reels</a></li>
+            <li><a href="contact.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Join Our Newsletter -->
+        <div>
+          <h4 style="font-family:'Cinzel', serif; font-size:1rem; font-weight:700; color:#fae29c; margin:0 0 10px;">Join Our Newsletter</h4>
+          <p style="font-size:0.82rem; color:#cfbeb0; line-height:1.5; margin:0 0 12px;">
+            Be the first to know about new arrivals, exclusive offers and more.
+          </p>
+          <form onsubmit="event.preventDefault(); DemoStore.showToast('✨ Thank you for subscribing to DEMO SILKS!'); this.reset();" style="display:flex; align-items:center; background:#ffffff; border-radius:6px; overflow:hidden; border:1px solid #d4a75b;">
+            <input type="email" placeholder="Your email address" required style="flex:1; border:none; outline:none; padding:9px 12px; font-size:0.82rem; font-family:'Plus Jakarta Sans', sans-serif; color:#333;">
+            <button type="submit" style="background:#e5b869; border:none; color:#4a0e1c; padding:9px 14px; font-size:0.95rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s;" onmouseover="this.style.background='#f3c97e'" onmouseout="this.style.background='#e5b869'">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Col 6: Follow Us -->
+        <div>
+          <h4 style="font-family:'Cinzel', serif; font-size:1rem; font-weight:700; color:#fae29c; margin:0 0 12px;">Follow Us</h4>
+          <div style="display:flex; gap:8px;">
+            <a href="https://instagram.com" target="_blank" style="width:32px; height:32px; border-radius:50%; background:#52121f; border:1px solid rgba(212, 167, 91, 0.35); color:#fae29c; display:flex; align-items:center; justify-content:center; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e5b869'; this.style.color='#4a0e1c';" onmouseout="this.style.background='#52121f'; this.style.color='#fae29c';"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" style="width:32px; height:32px; border-radius:50%; background:#52121f; border:1px solid rgba(212, 167, 91, 0.35); color:#fae29c; display:flex; align-items:center; justify-content:center; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e5b869'; this.style.color='#4a0e1c';" onmouseout="this.style.background='#52121f'; this.style.color='#fae29c';"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://youtube.com" target="_blank" style="width:32px; height:32px; border-radius:50%; background:#52121f; border:1px solid rgba(212, 167, 91, 0.35); color:#fae29c; display:flex; align-items:center; justify-content:center; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e5b869'; this.style.color='#4a0e1c';" onmouseout="this.style.background='#52121f'; this.style.color='#fae29c';"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://pinterest.com" target="_blank" style="width:32px; height:32px; border-radius:50%; background:#52121f; border:1px solid rgba(212, 167, 91, 0.35); color:#fae29c; display:flex; align-items:center; justify-content:center; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e5b869'; this.style.color='#4a0e1c';" onmouseout="this.style.background='#52121f'; this.style.color='#fae29c';"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div style="display:flex; justify-content:space-between; align-items:center; padding-top:20px; font-size:0.8rem; color:#bfaea0; flex-wrap:wrap; gap:12px;">
+        <div>© 2026 DEMO SILKS Private Limited. All Rights Reserved.</div>
+        <div style="display:flex; align-items:center; gap:8px; color:#fae29c; font-family:'Cinzel', serif; font-size:0.82rem;">
+          <span>—</span>
+          <span>Elegance in Every Thread</span>
+          <span>—</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/spin-wheel.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGlobalComponents('home');
+
+      // Populate New Arrivals (All authentic signature sarees)
+      const newArrivalsGrid = document.getElementById('newArrivalsGrid');
+      if (newArrivalsGrid) newArrivalsGrid.innerHTML = SAREE_PRODUCTS.map(p => createSareeCardHTML(p)).join('');
+
+      // Populate Home Reels Preview (First 3 reels)
+      const homeReelsGrid = document.getElementById('homeReelsGrid');
+      homeReelsGrid.innerHTML = REELS_DATA.slice(0, 3).map(reel => `
+        <div class="reel-card" onclick="window.location.href='videos.html'">
+          <img src="${reel.videoPoster}" alt="${reel.title}" class="reel-poster">
+          <div class="reel-play-btn"><i class="fa-solid fa-play"></i></div>
+          <div class="reel-overlay-bottom">
+            <div class="reel-stats-bar">
+              <span><i class="fa-regular fa-eye"></i> ${reel.views}</span>
+              <span><i class="fa-regular fa-heart"></i> ${reel.likes}</span>
+              <span><i class="fa-regular fa-clock"></i> ${reel.duration}</span>
+            </div>
+            <h4 class="reel-title">${reel.title}</h4>
+            <div class="reel-product-pill">
+              <i class="fa-solid fa-bag-shopping"></i> ${reel.productName}
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+
+      // Showroom Door Video Scroll Scrubbing
+      initShowroomVideoScroll();
+
+      // Real-Time Dynamic Navbar ScrollSpy & Smooth Glide
+      initScrollSpy();
+    });
+
+    // Real-Time Dynamic Navbar ScrollSpy
+    function initScrollSpy() {
+      const sections = [
+        { id: 'heroMain', key: 'heroMain' },
+        { id: 'aboutSection', key: 'aboutSection' },
+        { id: 'shopSection', key: 'shopSection' },
+        { id: 'collectionsSection', key: 'collectionsSection' },
+        { id: 'videosSection', key: 'videosSection' },
+        { id: 'reviewsSection', key: 'reviewsSection' },
+        { id: 'contactSection', key: 'contactSection' }
+      ];
+
+      const navLinks = document.querySelectorAll('.nav-menu-royal .nav-link-royal[data-section]');
+      if (!navLinks.length) return;
+
+      // Smooth scroll on link click
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const target = document.getElementById(href.substring(1));
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+              setActive(this.getAttribute('data-section'));
+            }
+          }
+        });
+      });
+
+      function setActive(sectionKey) {
+        navLinks.forEach(link => {
+          if (link.getAttribute('data-section') === sectionKey) {
+            link.classList.add('active-pill');
+          } else {
+            link.classList.remove('active-pill');
+          }
+        });
+      }
+
+      function onScrollSpy() {
+        const scrollPos = window.scrollY + 140;
+        const windowHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
+
+        // Near bottom of page -> activate Contact Us
+        if (window.scrollY + windowHeight >= docHeight - 120) {
+          setActive('contactSection');
+          return;
+        }
+
+        let currentKey = 'heroMain';
+        for (let i = 0; i < sections.length; i++) {
+          const el = document.getElementById(sections[i].id);
+          if (el) {
+            const top = el.offsetTop;
+            if (scrollPos >= top) {
+              currentKey = sections[i].key;
+            }
+          }
+        }
+        setActive(currentKey);
+      }
+
+      window.addEventListener('scroll', onScrollSpy, { passive: true });
+      onScrollSpy();
+    }
+
+
+    function initShowroomVideoScroll() {
+      const scrollContainer = document.getElementById('showroomScrollContainer');
+      const showroomVid = document.getElementById('showroomVideo');
+      if (!scrollContainer || !showroomVid) return;
+
+      let targetProgress = 0;
+      let currentProgress = 0;
+      let isSeeking = false;
+      let pendingTime = null;
+
+      // Ensure video is strictly paused, muted, and plays inline (ONLY scroll controls it)
+      showroomVid.pause();
+      showroomVid.muted = true;
+
+      // 1. Preload video into Blob URL in memory for zero-latency frame seeking
+      fetch('assets/videos/showroom-door-reveal.mp4')
+        .then(res => res.blob())
+        .then(blob => {
+          const blobUrl = URL.createObjectURL(blob);
+          showroomVid.src = blobUrl;
+          showroomVid.load();
+        })
+        .catch(err => console.log('Blob preload fallback:', err));
+
+      showroomVid.addEventListener('loadedmetadata', () => {
+        showroomVid.currentTime = 0.01;
+        onScroll();
+      });
+
+      showroomVid.addEventListener('seeking', () => {
+        isSeeking = true;
+      });
+
+      showroomVid.addEventListener('seeked', () => {
+        isSeeking = false;
+        if (pendingTime !== null) {
+          const next = pendingTime;
+          pendingTime = null;
+          seekTo(next);
+        }
+      });
+
+      function seekTo(time) {
+        if (!showroomVid.duration || isNaN(showroomVid.duration)) return;
+        const boundedTime = Math.max(0.01, Math.min(showroomVid.duration - 0.05, time));
+        if (isSeeking) {
+          pendingTime = boundedTime;
+        } else if (Math.abs(showroomVid.currentTime - boundedTime) > 0.02) {
+          isSeeking = true;
+          if (typeof showroomVid.fastSeek === 'function') {
+            showroomVid.fastSeek(boundedTime);
+          } else {
+            showroomVid.currentTime = boundedTime;
+          }
+        }
+      }
+
+      // 2. Continuous 60fps Lerp loop: Video only progresses in direct response to scroll
+      function scrubLoop() {
+        if (showroomVid.duration && !isNaN(showroomVid.duration)) {
+          // Smoothly interpolate currentProgress toward targetProgress (lerp)
+          currentProgress += (targetProgress - currentProgress) * 0.25;
+
+          if (Math.abs(targetProgress - currentProgress) > 0.001) {
+            const desiredTime = currentProgress * showroomVid.duration;
+            seekTo(desiredTime);
+          }
+        }
+        requestAnimationFrame(scrubLoop);
+      }
+      requestAnimationFrame(scrubLoop);
+
+      // 3. Scroll handler - calculates exact percentage through scroll container
+      function onScroll() {
+        const rect = scrollContainer.getBoundingClientRect();
+        const totalScrollable = scrollContainer.offsetHeight - window.innerHeight;
+        if (totalScrollable <= 0) return;
+        const scrolledDistance = -rect.top;
+        targetProgress = Math.max(0, Math.min(1, scrolledDistance / totalScrollable));
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      onScroll(); // Initial position trigger
+    }
+
+    function scrollPastShowroom() {
+      const hero = document.getElementById('heroMain');
+      if (hero) hero.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleMobileNav() {
+      const menu = document.getElementById('mobileMenu');
+      menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
+

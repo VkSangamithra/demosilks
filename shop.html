@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop All Handloom Sarees | Kanjivaram, Banarasi, Organza | DEMO SILKS</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/spin-wheel.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
+
+  
+
+          <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR (PURE CLEAN DESIGN - NO OVERLAYS) -->
+    <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR -->
+  <header class="main-header" id="mainHeader">
+    <div class="nav-fullwidth-container">
+      <!-- 1. Brand Logo -->
+      <a href="index.html" class="nav-brand-logo" title="Demo Silks Royal Heritage Weaves">
+        <img src="assets/images/navbar-logo-clean.png" alt="Demo Silks" class="nav-logo-img">
+      </a>
+
+      <!-- 2. Navigation Menu Items (Single Horizontal Row) -->
+      <nav class="nav-menu-wrapper">
+        <ul class="nav-menu-royal">
+          <li class="nav-item-royal">
+            <a href="index.html" class="nav-link-royal">Home</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="about.html" class="nav-link-royal">About Us</a>
+          </li>
+          <li class="nav-item-royal has-dropdown">
+            <a href="collections.html" class="nav-link-royal">Collections <i class="fa-solid fa-chevron-down nav-chevron"></i></a>
+            <div class="nav-dropdown">
+              <a href="collections.html#kanchipuram">Kanchipuram Silk</a>
+              <a href="collections.html#banarasi">Banarasi Silk</a>
+              <a href="collections.html#softsilk">Soft Silk</a>
+              <a href="collections.html#mysoresilk">Mysore Silk</a>
+              <a href="collections.html#organza">Organza</a>
+              <div class="dropdown-divider"></div>
+              <a href="collections.html" class="dropdown-highlight">Explore All Collections →</a>
+            </div>
+          </li>
+          <li class="nav-item-royal">
+            <a href="videos.html" class="nav-link-royal">Videos & Reels</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="reviews.html" class="nav-link-royal">Customer Reviews</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="contact.html" class="nav-link-royal">Contact Us</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="shop.html" class="nav-btn-shop active-pill" title="Shop All Sarees">
+              <i class="fa-solid fa-bag-shopping"></i> Shop
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- 3. Right Action Icons -->
+      <div class="nav-actions-royal">
+        <button type="button" class="royal-icon-btn" onclick="openSearchModal()" title="Search Sarees">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="wishlist.html" class="royal-icon-btn" title="Saved Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-pill wish-badge">2</span>
+        </a>
+        <a href="cart.html" class="royal-icon-btn" title="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-pill cart-badge">3</span>
+        </a>
+        <a href="contact.html" class="royal-icon-btn" title="Account / Concierge">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button type="button" class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileMenu" class="mobile-nav-drawer" style="display:none;">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="videos.html">Videos & Reels</a></li>
+      <li><a href="reviews.html">Customer Reviews</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li style="margin-top:6px;">
+        <a href="shop.html" class="nav-btn-shop mobile-shop-btn">
+          <i class="fa-solid fa-bag-shopping"></i> Shop All Sarees →
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Page Header -->
+  <section style="padding: 40px 0 20px 0;">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 24px;">
+        <span class="section-tag">Royal Treasury</span>
+        <h1 class="section-title">All Handloom Sarees</h1>
+        <div class="section-divider">
+          <span></span><i class="fa-solid fa-gem"></i><span></span>
+        </div>
+        <p class="section-desc">
+          Explore pure Kanjivaram silks, Banarasi brocades, light-as-air organza drapes, and heritage handlooms. Filter by fabric, occasion, and royal hues.
+        </p>
+      </div>
+
+      <!-- Top Controls & Search Bar -->
+      <div class="shop-top-controls">
+        <div class="search-box-wrap">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="shopSearchInput" class="search-input" placeholder="Search by saree name, fabric, motif, or color (e.g. Kanjivaram, Pink, Peacock)...">
+        </div>
+
+        <div style="display:flex; align-items:center; gap:16px;">
+          <span id="shopProductCount" style="font-size:0.85rem; font-weight:600; color:var(--color-maroon-dark);">
+            Showing Sarees
+          </span>
+          <select id="shopSortSelect" class="sort-select">
+            <option value="featured">Sort by: Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+            <option value="newest">Newest Arrivals</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Main Shop Layout: Sidebar + Grid -->
+      <div class="shop-layout">
+        <!-- Filter Sidebar -->
+        <aside class="filter-sidebar">
+          <div class="filter-header">
+            <span style="font-family:var(--font-royal); font-weight:700; color:var(--color-maroon-dark); font-size:1.05rem;">
+              <i class="fa-solid fa-sliders"></i> Filters
+            </span>
+            <button class="filter-reset-btn" onclick="resetAllFilters()">Reset All</button>
+          </div>
+
+          <!-- Filter: Category / Fabric -->
+          <div class="filter-group">
+            <h4 class="filter-title">Fabric & Weave</h4>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="all" checked onchange="handleCategoryFilter(this)">
+                <span>All Fabrics</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="kanjivaram" onchange="handleCategoryFilter(this)">
+                <span>1. Kanchipuram Silk</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="banarasi" onchange="handleCategoryFilter(this)">
+                <span>2. Banarasi Silk</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="softsilk" onchange="handleCategoryFilter(this)">
+                <span>3. Soft Silk</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="mysoresilk" onchange="handleCategoryFilter(this)">
+                <span>4. Mysore Silk</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="organza" onchange="handleCategoryFilter(this)">
+                <span>5. Organza</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Filter: Occasion -->
+          <div class="filter-group">
+            <h4 class="filter-title">Occasion</h4>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="radio" name="occasion" value="all" checked onchange="applyFilters()">
+                <span>All Occasions</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="occasion" value="Bridal" onchange="applyFilters()">
+                <span>Bridal Muhurtham</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="occasion" value="Festive" onchange="applyFilters()">
+                <span>Festive Celebrations</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="occasion" value="Party Wear" onchange="applyFilters()">
+                <span>Sangeet & Party Wear</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="occasion" value="Reception" onchange="applyFilters()">
+                <span>Grand Reception</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="occasion" value="Daily Elegance" onchange="applyFilters()">
+                <span>Daily Elegance</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Filter: Color Palette -->
+          <div class="filter-group">
+            <h4 class="filter-title">Color Palette</h4>
+            <div class="color-swatches">
+              <button class="color-swatch-btn" style="background:#991b1b;" title="Red" onclick="filterByColor('Red', this)"></button>
+              <button class="color-swatch-btn" style="background:#065f46;" title="Green" onclick="filterByColor('Green', this)"></button>
+              <button class="color-swatch-btn" style="background:#db2777;" title="Pink" onclick="filterByColor('Pink', this)"></button>
+              <button class="color-swatch-btn" style="background:#d97706;" title="Yellow / Gold" onclick="filterByColor('Yellow', this)"></button>
+              <button class="color-swatch-btn" style="background:#1e3a8a;" title="Blue" onclick="filterByColor('Blue', this)"></button>
+              <button class="color-swatch-btn" style="background:#6b21a8;" title="Purple" onclick="filterByColor('Purple', this)"></button>
+              <button class="color-swatch-btn" style="background:#d4b996;" title="Beige" onclick="filterByColor('Beige', this)"></button>
+              <button class="color-swatch-btn" style="background:#fef3c7; border-color:#ccc;" title="Ivory / Cream" onclick="filterByColor('White', this)"></button>
+            </div>
+          </div>
+
+          <!-- Filter: Price Range -->
+          <div class="filter-group">
+            <h4 class="filter-title">Price Range</h4>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="radio" name="priceRange" value="all" checked onchange="applyFilters()">
+                <span>All Prices</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="priceRange" value="under-25k" onchange="applyFilters()">
+                <span>Under ?25,000</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="priceRange" value="25k-40k" onchange="applyFilters()">
+                <span>?25,000 - ?40,000</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="priceRange" value="above-40k" onchange="applyFilters()">
+                <span>Above ?40,000 (Bridal)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Video Shopping CTA in Sidebar -->
+          <div style="background:rgba(197, 155, 39, 0.12); border:1px dashed var(--color-gold); padding:16px; border-radius:12px; text-align:center;">
+            <div style="font-family:var(--font-royal); font-weight:700; font-size:0.85rem; color:var(--color-maroon-dark); margin-bottom:6px;">Can't decide?</div>
+            <p style="font-size:0.75rem; color:var(--color-text-muted); margin-bottom:10px;">Our draping specialists will display sarees on a live WhatsApp video call.</p>
+            <button onclick="DemoStore.openWhatsApp('Hello DEMO SILKS! Please schedule a live video call to show sarees.')" class="btn-royal-primary" style="padding:6px 14px; font-size:0.75rem; width:100%;">
+              <i class="fa-brands fa-whatsapp"></i> Live Video Call
+            </button>
+          </div>
+        </aside>
+
+        <!-- Product Grid Area -->
+        <main>
+          <div id="shopGrid" class="products-grid">
+            <!-- Dynamic Saree Cards rendered here -->
+          </div>
+
+          <!-- Empty State (hidden by default) -->
+          <div id="shopEmptyState" style="display:none; text-align:center; padding:60px 20px;" class="royal-card">
+            <div style="font-size:3rem; color:var(--color-gold); margin-bottom:12px;"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <h3 style="font-size:1.4rem; color:var(--color-maroon-dark); margin-bottom:8px;">No matching sarees found</h3>
+            <p style="color:var(--color-text-muted); font-size:0.9rem; margin-bottom:20px;">Try clearing filters or searching for terms like "Kanjivaram", "Silk", or "Gold".</p>
+            <button class="btn-royal-primary" onclick="resetAllFilters()">Reset All Filters</button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- Master Royal Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+            <div class="logo-symbol" style="width:38px; height:38px; font-size:1.1rem;">D</div>
+            <span style="font-family:var(--font-royal); font-size:1.3rem; font-weight:800; color:#fae29c; letter-spacing:0.1em;">DEMO SILKS</span>
+          </div>
+          <p style="font-size:0.88rem; color:#d6c6b4; line-height:1.7; margin-bottom:20px;">
+            Heirloom handloom sarees woven with pure Mulberry silk, tested zari, and the soul of Indian artisan traditions. Preserving master weavers since 1984.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Pages Directory</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">1. Home</a></li>
+            <li><a href="about.html">2. About Us</a></li>
+            <li><a href="shop.html">3. Shop / All Sarees</a></li>
+            <li><a href="collections.html">4. Collections</a></li>
+            <li><a href="product-details.html?id=1">5. Product Details</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="wishlist.html">6. Wishlist</a></li>
+            <li><a href="cart.html">7. Shopping Cart</a></li>
+            <li><a href="videos.html">8. Videos & Reels</a></li>
+            <li><a href="reviews.html">9. Customer Reviews</a></li>
+            <li><a href="contact.html">10. Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Royal Privilege Club</h4>
+          <p style="font-size:0.85rem; color:#d6c6b4; margin-bottom:16px;">
+            Subscribe to receive private previews of new handloom drops and bridal trunks.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://instagram.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-instagram"></i></a>
+            <a href="javascript:void(0)" onclick="DemoStore.openWhatsApp()" class="social-icon-circle"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://pinterest.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 DEMO SILKS Private Limited. Handcrafted with pride in India. All Rights Reserved.</div>
+        <div style="display:flex; gap:18px;">
+          <a href="shop.html">Privacy Policy</a>
+          <a href="shop.html">Silk Mark Verification</a>
+          <a href="contact.html">Store Locator</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/spin-wheel.js"></script>
+  <script>
+    let activeColor = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGlobalComponents('shop');
+
+      // Check URL params for category or search
+      const params = new URLSearchParams(window.location.search);
+      const categoryParam = params.get('cat') || params.get('category');
+      if (categoryParam) {
+        document.querySelectorAll('input[name="category"]').forEach(cb => {
+          cb.checked = (cb.value.toLowerCase() === categoryParam.toLowerCase());
+        });
+      }
+
+      applyFilters();
+
+      // Search input live event
+      document.getElementById('shopSearchInput').addEventListener('input', applyFilters);
+      document.getElementById('shopSortSelect').addEventListener('change', applyFilters);
+    });
+
+    function handleCategoryFilter(changedCheckbox) {
+      if (changedCheckbox.value === 'all') {
+        if (changedCheckbox.checked) {
+          document.querySelectorAll('input[name="category"]').forEach(cb => {
+            if (cb.value !== 'all') cb.checked = false;
+          });
+        }
+      } else {
+        const allCb = document.querySelector('input[name="category"][value="all"]');
+        if (allCb) allCb.checked = false;
+      }
+      applyFilters();
+    }
+
+    function filterByColor(colorName, btn) {
+      if (activeColor === colorName) {
+        activeColor = null;
+        btn.classList.remove('active');
+      } else {
+        activeColor = colorName;
+        document.querySelectorAll('.color-swatch-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      applyFilters();
+    }
+
+    function resetAllFilters() {
+      document.getElementById('shopSearchInput').value = '';
+      document.querySelectorAll('input[name="category"]').forEach(cb => {
+        cb.checked = (cb.value === 'all');
+      });
+      document.querySelector('input[name="occasion"][value="all"]').checked = true;
+      document.querySelector('input[name="priceRange"][value="all"]').checked = true;
+      document.querySelectorAll('.color-swatch-btn').forEach(b => b.classList.remove('active'));
+      activeColor = null;
+      document.getElementById('shopSortSelect').value = 'featured';
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const searchVal = document.getElementById('shopSearchInput').value.toLowerCase().trim();
+      
+      // Selected categories
+      const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(cb => cb.value);
+      const allSelected = selectedCategories.includes('all') || selectedCategories.length === 0;
+
+      // Occasion
+      const selectedOccasion = document.querySelector('input[name="occasion"]:checked').value;
+
+      // Price range
+      const selectedPriceRange = document.querySelector('input[name="priceRange"]:checked').value;
+
+      // Sort
+      const sortVal = document.getElementById('shopSortSelect').value;
+
+      let filtered = SAREE_PRODUCTS.filter(p => {
+        // Search
+        if (searchVal) {
+          const matchName = p.name.toLowerCase().includes(searchVal);
+          const matchFabric = p.fabric.toLowerCase().includes(searchVal);
+          const matchCat = p.categoryName.toLowerCase().includes(searchVal);
+          const matchColor = p.color.toLowerCase().includes(searchVal);
+          if (!matchName && !matchFabric && !matchCat && !matchColor) return false;
+        }
+
+        // Category
+        if (!allSelected && !selectedCategories.includes(p.category)) {
+          return false;
+        }
+
+        // Occasion
+        if (selectedOccasion !== 'all' && p.occasion !== selectedOccasion) {
+          return false;
+        }
+
+        // Color
+        if (activeColor && p.colorFamily !== activeColor) {
+          return false;
+        }
+
+        // Price range
+        if (selectedPriceRange === 'under-25k' && p.price >= 25000) return false;
+        if (selectedPriceRange === '25k-40k' && (p.price < 25000 || p.price > 40000)) return false;
+        if (selectedPriceRange === 'above-40k' && p.price <= 40000) return false;
+
+        return true;
+      });
+
+      // Sorting
+      if (sortVal === 'price-low') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortVal === 'price-high') {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sortVal === 'rating') {
+        filtered.sort((a, b) => b.rating - a.rating);
+      } else if (sortVal === 'newest') {
+        filtered.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+      }
+
+      // Render
+      const grid = document.getElementById('shopGrid');
+      const empty = document.getElementById('shopEmptyState');
+      const countLabel = document.getElementById('shopProductCount');
+
+      countLabel.textContent = `Showing ${filtered.length} of ${SAREE_PRODUCTS.length} Sarees`;
+
+      if (filtered.length === 0) {
+        grid.style.display = 'none';
+        empty.style.display = 'block';
+      } else {
+        empty.style.display = 'none';
+        grid.style.display = 'grid';
+        grid.innerHTML = filtered.map(p => createSareeCardHTML(p)).join('');
+      }
+
+      DemoStore.updateBadges();
+    }
+  </script>
+</body>
+</html>
+

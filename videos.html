@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videos & Reels | Saree Draping & Styling Guides | DEMO SILKS</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/spin-wheel.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
+
+  
+
+          <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR (PURE CLEAN DESIGN - NO OVERLAYS) -->
+    <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR -->
+  <header class="main-header" id="mainHeader">
+    <div class="nav-fullwidth-container">
+      <!-- 1. Brand Logo -->
+      <a href="index.html" class="nav-brand-logo" title="Demo Silks Royal Heritage Weaves">
+        <img src="assets/images/navbar-logo-clean.png" alt="Demo Silks" class="nav-logo-img">
+      </a>
+
+      <!-- 2. Navigation Menu Items (Single Horizontal Row) -->
+      <nav class="nav-menu-wrapper">
+        <ul class="nav-menu-royal">
+          <li class="nav-item-royal">
+            <a href="index.html" class="nav-link-royal">Home</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="about.html" class="nav-link-royal">About Us</a>
+          </li>
+          <li class="nav-item-royal has-dropdown">
+            <a href="collections.html" class="nav-link-royal">Collections <i class="fa-solid fa-chevron-down nav-chevron"></i></a>
+            <div class="nav-dropdown">
+              <a href="collections.html#kanchipuram">Kanchipuram Silk</a>
+              <a href="collections.html#banarasi">Banarasi Silk</a>
+              <a href="collections.html#softsilk">Soft Silk</a>
+              <a href="collections.html#mysoresilk">Mysore Silk</a>
+              <a href="collections.html#organza">Organza</a>
+              <div class="dropdown-divider"></div>
+              <a href="collections.html" class="dropdown-highlight">Explore All Collections →</a>
+            </div>
+          </li>
+          <li class="nav-item-royal">
+            <a href="videos.html" class="nav-link-royal active-pill">Videos & Reels</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="reviews.html" class="nav-link-royal">Customer Reviews</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="contact.html" class="nav-link-royal">Contact Us</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="shop.html" class="nav-btn-shop" title="Shop All Sarees">
+              <i class="fa-solid fa-bag-shopping"></i> Shop
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- 3. Right Action Icons -->
+      <div class="nav-actions-royal">
+        <button type="button" class="royal-icon-btn" onclick="openSearchModal()" title="Search Sarees">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="wishlist.html" class="royal-icon-btn" title="Saved Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-pill wish-badge">2</span>
+        </a>
+        <a href="cart.html" class="royal-icon-btn" title="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-pill cart-badge">3</span>
+        </a>
+        <a href="contact.html" class="royal-icon-btn" title="Account / Concierge">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button type="button" class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileMenu" class="mobile-nav-drawer" style="display:none;">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="videos.html">Videos & Reels</a></li>
+      <li><a href="reviews.html">Customer Reviews</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li style="margin-top:6px;">
+        <a href="shop.html" class="nav-btn-shop mobile-shop-btn">
+          <i class="fa-solid fa-bag-shopping"></i> Shop All Sarees →
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Page Header -->
+  <section style="padding: 40px 0 20px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Cinematic Drapes</span>
+        <h1 class="section-title">Videos & Instagram Reels</h1>
+        <div class="section-divider">
+          <span></span><i class="fa-solid fa-film"></i><span></span>
+        </div>
+        <p class="section-desc">
+          See how our heirlooms drape in natural light. Explore quick 40-second draping hacks, bridal client moments, and master weaver loom clips.
+        </p>
+      </div>
+
+      <!-- Video Category Filter Pills -->
+      <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:36px;">
+        <button class="eval-pill active" onclick="filterReels('all', this)">All Reels (6)</button>
+        <button class="eval-pill" onclick="filterReels('Styling Guide', this)">Draping Tutorials</button>
+        <button class="eval-pill" onclick="filterReels('Silk Authenticity', this)">Silk Purity Tests</button>
+        <button class="eval-pill" onclick="filterReels('Lookbook', this)">Pastel Lookbooks</button>
+        <button class="eval-pill" onclick="filterReels('Master Weaver Spotlight', this)">Behind The Loom</button>
+        <button class="eval-pill" onclick="filterReels('Bridal Diaries', this)">Real Brides</button>
+      </div>
+
+      <!-- Reels Grid -->
+      <div id="reelsContainer" class="reels-grid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- BESPOKE ROYAL PLEAT & PALLU DRAPE CALCULATOR -->
+      <div class="royal-card" style="padding:40px; border:2px solid var(--color-gold); margin-bottom:50px; background:rgba(255, 253, 249, 0.96); box-shadow:0 12px 36px rgba(98, 17, 34, 0.08);">
+        <div style="text-align:center; max-width:700px; margin:0 auto 32px auto;">
+          <span class="section-tag" style="background:#621122; color:#fae29c; padding:4px 14px; border-radius:20px; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; font-weight:700;">Artisan Drape Master</span>
+          <h2 style="font-family:'Cinzel', Georgia, serif; font-size:2rem; color:#621122; margin:12px 0 8px 0;">
+            Royal Pleat & Pallu Drape Assistant
+          </h2>
+          <p style="color:#5c4738; font-size:0.95rem; line-height:1.6;">
+            Calculate your custom pleat count, pallu drop length, and zari pin-safety guidelines tailored precisely to your height, heels, and silk fabric weave.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start;">
+          <!-- Controls Column -->
+          <div style="background:#fff; border:1px solid rgba(197, 155, 39, 0.35); border-radius:18px; padding:28px; box-shadow:0 6px 18px rgba(0,0,0,0.03);">
+            <h3 style="font-family:'Cinzel', Georgia, serif; font-size:1.15rem; color:#621122; margin-bottom:20px; border-bottom:1px solid #fae29c; padding-bottom:10px;">
+              <i class="fa-solid fa-sliders" style="color:#c59b27; margin-right:8px;"></i> Drape Parameters
+            </h3>
+
+            <!-- 1. Fabric Selection -->
+            <div style="margin-bottom:18px;">
+              <label style="display:block; font-weight:600; color:#3a2012; font-size:0.88rem; margin-bottom:6px;">
+                Silk Fabric & Weave Type:
+              </label>
+              <select id="calcFabric" onchange="updateDrapeCalc()" style="width:100%; padding:10px 14px; border:1px solid #c59b27; border-radius:10px; font-family:var(--font-royal); font-size:0.92rem; background:#fffcf7; color:#621122; font-weight:600; outline:none;">
+                <option value="kanjivaram">Kanjivaram 3-Ply Pure Silk (Heavy & Structured)</option>
+                <option value="banarasi">Varanasi Banarasi Brocade Katan (Lustrous & Crisp)</option>
+                <option value="organza">Pure Tissue Organza (Sheer, Stiff & Voluminous)</option>
+                <option value="softsilk">Pure Soft Silk (Fluid, Lightweight & Cascading)</option>
+                <option value="chanderi">Chanderi & Tussar Silk (Light Crisp Drape)</option>
+              </select>
+            </div>
+
+            <!-- 2. Height Slider -->
+            <div style="margin-bottom:18px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                <label style="font-weight:600; color:#3a2012; font-size:0.88rem;">Your Height:</label>
+                <span id="calcHeightVal" style="font-weight:700; color:#621122; font-size:0.95rem;">5'4" (163 cm)</span>
+              </div>
+              <input type="range" id="calcHeight" min="145" max="185" value="163" oninput="updateDrapeCalc()" style="width:100%; accent-color:#621122; cursor:pointer;">
+              <div style="display:flex; justify-content:space-between; font-size:0.72rem; color:#888; margin-top:2px;">
+                <span>4'9" (145 cm)</span>
+                <span>5'5" (165 cm)</span>
+                <span>6'1" (185 cm)</span>
+              </div>
+            </div>
+
+            <!-- 3. Heel Height -->
+            <div style="margin-bottom:18px;">
+              <label style="display:block; font-weight:600; color:#3a2012; font-size:0.88rem; margin-bottom:6px;">
+                Footwear / Heel Height:
+              </label>
+              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;">
+                <button type="button" class="drape-heel-btn" data-heel="0" onclick="setHeel(0, this)" style="padding:8px 6px; border:1px solid #c59b27; border-radius:8px; background:#621122; color:#fff; font-size:0.8rem; font-weight:600; cursor:pointer;">Flats (0")</button>
+                <button type="button" class="drape-heel-btn" data-heel="2" onclick="setHeel(2, this)" style="padding:8px 6px; border:1px solid #c59b27; border-radius:8px; background:#fffcf7; color:#621122; font-size:0.8rem; font-weight:600; cursor:pointer;">Kitten (2")</button>
+                <button type="button" class="drape-heel-btn" data-heel="4" onclick="setHeel(4, this)" style="padding:8px 6px; border:1px solid #c59b27; border-radius:8px; background:#fffcf7; color:#621122; font-size:0.8rem; font-weight:600; cursor:pointer;">Stilettos (4")</button>
+              </div>
+            </div>
+
+            <!-- 4. Drape Style -->
+            <div>
+              <label style="display:block; font-weight:600; color:#3a2012; font-size:0.88rem; margin-bottom:6px;">
+                Drape Style:
+              </label>
+              <select id="calcDrapeStyle" onchange="updateDrapeCalc()" style="width:100%; padding:10px 14px; border:1px solid #c59b27; border-radius:10px; font-family:var(--font-royal); font-size:0.92rem; background:#fffcf7; color:#621122; font-weight:600; outline:none;">
+                <option value="nivi">Royal Nivi Drape (Traditional Left Shoulder)</option>
+                <option value="seedha">Gujarati Seedha Pallu (Front Fan Display)</option>
+                <option value="bengali">Bengali Athpourey (Box Pleats with Key Ring)</option>
+                <option value="floating">Modern Floating Pallu (Single Pin Drama)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Output Results Column -->
+          <div style="background:#fffcf7; border:2px solid var(--color-gold); border-radius:18px; padding:28px; box-shadow:0 8px 24px rgba(98, 17, 34, 0.06);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; border-bottom:1px solid #fae29c; padding-bottom:10px;">
+              <h3 style="font-family:'Cinzel', Georgia, serif; font-size:1.15rem; color:#621122; margin:0;">
+                <i class="fa-solid fa-crown" style="color:#c59b27; margin-right:8px;"></i> Recommended Drape Blueprint
+              </h3>
+              <span id="calcTimeEst" style="background:#fae29c; color:#621122; font-size:0.75rem; font-weight:800; padding:3px 10px; border-radius:12px;">~4.5 MINS</span>
+            </div>
+
+            <!-- Result Cards Grid -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:18px;">
+              <!-- Front Pleats -->
+              <div style="background:#fff; border:1px solid rgba(197, 155, 39, 0.3); border-radius:12px; padding:14px;">
+                <div style="font-size:0.75rem; color:#888; text-transform:uppercase; font-weight:700;">Front Pleats</div>
+                <div id="resPleatCount" style="font-size:1.35rem; font-weight:800; color:#621122; margin:4px 0;">7 Pleats</div>
+                <div id="resPleatWidth" style="font-size:0.78rem; color:#5c4738;">5.2 inches wide</div>
+              </div>
+
+              <!-- Pallu Drop -->
+              <div style="background:#fff; border:1px solid rgba(197, 155, 39, 0.3); border-radius:12px; padding:14px;">
+                <div style="font-size:0.75rem; color:#888; text-transform:uppercase; font-weight:700;">Pallu Drop Length</div>
+                <div id="resPalluDrop" style="font-size:1.35rem; font-weight:800; color:#c59b27; margin:4px 0;">38 inches</div>
+                <div id="resPalluDesc" style="font-size:0.78rem; color:#5c4738;">Falls at back-of-knee</div>
+              </div>
+            </div>
+
+            <!-- Safety Guidelines Box -->
+            <div style="background:#fff; border-left:4px solid #621122; border-radius:8px; padding:14px; margin-bottom:16px;">
+              <div style="font-size:0.8rem; font-weight:700; color:#621122; margin-bottom:4px;">
+                <i class="fa-solid fa-shield-halved" style="color:#c59b27; margin-right:6px;"></i> Tested Zari Protection Tip:
+              </div>
+              <p id="resZariTip" style="font-size:0.82rem; color:#4a382c; line-height:1.5; margin:0;">
+                For heavy Kanjivaram 3-ply silk, insert a safety pin from underneath the blouse fabric and use a pearl pin protector so the gold zari threads never catch or pull.
+              </p>
+            </div>
+
+            <!-- Drape Step Quick Notes -->
+            <div style="background:rgba(197,155,39,0.08); border-radius:10px; padding:12px 16px; font-size:0.8rem; color:#5c4738;">
+              <div style="font-weight:700; color:#621122; margin-bottom:4px;"><i class="fa-solid fa-wand-magic-sparkles" style="color:#c59b27;"></i> Perfect Fall Height:</div>
+              <div id="resTuckAdvice">Wear your heels first before tucking. Keep hem 0.5 inches off the floor to showcase your footwear and preserve silk borders.</div>
+            </div>
+
+            <div style="margin-top:20px; text-align:center;">
+              <a href="shop.html" class="btn-royal-primary" style="display:inline-block; padding:10px 24px; font-size:0.88rem; text-decoration:none;">
+                Explore Handpicked Sarees for this Drape →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Master Weaver Documentary Spotlight -->
+      <div class="royal-card" style="padding:48px; border:2px solid var(--color-gold); margin-bottom:60px;">
+        <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center;">
+          <div>
+            <span class="section-tag">Archival Documentary</span>
+            <h2 style="font-size:2.2rem; color:var(--color-maroon-dark); margin-bottom:14px;">
+              The Anatomy of a 300-Hour Handloom Masterpiece
+            </h2>
+            <p style="color:var(--color-text-muted); font-size:0.95rem; line-height:1.8; margin-bottom:20px;">
+              Join national-award-winning weaver Shri Gopal Rao in Kanchipuram as he takes you through the synchronized throwing of 3 wooden shuttles, the tuning of jacquard punch cards, and the testing of pure 24K silver-gold zari.
+            </p>
+            <div style="display:flex; gap:16px;">
+              <button onclick="openReelModal(REELS_DATA[3])" class="btn-royal-primary">
+                <i class="fa-solid fa-play"></i> Watch Full 12-Min Short Film
+              </button>
+              <a href="about.html" class="btn-royal-outline">
+                Read Brand Story
+              </a>
+            </div>
+          </div>
+          <div style="position:relative; border-radius:18px; overflow:hidden; border:2px solid var(--color-gold); aspect-ratio:16/9; background:#000; cursor:pointer;" onclick="openReelModal(REELS_DATA[3])">
+            <img src="assets/images/about-hero-pitloom.jpg" alt="Pit Loom Handloom Documentary" style="width:100%; height:100%; object-fit:cover; opacity:0.85;">
+            <div class="reel-play-btn" style="width:70px; height:70px; font-size:1.8rem;"><i class="fa-solid fa-play"></i></div>
+            <div style="position:absolute; bottom:14px; left:16px; color:#fae29c; font-size:0.85rem; font-family:var(--font-royal);">
+              <i class="fa-solid fa-video"></i> 4K Ultra HD — Shot on Location in Kanchipuram
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE REEL MODAL VIEWER -->
+  <div id="reelModal" class="modal-overlay">
+    <div class="modal-content" style="max-width:440px; padding:0; background:#000; border-radius:24px; overflow:hidden; border:2px solid var(--color-gold);">
+      <div style="position:relative; aspect-ratio:9/16; background:#111;">
+        <!-- Close Button -->
+        <button onclick="closeReelModal()" style="position:absolute; top:16px; right:16px; z-index:10; background:rgba(0,0,0,0.6); border:1px solid #fff; color:#fff; width:36px; height:36px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Reel Image / Simulated Video -->
+        <img id="reelModalPoster" src="" style="width:100%; height:100%; object-fit:cover;">
+
+        <!-- Simulated Video Play/Pause Indicator -->
+        <div id="reelPlayingBadge" style="position:absolute; top:18px; left:18px; background:rgba(225,29,72,0.9); color:#fff; padding:4px 10px; border-radius:20px; font-size:0.75rem; font-weight:700; display:flex; align-items:center; gap:6px;">
+          <span style="width:8px; height:8px; border-radius:50%; background:#fff; animation:pulse 1s infinite;"></span> LIVE PLAYING
+        </div>
+
+        <!-- Reel Bottom Overlay Controls -->
+        <div style="position:absolute; bottom:0; left:0; right:0; padding:24px 20px 20px 20px; background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 60%, #000 100%); color:#fff;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <span id="reelModalCategory" style="font-size:0.75rem; color:#fae29c; font-weight:700; text-transform:uppercase;">Styling Guide</span>
+            <div style="display:flex; gap:14px; font-size:1.1rem;">
+              <span id="reelLikeBtn" onclick="toggleReelLike()" style="cursor:pointer;"><i class="fa-solid fa-heart" style="color:#e11d48;"></i> <span id="reelLikesCount" style="font-size:0.85rem;">14.2K</span></span>
+              <span onclick="DemoStore.showToast('Audio unmuted')" style="cursor:pointer;"><i class="fa-solid fa-volume-high"></i></span>
+            </div>
+          </div>
+
+          <h3 id="reelModalTitle" style="font-size:1.1rem; color:#fff; margin-bottom:14px; line-height:1.4;">
+            How to drape a Royal Kanjivaram in under 4 minutes
+          </h3>
+
+          <!-- Floating Product Tag -->
+          <div style="background:rgba(255,255,255,0.15); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.3); border-radius:12px; padding:10px 14px; display:flex; align-items:center; justify-content:space-between;">
+            <div>
+              <div style="font-size:0.7rem; color:#fae29c; text-transform:uppercase;">Featured Saree</div>
+              <div id="reelFeaturedProductName" style="font-size:0.85rem; font-weight:700; color:#fff;">Swarna Kamal Kanjivaram</div>
+            </div>
+            <a id="reelShopLink" href="product-details.html?id=1" class="btn-royal-gold" style="padding:6px 14px; font-size:0.75rem;">
+              Shop This Drape
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Master Royal Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+            <div class="logo-symbol" style="width:38px; height:38px; font-size:1.1rem;">D</div>
+            <span style="font-family:var(--font-royal); font-size:1.3rem; font-weight:800; color:#fae29c; letter-spacing:0.1em;">DEMO SILKS</span>
+          </div>
+          <p style="font-size:0.88rem; color:#d6c6b4; line-height:1.7; margin-bottom:20px;">
+            Heirloom handloom sarees woven with pure Mulberry silk, tested zari, and the soul of Indian artisan traditions. Preserving master weavers since 1984.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Pages Directory</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">1. Home</a></li>
+            <li><a href="about.html">2. About Us</a></li>
+            <li><a href="shop.html">3. Shop / All Sarees</a></li>
+            <li><a href="collections.html">4. Collections</a></li>
+            <li><a href="product-details.html?id=1">5. Product Details</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="wishlist.html">6. Wishlist</a></li>
+            <li><a href="cart.html">7. Shopping Cart</a></li>
+            <li><a href="videos.html">8. Videos & Reels</a></li>
+            <li><a href="reviews.html">9. Customer Reviews</a></li>
+            <li><a href="contact.html">10. Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Royal Privilege Club</h4>
+          <p style="font-size:0.85rem; color:#d6c6b4; margin-bottom:16px;">
+            Subscribe to receive private previews of new handloom drops and bridal trunks.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://instagram.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-instagram"></i></a>
+            <a href="javascript:void(0)" onclick="DemoStore.openWhatsApp()" class="social-icon-circle"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://pinterest.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 DEMO SILKS Private Limited. Handcrafted with pride in India. All Rights Reserved.</div>
+        <div style="display:flex; gap:18px;">
+          <a href="shop.html">Privacy Policy</a>
+          <a href="shop.html">Silk Mark Verification</a>
+          <a href="contact.html">Store Locator</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/spin-wheel.js"></script>
+  <script>
+    let activeReel = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGlobalComponents('videos');
+      renderReels(REELS_DATA);
+    });
+
+        // Interactive Drape Assistant Calculator Logic
+    let selectedHeel = 0;
+    function setHeel(inches, btn) {
+      selectedHeel = inches;
+      document.querySelectorAll('.drape-heel-btn').forEach(b => {
+        b.style.background = '#fffcf7';
+        b.style.color = '#621122';
+      });
+      btn.style.background = '#621122';
+      btn.style.color = '#fff';
+      updateDrapeCalc();
+    }
+
+    function updateDrapeCalc() {
+      const heightCm = parseInt(document.getElementById('calcHeight').value);
+      const fabric = document.getElementById('calcFabric').value;
+      const drapeStyle = document.getElementById('calcDrapeStyle').value;
+
+      // Height string in ft/in
+      const totalInches = heightCm / 2.54;
+      const ft = Math.floor(totalInches / 12);
+      const inc = Math.round(totalInches % 12);
+      document.getElementById('calcHeightVal').textContent = `${ft}'${inc}" (${heightCm} cm)`;
+
+      // Calculations based on fabric, height & heels
+      let pleats = 7;
+      let pleatWidth = '5.2 inches wide';
+      let palluDropInches = Math.round(36 + (heightCm - 160) * 0.25 + selectedHeel * 1.2);
+      let palluDesc = 'Passes back of knee for royal grandeur';
+      let zariTip = 'Use pearl-cushioned safety pins. Never pin directly onto raw metallic gold zari threads.';
+      let timeEst = '~4.5 MINS';
+
+      if (fabric === 'kanjivaram') {
+        pleats = heightCm > 165 ? 8 : 7;
+        pleatWidth = '5.2 - 5.5 inches (crisp accordion folds)';
+        zariTip = 'Insert safety pin from inside the blouse lining. For heavy Korvai borders, use a velvet clip first to train pleats before pinning.';
+        timeEst = '~5.0 MINS';
+      } else if (fabric === 'banarasi') {
+        pleats = 6;
+        pleatWidth = '5.8 inches (broad regal fan folds)';
+        zariTip = 'Banarasi kadwa zari floats on the surface. Smooth pleats with palm warmth; avoid metal safety pin rubbing against zari flowers.';
+        timeEst = '~4.0 MINS';
+      } else if (fabric === 'organza') {
+        pleats = 5;
+        pleatWidth = '6.2 inches (wide airy pleats)';
+        palluDropInches = Math.round(32 + (heightCm - 160) * 0.2);
+        palluDesc = 'Floating mid-calf drape with gossamer silhouette';
+        zariTip = 'Use delicate micro-pins with pearl backings. Avoid heavy safety pins which can leave needle holes in crisp tissue weave.';
+        timeEst = '~3.5 MINS';
+      } else if (fabric === 'softsilk') {
+        pleats = heightCm > 160 ? 8 : 7;
+        pleatWidth = '4.5 inches (fluid cascading pleats)';
+        zariTip = 'Soft silk drapes naturally without stiff creasing. Pin once at the naval tuck and let the pallu fall gracefully over the left arm.';
+        timeEst = '~3.0 MINS';
+      } else if (fabric === 'chanderi') {
+        pleats = 6;
+        pleatWidth = '5.0 inches (gentle crisp pleats)';
+        zariTip = 'Chanderi silk-cotton has a gentle starch finish. Press pleats firmly with fingers; pin with lightweight golden pins.';
+        timeEst = '~3.5 MINS';
+      }
+
+      if (drapeStyle === 'floating') {
+        palluDropInches += 4;
+        palluDesc = 'Open shoulder cascade falling gracefully past the calf';
+      } else if (drapeStyle === 'seedha') {
+        palluDesc = 'Front chest fan tucked at the right waist seam';
+      } else if (drapeStyle === 'bengali') {
+        pleatWidth = 'Two broad 8-inch box pleats';
+        pleats = 2;
+        palluDesc = 'Double wrap over left shoulder with ornamental heirloom keys';
+      }
+
+      document.getElementById('resPleatCount').textContent = `${pleats} Pleats`;
+      document.getElementById('resPleatWidth').textContent = pleatWidth;
+      document.getElementById('resPalluDrop').textContent = `${palluDropInches} inches`;
+      document.getElementById('resPalluDesc').textContent = palluDesc;
+      document.getElementById('resZariTip').textContent = zariTip;
+      document.getElementById('calcTimeEst').textContent = timeEst;
+
+      const heelText = selectedHeel === 0 ? 'flats' : `${selectedHeel}"-inch heels`;
+      document.getElementById('resTuckAdvice').textContent = `With ${heelText}, tuck skirt hem exactly 0.75 inches above the floor to allow effortless walking without stepping on border zari.`;
+    }
+
+    // Initialize calculator on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      if (document.getElementById('calcHeight')) {
+        updateDrapeCalc();
+      }
+    });
+
+    function renderReels(items) {
+      const container = document.getElementById('reelsContainer');
+      container.innerHTML = items.map(reel => `
+        <div class="reel-card" onclick="openReelModalById(${reel.id})">
+          <img src="${reel.videoPoster}" alt="${reel.title}" class="reel-poster">
+          <div class="reel-play-btn"><i class="fa-solid fa-play"></i></div>
+          <div class="reel-overlay-bottom">
+            <div class="reel-stats-bar">
+              <span><i class="fa-regular fa-eye"></i> ${reel.views}</span>
+              <span><i class="fa-regular fa-heart"></i> ${reel.likes}</span>
+              <span><i class="fa-regular fa-clock"></i> ${reel.duration}</span>
+            </div>
+            <h4 class="reel-title">${reel.title}</h4>
+            <div class="reel-product-pill">
+              <i class="fa-solid fa-bag-shopping"></i> ${reel.productName}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterReels(category, btn) {
+      document.querySelectorAll('.eval-pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+
+      if (category === 'all') {
+        renderReels(REELS_DATA);
+      } else {
+        const filtered = REELS_DATA.filter(r => r.category === category);
+        renderReels(filtered);
+      }
+    }
+
+    function openReelModalById(id) {
+      const reel = REELS_DATA.find(r => r.id === id);
+      if (reel) openReelModal(reel);
+    }
+
+    function openReelModal(reel) {
+      activeReel = reel;
+      document.getElementById('reelModalPoster').src = reel.videoPoster;
+      document.getElementById('reelModalCategory').textContent = reel.category;
+      document.getElementById('reelModalTitle').textContent = reel.title;
+      document.getElementById('reelLikesCount').textContent = reel.likes;
+      document.getElementById('reelFeaturedProductName').textContent = reel.productName;
+      document.getElementById('reelShopLink').href = `product-details.html?id=${reel.productId}`;
+
+      document.getElementById('reelModal').classList.add('active');
+    }
+
+    function closeReelModal() {
+      document.getElementById('reelModal').classList.remove('active');
+    }
+
+    function toggleReelLike() {
+      DemoStore.showToast("Liked this styling reel!");
+    }
+  </script>
+</body>
+</html>
+

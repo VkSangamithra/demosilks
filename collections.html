@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curated Saree Collections | Bridal, Banarasi, Organza | DEMO SILKS</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/spin-wheel.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
+
+  
+
+          <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR (PURE CLEAN DESIGN - NO OVERLAYS) -->
+    <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR -->
+  <header class="main-header" id="mainHeader">
+    <div class="nav-fullwidth-container">
+      <!-- 1. Brand Logo -->
+      <a href="index.html" class="nav-brand-logo" title="Demo Silks Royal Heritage Weaves">
+        <img src="assets/images/navbar-logo-clean.png" alt="Demo Silks" class="nav-logo-img">
+      </a>
+
+      <!-- 2. Navigation Menu Items (Single Horizontal Row) -->
+      <nav class="nav-menu-wrapper">
+        <ul class="nav-menu-royal">
+          <li class="nav-item-royal">
+            <a href="index.html" class="nav-link-royal">Home</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="about.html" class="nav-link-royal">About Us</a>
+          </li>
+          <li class="nav-item-royal has-dropdown">
+            <a href="collections.html" class="nav-link-royal active-pill">Collections <i class="fa-solid fa-chevron-down nav-chevron"></i></a>
+            <div class="nav-dropdown">
+              <a href="collections.html#kanchipuram">Kanchipuram Silk</a>
+              <a href="collections.html#banarasi">Banarasi Silk</a>
+              <a href="collections.html#softsilk">Soft Silk</a>
+              <a href="collections.html#mysoresilk">Mysore Silk</a>
+              <a href="collections.html#organza">Organza</a>
+              <div class="dropdown-divider"></div>
+              <a href="collections.html" class="dropdown-highlight">Explore All Collections →</a>
+            </div>
+          </li>
+          <li class="nav-item-royal">
+            <a href="videos.html" class="nav-link-royal">Videos & Reels</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="reviews.html" class="nav-link-royal">Customer Reviews</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="contact.html" class="nav-link-royal">Contact Us</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="shop.html" class="nav-btn-shop" title="Shop All Sarees">
+              <i class="fa-solid fa-bag-shopping"></i> Shop
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- 3. Right Action Icons -->
+      <div class="nav-actions-royal">
+        <button type="button" class="royal-icon-btn" onclick="openSearchModal()" title="Search Sarees">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="wishlist.html" class="royal-icon-btn" title="Saved Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-pill wish-badge">2</span>
+        </a>
+        <a href="cart.html" class="royal-icon-btn" title="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-pill cart-badge">3</span>
+        </a>
+        <a href="contact.html" class="royal-icon-btn" title="Account / Concierge">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button type="button" class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileMenu" class="mobile-nav-drawer" style="display:none;">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="videos.html">Videos & Reels</a></li>
+      <li><a href="reviews.html">Customer Reviews</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li style="margin-top:6px;">
+        <a href="shop.html" class="nav-btn-shop mobile-shop-btn">
+          <i class="fa-solid fa-bag-shopping"></i> Shop All Sarees →
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Page Header -->
+  <section style="padding: 50px 0 30px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Archival Heritage Series</span>
+        <h1 class="section-title">The 5 Royal Saree Collections</h1>
+        <div class="section-divider">
+          <span></span><i class="fa-solid fa-crown"></i><span></span>
+        </div>
+        <p class="section-desc">
+          Explore our 5 iconic silk traditions, each representing an immortal weaving lineage, ceremonial significance, and master craftsmanship.
+        </p>
+      </div>
+
+      <!-- Collection Showcase Big Grid (5 Categories in Exact Royal Order) -->
+      <div class="collections-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 32px;">
+        
+        <!-- Collection 1: Kanchipuram Silk -->
+        <div class="collection-card" id="kanchipuram" onclick="window.location.href='shop.html?category=kanjivaram'">
+          <img src="assets/images/collection-kanchipuram.jpg" alt="Kanchipuram Silk" class="collection-bg">
+          <div class="collection-overlay">
+            <span class="collection-tag">Royal Muhurtham Edit</span>
+            <h3 class="collection-title">Kanchipuram Silk</h3>
+            <p class="collection-tagline">
+              Pure 3-ply mulberry silk, authentic 24k electroplated gold zari, and sacred temple spires woven on traditional pit looms in Kanchipuram for the quintessential royal muhurtham.
+            </p>
+            <div class="collection-link-row">
+              <span class="collection-count">48 Masterpieces</span>
+              <span class="collection-explore">Explore Kanchipuram <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collection 2: Banarasi Silk -->
+        <div class="collection-card" id="banarasi" onclick="window.location.href='shop.html?category=banarasi'">
+          <img src="assets/images/collection-banarasi.jpg" alt="Banarasi Silk" class="collection-bg">
+          <div class="collection-overlay">
+            <span class="collection-tag">Imperial Brocade</span>
+            <h3 class="collection-title">Banarasi Silk</h3>
+            <p class="collection-tagline">
+              Woven along the ghats of sacred Varanasi. Authentic Kadwa Katan brocades featuring Shikargah royal hunting scenes, fine floral jaals, and dual-tone Sona-Rupa zari.
+            </p>
+            <div class="collection-link-row">
+              <span class="collection-count">36 Sarees</span>
+              <span class="collection-explore">Explore Banarasi <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collection 3: Soft Silk -->
+        <div class="collection-card" id="softsilk" onclick="window.location.href='shop.html?category=softsilk'">
+          <img src="assets/images/collection-softsilk.jpg" alt="Soft Silk" class="collection-bg">
+          <div class="collection-overlay">
+            <span class="collection-tag">Ethereal Pastel Grace</span>
+            <h3 class="collection-title">Soft Silk</h3>
+            <p class="collection-tagline">
+              Featherweight, breathable pure silk with a buttery-soft drape. Subtle pastel tones enriched with delicate zari borders, designed for day-long festive grace and comfort.
+            </p>
+            <div class="collection-link-row">
+              <span class="collection-count">32 Sarees</span>
+              <span class="collection-explore">Explore Soft Silk <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collection 4: Mysore Silk -->
+        <div class="collection-card" id="mysoresilk" onclick="window.location.href='shop.html?category=mysoresilk'">
+          <img src="assets/images/collection-mysoresilk.jpg" alt="Mysore Silk" class="collection-bg">
+          <div class="collection-overlay">
+            <span class="collection-tag">Royal Heritage Crepe</span>
+            <h3 class="collection-title">Mysore Silk</h3>
+            <p class="collection-tagline">
+              Direct descendants of the royal looms of Mysore. Pure 100% crepe silk woven with hallmarked pure gold zari borders, prized for its lustrous drape and unmatched regal drape.
+            </p>
+            <div class="collection-link-row">
+              <span class="collection-count">28 Sarees</span>
+              <span class="collection-explore">Explore Mysore Silk <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collection 5: Organza -->
+        <div class="collection-card" id="organza" onclick="window.location.href='shop.html?category=organza'">
+          <img src="assets/images/collection-organza.jpg" alt="Organza" class="collection-bg">
+          <div class="collection-overlay">
+            <span class="collection-tag">Luminous Sheer Flora</span>
+            <h3 class="collection-title">Organza</h3>
+            <p class="collection-tagline">
+              Weightless, crystalline tissue organza with delicate floral resham threadwork, hand-embroidered scalloped borders, and an ethereal translucent glow for contemporary celebrations.
+            </p>
+            <div class="collection-link-row">
+              <span class="collection-count">29 Creations</span>
+              <span class="collection-explore">Explore Organza <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Auspicious Saree Palette Matcher -->
+      <div class="royal-card" style="margin-top:60px; padding:44px; border:2px solid var(--color-gold); background:rgba(255,255,255,0.92);">
+        <div style="text-align:center; max-width:700px; margin:0 auto 28px auto;">
+          <span class="section-tag">Interactive Drape Advisor</span>
+          <h2 style="font-size:2rem; color:var(--color-maroon-dark); margin-bottom:10px;">Find Your Auspicious Wedding Saree Palette</h2>
+          <div class="section-divider">
+            <span></span><i class="fa-solid fa-sparkles"></i><span></span>
+          </div>
+          <p style="color:var(--color-text-muted); font-size:0.9rem;">
+            Select your ceremonial ritual and aesthetic preference to receive bespoke handloom recommendations from our master stylists.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:760px; margin:0 auto 24px auto;">
+          <div>
+            <label style="display:block; font-size:0.82rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:6px;">1. Ceremonial Occasion</label>
+            <select id="paletteOccasion" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--color-gold-border); background:#fff; font-size:0.9rem;">
+              <option value="Bridal">Sacred Morning Muhurtham (Sunrise)</option>
+              <option value="Festive">Auspicious Haldi / Mehendi (Daytime)</option>
+              <option value="Party Wear">Twilight Sangeet & Cocktail Gala</option>
+              <option value="Reception">Grand Wedding Reception (Evening)</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block; font-size:0.82rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:6px;">2. Preferred Drape Feel</label>
+            <select id="paletteFeel" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--color-gold-border); background:#fff; font-size:0.9rem;">
+              <option value="kanjivaram">Kanchipuram Silk (Pure 3-Ply & 24K Zari)</option>
+              <option value="banarasi">Banarasi Silk (Varanasi Katan Brocade Jaal)</option>
+              <option value="softsilk">Soft Silk (Ethereal Lightweight Pastel Grace)</option>
+              <option value="mysoresilk">Mysore Silk (Royal Crepe with Gold Border)</option>
+              <option value="organza">Organza (Luminous Sheer Floral Tissue)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-bottom:28px;">
+          <button onclick="calculateAuspiciousPalette()" class="btn-royal-primary" style="padding:12px 30px; font-size:0.9rem;">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Reveal My Curated Saree Match
+          </button>
+        </div>
+
+        <!-- Result recommendation display box -->
+        <div id="paletteResultBox" style="display:none; max-width:760px; margin:0 auto; background:rgba(197, 155, 39, 0.08); border:1.5px dashed var(--color-gold); border-radius:14px; padding:24px;">
+          <div id="paletteResultContent"></div>
+        </div>
+      </div>
+
+      <!-- Curated Bridal Lookbook Box -->
+      <div class="royal-card" style="margin-top:60px; padding:48px; border:2px solid var(--color-gold); background:rgba(255,255,255,0.95);">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:40px; align-items:center;">
+          <div>
+            <span class="section-tag">Bespoke Bridal Curation</span>
+            <h2 style="font-size:2.2rem; color:var(--color-maroon-dark); margin-bottom:16px;">
+              The Demo Royal Bridal Trousseau Service
+            </h2>
+            <p style="color:var(--color-text-muted); font-size:0.95rem; line-height:1.8; margin-bottom:20px;">
+              Planning your wedding trousseau requires curating distinct drapes for every ceremonial ritual: the sacred Muhurtham, joyous Haldi, vibrant Sangeet, and grand Reception.
+            </p>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:24px; font-size:0.9rem;">
+              <li><i class="fa-solid fa-check" style="color:var(--color-gold);"></i> <strong>Muhurtham:</strong> Heavy Pure Silk Kanchipuram in Red / Rani Pink with tested zari.</li>
+              <li><i class="fa-solid fa-check" style="color:var(--color-gold);"></i> <strong>Haldi / Mehendi:</strong> Mustard Chanderi or Yellow Banarasi with lightweight ease.</li>
+              <li><i class="fa-solid fa-check" style="color:var(--color-gold);"></i> <strong>Reception:</strong> Midnight Blue Banarasi or Tissue Organza with crystal blouse.</li>
+            </ul>
+            <div style="display:flex; gap:16px; flex-wrap:wrap;">
+              <button onclick="DemoStore.openWhatsApp('Hello! I would like to book a complete Bridal Trousseau styling consultation.')" class="btn-royal-primary">
+                <i class="fa-brands fa-whatsapp"></i> Book Bridal Consultation
+              </button>
+              <a href="shop.html?category=Bridal" class="btn-royal-outline">
+                View All Bridal Sarees
+              </a>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
+            <img src="assets/images/collection-kanchipuram.jpg" alt="Kanchipuram Silk Bridal" style="border-radius:12px; height:200px; width:100%; object-fit:cover; border:1px solid var(--color-gold);">
+            <img src="assets/images/collection-banarasi.jpg" alt="Banarasi Silk Brocade" style="border-radius:12px; height:200px; width:100%; object-fit:cover; border:1px solid var(--color-gold);">
+            <img src="assets/images/collection-softsilk.jpg" alt="Soft Silk Pastel" style="border-radius:12px; height:200px; width:100%; object-fit:cover; border:1px solid var(--color-gold);">
+            <img src="assets/images/collection-organza.jpg" alt="Organza Floral Tissue" style="border-radius:12px; height:200px; width:100%; object-fit:cover; border:1px solid var(--color-gold);">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Master Royal Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+            <div class="logo-symbol" style="width:38px; height:38px; font-size:1.1rem;">D</div>
+            <span style="font-family:var(--font-royal); font-size:1.3rem; font-weight:800; color:#fae29c; letter-spacing:0.1em;">DEMO SILKS</span>
+          </div>
+          <p style="font-size:0.88rem; color:#d6c6b4; line-height:1.7; margin-bottom:20px;">
+            Heirloom handloom sarees woven with pure Mulberry silk, tested zari, and the soul of Indian artisan traditions. Preserving master weavers since 1984.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Pages Directory</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">1. Home</a></li>
+            <li><a href="about.html">2. About Us</a></li>
+            <li><a href="shop.html">3. Shop / All Sarees</a></li>
+            <li><a href="collections.html">4. Collections</a></li>
+            <li><a href="product-details.html?id=1">5. Product Details</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="wishlist.html">6. Wishlist</a></li>
+            <li><a href="cart.html">7. Shopping Cart</a></li>
+            <li><a href="videos.html">8. Videos & Reels</a></li>
+            <li><a href="reviews.html">9. Customer Reviews</a></li>
+            <li><a href="contact.html">10. Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Royal Privilege Club</h4>
+          <p style="font-size:0.85rem; color:#d6c6b4; margin-bottom:16px;">
+            Subscribe to receive private previews of new handloom drops and bridal trunks.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://instagram.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-instagram"></i></a>
+            <a href="javascript:void(0)" onclick="DemoStore.openWhatsApp()" class="social-icon-circle"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://pinterest.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 DEMO SILKS Private Limited. Handcrafted with pride in India. All Rights Reserved.</div>
+        <div style="display:flex; gap:18px;">
+          <a href="shop.html">Privacy Policy</a>
+          <a href="shop.html">Silk Mark Verification</a>
+          <a href="contact.html">Store Locator</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/spin-wheel.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGlobalComponents('collections');
+    });
+
+    function calculateAuspiciousPalette() {
+      const occ = document.getElementById('paletteOccasion').value;
+      const cat = document.getElementById('paletteFeel').value;
+      const box = document.getElementById('paletteResultBox');
+      const content = document.getElementById('paletteResultContent');
+
+      // Find matching sarees
+      let matches = SAREE_PRODUCTS.filter(p => p.occasion === occ || p.category === cat);
+      if (matches.length === 0) matches = SAREE_PRODUCTS.slice(0, 2);
+      const topMatch = matches[0];
+
+      content.innerHTML = `
+        <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+          <img src="${topMatch.images[0]}" alt="${topMatch.name}" style="width:110px; height:140px; object-fit:cover; border-radius:10px; border:2px solid var(--color-gold);">
+          <div style="flex:1;">
+            <div style="font-size:0.75rem; color:var(--color-gold-dark); font-weight:700; text-transform:uppercase;">
+              ✨ Recommended Auspicious Drape for ${occ}
+            </div>
+            <h3 style="font-size:1.25rem; color:var(--color-maroon-dark); margin:4px 0 6px 0;">${topMatch.name}</h3>
+            <p style="font-size:0.85rem; color:var(--color-text-muted); line-height:1.5; margin-bottom:10px;">
+              ${topMatch.description.slice(0, 140)}...
+            </p>
+            <div style="display:flex; align-items:baseline; gap:12px;">
+              <span style="font-family:var(--font-royal); font-size:1.3rem; font-weight:800; color:var(--color-primary-maroon);">
+                ${DemoStore.formatPrice(topMatch.price)}
+              </span>
+              <span style="font-size:0.8rem; color:#9ca3af; text-decoration:line-through;">
+                ${DemoStore.formatPrice(topMatch.originalPrice)}
+              </span>
+              <a href="product-details.html?id=${topMatch.id}" class="btn-royal-gold" style="padding:6px 16px; font-size:0.75rem; margin-left:auto;">
+                View Saree Details →
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      box.style.display = 'block';
+      box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      DemoStore.showToast("✨ Auspicious Saree Match Found!");
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Wishlist | Saved Heirlooms | DEMO SILKS</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/spin-wheel.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
+
+  
+
+          <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR (PURE CLEAN DESIGN - NO OVERLAYS) -->
+    <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR -->
+  <header class="main-header" id="mainHeader">
+    <div class="nav-fullwidth-container">
+      <!-- 1. Brand Logo -->
+      <a href="index.html" class="nav-brand-logo" title="Demo Silks Royal Heritage Weaves">
+        <img src="assets/images/navbar-logo-clean.png" alt="Demo Silks" class="nav-logo-img">
+      </a>
+
+      <!-- 2. Navigation Menu Items (Single Horizontal Row) -->
+      <nav class="nav-menu-wrapper">
+        <ul class="nav-menu-royal">
+          <li class="nav-item-royal">
+            <a href="index.html" class="nav-link-royal">Home</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="about.html" class="nav-link-royal">About Us</a>
+          </li>
+          <li class="nav-item-royal has-dropdown">
+            <a href="collections.html" class="nav-link-royal">Collections <i class="fa-solid fa-chevron-down nav-chevron"></i></a>
+            <div class="nav-dropdown">
+              <a href="collections.html#kanchipuram">Kanchipuram Silk</a>
+              <a href="collections.html#banarasi">Banarasi Silk</a>
+              <a href="collections.html#softsilk">Soft Silk</a>
+              <a href="collections.html#mysoresilk">Mysore Silk</a>
+              <a href="collections.html#organza">Organza</a>
+              <div class="dropdown-divider"></div>
+              <a href="collections.html" class="dropdown-highlight">Explore All Collections →</a>
+            </div>
+          </li>
+          <li class="nav-item-royal">
+            <a href="videos.html" class="nav-link-royal">Videos & Reels</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="reviews.html" class="nav-link-royal">Customer Reviews</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="contact.html" class="nav-link-royal">Contact Us</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="shop.html" class="nav-btn-shop" title="Shop All Sarees">
+              <i class="fa-solid fa-bag-shopping"></i> Shop
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- 3. Right Action Icons -->
+      <div class="nav-actions-royal">
+        <button type="button" class="royal-icon-btn" onclick="openSearchModal()" title="Search Sarees">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="wishlist.html" class="royal-icon-btn" title="Saved Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-pill wish-badge">2</span>
+        </a>
+        <a href="cart.html" class="royal-icon-btn" title="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-pill cart-badge">3</span>
+        </a>
+        <a href="contact.html" class="royal-icon-btn" title="Account / Concierge">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button type="button" class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileMenu" class="mobile-nav-drawer" style="display:none;">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="videos.html">Videos & Reels</a></li>
+      <li><a href="reviews.html">Customer Reviews</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li style="margin-top:6px;">
+        <a href="shop.html" class="nav-btn-shop mobile-shop-btn">
+          <i class="fa-solid fa-bag-shopping"></i> Shop All Sarees →
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Wishlist Main Content -->
+  <div class="container" style="padding: 40px 24px 80px 24px;">
+    <div class="section-header" style="margin-bottom: 30px;">
+      <span class="section-tag">Personal Bridal Sanctuary</span>
+      <h1 class="section-title">Saved Favourite Sarees</h1>
+      <div class="section-divider">
+        <span></span><i class="fa-solid fa-heart"></i><span></span>
+      </div>
+      <p class="section-desc" id="wishlistCountSubtitle">
+        Review your saved heirlooms or easily transfer them to your shopping cart.
+      </p>
+    </div>
+
+    <!-- Wishlist Actions Bar -->
+    <div id="wishlistActionsBar" style="display:none; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.92); border:1px solid var(--color-gold-border); border-radius:12px; padding:12px 24px; margin-bottom:28px;">
+      <span id="wishlistCountText" style="font-weight:700; color:var(--color-maroon-dark);">0 Sarees in Wishlist</span>
+      <div style="display:flex; gap:12px;">
+        <button onclick="shareWishlistWhatsApp()" class="btn-royal-primary" style="background:#25d366; border:none; padding:8px 16px; font-size:0.8rem;">
+          <i class="fa-brands fa-whatsapp"></i> Share Wishlist on WhatsApp
+        </button>
+        <button onclick="moveAllToCart()" class="btn-royal-gold" style="padding:8px 16px; font-size:0.8rem;">
+          Move All To Cart
+        </button>
+      </div>
+    </div>
+
+    <!-- Wishlist Grid -->
+    <div id="wishlistGrid" class="products-grid">
+      <!-- Loaded dynamically by JS -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="wishlistEmptyState" class="royal-card" style="text-align:center; padding:70px 20px; max-width:600px; margin:0 auto; display:none;">
+      <div style="font-size:3.5rem; color:var(--color-gold); margin-bottom:16px;"><i class="fa-regular fa-heart"></i></div>
+      <h3 style="font-size:1.6rem; color:var(--color-maroon-dark); margin-bottom:10px;">Your Wishlist is Empty</h3>
+      <p style="color:var(--color-text-muted); font-size:0.95rem; line-height:1.7; margin-bottom:24px;">
+        Explore our royal collections of pure Kanjivarams, Varanasi brocades, and tissue organza drapes. Tap the heart icon on any saree to save your favourites here.
+      </p>
+      <div style="display:flex; justify-content:center; gap:16px;">
+        <a href="shop.html" class="btn-royal-primary">
+          Explore Handloom Sarees <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="collections.html" class="btn-royal-outline">
+          View Collections
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Master Royal Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+            <div class="logo-symbol" style="width:38px; height:38px; font-size:1.1rem;">D</div>
+            <span style="font-family:var(--font-royal); font-size:1.3rem; font-weight:800; color:#fae29c; letter-spacing:0.1em;">DEMO SILKS</span>
+          </div>
+          <p style="font-size:0.88rem; color:#d6c6b4; line-height:1.7; margin-bottom:20px;">
+            Heirloom handloom sarees woven with pure Mulberry silk, tested zari, and the soul of Indian artisan traditions. Preserving master weavers since 1984.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Pages Directory</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">1. Home</a></li>
+            <li><a href="about.html">2. About Us</a></li>
+            <li><a href="shop.html">3. Shop / All Sarees</a></li>
+            <li><a href="collections.html">4. Collections</a></li>
+            <li><a href="product-details.html?id=1">5. Product Details</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="wishlist.html">6. Wishlist</a></li>
+            <li><a href="cart.html">7. Shopping Cart</a></li>
+            <li><a href="videos.html">8. Videos & Reels</a></li>
+            <li><a href="reviews.html">9. Customer Reviews</a></li>
+            <li><a href="contact.html">10. Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Royal Privilege Club</h4>
+          <p style="font-size:0.85rem; color:#d6c6b4; margin-bottom:16px;">
+            Subscribe to receive private previews of new handloom drops and bridal trunks.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://instagram.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-instagram"></i></a>
+            <a href="javascript:void(0)" onclick="DemoStore.openWhatsApp()" class="social-icon-circle"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://pinterest.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 DEMO SILKS Private Limited. Handcrafted with pride in India. All Rights Reserved.</div>
+        <div style="display:flex; gap:18px;">
+          <a href="shop.html">Privacy Policy</a>
+          <a href="shop.html">Silk Mark Verification</a>
+          <a href="contact.html">Store Locator</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/spin-wheel.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGlobalComponents('wishlist');
+
+      // If user came with an empty wishlist on first visit, let's pre-populate 2 favourites so it's not totally blank for draft preview!
+      let currentWish = DemoStore.getWishlist();
+      if (currentWish.length === 0) {
+        DemoStore.saveWishlist([1, 4]); // Swarna Kamal & Mayil Peacock
+      }
+
+      renderWishlist();
+    });
+
+    function renderWishlist() {
+      const wishIds = DemoStore.getWishlist();
+      const grid = document.getElementById('wishlistGrid');
+      const emptyState = document.getElementById('wishlistEmptyState');
+      const actionsBar = document.getElementById('wishlistActionsBar');
+      const countText = document.getElementById('wishlistCountText');
+      const subtitle = document.getElementById('wishlistCountSubtitle');
+
+      const items = SAREE_PRODUCTS.filter(p => wishIds.includes(p.id));
+
+      if (items.length === 0) {
+        grid.style.display = 'none';
+        actionsBar.style.display = 'none';
+        emptyState.style.display = 'block';
+        subtitle.textContent = "Your wishlist is currently waiting for your favourite heirlooms.";
+      } else {
+        emptyState.style.display = 'none';
+        grid.style.display = 'grid';
+        actionsBar.style.display = 'flex';
+        countText.textContent = `${items.length} Saree${items.length > 1 ? 's' : ''} in Wishlist`;
+        subtitle.textContent = `You have saved ${items.length} heirloom masterpiece${items.length > 1 ? 's' : ''}.`;
+
+        grid.innerHTML = items.map(p => `
+          <div class="saree-card" data-id="${p.id}">
+            <div class="saree-thumb-wrapper">
+              <a href="product-details.html?id=${p.id}">
+                <img src="${p.images[0]}" alt="${p.name}" class="saree-thumb" />
+              </a>
+              <div class="saree-badges">
+                <span class="badge-tag badge-silkmark">? Silk Mark</span>
+              </div>
+              <button class="saree-wish-btn active" title="Remove from Wishlist" onclick="removeWishlistItem(${p.id})">
+                ?
+              </button>
+            </div>
+            <div class="saree-content">
+              <span class="saree-category">${p.categoryName}</span>
+              <h3 class="saree-title">
+                <a href="product-details.html?id=${p.id}">${p.name}</a>
+              </h3>
+              <div class="saree-price-row">
+                <span class="saree-current-price">${DemoStore.formatPrice(p.price)}</span>
+                <span class="saree-original-price">${DemoStore.formatPrice(p.originalPrice)}</span>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <button class="btn-royal-primary" style="width:100%; font-size:0.8rem; padding:10px;" onclick="moveItemToCart(${p.id})">
+                  <i class="fa-solid fa-bag-shopping"></i> Move To Cart
+                </button>
+                <button class="btn-royal-outline" style="width:100%; font-size:0.75rem; padding:8px;" onclick="DemoStore.openProductWhatsApp(${p.id})">
+                  <i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp
+                </button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      DemoStore.updateBadges();
+    }
+
+    function removeWishlistItem(productId) {
+      DemoStore.toggleWishlist(productId);
+      renderWishlist();
+    }
+
+    function moveItemToCart(productId) {
+      DemoStore.addToCart(productId, 1);
+      DemoStore.toggleWishlist(productId);
+      renderWishlist();
+    }
+
+    function moveAllToCart() {
+      const wishIds = DemoStore.getWishlist();
+      wishIds.forEach(id => {
+        DemoStore.addToCart(id, 1);
+      });
+      DemoStore.saveWishlist([]);
+      renderWishlist();
+      DemoStore.showToast("All sarees moved to Cart!");
+    }
+
+    function shareWishlistWhatsApp() {
+      const wishIds = DemoStore.getWishlist();
+      const items = SAREE_PRODUCTS.filter(p => wishIds.includes(p.id));
+      if (items.length === 0) return;
+
+      let msg = "Namaste! Here are my favourite sarees from DEMO SILKS:\n\n";
+      items.forEach((item, idx) => {
+        msg += `${idx + 1}. ${item.name} (${item.sku}) - ₹${item.price.toLocaleString('en-IN')}\n`;
+      });
+      msg += "\nPlease let me know if these are in stock for a video viewing.";
+
+      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
+

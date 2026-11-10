@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Royal Heritage & Master Weavers | DEMO SILKS</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/spin-wheel.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       UNIQUE BESPOKE STYLES (NO REPETITIVE BOX CARDS)
+       ========================================================================== */
+    
+    /* 1. Typography & Contrast */
+    .c-maroon { color: #560a18 !important; }
+    .c-gold { color: #9d7306 !important; }
+    .c-espresso { color: #221418 !important; line-height: 1.7; }
+    .text-glow { text-shadow: 0 1px 14px rgba(255, 252, 247, 0.95); }
+    
+    .royal-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(197, 155, 39, 0.15);
+      border: 1.2px solid #b8860b;
+      color: #560a18;
+      padding: 5px 16px;
+      border-radius: 30px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* 2. Hero Arched Frame */
+    .hero-arch-frame {
+      border-radius: 140px 140px 20px 20px;
+      overflow: hidden;
+      border: 2.5px solid #d4af37;
+      box-shadow: 0 18px 45px rgba(98, 17, 34, 0.15);
+      position: relative;
+    }
+
+    /* 3. Section 2: Storytelling Layout */
+    .story-stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 252, 247, 0.92);
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      border-radius: 50px;
+      padding: 8px 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    }
+
+    /* 4. Section 3: Jharokha Arched Portals (Vision & Mission) */
+    .portal-arch {
+      border-radius: 70px 70px 16px 16px;
+      border: 2px solid #d4af37;
+      background: rgba(255, 252, 247, 0.94);
+      backdrop-filter: blur(14px);
+      padding: 34px 28px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 12px 30px rgba(98, 17, 34, 0.08);
+      transition: transform 0.3s ease;
+    }
+    .portal-arch:hover {
+      transform: translateY(-5px);
+      border-color: #b8860b;
+    }
+    .portal-crest {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #621122;
+      color: #fae29c;
+      border: 2px solid #d4af37;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin: -60px auto 16px auto;
+      box-shadow: 0 6px 18px rgba(98, 17, 34, 0.35);
+    }
+
+    /* 5. Section 4: Saree Specialities (Archival Specimen Strips) */
+    .specimen-col {
+      background: rgba(255, 252, 247, 0.92);
+      border-left: 3px solid #621122;
+      border-top: 1px solid rgba(212, 175, 55, 0.4);
+      border-right: 1px solid rgba(212, 175, 55, 0.4);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 0 14px 14px 0;
+      padding: 22px 18px;
+      transition: all 0.25s ease;
+    }
+    .specimen-col:hover {
+      background: #ffffff;
+      border-left-color: #b8860b;
+      transform: translateX(4px);
+      box-shadow: 0 8px 24px rgba(98, 17, 34, 0.08);
+    }
+
+    /* 6. Section 5: Brand Values (Circular Seal Medallions) */
+    .seal-medallion {
+      text-align: center;
+      padding: 10px;
+    }
+    .seal-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #621122 0%, #3e0712 100%);
+      color: #fae29c;
+      border: 2.5px double #d4af37;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin: 0 auto 14px auto;
+      box-shadow: 0 8px 20px rgba(98, 17, 34, 0.28);
+      transition: transform 0.3s ease;
+    }
+    .seal-medallion:hover .seal-circle {
+      transform: scale(1.08) rotate(5deg);
+    }
+
+    /* 7. Section 6: Founder Archival Signature Layout */
+    .founder-ornament-card {
+      background: rgba(255, 252, 247, 0.94);
+      border: 1.5px solid #d4af37;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+    }
+    .founder-quote-box {
+      border-left: 3px solid #b8860b;
+      padding-left: 18px;
+      margin: 12px 0 16px 0;
+      font-style: italic;
+      color: #3e0712;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* 8. Section 7: Continuous Golden Milestone Ribbon */
+    .milestone-track {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      position: relative;
+    }
+    .milestone-node-box {
+      background: rgba(255, 252, 247, 0.94);
+      border: 1.2px solid #d4af37;
+      border-radius: 12px;
+      padding: 18px 14px;
+      text-align: center;
+      position: relative;
+      transition: transform 0.25s ease;
+    }
+    .milestone-node-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(98, 17, 34, 0.1);
+    }
+    .milestone-year-tag {
+      display: inline-block;
+      background: #621122;
+      color: #fae29c;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+
+    /* 9. Section 8: Royal CTA Ribbon */
+    .cta-royal-ribbon {
+      background: linear-gradient(135deg, rgba(86, 10, 24, 0.96) 0%, rgba(42, 6, 12, 0.98) 100%);
+      border: 2px solid #d4af37;
+      border-radius: 20px;
+      padding: 32px 30px;
+      text-align: center;
+      box-shadow: 0 16px 45px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
+
+  <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR -->
+    <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR -->
+  <header class="main-header" id="mainHeader">
+    <div class="nav-fullwidth-container">
+      <!-- 1. Brand Logo -->
+      <a href="index.html" class="nav-brand-logo" title="Demo Silks Royal Heritage Weaves">
+        <img src="assets/images/navbar-logo-clean.png" alt="Demo Silks" class="nav-logo-img">
+      </a>
+
+      <!-- 2. Navigation Menu Items (Single Horizontal Row) -->
+      <nav class="nav-menu-wrapper">
+        <ul class="nav-menu-royal">
+          <li class="nav-item-royal">
+            <a href="index.html" class="nav-link-royal">Home</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="about.html" class="nav-link-royal active-pill">About Us</a>
+          </li>
+          <li class="nav-item-royal has-dropdown">
+            <a href="collections.html" class="nav-link-royal">Collections <i class="fa-solid fa-chevron-down nav-chevron"></i></a>
+            <div class="nav-dropdown">
+              <a href="collections.html#kanchipuram">Kanchipuram Silk</a>
+              <a href="collections.html#banarasi">Banarasi Silk</a>
+              <a href="collections.html#softsilk">Soft Silk</a>
+              <a href="collections.html#mysoresilk">Mysore Silk</a>
+              <a href="collections.html#organza">Organza</a>
+              <div class="dropdown-divider"></div>
+              <a href="collections.html" class="dropdown-highlight">Explore All Collections →</a>
+            </div>
+          </li>
+          <li class="nav-item-royal">
+            <a href="videos.html" class="nav-link-royal">Videos & Reels</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="reviews.html" class="nav-link-royal">Customer Reviews</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="contact.html" class="nav-link-royal">Contact Us</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="shop.html" class="nav-btn-shop" title="Shop All Sarees">
+              <i class="fa-solid fa-bag-shopping"></i> Shop
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- 3. Right Action Icons -->
+      <div class="nav-actions-royal">
+        <button type="button" class="royal-icon-btn" onclick="openSearchModal()" title="Search Sarees">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="wishlist.html" class="royal-icon-btn" title="Saved Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-pill wish-badge">2</span>
+        </a>
+        <a href="cart.html" class="royal-icon-btn" title="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-pill cart-badge">3</span>
+        </a>
+        <a href="contact.html" class="royal-icon-btn" title="Account / Concierge">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button type="button" class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileMenu" class="mobile-nav-drawer" style="display:none;">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active-mobile-link">About Us</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="videos.html">Videos & Reels</a></li>
+      <li><a href="reviews.html">Customer Reviews</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li style="margin-top:6px;">
+        <a href="shop.html" class="nav-btn-shop mobile-shop-btn">
+          <i class="fa-solid fa-bag-shopping"></i> Shop All Sarees →
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <main style="padding: 24px 0 50px 0;">
+    <div class="container" style="max-width: 1140px;">
+
+      <!-- ==========================================================================
+           1. HERO & BRAND INTRO: ASYMMETRICAL EDITORIAL SPLIT (NO BOX CARD)
+           ========================================================================== -->
+      <section style="margin-bottom: 34px;">
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 36px; align-items: center;">
+          <div>
+            <div class="royal-badge-pill" style="margin-bottom: 10px;">
+              <i class="fa-solid fa-crown"></i> Heritage Atelier • Est. 1984
+            </div>
+            <h1 class="c-maroon text-glow" style="font-family: 'Cinzel', serif; font-size: 2.5rem; line-height: 1.18; margin-bottom: 12px;">
+              The Soul of Indian Handloom: <br/>
+              <span class="text-gold-gradient">Woven For Heirlooms</span>
+            </h1>
+            <p class="c-espresso text-glow" style="font-size: 1rem; margin-bottom: 18px; font-weight: 500;">
+              Founded in Kanchipuram with three sacred pit looms, <strong>DEMO SILKS</strong> has safeguarded genuine Indian handloom weaving for over four decades. We connect generations of master weavers with bridal patrons across 45+ countries.
+            </p>
+
+            <!-- Inline Floating Stat Pills -->
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <div class="story-stat-pill">
+                <i class="fa-solid fa-certificate" style="color: #9d7306;"></i>
+                <span style="font-size: 0.82rem; font-weight: 700; color: #560a18;">100% Silk Mark Certified</span>
+              </div>
+              <div class="story-stat-pill">
+                <i class="fa-solid fa-shield-halved" style="color: #9d7306;"></i>
+                <span style="font-size: 0.82rem; font-weight: 700; color: #560a18;">Tested 24K Gold Zari</span>
+              </div>
+              <div class="story-stat-pill">
+                <i class="fa-solid fa-people-group" style="color: #9d7306;"></i>
+                <span style="font-size: 0.82rem; font-weight: 700; color: #560a18;">500+ Weaver Families</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pit Loom Mastery Arched Heritage Portrait -->
+          <div style="border-radius: 24px; overflow: hidden; border: 2px solid #d4af37; box-shadow: 0 16px 40px rgba(98, 17, 34, 0.18); max-width: 440px; margin: 0 auto; background: rgba(255, 252, 247, 0.95);">
+            <img src="assets/images/about-hero-pitloom.jpg" alt="Pit Loom Mastery - Demo Silks" style="width: 100%; height: auto; display: block; object-fit: cover;">
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           2. BRAND STORY: EDITORIAL NARRATIVE & 3 MILESTONE BADGES (NO BOX CARD)
+           ========================================================================== -->
+      <section style="margin-bottom: 34px; padding: 20px 0; border-top: 1px dashed rgba(212, 175, 55, 0.5); border-bottom: 1px dashed rgba(212, 175, 55, 0.5);">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+          <div>
+            <span class="royal-badge-pill" style="margin-bottom: 8px;">Our Genesis</span>
+            <h2 class="c-maroon" style="font-family: 'Cinzel', serif; font-size: 1.8rem; margin: 4px 0 10px 0;">
+              From Three Pit Looms to Royal Drapes
+            </h2>
+            <p class="c-espresso" style="font-size: 0.92rem; margin-bottom: 10px; font-weight: 500;">
+              In 1984, as mechanized powerlooms began flooding markets with synthetic blends, third-generation weaver <strong>Devendra Sundaram</strong> gathered three master artisans in Kanchipuram under a sacred vow: <em>Never compromise the truth of the thread</em>.
+            </p>
+            <p class="c-espresso" style="font-size: 0.92rem; margin: 0; font-weight: 500;">
+              Over 40 years, that courtyard atelier grew into an esteemed collective uniting weavers across Kanchipuram, Varanasi, Chanderi, and Arani—delivering heirloom authenticity directly to patrons.
+            </p>
+          </div>
+
+          <!-- 3 Pillars Row -->
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 14px; background: rgba(255, 252, 247, 0.9); border: 1.2px solid #d4af37; border-radius: 12px; padding: 12px 16px;">
+              <div style="width: 38px; height: 38px; border-radius: 50%; background: #621122; color: #fae29c; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;">
+                <i class="fa-solid fa-gopuram"></i>
+              </div>
+              <div>
+                <strong class="c-maroon" style="font-size: 0.9rem; display: block;">Kanchipuram Roots</strong>
+                <span class="c-espresso" style="font-size: 0.8rem;">Revived interlocking Korvai temple borders with 3 throw shuttles.</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 14px; background: rgba(255, 252, 247, 0.9); border: 1.2px solid #d4af37; border-radius: 12px; padding: 12px 16px;">
+              <div style="width: 38px; height: 38px; border-radius: 50%; background: #621122; color: #fae29c; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;">
+                <i class="fa-solid fa-ban"></i>
+              </div>
+              <div>
+                <strong class="c-maroon" style="font-size: 0.9rem; display: block;">Zero Powerlooms</strong>
+                <span class="c-espresso" style="font-size: 0.8rem;">Every single six-yard drape is woven purely by human hands on wooden looms.</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 14px; background: rgba(255, 252, 247, 0.9); border: 1.2px solid #d4af37; border-radius: 12px; padding: 12px 16px;">
+              <div style="width: 38px; height: 38px; border-radius: 50%; background: #621122; color: #fae29c; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;">
+                <i class="fa-solid fa-earth-americas"></i>
+              </div>
+              <div>
+                <strong class="c-maroon" style="font-size: 0.9rem; display: block;">Global Bridal Reach</strong>
+                <span class="c-espresso" style="font-size: 0.8rem;">Over 25,000 brides adorned in USA, UK, Canada, UAE, and Singapore.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           3. VISION & MISSION: ARMORED JHAROKHA ARCH PORTALS (UNIQUE ARCH DESIGN)
+           ========================================================================== -->
+      <section style="margin-bottom: 34px; padding-top: 24px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 26px;">
+          
+          <!-- Vision Portal -->
+          <div class="portal-arch">
+            <div class="portal-crest">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+            <span class="royal-badge-pill" style="font-size: 0.68rem; margin-bottom: 6px;">Our Vision</span>
+            <h3 class="c-maroon" style="font-family: 'Cinzel', serif; font-size: 1.35rem; margin: 4px 0 8px 0;">Handloom as Fine Art</h3>
+            <p class="c-espresso" style="font-size: 0.9rem; margin: 0; font-weight: 500;">
+              To elevate authentic Indian handloom sarees to museum-grade, wearable fine art celebrated on global fashion stages for generations to come.
+            </p>
+          </div>
+
+          <!-- Mission Portal -->
+          <div class="portal-arch">
+            <div class="portal-crest">
+              <i class="fa-solid fa-compass"></i>
+            </div>
+            <span class="royal-badge-pill" style="font-size: 0.68rem; margin-bottom: 6px;">Our Mission</span>
+            <h3 class="c-maroon" style="font-family: 'Cinzel', serif; font-size: 1.35rem; margin: 4px 0 8px 0;">Purity & Fair-Trade Dignity</h3>
+            <p class="c-espresso" style="font-size: 0.9rem; margin: 0; font-weight: 500;">
+              To weave certified 100% pure Mulberry silk with tested 24K gold zari, ensuring transparent fair-trade prosperity and pensions for our master artisans.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           4. SAREE COLLECTIONS & SPECIALITIES: ARCHIVAL SPECIMEN STRIPS (5 SIGNATURE LINEAGES)
+           ========================================================================== -->
+      <section style="margin-bottom: 34px;">
+        <div style="text-align: center; margin-bottom: 16px;">
+          <span class="royal-badge-pill">Master Weaves</span>
+          <h2 class="c-maroon" style="font-family: 'Cinzel', serif; font-size: 1.8rem; margin: 4px 0 2px 0;">Saree Specialities</h2>
+          <p class="c-espresso" style="font-size: 0.85rem; margin: 0;">Five distinct handloom lineages crafted with generational perfection.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;">
+          
+          <div class="specimen-col">
+            <span style="font-size: 0.7rem; font-weight: 700; color: #9d7306; text-transform: uppercase;">1. Kanchipuram</span>
+            <h4 class="c-maroon" style="font-family: 'Cinzel', serif; font-size: 1rem; margin: 4px 0 6px 0;">Kanchipuram Silk</h4>
+            <p class="c-espresso" style="font-size: 0.78rem; margin: 0 0 6px 0;">3-ply twisted mulberry silk, interlocking Korvai temple borders, and authentic 24K gold zari.</p>
+            <span style="font-size: 0.7rem; font-weight: 700; color: #560a18;">850g Weight • Pure 24K Zari</span>
+          </div>
+
+          <div class="specimen-col">
+            <span style="font-size: 0.7rem; font-weight: 700; color: #9d7306; text-transform: uppercase;">2. Varanasi</span>
+            <h4 class="c-maroon" style="font-family: 'Cinzel', serif; font-size: 1rem; margin: 4px 0 6px 0;">Banarasi Silk</h4>
+            <p class="c-espresso" style="font-size: 0.78rem; margin: 0 0 6px 0;">Kadwa Katan brocades featuring Sona-Rupa Shikargah royal hunting jaals and fine meenakari.</p>
+            <span style="font-size: 0.7rem; font-weight: 700; color: #560a18;">Kadwa Weave • Pure Brocade</span>
+          </div>
+
+          <div class="specimen-col">
+            <span style="font-size: 0.7rem; font-weight: 700; color: #9d7306; text-transform: uppercase;">3. Tamil Nadu</span>
+            <h4 class="c-maroon" style="font-family: 'Cinzel', serif; font-size: 1rem; margin: 4px 0 6px 0;">Soft Silk</h4>
+            <p class="c-espresso" style="font-size: 0.78rem; margin: 0 0 6px 0;">Featherweight, buttery-soft pure silk drape with pastel poetry and delicate zari borders.</p>
+            <span style="font-size: 0.7rem; font-weight: 700; color: #560a18;">Featherlight • All-Day Comfort</span>
+          </div>
+
+          <div class="specimen-col">
+            <span style="font-size: 0.7rem; font-weight: 700; color: #9d7306; text-transform: uppercase;">4. Mysore</span>
+            <h4 class="c-maroon" style="font-family: 'Cinzel', serif; font-size: 1rem; margin: 4px 0 6px 0;">Mysore Silk</h4>
+            <p class="c-espresso" style="font-size: 0.78rem; margin: 0 0 6px 0;">100% royal crepe silk woven with hallmarked pure gold zari borders and supple royal drape.</p>
+            <span style="font-size: 0.7rem; font-weight: 700; color: #560a18;">Pure Crepe • Hallmarked Zari</span>
+          </div>
+
+          <div class="specimen-col">
+            <span style="font-size: 0.7rem; font-weight: 700; color: #9d7306; text-transform: uppercase;">5. Atelier Studio</span>
+            <h4 class="c-maroon" style="font-family: 'Cinzel', serif; font-size: 1rem; margin: 4px 0 6px 0;">Organza</h4>
+            <p class="c-espresso" style="font-size: 0.78rem; margin: 0 0 6px 0;">Crystalline metallic tissue organza with delicate floral resham bootis and scalloped borders.</p>
+            <span style="font-size: 0.7rem; font-weight: 700; color: #560a18;">Translucent • Luminous Glow</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           5. BRAND VALUES: CIRCULAR SEAL MEDALLIONS (UNIQUE CIRCLE LAYOUT)
+           ========================================================================== -->
+      <section style="margin-bottom: 34px; padding: 18px 0; border-top: 1px dashed rgba(212, 175, 55, 0.5); border-bottom: 1px dashed rgba(212, 175, 55, 0.5);">
+        <div style="text-align: center; margin-bottom: 16px;">
+          <span class="royal-badge-pill">Integrity</span>
+          <h2 class="c-maroon" style="font-family: 'Cinzel', serif; font-size: 1.8rem; margin: 4px 0 2px 0;">Brand Values & Commitment</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+          
+          <div class="seal-medallion">
+            <div class="seal-circle"><i class="fa-solid fa-stamp"></i></div>
+            <strong class="c-maroon" style="font-family: 'Cinzel', serif; font-size: 0.95rem; display: block; margin-bottom: 4px;">100% Silk Mark</strong>
+            <span class="c-espresso" style="font-size: 0.8rem; font-weight: 500;">Govt. certified pure Mulberry silk; zero synthetics.</span>
+          </div>
+
+          <div class="seal-medallion">
+            <div class="seal-circle"><i class="fa-solid fa-coins"></i></div>
+            <strong class="c-maroon" style="font-family: 'Cinzel', serif; font-size: 0.95rem; display: block; margin-bottom: 4px;">Tested 24K Real Zari</strong>
+            <span class="c-espresso" style="font-size: 0.8rem; font-weight: 500;">Real silver core in 24K gold bath with lab purity assay.</span>
+          </div>
+
+          <div class="seal-medallion">
+            <div class="seal-circle"><i class="fa-solid fa-hands-holding-child"></i></div>
+            <strong class="c-maroon" style="font-family: 'Cinzel', serif; font-size: 0.95rem; display: block; margin-bottom: 4px;">Fair-Trade Weavers</strong>
+            <span class="c-espresso" style="font-size: 0.8rem; font-weight: 500;">Direct living wages, healthcare, and weaver pensions.</span>
+          </div>
+
+          <div class="seal-medallion">
+            <div class="seal-circle"><i class="fa-solid fa-gem"></i></div>
+            <strong class="c-maroon" style="font-family: 'Cinzel', serif; font-size: 0.95rem; display: block; margin-bottom: 4px;">Bridal Commitment</strong>
+            <span class="c-espresso" style="font-size: 0.8rem; font-weight: 500;">1-on-1 virtual video shopping & DHL worldwide delivery.</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           6. FOUNDER DETAILS: WORDS FROM THE FOUNDER (EXACT ROYAL BANNER)
+           ========================================================================== -->
+      <section style="margin-bottom: 34px;">
+        <div style="max-width: 960px; margin: 0 auto; border-radius: 20px; overflow: hidden; border: 2.5px solid #d4af37; box-shadow: 0 18px 45px rgba(98, 17, 34, 0.16); background: rgba(255, 252, 247, 0.96); transition: transform 0.3s ease;">
+          <img src="assets/images/about-founder-banner.jpg" alt="Words from the Founder - Devendra Sundaram, Founder & Master Weaver" style="width: 100%; height: auto; display: block;">
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           7. BRAND JOURNEY & ACHIEVEMENTS: GOLDEN RIBBON TIMELINE (UNIQUE TIMELINE)
+           ========================================================================== -->
+      <section style="margin-bottom: 34px;">
+        <div style="text-align: center; margin-bottom: 16px;">
+          <span class="royal-badge-pill">Historic Journey</span>
+          <h2 class="c-maroon" style="font-family: 'Cinzel', serif; font-size: 1.8rem; margin: 4px 0 2px 0;">Milestones of Glory</h2>
+        </div>
+
+        <div class="milestone-track">
+          
+          <div class="milestone-node-box">
+            <span class="milestone-year-tag">1984</span>
+            <strong class="c-maroon" style="font-size: 0.82rem; display: block; margin-bottom: 4px;">Genesis</strong>
+            <span class="c-espresso" style="font-size: 0.75rem;">Started with 3 pit looms in Kanchipuram.</span>
+          </div>
+
+          <div class="milestone-node-box">
+            <span class="milestone-year-tag">1996</span>
+            <strong class="c-maroon" style="font-size: 0.82rem; display: block; margin-bottom: 4px;">Varanasi Guild</strong>
+            <span class="c-espresso" style="font-size: 0.75rem;">Revived authentic Kadwa brocades.</span>
+          </div>
+
+          <div class="milestone-node-box">
+            <span class="milestone-year-tag">2008</span>
+            <strong class="c-maroon" style="font-size: 0.82rem; display: block; margin-bottom: 4px;">National Award</strong>
+            <span class="c-espresso" style="font-size: 0.75rem;">Awarded National Handloom Distinction.</span>
+          </div>
+
+          <div class="milestone-node-box">
+            <span class="milestone-year-tag">2016</span>
+            <strong class="c-maroon" style="font-size: 0.82rem; display: block; margin-bottom: 4px;">Lab Assay</strong>
+            <span class="c-espresso" style="font-size: 0.75rem;">Pioneered 24K zari lab certificates.</span>
+          </div>
+
+          <div class="milestone-node-box">
+            <span class="milestone-year-tag">2026</span>
+            <strong class="c-maroon" style="font-size: 0.82rem; display: block; margin-bottom: 4px;">25,000+ Brides</strong>
+            <span class="c-espresso" style="font-size: 0.75rem;">Heirlooms cherished across 45 nations.</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           8. CTA: ROYAL ACTION RIBBON (UNIQUE BANNER)
+           ========================================================================== -->
+      <section>
+        <div class="cta-royal-ribbon">
+          <h2 style="font-family: 'Cinzel', serif; font-size: 1.85rem; color: #fae29c; margin-bottom: 8px;">
+            Begin Your Royal Saree Journey
+          </h2>
+          <p style="color: #f7ede2; font-size: 0.92rem; max-width: 580px; margin: 0 auto 18px auto;">
+            Explore our curated handloom collections or book a private 1-on-1 virtual video shopping consultation with our master stylists.
+          </p>
+
+          <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px;">
+            <a href="shop.html" class="btn-royal-primary" style="padding: 10px 24px; font-size: 0.9rem;">
+              Explore All Sarees <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i>
+            </a>
+            <a href="contact.html" class="btn-royal-gold" style="padding: 10px 24px; font-size: 0.9rem;">
+              <i class="fa-solid fa-video" style="margin-right: 6px;"></i> Book Video Shopping
+            </a>
+            <a href="collections.html" class="btn-royal-outline" style="padding: 10px 24px; font-size: 0.9rem; border-color: #fae29c; color: #fae29c;">
+              View Curated Edits
+            </a>
+          </div>
+
+          <div style="font-size: 0.78rem; color: #fae29c; opacity: 0.9;">
+            <span><i class="fa-solid fa-phone"></i> +91 98765 43210</span>
+            <span style="margin: 0 10px;">•</span>
+            <span><i class="fa-solid fa-location-dot"></i> Boutiques: Chennai • Kanchipuram • Bangalore</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- LUXURY SITE FOOTER -->
+  <footer class="site-footer" id="contactSection">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+            <div class="logo-symbol" style="width:38px; height:38px; font-size:1.1rem;">D</div>
+            <span style="font-family:var(--font-royal); font-size:1.3rem; font-weight:700; color:#fff;">DEMO SILKS</span>
+          </div>
+          <p style="font-size:0.88rem; color:#d6c6b4; line-height:1.7; margin-bottom:20px;">
+            Heirloom handloom sarees woven with pure Mulberry silk, tested 24K gold zari, and generational pride. Certified Silk Mark authentic weaves shipped to brides worldwide.
+          </p>
+          <div style="display:flex; gap:12px; font-size:0.85rem; color:#fae29c;">
+            <i class="fa-solid fa-shield-halved"></i> 100% Certified Handloom Guarantee
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Pages Directory</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">1. Home</a></li>
+            <li><a href="about.html">2. About Us</a></li>
+            <li><a href="shop.html">3. Shop / All Sarees</a></li>
+            <li><a href="collections.html">4. Collections</a></li>
+            <li><a href="product-details.html?id=1">5. Product Details</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="wishlist.html">6. Wishlist</a></li>
+            <li><a href="cart.html">7. Shopping Cart</a></li>
+            <li><a href="videos.html">8. Videos & Reels</a></li>
+            <li><a href="reviews.html">9. Customer Reviews</a></li>
+            <li><a href="contact.html">10. Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Royal Privilege Club</h4>
+          <p style="font-size:0.85rem; color:#d6c6b4; margin-bottom:16px;">
+            Subscribe to receive private previews of new handloom drops and bridal appointments.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://instagram.com" target="_blank" class="social-icon-circle" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="javascript:void(0)" onclick="DemoStore.openWhatsApp()" class="social-icon-circle" title="WhatsApp Concierge"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-icon-circle" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://pinterest.com" target="_blank" class="social-icon-circle" title="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 DEMO SILKS Private Limited. Handcrafted with pride in India. All Rights Reserved.</div>
+        <div style="display:flex; gap:18px;">
+          <a href="shop.html">Privacy Policy</a>
+          <a href="shop.html">Silk Mark Verification</a>
+          <a href="contact.html">Store Locator</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/spin-wheel.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGlobalComponents('about');
+    });
+
+    function toggleMobileNav() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu) {
+        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+      }
+    }
+  </script>
+</body>
+</html>

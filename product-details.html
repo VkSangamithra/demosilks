@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | Handloom Silk Saree | DEMO SILKS</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/spin-wheel.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
+
+  
+
+          <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR (PURE CLEAN DESIGN - NO OVERLAYS) -->
+    <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR -->
+  <header class="main-header" id="mainHeader">
+    <div class="nav-fullwidth-container">
+      <!-- 1. Brand Logo -->
+      <a href="index.html" class="nav-brand-logo" title="Demo Silks Royal Heritage Weaves">
+        <img src="assets/images/navbar-logo-clean.png" alt="Demo Silks" class="nav-logo-img">
+      </a>
+
+      <!-- 2. Navigation Menu Items (Single Horizontal Row) -->
+      <nav class="nav-menu-wrapper">
+        <ul class="nav-menu-royal">
+          <li class="nav-item-royal">
+            <a href="index.html" class="nav-link-royal">Home</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="about.html" class="nav-link-royal">About Us</a>
+          </li>
+          <li class="nav-item-royal has-dropdown">
+            <a href="collections.html" class="nav-link-royal">Collections <i class="fa-solid fa-chevron-down nav-chevron"></i></a>
+            <div class="nav-dropdown">
+              <a href="collections.html#kanchipuram">Kanchipuram Silk</a>
+              <a href="collections.html#banarasi">Banarasi Silk</a>
+              <a href="collections.html#softsilk">Soft Silk</a>
+              <a href="collections.html#mysoresilk">Mysore Silk</a>
+              <a href="collections.html#organza">Organza</a>
+              <div class="dropdown-divider"></div>
+              <a href="collections.html" class="dropdown-highlight">Explore All Collections →</a>
+            </div>
+          </li>
+          <li class="nav-item-royal">
+            <a href="videos.html" class="nav-link-royal">Videos & Reels</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="reviews.html" class="nav-link-royal">Customer Reviews</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="contact.html" class="nav-link-royal">Contact Us</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="shop.html" class="nav-btn-shop" title="Shop All Sarees">
+              <i class="fa-solid fa-bag-shopping"></i> Shop
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- 3. Right Action Icons -->
+      <div class="nav-actions-royal">
+        <button type="button" class="royal-icon-btn" onclick="openSearchModal()" title="Search Sarees">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="wishlist.html" class="royal-icon-btn" title="Saved Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-pill wish-badge">2</span>
+        </a>
+        <a href="cart.html" class="royal-icon-btn" title="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-pill cart-badge">3</span>
+        </a>
+        <a href="contact.html" class="royal-icon-btn" title="Account / Concierge">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button type="button" class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileMenu" class="mobile-nav-drawer" style="display:none;">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="videos.html">Videos & Reels</a></li>
+      <li><a href="reviews.html">Customer Reviews</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li style="margin-top:6px;">
+        <a href="shop.html" class="nav-btn-shop mobile-shop-btn">
+          <i class="fa-solid fa-bag-shopping"></i> Shop All Sarees →
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Product Breadcrumb & Details Main Container -->
+  <div class="container" style="padding-top: 30px;">
+    <!-- Breadcrumb -->
+    <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 24px;">
+      <a href="index.html">Home</a> &gt; 
+      <a href="shop.html">Sarees</a> &gt; 
+      <span id="breadcrumbCategory">Kanjivaram</span> &gt; 
+      <strong id="breadcrumbTitle" style="color:var(--color-maroon-dark);">Swarna Kamal Kanjivaram</strong>
+    </div>
+
+    <!-- Product Details Main 2-Column Grid -->
+    <div class="product-details-grid">
+      <!-- Left: Interactive Gallery -->
+      <div class="product-gallery">
+        <div id="thumbColumn" class="thumbnail-column">
+          <!-- Thumbnails rendered by JS -->
+        </div>
+        <div class="main-preview-frame">
+          <img id="mainProductImg" src="" alt="Saree Preview" class="main-preview-image">
+          <div style="position:absolute; top:16px; left:16px; display:flex; flex-direction:column; gap:6px;">
+            <span class="badge-tag badge-silkmark">✓ Certified Pure Silk</span>
+            <span class="badge-tag badge-bestseller">Bridal Choice</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Product Info & Actions -->
+      <div class="product-info-panel">
+        <div class="royal-card" style="padding: 32px;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+            <span id="pCategoryBadge" style="font-size:0.75rem; font-family:var(--font-royal); font-weight:700; color:var(--color-gold-dark); text-transform:uppercase; letter-spacing:0.1em;">
+              KANJIVARAM SILK
+            </span>
+            <span id="pSku" style="font-size:0.75rem; color:var(--color-text-muted); font-family:monospace;">
+              SKU: DS-KAN-0101
+            </span>
+          </div>
+
+          <h1 id="pTitle" style="font-size:2rem; line-height:1.25; margin-bottom:12px; color:var(--color-maroon-dark);">
+            Swarna Kamal Kanjivaram Pure Silk Saree
+          </h1>
+
+          <!-- Reviews Rating Stars -->
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px; font-size:0.9rem;">
+            <div style="color:var(--color-gold); font-size:1.1rem;">★ ★ ★ ★ ★</div>
+            <span id="pRatingText" style="font-weight:700; color:var(--color-maroon-dark);">4.9 / 5</span>
+            <span style="color:var(--color-text-muted); font-size:0.8rem;">(128 Connoisseur Reviews)</span>
+          </div>
+
+          <!-- Price Row -->
+          <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:20px; border-bottom:1px solid var(--color-gold-border); padding-bottom:18px;">
+            <span id="pPrice" style="font-family:var(--font-royal); font-size:2.2rem; font-weight:800; color:var(--color-primary-maroon);">₹42,500</span>
+            <span id="pOriginalPrice" style="font-size:1.1rem; color:#9ca3af; text-decoration:line-through;">₹48,900</span>
+            <span id="pDiscount" class="saree-discount-badge" style="font-size:0.85rem; padding:4px 10px;">13% OFF</span>
+            <span style="font-size:0.78rem; color:var(--color-text-muted); margin-left:auto;">Inclusive of all taxes</span>
+          </div>
+
+          <!-- Narrative Description -->
+          <p id="pDescription" style="color:var(--color-text-muted); font-size:0.95rem; line-height:1.7; margin-bottom:24px;">
+            An ethereal heirloom woven by master weavers of Kanchipuram. Featuring intricate golden lotus (Kamal) and mayil (peacock) motifs on royal crimson red silk, framed by a majestic 12-inch korvai zari temple border.
+          </p>
+
+          <!-- Color & Fabric Highlights Box -->
+          <div style="background:rgba(197, 155, 39, 0.08); border:1px solid var(--color-gold-border); border-radius:12px; padding:16px; margin-bottom:20px; display:grid; grid-template-columns:1fr 1fr; gap:12px; font-size:0.88rem;">
+            <div><strong>Fabric:</strong> <span id="pFabric">Pure Mulberry Silk</span></div>
+            <div><strong>Zari:</strong> <span id="pZari">Tested 24K Gold Zari</span></div>
+            <div><strong>Color:</strong> <span id="pColor">Crimson Red</span></div>
+            <div><strong>Occasion:</strong> <span id="pOccasion">Bridal Muhurtham</span></div>
+          </div>
+
+          <!-- Blouse Stitching & Customization Picker -->
+          <div style="margin-bottom: 24px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <label style="font-size:0.82rem; font-weight:700; color:var(--color-maroon-dark); text-transform:uppercase; letter-spacing:0.06em;">
+                ✂️ Blouse Customization
+              </label>
+              <button type="button" onclick="openMeasurementGuide()" style="background:none; border:none; color:var(--color-primary-maroon); font-size:0.75rem; text-decoration:underline; cursor:pointer;">
+                Size & Measurement Guide
+              </button>
+            </div>
+
+            <div class="blouse-options-grid">
+              <div class="blouse-option-card selected" onclick="selectBlouseOption('unstitched', 0, this)">
+                <div style="font-weight:700; font-size:0.85rem; color:var(--color-maroon-dark); margin-bottom:4px;">Unstitched Piece</div>
+                <div style="font-size:0.75rem; color:var(--color-text-muted);">80cm pure silk fabric included with saree</div>
+                <div style="font-size:0.78rem; color:var(--color-emerald); font-weight:700; margin-top:6px;">FREE</div>
+              </div>
+
+              <div class="blouse-option-card" onclick="selectBlouseOption('standard', 1500, this)">
+                <div style="font-weight:700; font-size:0.85rem; color:var(--color-maroon-dark); margin-bottom:4px;">Tailored Blouse</div>
+                <div style="font-size:0.75rem; color:var(--color-text-muted);">Padded with lining & piping in size 32-44</div>
+                <div style="font-size:0.78rem; color:var(--color-primary-maroon); font-weight:700; margin-top:6px;">+₹1,500</div>
+              </div>
+
+              <div class="blouse-option-card" onclick="selectBlouseOption('maggam', 4500, this)">
+                <div style="font-weight:700; font-size:0.85rem; color:var(--color-maroon-dark); margin-bottom:4px;">Bridal Zardozi Work</div>
+                <div style="font-size:0.75rem; color:var(--color-text-muted);">Heavy hand aari/maggam embroidery on sleeves</div>
+                <div style="font-size:0.78rem; color:var(--color-gold-dark); font-weight:700; margin-top:6px;">+₹4,500</div>
+              </div>
+            </div>
+
+            <!-- Tailoring Size Selector (Appears if tailored/maggam selected) -->
+            <div id="tailoringSizeRow" style="display:none; margin-top:12px; background:rgba(255,255,255,0.7); border:1px solid var(--color-gold-border); border-radius:10px; padding:12px; font-size:0.82rem;">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                <div>
+                  <label style="display:block; font-weight:600; margin-bottom:4px;">Bust Size (Inches):</label>
+                  <select id="blouseBustSize" style="width:100%; padding:6px 10px; border-radius:6px; border:1px solid var(--color-gold-border); background:#fff;">
+                    <option>Size 32 (XS)</option>
+                    <option>Size 34 (S)</option>
+                    <option selected>Size 36 (M)</option>
+                    <option>Size 38 (L)</option>
+                    <option>Size 40 (XL)</option>
+                    <option>Size 42 (2XL)</option>
+                    <option>Size 44 (3XL)</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="display:block; font-weight:600; margin-bottom:4px;">Neckline Design:</label>
+                  <select id="blouseNeckStyle" style="width:100%; padding:6px 10px; border-radius:6px; border:1px solid var(--color-gold-border); background:#fff;">
+                    <option>Royal Sweetheart Neck</option>
+                    <option>Classic Round Neck</option>
+                    <option>Regal Boat Neck</option>
+                    <option>Deep U with Dori & Latkans</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quantity & Action Buttons -->
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
+            <div style="display:flex; align-items:center; border:1px solid var(--color-gold-border); border-radius:30px; background:#fff; padding:4px 8px;">
+              <button onclick="changeQty(-1)" style="border:none; background:none; font-size:1.2rem; width:30px; cursor:pointer;">-</button>
+              <span id="pQty" style="width:30px; text-align:center; font-weight:700;">1</span>
+              <button onclick="changeQty(1)" style="border:none; background:none; font-size:1.2rem; width:30px; cursor:pointer;">+</button>
+            </div>
+
+            <button id="btnAddToCartMain" class="btn-royal-primary" style="flex:1;">
+              <i class="fa-solid fa-bag-shopping"></i> Add To Shopping Cart
+            </button>
+
+            <button id="btnWishlistMain" class="saree-wish-btn" style="position:static; width:48px; height:48px; font-size:1.2rem;" title="Add to Wishlist">
+              🤍
+            </button>
+          </div>
+
+          <!-- WhatsApp Enquiry & Video Shopping Buttons -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px;">
+            <button id="btnWhatsAppEnquire" class="btn-royal-primary" style="background:#25d366; border:none; font-size:0.8rem; padding:12px;">
+              <i class="fa-brands fa-whatsapp"></i> Enquire on WhatsApp
+            </button>
+            <button onclick="DemoStore.openWhatsApp('Hello! I would like to schedule a Live Video Drape view for this saree.')" class="btn-royal-gold" style="font-size:0.8rem; padding:12px;">
+              <i class="fa-solid fa-video"></i> Book Video View
+            </button>
+          </div>
+
+          <!-- Trust Badges -->
+          <div style="border-top:1px solid var(--color-gold-border); padding-top:18px; display:flex; justify-content:space-between; font-size:0.78rem; color:var(--color-text-muted);">
+            <div><i class="fa-solid fa-truck" style="color:var(--color-primary-maroon);"></i> Dispatch within 24 Hours</div>
+            <div><i class="fa-solid fa-certificate" style="color:var(--color-gold);"></i> 100% Pure Silk Mark</div>
+            <div><i class="fa-solid fa-shield-halved" style="color:var(--color-emerald);"></i> 7-Day Easy Exchange</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabbed Specifications & Saree Care -->
+    <div class="royal-card" style="padding:40px; margin-bottom:60px;">
+      <div style="display:flex; gap:24px; border-bottom:2px solid var(--color-gold-border); padding-bottom:12px; margin-bottom:28px;">
+        <button class="nav-link active" onclick="switchTab('specsTab', this)" style="background:none; border:none; cursor:pointer; font-size:1.05rem;">
+          Detailed Specifications
+        </button>
+        <button class="nav-link" onclick="switchTab('careTab', this)" style="background:none; border:none; cursor:pointer; font-size:1.05rem;">
+          Care & Heirloom Preservation
+        </button>
+        <button class="nav-link" onclick="switchTab('deliveryTab', this)" style="background:none; border:none; cursor:pointer; font-size:1.05rem;">
+          Shipping, Blouse Stitching & Returns
+        </button>
+      </div>
+
+      <!-- Tab 1: Specifications -->
+      <div id="specsTab">
+        <h3 style="font-size:1.3rem; color:var(--color-maroon-dark); margin-bottom:16px;">Weaving & Technical Details</h3>
+        <table id="specsTable" class="product-specs-table">
+          <!-- Filled by JS -->
+        </table>
+      </div>
+
+      <!-- Tab 2: Care Instructions -->
+      <div id="careTab" style="display:none;">
+        <h3 style="font-size:1.3rem; color:var(--color-maroon-dark); margin-bottom:16px;">How To Preserve Your Heirloom</h3>
+        <ul style="list-style:disc; margin-left:24px; line-height:2; color:var(--color-text-muted); font-size:0.95rem;">
+          <li><strong>Dry Clean Only:</strong> Never machine wash or soak your pure silk handloom saree in water.</li>
+          <li><strong>Muslin Wrap:</strong> Always wrap the saree in breathable pure cotton or unbleached muslin fabric (included complimentary with your order).</li>
+          <li><strong>Air Circulation:</strong> Unfold and air your silk saree in shade every 4 to 6 months to prevent creasing along fold lines.</li>
+          <li><strong>Zari Protection:</strong> Do not spray perfume, hairspray, or deodorants directly onto gold or silver zari threads.</li>
+          <li><strong>Ironing:</strong> Always iron on the reverse side using medium-low heat or steam through a protective cotton cloth.</li>
+        </ul>
+      </div>
+
+      <!-- Tab 3: Shipping & Custom Blouse -->
+      <div id="deliveryTab" style="display:none;">
+        <h3 style="font-size:1.3rem; color:var(--color-maroon-dark); margin-bottom:16px;">Delivery & Custom Tailoring</h3>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; color:var(--color-text-muted); font-size:0.95rem; line-height:1.7;">
+          <div>
+            <h4 style="color:var(--color-maroon-dark); margin-bottom:8px;">Express Shipping</h4>
+            <p>Pan-India orders are dispatched via BlueDart/DTDC Air Express within 24 to 48 hours (delivery in 2-4 business days). International deliveries via DHL Express take 4 to 6 business days worldwide.</p>
+          </div>
+          <div>
+            <h4 style="color:var(--color-maroon-dark); margin-bottom:8px;">Custom Blouse Stitching & Fall/Pico</h4>
+            <p>Every saree comes with an unstitched matching blouse piece. We offer custom bridal blouse designing, hand zardozi embroidery, and fall/pico service upon request via WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Sarees Section -->
+    <div style="margin-bottom:60px;">
+      <div class="section-header">
+        <span class="section-tag">Complete The Royal Look</span>
+        <h2 class="section-title">You May Also Cherish</h2>
+        <div class="section-divider">
+          <span></span><i class="fa-solid fa-crown"></i><span></span>
+        </div>
+      </div>
+      <div id="relatedSareesGrid" class="products-grid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Master Royal Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+            <div class="logo-symbol" style="width:38px; height:38px; font-size:1.1rem;">D</div>
+            <span style="font-family:var(--font-royal); font-size:1.3rem; font-weight:800; color:#fae29c; letter-spacing:0.1em;">DEMO SILKS</span>
+          </div>
+          <p style="font-size:0.88rem; color:#d6c6b4; line-height:1.7; margin-bottom:20px;">
+            Heirloom handloom sarees woven with pure Mulberry silk, tested zari, and the soul of Indian artisan traditions. Preserving master weavers since 1984.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Pages Directory</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">1. Home</a></li>
+            <li><a href="about.html">2. About Us</a></li>
+            <li><a href="shop.html">3. Shop / All Sarees</a></li>
+            <li><a href="collections.html">4. Collections</a></li>
+            <li><a href="product-details.html?id=1">5. Product Details</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="wishlist.html">6. Wishlist</a></li>
+            <li><a href="cart.html">7. Shopping Cart</a></li>
+            <li><a href="videos.html">8. Videos & Reels</a></li>
+            <li><a href="reviews.html">9. Customer Reviews</a></li>
+            <li><a href="contact.html">10. Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Royal Privilege Club</h4>
+          <p style="font-size:0.85rem; color:#d6c6b4; margin-bottom:16px;">
+            Subscribe to receive private previews of new handloom drops and bridal trunks.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://instagram.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-instagram"></i></a>
+            <a href="javascript:void(0)" onclick="DemoStore.openWhatsApp()" class="social-icon-circle"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://pinterest.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 DEMO SILKS Private Limited. Handcrafted with pride in India. All Rights Reserved.</div>
+        <div style="display:flex; gap:18px;">
+          <a href="shop.html">Privacy Policy</a>
+          <a href="shop.html">Silk Mark Verification</a>
+          <a href="contact.html">Store Locator</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/spin-wheel.js"></script>
+  <script>
+    let currentQty = 1;
+    let currentProduct = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGlobalComponents('details');
+
+      const params = new URLSearchParams(window.location.search);
+      const prodId = parseInt(params.get('id')) || 1;
+      currentProduct = SAREE_PRODUCTS.find(p => p.id === prodId) || SAREE_PRODUCTS[0];
+
+      loadProductDetails(currentProduct);
+    });
+
+    function loadProductDetails(p) {
+      document.title = `${p.name} | DEMO SILKS`;
+      document.getElementById('breadcrumbCategory').textContent = p.categoryName;
+      document.getElementById('breadcrumbTitle').textContent = p.name;
+      document.getElementById('pCategoryBadge').textContent = `${p.categoryName} • ${p.occasion}`;
+      document.getElementById('pSku').textContent = `SKU: ${p.sku}`;
+      document.getElementById('pTitle').textContent = p.name;
+      document.getElementById('pRatingText').textContent = `${p.rating} / 5 (${p.reviewsCount} Reviews)`;
+      document.getElementById('pPrice').textContent = DemoStore.formatPrice(p.price);
+      document.getElementById('pOriginalPrice').textContent = DemoStore.formatPrice(p.originalPrice);
+      document.getElementById('pDiscount').textContent = `${p.discountPercent}% OFF`;
+      document.getElementById('pDescription').textContent = p.description;
+      document.getElementById('pFabric').textContent = p.fabric;
+      document.getElementById('pZari').textContent = p.zari;
+      document.getElementById('pColor').textContent = p.color;
+      document.getElementById('pOccasion').textContent = p.occasion;
+
+      // Gallery Images
+      const mainImg = document.getElementById('mainProductImg');
+      mainImg.src = p.images[0];
+
+      const thumbCol = document.getElementById('thumbColumn');
+      thumbCol.innerHTML = p.images.map((img, idx) => `
+        <div class="thumb-item ${idx === 0 ? 'active' : ''}" onclick="selectThumb('${img}', this)">
+          <img src="${img}" alt="${p.name}">
+        </div>
+      `).join('');
+
+      // Specs Table
+      const specsTable = document.getElementById('specsTable');
+      specsTable.innerHTML = Object.entries(p.specs).map(([key, val]) => `
+        <tr>
+          <td>${key}</td>
+          <td>${val}</td>
+        </tr>
+      `).join('');
+
+      // Buttons Action setup
+      document.getElementById('btnAddToCartMain').onclick = () => {
+        let note = "Unstitched matching blouse piece";
+        if (selectedBlouseType !== 'unstitched') {
+          const sz = document.getElementById('blouseBustSize').value;
+          const nk = document.getElementById('blouseNeckStyle').value;
+          note = `${selectedBlouseType === 'maggam' ? 'Bridal Zardozi Blouse' : 'Tailored Blouse'} (${sz}, ${nk})`;
+        }
+        DemoStore.addToCart(p.id, currentQty, note);
+      };
+
+      const wishBtn = document.getElementById('btnWishlistMain');
+      wishBtn.dataset.id = p.id;
+      wishBtn.onclick = (e) => handleWishlistClick(e, p.id);
+
+      document.getElementById('btnWhatsAppEnquire').onclick = () => {
+        DemoStore.openProductWhatsApp(p.id);
+      };
+
+      // Related products (same category or others)
+      const related = SAREE_PRODUCTS.filter(item => item.id !== p.id).slice(0, 4);
+      document.getElementById('relatedSareesGrid').innerHTML = related.map(item => createSareeCardHTML(item)).join('');
+
+      DemoStore.updateBadges();
+    }
+
+    let selectedBlouseType = 'unstitched';
+    let blouseExtraCost = 0;
+
+    function selectBlouseOption(type, cost, el) {
+      selectedBlouseType = type;
+      blouseExtraCost = cost;
+      document.querySelectorAll('.blouse-option-card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+
+      const sizeRow = document.getElementById('tailoringSizeRow');
+      if (type === 'unstitched') {
+        sizeRow.style.display = 'none';
+      } else {
+        sizeRow.style.display = 'block';
+      }
+
+      // Update displayed price if extra cost
+      if (currentProduct) {
+        const totalUnit = currentProduct.price + cost;
+        document.getElementById('pPrice').textContent = DemoStore.formatPrice(totalUnit);
+      }
+    }
+
+    function openMeasurementGuide() {
+      let modal = document.getElementById('measurementModal');
+      if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'measurementModal';
+        modal.className = 'modal-overlay';
+        modal.innerHTML = `
+          <div class="modal-content" style="max-width:550px;">
+            <button class="modal-close-btn" onclick="document.getElementById('measurementModal').classList.remove('active')">✕</button>
+            <h3 style="font-size:1.4rem; color:var(--color-maroon-dark); margin-bottom:12px;">Standard Saree Blouse Sizing</h3>
+            <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:16px;">All our stitched blouses include 2-inch side seam margins for effortless alteration at home.</p>
+            <table class="product-specs-table" style="font-size:0.85rem;">
+              <tr style="background:rgba(197,155,39,0.15);">
+                <th>Size</th><th>Bust (Inches)</th><th>Waist (Inches)</th><th>Armhole</th>
+              </tr>
+              <tr><td>Size 32 (XS)</td><td>32"</td><td>26"</td><td>14.5"</td></tr>
+              <tr><td>Size 34 (S)</td><td>34"</td><td>28"</td><td>15.5"</td></tr>
+              <tr><td>Size 36 (M)</td><td>36"</td><td>30"</td><td>16.5"</td></tr>
+              <tr><td>Size 38 (L)</td><td>38"</td><td>32"</td><td>17.5"</td></tr>
+              <tr><td>Size 40 (XL)</td><td>40"</td><td>34"</td><td>18.5"</td></tr>
+              <tr><td>Size 42 (2XL)</td><td>42"</td><td>36"</td><td>19.5"</td></tr>
+              <tr><td>Size 44 (3XL)</td><td>44"</td><td>38"</td><td>20.5"</td></tr>
+            </table>
+            <div style="margin-top:16px; text-align:center;">
+              <button onclick="DemoStore.openWhatsApp('Hello! I would like to send my custom blouse measurements.')" class="btn-royal-primary" style="font-size:0.8rem; padding:8px 16px;">
+                <i class="fa-brands fa-whatsapp"></i> Send Custom Measurements
+              </button>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(modal);
+      }
+      modal.classList.add('active');
+    }
+
+    function selectThumb(src, el) {
+      document.getElementById('mainProductImg').src = src;
+      document.querySelectorAll('.thumb-item').forEach(item => item.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    function changeQty(delta) {
+      currentQty = Math.max(1, currentQty + delta);
+      document.getElementById('pQty').textContent = currentQty;
+    }
+
+    function switchTab(tabId, btn) {
+      document.getElementById('specsTab').style.display = 'none';
+      document.getElementById('careTab').style.display = 'none';
+      document.getElementById('deliveryTab').style.display = 'none';
+      document.getElementById(tabId).style.display = 'block';
+
+      btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>
+

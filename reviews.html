@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Reviews & Ratings | 4.9/5 Stars | DEMO SILKS</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/spin-wheel.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
+
+  
+
+          <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR (PURE CLEAN DESIGN - NO OVERLAYS) -->
+    <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR -->
+  <header class="main-header" id="mainHeader">
+    <div class="nav-fullwidth-container">
+      <!-- 1. Brand Logo -->
+      <a href="index.html" class="nav-brand-logo" title="Demo Silks Royal Heritage Weaves">
+        <img src="assets/images/navbar-logo-clean.png" alt="Demo Silks" class="nav-logo-img">
+      </a>
+
+      <!-- 2. Navigation Menu Items (Single Horizontal Row) -->
+      <nav class="nav-menu-wrapper">
+        <ul class="nav-menu-royal">
+          <li class="nav-item-royal">
+            <a href="index.html" class="nav-link-royal">Home</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="about.html" class="nav-link-royal">About Us</a>
+          </li>
+          <li class="nav-item-royal has-dropdown">
+            <a href="collections.html" class="nav-link-royal">Collections <i class="fa-solid fa-chevron-down nav-chevron"></i></a>
+            <div class="nav-dropdown">
+              <a href="collections.html#kanchipuram">Kanchipuram Silk</a>
+              <a href="collections.html#banarasi">Banarasi Silk</a>
+              <a href="collections.html#softsilk">Soft Silk</a>
+              <a href="collections.html#mysoresilk">Mysore Silk</a>
+              <a href="collections.html#organza">Organza</a>
+              <div class="dropdown-divider"></div>
+              <a href="collections.html" class="dropdown-highlight">Explore All Collections →</a>
+            </div>
+          </li>
+          <li class="nav-item-royal">
+            <a href="videos.html" class="nav-link-royal">Videos & Reels</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="reviews.html" class="nav-link-royal active-pill">Customer Reviews</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="contact.html" class="nav-link-royal">Contact Us</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="shop.html" class="nav-btn-shop" title="Shop All Sarees">
+              <i class="fa-solid fa-bag-shopping"></i> Shop
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- 3. Right Action Icons -->
+      <div class="nav-actions-royal">
+        <button type="button" class="royal-icon-btn" onclick="openSearchModal()" title="Search Sarees">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="wishlist.html" class="royal-icon-btn" title="Saved Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-pill wish-badge">2</span>
+        </a>
+        <a href="cart.html" class="royal-icon-btn" title="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-pill cart-badge">3</span>
+        </a>
+        <a href="contact.html" class="royal-icon-btn" title="Account / Concierge">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button type="button" class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileMenu" class="mobile-nav-drawer" style="display:none;">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="videos.html">Videos & Reels</a></li>
+      <li><a href="reviews.html">Customer Reviews</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li style="margin-top:6px;">
+        <a href="shop.html" class="nav-btn-shop mobile-shop-btn">
+          <i class="fa-solid fa-bag-shopping"></i> Shop All Sarees →
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Page Header -->
+  <section style="padding: 40px 0 20px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Unfiltered Testimonials</span>
+        <h1 class="section-title">Customer Reviews & Feedback</h1>
+        <div class="section-divider">
+          <span></span><i class="fa-solid fa-star"></i><span></span>
+        </div>
+        <p class="section-desc">
+          Discover genuine stories from women who celebrated their most cherished wedding days, receptions, and festivals draped in DEMO SILKS.
+        </p>
+      </div>
+
+      <!-- Rating Overview Card -->
+      <div class="royal-card" style="padding: 40px; margin-bottom: 40px; border:2px solid var(--color-gold);">
+        <div style="display:grid; grid-template-columns: 280px 1fr 220px; gap:40px; align-items:center;">
+          <!-- Score Big Box -->
+          <div style="text-align:center; border-right:1px solid var(--color-gold-border); padding-right:20px;">
+            <div style="font-family:var(--font-royal); font-size:3.8rem; font-weight:800; color:var(--color-primary-maroon); line-height:1;">4.9</div>
+            <div style="color:var(--color-gold); font-size:1.4rem; margin:8px 0;">? ? ? ? ?</div>
+            <div style="font-size:0.85rem; color:var(--color-text-muted);">Based on 2,418 Verified Buyers</div>
+            <div style="font-size:0.75rem; color:var(--color-emerald); font-weight:700; margin-top:4px;">? 99.4% Recommendation Rate</div>
+          </div>
+
+          <!-- Progress Bars -->
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div style="display:flex; align-items:center; gap:12px; font-size:0.85rem;">
+              <span style="width:50px;">5 Stars</span>
+              <div style="flex:1; height:8px; background:#e5e7eb; border-radius:10px; overflow:hidden;">
+                <div style="width:92%; height:100%; background:var(--color-gold-shimmer);"></div>
+              </div>
+              <span style="width:40px; font-weight:600;">92%</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:12px; font-size:0.85rem;">
+              <span style="width:50px;">4 Stars</span>
+              <div style="flex:1; height:8px; background:#e5e7eb; border-radius:10px; overflow:hidden;">
+                <div style="width:7%; height:100%; background:var(--color-gold);"></div>
+              </div>
+              <span style="width:40px; font-weight:600;">7%</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:12px; font-size:0.85rem;">
+              <span style="width:50px;">3 Stars</span>
+              <div style="flex:1; height:8px; background:#e5e7eb; border-radius:10px; overflow:hidden;">
+                <div style="width:1%; height:100%; background:#d1d5db;"></div>
+              </div>
+              <span style="width:40px; font-weight:600;">1%</span>
+            </div>
+          </div>
+
+          <!-- Write Review Button -->
+          <div style="text-align:center;">
+            <div style="font-size:0.85rem; color:var(--color-maroon-dark); font-weight:700; margin-bottom:12px;">Purchased an heirloom?</div>
+            <button onclick="openWriteReviewModal()" class="btn-royal-primary" style="width:100%;">
+              <i class="fa-solid fa-pen-nib"></i> Write A Review
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reviews Filters Toolbar -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; flex-wrap:wrap; gap:12px;">
+        <div style="display:flex; gap:8px;">
+          <button class="eval-pill active" onclick="filterReviewsList('all', this)">All Reviews (5)</button>
+          <button class="eval-pill" onclick="filterReviewsList(5, this)">5-Star Reviews (4)</button>
+          <button class="eval-pill" onclick="filterReviewsList(4, this)">4-Star Reviews (1)</button>
+        </div>
+        <span id="reviewsCountBadge" style="font-size:0.85rem; font-weight:600; color:var(--color-maroon-dark);">
+          Showing 5 Reviews
+        </span>
+      </div>
+
+      <!-- Reviews Grid -->
+      <div id="reviewsListGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(360px, 1fr)); gap:28px; margin-bottom:60px;">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITE A REVIEW MODAL -->
+  <div id="writeReviewModal" class="modal-overlay">
+    <div class="modal-content" style="max-width:600px;">
+      <button class="modal-close-btn" onclick="closeWriteReviewModal()">?</button>
+      <div style="text-align:center; margin-bottom:20px;">
+        <span class="section-tag">Share Your Royal Experience</span>
+        <h2 style="font-size:1.6rem; color:var(--color-maroon-dark);">Write a Customer Review</h2>
+        <div class="section-divider">
+          <span></span><i class="fa-solid fa-pen"></i><span></span>
+        </div>
+      </div>
+
+      <form onsubmit="handleReviewSubmit(event)">
+        <!-- Star Selection -->
+        <div style="text-align:center; margin-bottom:20px;">
+          <label style="display:block; font-size:0.85rem; font-weight:700; margin-bottom:8px;">Your Rating *</label>
+          <div style="font-size:2rem; color:var(--color-gold); cursor:pointer;" id="modalStarPicker">
+            <span onclick="setModalStars(1)">?</span>
+            <span onclick="setModalStars(2)">?</span>
+            <span onclick="setModalStars(3)">?</span>
+            <span onclick="setModalStars(4)">?</span>
+            <span onclick="setModalStars(5)">?</span>
+          </div>
+          <input type="hidden" id="reviewStarVal" value="5">
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+          <div>
+            <label style="display:block; font-size:0.78rem; font-weight:600; margin-bottom:4px;">Your Name *</label>
+            <input type="text" id="revName" required placeholder="e.g. Shalini Menon" style="width:100%; padding:9px 12px; border:1px solid var(--color-gold-border); border-radius:8px;">
+          </div>
+          <div>
+            <label style="display:block; font-size:0.78rem; font-weight:600; margin-bottom:4px;">Your City / Country *</label>
+            <input type="text" id="revLocation" required placeholder="e.g. Hyderabad, India" style="width:100%; padding:9px 12px; border:1px solid var(--color-gold-border); border-radius:8px;">
+          </div>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <label style="display:block; font-size:0.78rem; font-weight:600; margin-bottom:4px;">Saree You Purchased *</label>
+          <select id="revSaree" style="width:100%; padding:9px 12px; border:1px solid var(--color-gold-border); border-radius:8px; background:#fff;">
+            <option>Swarna Kamal Kanchipuram Pure Silk Saree</option>
+            <option>Varanasi Shikargah Kadwa Banarasi Silk Saree</option>
+            <option>Amrita Lavender Grace Pure Soft Silk Saree</option>
+            <option>Rajmatha Royal Navy Mysore Crepe Silk Saree</option>
+            <option>Apsara Mint Bloom Pure Tissue Organza Saree</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <label style="display:block; font-size:0.78rem; font-weight:600; margin-bottom:4px;">Review Headline *</label>
+          <input type="text" id="revHeadline" required placeholder="e.g. The drape felt like pure majesty!" style="width:100%; padding:9px 12px; border:1px solid var(--color-gold-border); border-radius:8px;">
+        </div>
+
+        <div style="margin-bottom:20px;">
+          <label style="display:block; font-size:0.78rem; font-weight:600; margin-bottom:4px;">Detailed Review & Drape Experience *</label>
+          <textarea id="revComment" required rows="4" placeholder="Tell us about the fabric weight, zari shine, packaging, or compliments you received..." style="width:100%; padding:9px 12px; border:1px solid var(--color-gold-border); border-radius:8px;"></textarea>
+        </div>
+
+        <button type="submit" class="btn-royal-primary" style="width:100%; padding:12px;">
+          Submit Review For Verification
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Master Royal Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+            <div class="logo-symbol" style="width:38px; height:38px; font-size:1.1rem;">D</div>
+            <span style="font-family:var(--font-royal); font-size:1.3rem; font-weight:800; color:#fae29c; letter-spacing:0.1em;">DEMO SILKS</span>
+          </div>
+          <p style="font-size:0.88rem; color:#d6c6b4; line-height:1.7; margin-bottom:20px;">
+            Heirloom handloom sarees woven with pure Mulberry silk, tested zari, and the soul of Indian artisan traditions. Preserving master weavers since 1984.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Pages Directory</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">1. Home</a></li>
+            <li><a href="about.html">2. About Us</a></li>
+            <li><a href="shop.html">3. Shop / All Sarees</a></li>
+            <li><a href="collections.html">4. Collections</a></li>
+            <li><a href="product-details.html?id=1">5. Product Details</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="wishlist.html">6. Wishlist</a></li>
+            <li><a href="cart.html">7. Shopping Cart</a></li>
+            <li><a href="videos.html">8. Videos & Reels</a></li>
+            <li><a href="reviews.html">9. Customer Reviews</a></li>
+            <li><a href="contact.html">10. Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Royal Privilege Club</h4>
+          <p style="font-size:0.85rem; color:#d6c6b4; margin-bottom:16px;">
+            Subscribe to receive private previews of new handloom drops and bridal trunks.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://instagram.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-instagram"></i></a>
+            <a href="javascript:void(0)" onclick="DemoStore.openWhatsApp()" class="social-icon-circle"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://pinterest.com" target="_blank" class="social-icon-circle"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 DEMO SILKS Private Limited. Handcrafted with pride in India. All Rights Reserved.</div>
+        <div style="display:flex; gap:18px;">
+          <a href="shop.html">Privacy Policy</a>
+          <a href="shop.html">Silk Mark Verification</a>
+          <a href="contact.html">Store Locator</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/spin-wheel.js"></script>
+  <script>
+    let customReviews = JSON.parse(localStorage.getItem('demo_custom_reviews') || '[]');
+    let activeReviews = [...customReviews, ...REVIEWS_DATA];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGlobalComponents('reviews');
+      renderReviews(activeReviews);
+    });
+
+    function renderReviews(items) {
+      const grid = document.getElementById('reviewsListGrid');
+      document.getElementById('reviewsCountBadge').textContent = `Showing ${items.length} Reviews`;
+
+      grid.innerHTML = items.map(r => `
+        <div class="royal-card" style="padding:28px; display:flex; flex-direction:column;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+            <div style="color:var(--color-gold); font-size:1.1rem; letter-spacing:2px;">
+              ${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}
+            </div>
+            <span style="font-size:0.75rem; color:var(--color-text-muted);">${r.date}</span>
+          </div>
+
+          <h4 style="font-size:1.15rem; color:var(--color-maroon-dark); margin-bottom:8px; line-height:1.35;">
+            "${r.headline}"
+          </h4>
+
+          <div style="font-size:0.78rem; color:var(--color-gold-dark); font-weight:700; margin-bottom:12px; background:rgba(197,155,39,0.08); padding:4px 10px; border-radius:6px; display:inline-block; align-self:flex-start;">
+            <i class="fa-solid fa-bag-shopping" style="color:var(--color-gold-dark);"></i> Bought: ${r.sareeBought}
+          </div>
+
+          <p style="color:var(--color-text-muted); font-size:0.9rem; line-height:1.7; margin-bottom:18px; flex-grow:1;">
+            ${r.review}
+          </p>
+
+          <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(197,155,39,0.2); padding-top:14px; margin-top:auto;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <img src="${r.avatar}" alt="${r.name}" style="width:42px; height:42px; border-radius:50%; object-fit:cover; border:1px solid var(--color-gold);">
+              <div>
+                <div style="font-weight:700; font-size:0.88rem; color:var(--color-maroon-dark);">${r.name}</div>
+                <div style="font-size:0.72rem; color:var(--color-emerald); font-weight:600;">
+                  <i class="fa-solid fa-circle-check"></i> Verified Buyer — ${r.location}
+                </div>
+              </div>
+            </div>
+
+            <button onclick="likeReview(this, ${r.likes})" style="border:none; background:none; color:var(--color-text-muted); font-size:0.78rem; cursor:pointer;">
+              <i class="fa-regular fa-thumbs-up"></i> <span>${r.likes}</span>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterReviewsList(stars, btn) {
+      document.querySelectorAll('.eval-pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+
+      if (stars === 'all') {
+        renderReviews(activeReviews);
+      } else {
+        const filtered = activeReviews.filter(r => r.rating === parseInt(stars));
+        renderReviews(filtered);
+      }
+    }
+
+    function likeReview(btn, curLikes) {
+      const span = btn.querySelector('span');
+      span.textContent = parseInt(span.textContent) + 1;
+      btn.style.color = 'var(--color-primary-maroon)';
+      btn.style.fontWeight = '700';
+      DemoStore.showToast("Thank you for your feedback!");
+    }
+
+    function openWriteReviewModal() {
+      document.getElementById('writeReviewModal').classList.add('active');
+    }
+
+    function closeWriteReviewModal() {
+      document.getElementById('writeReviewModal').classList.remove('active');
+    }
+
+    function setModalStars(num) {
+      document.getElementById('reviewStarVal').value = num;
+      const stars = document.getElementById('modalStarPicker').children;
+      for (let i = 0; i < 5; i++) {
+        stars[i].style.opacity = i < num ? '1' : '0.3';
+      }
+    }
+
+    function handleReviewSubmit(e) {
+      e.preventDefault();
+      const newRev = {
+        id: Date.now(),
+        name: document.getElementById('revName').value,
+        location: document.getElementById('revLocation').value,
+        rating: parseInt(document.getElementById('reviewStarVal').value),
+        date: "Just Now",
+        verified: true,
+        sareeBought: document.getElementById('revSaree').value,
+        headline: document.getElementById('revHeadline').value,
+        review: document.getElementById('revComment').value,
+        avatar: "assets/images/collection-kanchipuram.jpg",
+        likes: 1
+      };
+
+      customReviews.unshift(newRev);
+      localStorage.setItem('demo_custom_reviews', JSON.stringify(customReviews));
+      activeReviews = [...customReviews, ...REVIEWS_DATA];
+      renderReviews(activeReviews);
+      closeWriteReviewModal();
+      DemoStore.showToast("Review submitted successfully! Thank you for blessing our weavers.");
+    }
+  </script>
+</body>
+</html>
+

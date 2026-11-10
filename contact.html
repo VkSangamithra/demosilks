@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us & Video Shopping Appointments | DEMO SILKS</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/spin-wheel.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
+
+  
+
+          <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR (PURE CLEAN DESIGN - NO OVERLAYS) -->
+    <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR -->
+  <header class="main-header" id="mainHeader">
+    <div class="nav-fullwidth-container">
+      <!-- 1. Brand Logo -->
+      <a href="index.html" class="nav-brand-logo" title="Demo Silks Royal Heritage Weaves">
+        <img src="assets/images/navbar-logo-clean.png" alt="Demo Silks" class="nav-logo-img">
+      </a>
+
+      <!-- 2. Navigation Menu Items (Single Horizontal Row) -->
+      <nav class="nav-menu-wrapper">
+        <ul class="nav-menu-royal">
+          <li class="nav-item-royal">
+            <a href="index.html" class="nav-link-royal">Home</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="about.html" class="nav-link-royal">About Us</a>
+          </li>
+          <li class="nav-item-royal has-dropdown">
+            <a href="collections.html" class="nav-link-royal">Collections <i class="fa-solid fa-chevron-down nav-chevron"></i></a>
+            <div class="nav-dropdown">
+              <a href="collections.html#kanchipuram">Kanchipuram Silk</a>
+              <a href="collections.html#banarasi">Banarasi Silk</a>
+              <a href="collections.html#softsilk">Soft Silk</a>
+              <a href="collections.html#mysoresilk">Mysore Silk</a>
+              <a href="collections.html#organza">Organza</a>
+              <div class="dropdown-divider"></div>
+              <a href="collections.html" class="dropdown-highlight">Explore All Collections →</a>
+            </div>
+          </li>
+          <li class="nav-item-royal">
+            <a href="videos.html" class="nav-link-royal">Videos & Reels</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="reviews.html" class="nav-link-royal">Customer Reviews</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="contact.html" class="nav-link-royal active-pill">Contact Us</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="shop.html" class="nav-btn-shop" title="Shop All Sarees">
+              <i class="fa-solid fa-bag-shopping"></i> Shop
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- 3. Right Action Icons -->
+      <div class="nav-actions-royal">
+        <button type="button" class="royal-icon-btn" onclick="openSearchModal()" title="Search Sarees">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="wishlist.html" class="royal-icon-btn" title="Saved Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-pill wish-badge">2</span>
+        </a>
+        <a href="cart.html" class="royal-icon-btn" title="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-pill cart-badge">3</span>
+        </a>
+        <a href="contact.html" class="royal-icon-btn" title="Account / Concierge">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button type="button" class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileMenu" class="mobile-nav-drawer" style="display:none;">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="videos.html">Videos & Reels</a></li>
+      <li><a href="reviews.html">Customer Reviews</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li style="margin-top:6px;">
+        <a href="shop.html" class="nav-btn-shop mobile-shop-btn">
+          <i class="fa-solid fa-bag-shopping"></i> Shop All Sarees →
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Contact Hero Header Banner with Bride & Let's Connect -->
+  <div class="vnila-contact-hero-banner" style="margin-bottom: 36px;">
+    <div class="container" style="padding: 24px 20px;">
+      <div style="max-width: 530px;">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+          <span style="font-family:'Cinzel', serif; font-size:0.8rem; font-weight:700; letter-spacing:2px; color:#9c7042; text-transform:uppercase;">GET IN TOUCH</span>
+          <span style="width:40px; height:1px; background:#cda066;"></span>
+        </div>
+        <h1 style="font-family:'Cinzel', 'Playfair Display', Georgia, serif; font-size:2.3rem; font-weight:700; color:#4a0e1c; margin:0 0 8px; line-height:1.2;">Contact Us</h1>
+        <p style="font-family:'Plus Jakarta Sans', sans-serif; font-size:0.92rem; color:#68544c; line-height:1.6; margin:0;">
+          We'd love to hear from you! Whether you have a question, need assistance or just want to say hello — we're here for you.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <section style="padding: 0 0 20px 0;">
+    <div class="container">
+
+      <!-- Contact 2-Column Grid: Info & Form -->
+      <div style="display:grid; grid-template-columns: 1fr 1.2fr; gap:40px; margin-bottom:60px;">
+        <!-- Left: Boutique Details & Direct WhatsApp Card -->
+        <div style="display:flex; flex-direction:column; gap:24px;">
+          <!-- WhatsApp Priority Box -->
+          <div class="royal-card" style="padding:32px; background:linear-gradient(135deg, #0f5132 0%, #064e3b 100%); color:#fff; border:2px solid #25d366;">
+            <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px;">
+              <div style="width:48px; height:48px; border-radius:50%; background:#25d366; display:flex; align-items:center; justify-content:center; font-size:1.6rem; color:#fff;">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <div>
+                <h3 style="font-size:1.3rem; color:#fff; margin-bottom:2px;">Instant WhatsApp Stylist</h3>
+                <span style="font-size:0.8rem; color:#a7f3d0;">Typically replies in under 5 minutes</span>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; color:rgba(255,255,255,0.9); line-height:1.6; margin-bottom:20px;">
+              Direct line to our senior drape consultant. Ask for fabric close-ups, daylight video clips, or match jewellery with your chosen saree.
+            </p>
+            <button onclick="DemoStore.openWhatsApp('Hello DEMO SILKS! I would like to speak to a senior saree stylist.')" class="btn-royal-primary" style="background:#25d366; border:none; width:100%; font-size:0.9rem; padding:12px;">
+              <i class="fa-brands fa-whatsapp"></i> Start WhatsApp Conversation
+            </button>
+          </div>
+
+          <!-- Boutiques Location Details -->
+          <div class="royal-card" style="padding:32px;">
+            <h3 style="font-size:1.25rem; color:var(--color-maroon-dark); margin-bottom:18px; border-bottom:1px solid var(--color-gold-border); padding-bottom:10px;">
+              Flagship Boutiques
+            </h3>
+
+            <!-- Bangalore -->
+            <div style="margin-bottom:20px;">
+              <div style="font-weight:700; color:var(--color-maroon-dark); font-size:1rem; margin-bottom:4px;">
+                <i class="fa-solid fa-store" style="color:var(--color-gold);"></i> Bangalore Flagship Boutique
+              </div>
+              <p style="font-size:0.88rem; color:var(--color-text-muted); line-height:1.6;">
+                The Heritage Pavilion, 42/1, 100 Feet Road, Indiranagar, Bangalore, Karnataka - 560038
+              </p>
+              <div style="font-size:0.82rem; color:var(--color-gold-dark); margin-top:4px;">
+                <i class="fa-solid fa-phone"></i> +91 80 4123 4567 | Daily: 10:30 AM — 8:30 PM
+              </div>
+            </div>
+
+            <!-- Chennai -->
+            <div style="margin-bottom:20px;">
+              <div style="font-weight:700; color:var(--color-maroon-dark); font-size:1rem; margin-bottom:4px;">
+                <i class="fa-solid fa-building-columns" style="color:var(--color-gold);"></i> Chennai Atelier & Trousseau Lounge
+              </div>
+              <p style="font-size:0.88rem; color:var(--color-text-muted); line-height:1.6;">
+                Heritage Manor, 18, TTK Road, Alwarpet, Chennai, Tamil Nadu - 600018
+              </p>
+              <div style="font-size:0.82rem; color:var(--color-gold-dark); margin-top:4px;">
+                <i class="fa-solid fa-phone"></i> +91 44 2499 8765 | Daily: 10:00 AM — 8:00 PM
+              </div>
+            </div>
+
+            <!-- Global Concierge -->
+            <div style="border-top:1px dashed var(--color-gold-border); padding-top:14px;">
+              <div style="font-size:0.88rem; color:var(--color-text-dark); margin-bottom:6px;">
+                <strong>Global Video Calling Hotline:</strong> +91 98765 43210
+              </div>
+              <div style="font-size:0.88rem; color:var(--color-text-dark);">
+                <strong>Email Concierge:</strong> bespoke@demosilks.com
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="royal-card" style="padding:24px; text-align:center;">
+            <div style="font-size:0.9rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:12px;">Follow Our Saree Stories</div>
+            <div style="display:flex; justify-content:center; gap:14px;">
+              <a href="https://instagram.com" target="_blank" class="social-icon-circle" style="background:var(--color-primary-maroon); color:#fff;"><i class="fa-brands fa-instagram"></i></a>
+              <a href="javascript:void(0)" onclick="DemoStore.openWhatsApp()" class="social-icon-circle" style="background:#25d366; color:#fff;"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="https://youtube.com" target="_blank" class="social-icon-circle" style="background:#dc2626; color:#fff;"><i class="fa-brands fa-youtube"></i></a>
+              <a href="https://pinterest.com" target="_blank" class="social-icon-circle" style="background:#b91c1c; color:#fff;"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Saree Enquiry & Appointment Form -->
+        <div class="royal-card" style="padding:40px; border:2px solid var(--color-gold);">
+          <span class="section-tag">Book Personalized Consultation</span>
+          <h2 style="font-size:1.8rem; color:var(--color-maroon-dark); margin-bottom:8px;">Send an Enquiry or Schedule a Call</h2>
+          <p style="color:var(--color-text-muted); font-size:0.9rem; margin-bottom:24px;">
+            Fill in your preferred saree types and date. Our bridal stylist will reach out directly on WhatsApp or phone.
+          </p>
+
+          <form onsubmit="handleContactSubmit(event)">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+              <div>
+                <label style="display:block; font-size:0.8rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:6px;">Your Name *</label>
+                <input type="text" id="contactName" required placeholder="e.g. Priyamvada Rao" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--color-gold-border); outline:none;">
+              </div>
+              <div>
+                <label style="display:block; font-size:0.8rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:6px;">WhatsApp Phone Number *</label>
+                <input type="tel" id="contactPhone" required placeholder="+91 98450 XXXXX" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--color-gold-border); outline:none;">
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+              <div>
+                <label style="display:block; font-size:0.8rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:6px;">Email Address *</label>
+                <input type="email" id="contactEmail" required placeholder="yourname@gmail.com" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--color-gold-border); outline:none;">
+              </div>
+              <div>
+                <label style="display:block; font-size:0.8rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:6px;">Preferred Mode of Consultation *</label>
+                <select id="contactMode" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--color-gold-border); background:#fff; outline:none;">
+                  <option>WhatsApp Live Video Call (Anywhere)</option>
+                  <option>Boutique Visit: Bangalore Indiranagar</option>
+                  <option>Boutique Visit: Chennai Alwarpet</option>
+                  <option>Phone Call Consultation</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+              <div>
+                <label style="display:block; font-size:0.8rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:6px;">Saree Interest *</label>
+                <select id="contactInterest" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--color-gold-border); background:#fff; outline:none;">
+                  <option>Bridal Kanjivaram Pure Silk</option>
+                  <option>Banarasi Katan Brocade</option>
+                  <option>Silk Organza & Tissue Drape</option>
+                  <option>Paithani Heritage Silk</option>
+                  <option>Full Wedding Trousseau (Multiple Sarees)</option>
+                  <option>Custom Hand Embroidered Blouse</option>
+                </select>
+              </div>
+              <div>
+                <label style="display:block; font-size:0.8rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:6px;">Preferred Date / Time</label>
+                <input type="text" id="contactDateTime" placeholder="e.g. Tomorrow 4:00 PM IST" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--color-gold-border); outline:none;">
+              </div>
+            </div>
+
+            <div style="margin-bottom:24px;">
+              <label style="display:block; font-size:0.8rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:6px;">Special Requirements / Color Palette</label>
+              <textarea id="contactMessage" rows="4" placeholder="Tell us if you need matching contrast blouse, color preferences (e.g. Royal Maroon, Sunset Mustard), or occasion date..." style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--color-gold-border); outline:none;"></textarea>
+            </div>
+
+            <button type="submit" class="btn-royal-primary" style="width:100%; padding:14px; font-size:0.95rem;">
+              <i class="fa-solid fa-paper-plane"></i> Submit Royal Enquiry
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- FAQ ACCORDION -->
+      <div class="royal-card" style="padding:48px; margin-bottom:60px;">
+        <div class="section-header" style="margin-bottom:32px;">
+          <span class="section-tag">Frequently Asked Questions</span>
+          <h2 class="section-title">Everything You Need To Know</h2>
+          <div class="section-divider">
+            <span></span><i class="fa-solid fa-circle-question"></i><span></span>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:16px; max-width:850px; margin:0 auto;">
+          <details style="background:#fff; border:1px solid var(--color-gold-border); border-radius:12px; padding:16px 20px; cursor:pointer;" open>
+            <summary style="font-weight:700; color:var(--color-maroon-dark); font-size:1.05rem;">
+              How does the WhatsApp Video Shopping consultation work?
+            </summary>
+            <p style="margin-top:10px; color:var(--color-text-muted); font-size:0.9rem; line-height:1.7;">
+              Our senior saree stylist connects with you one-on-one via high-definition video call from our boutique. We drape each shortlisted saree on a dress form, show the border and pallu under natural daylight, crunch the silk to test purity, and display matching blouse fabrics.
+            </p>
+          </details>
+
+          <details style="background:#fff; border:1px solid var(--color-gold-border); border-radius:12px; padding:16px 20px; cursor:pointer;">
+            <summary style="font-weight:700; color:var(--color-maroon-dark); font-size:1.05rem;">
+              Are all sarees 100% pure silk and certified with the Silk Mark?
+            </summary>
+            <p style="margin-top:10px; color:var(--color-text-muted); font-size:0.9rem; line-height:1.7;">
+              Yes, absolutely. Every pure silk saree from DEMO SILKS carries the official Silk Mark Organization of India hologram tag. Our zari is tested grade-1 silver base electroplated in pure 24K gold, guaranteeing decades of lustre without tarnishing.
+            </p>
+          </details>
+
+          <details style="background:#fff; border:1px solid var(--color-gold-border); border-radius:12px; padding:16px 20px; cursor:pointer;">
+            <summary style="font-weight:700; color:var(--color-maroon-dark); font-size:1.05rem;">
+              Do you provide custom bridal blouse designing & stitching?
+            </summary>
+            <p style="margin-top:10px; color:var(--color-text-muted); font-size:0.9rem; line-height:1.7;">
+              Yes! Our master tailors and aari/zardozi embroiderers craft custom bridal blouses tailored to your measurement sheet. We also provide complimentary fall and edging (pico) service on all sarees upon request.
+            </p>
+          </details>
+
+          <details style="background:#fff; border:1px solid var(--color-gold-border); border-radius:12px; padding:16px 20px; cursor:pointer;">
+            <summary style="font-weight:700; color:var(--color-maroon-dark); font-size:1.05rem;">
+              What are the international shipping timelines and charges?
+            </summary>
+            <p style="margin-top:10px; color:var(--color-text-muted); font-size:0.9rem; line-height:1.7;">
+              We ship worldwide to the USA, UK, Canada, UAE, Singapore, Australia, and 40+ countries via insured DHL Express. Orders above ?15,000 enjoy free worldwide shipping. International transit time is typically 4 to 6 business days.
+            </p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Master Royal Footer (Exact Match to Reference Image) -->
+  <footer class="vnila-site-footer" style="background: #3a0813; color: #d6c6b8; padding: 48px 0 24px; border-top: 2px solid #cfa052;">
+    <div class="container">
+      <div class="vnila-footer-grid">
+        
+        <!-- Col 1: Brand Logo -->
+        <div style="padding-right: 18px; border-right: 1px solid rgba(212, 167, 91, 0.25); display: flex; flex-direction: column; align-items: flex-start;">
+          <img src="assets/images/spin-win-top-lotus-clean.png" alt="Lotus Logo" style="height: 30px; margin-bottom: 6px; filter: brightness(1.2);">
+          <div style="font-family:'Cinzel', serif; font-size:1.35rem; font-weight:800; letter-spacing:2px; color:#ffffff; line-height:1;">DEMO SILKS</div>
+          <div style="font-family:'Cinzel', serif; font-size:0.65rem; font-weight:600; letter-spacing:3px; color:#fae29c; margin-top:3px;">HERITAGE WEAVES</div>
+        </div>
+
+        <!-- Col 2: Brand Tagline -->
+        <div>
+          <h4 style="font-family:'Cinzel', serif; font-size:1rem; font-weight:700; color:#fae29c; margin:0 0 10px;">About Demo Silks</h4>
+          <p style="font-size:0.84rem; color:#cfbeb0; line-height:1.65; margin:0;">
+            Handloom sarees, a legacy of tradition and timeless elegance.
+          </p>
+        </div>
+
+        <!-- Col 3: Quick Links -->
+        <div>
+          <h4 style="font-family:'Cinzel', serif; font-size:1rem; font-weight:700; color:#fae29c; margin:0 0 10px;">Quick Links</h4>
+          <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:7px; font-size:0.84rem;">
+            <li><a href="index.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Home</a></li>
+            <li><a href="about.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">About Us</a></li>
+            <li><a href="collections.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Collections</a></li>
+            <li><a href="shop.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Shop</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Customer Care -->
+        <div>
+          <h4 style="font-family:'Cinzel', serif; font-size:1rem; font-weight:700; color:#fae29c; margin:0 0 10px;">Customer Care</h4>
+          <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:7px; font-size:0.84rem;">
+            <li><a href="wishlist.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Wishlist</a></li>
+            <li><a href="cart.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Shopping Cart</a></li>
+            <li><a href="videos.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Videos & Reels</a></li>
+            <li><a href="contact.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Join Our Newsletter -->
+        <div>
+          <h4 style="font-family:'Cinzel', serif; font-size:1rem; font-weight:700; color:#fae29c; margin:0 0 10px;">Join Our Newsletter</h4>
+          <p style="font-size:0.82rem; color:#cfbeb0; line-height:1.5; margin:0 0 12px;">
+            Be the first to know about new arrivals, exclusive offers and more.
+          </p>
+          <form onsubmit="event.preventDefault(); DemoStore.showToast('✨ Thank you for subscribing to DEMO SILKS!'); this.reset();" style="display:flex; align-items:center; background:#ffffff; border-radius:6px; overflow:hidden; border:1px solid #d4a75b;">
+            <input type="email" placeholder="Your email address" required style="flex:1; border:none; outline:none; padding:9px 12px; font-size:0.82rem; font-family:'Plus Jakarta Sans', sans-serif; color:#333;">
+            <button type="submit" style="background:#e5b869; border:none; color:#4a0e1c; padding:9px 14px; font-size:0.95rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s;" onmouseover="this.style.background='#f3c97e'" onmouseout="this.style.background='#e5b869'">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Col 6: Follow Us -->
+        <div>
+          <h4 style="font-family:'Cinzel', serif; font-size:1rem; font-weight:700; color:#fae29c; margin:0 0 12px;">Follow Us</h4>
+          <div style="display:flex; gap:8px;">
+            <a href="https://instagram.com" target="_blank" style="width:32px; height:32px; border-radius:50%; background:#52121f; border:1px solid rgba(212, 167, 91, 0.35); color:#fae29c; display:flex; align-items:center; justify-content:center; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e5b869'; this.style.color='#4a0e1c';" onmouseout="this.style.background='#52121f'; this.style.color='#fae29c';"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" style="width:32px; height:32px; border-radius:50%; background:#52121f; border:1px solid rgba(212, 167, 91, 0.35); color:#fae29c; display:flex; align-items:center; justify-content:center; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e5b869'; this.style.color='#4a0e1c';" onmouseout="this.style.background='#52121f'; this.style.color='#fae29c';"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://youtube.com" target="_blank" style="width:32px; height:32px; border-radius:50%; background:#52121f; border:1px solid rgba(212, 167, 91, 0.35); color:#fae29c; display:flex; align-items:center; justify-content:center; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e5b869'; this.style.color='#4a0e1c';" onmouseout="this.style.background='#52121f'; this.style.color='#fae29c';"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://pinterest.com" target="_blank" style="width:32px; height:32px; border-radius:50%; background:#52121f; border:1px solid rgba(212, 167, 91, 0.35); color:#fae29c; display:flex; align-items:center; justify-content:center; font-size:0.85rem; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='#e5b869'; this.style.color='#4a0e1c';" onmouseout="this.style.background='#52121f'; this.style.color='#fae29c';"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div style="display:flex; justify-content:space-between; align-items:center; padding-top:20px; font-size:0.8rem; color:#bfaea0; flex-wrap:wrap; gap:12px;">
+        <div>© 2026 DEMO SILKS Private Limited. All Rights Reserved.</div>
+        <div style="display:flex; align-items:center; gap:8px; color:#fae29c; font-family:'Cinzel', serif; font-size:0.82rem;">
+          <span>—</span>
+          <span>Elegance in Every Thread</span>
+          <span>—</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/spin-wheel.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGlobalComponents('contact');
+    });
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contactName').value;
+      const phone = document.getElementById('contactPhone').value;
+      const interest = document.getElementById('contactInterest').value;
+      const mode = document.getElementById('contactMode').value;
+
+      DemoStore.showToast(`? Thank you ${name}! Our senior saree stylist will contact you via ${mode}.`);
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
+

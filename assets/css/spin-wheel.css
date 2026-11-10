@@ -1,0 +1,717 @@
+/* ==========================================================================
+   DEMO SILKS - ROYAL "SPIN & WIN" LUXURY POPUP & REALISTIC WHEEL
+   Matches Reference: Soft ivory/blush watercolor, golden lotus flourish,
+   authentic physics wheel, mechanical pointer ticker, and celebratory reward
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* --- Backdrop Overlay (Smooth Slide & Blur) --- */
+.spin-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: rgba(36, 10, 16, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+}
+
+.spin-popup-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Slide-in from Side Modal Card --- */
+.spin-popup-card {
+  position: relative;
+  width: 930px;
+  max-width: 96vw;
+  min-height: 520px;
+  background: linear-gradient(135deg, #fdf9f4 0%, #fbf3ea 45%, #f6e6da 100%);
+  border-radius: 28px;
+  border: 2px solid #e2be79;
+  box-shadow: 
+    0 25px 70px rgba(50, 8, 16, 0.45),
+    0 0 50px rgba(226, 190, 121, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  display: flex;
+  overflow: hidden;
+  transform: translateX(60px) scale(0.95);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.1), opacity 0.4s ease;
+}
+
+.spin-popup-backdrop.active .spin-popup-card {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+}
+
+/* Luxury Lotus Corner Background Art */
+.spin-corner-art {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+.spin-corner-br {
+  bottom: -10px;
+  right: -10px;
+  width: 240px;
+  max-height: 190px;
+  object-fit: contain;
+}
+
+.spin-corner-tl {
+  top: -15px;
+  left: -15px;
+  width: 140px;
+  opacity: 0.4;
+  transform: rotate(180deg);
+}
+
+/* --- Close Button --- */
+.spin-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid #d4a85e;
+  background: rgba(255, 255, 255, 0.85);
+  color: #631124;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  box-shadow: 0 4px 12px rgba(99, 17, 36, 0.15);
+  transition: all 0.25s ease;
+}
+
+.spin-close-btn:hover {
+  background: #631124;
+  color: #fce7ba;
+  transform: rotate(90deg) scale(1.08);
+  border-color: #fce7ba;
+}
+
+/* --- Left Column: The Wheel Container --- */
+.spin-wheel-col {
+  flex: 1.05;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 10px 24px 20px;
+  z-index: 2;
+  overflow: visible;
+}
+
+.spin-wheel-stage {
+  position: relative;
+  width: 430px;
+  height: 430px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Canvas Wheel */
+#spinCanvas {
+  width: 420px;
+  height: 420px;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+  filter: drop-shadow(0 15px 30px rgba(70, 15, 25, 0.35));
+  will-change: transform;
+  user-select: none;
+}
+
+/* Realistic Golden Pointer Mounted at 3 O'Clock */
+.spin-pointer-wrap {
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 65px;
+  height: 52px;
+  z-index: 15;
+  filter: drop-shadow(0 6px 12px rgba(60, 10, 20, 0.45));
+  pointer-events: none;
+  transform-origin: 48px 26px; /* pivots on golden rivet */
+  transition: transform 0.08s ease-out;
+}
+
+.spin-pointer-wrap.tick-wobble {
+  animation: pointerFlutter 0.12s ease-in-out;
+}
+
+@keyframes pointerFlutter {
+  0%   { transform: translateY(-50%) rotate(0deg); }
+  35%  { transform: translateY(-50%) rotate(-16deg); }
+  70%  { transform: translateY(-50%) rotate(8deg); }
+  100% { transform: translateY(-50%) rotate(0deg); }
+}
+
+.spin-pointer-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* --- Right Column: Brand & Form Content --- */
+.spin-form-col {
+  flex: 1.15;
+  position: relative;
+  z-index: 3;
+  padding: 40px 42px 34px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Lotus Top Emblem */
+.spin-header-lotus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.spin-header-lotus .lotus-line {
+  flex: 1;
+  max-width: 65px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #cfa052, #8e6224);
+}
+
+.spin-header-lotus .lotus-line.right {
+  background: linear-gradient(to left, transparent, #cfa052, #8e6224);
+}
+
+.spin-header-lotus img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Heading with Radiating Sunburst */
+.spin-title-wrap {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto 6px;
+}
+
+.spin-title {
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+  font-size: 2.35rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #5d1222;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.spin-sunburst-l,
+.spin-sunburst-r {
+  position: absolute;
+  top: 50%;
+  font-size: 1.1rem;
+  color: #cfa052;
+  transform: translateY(-50%);
+  user-select: none;
+}
+
+.spin-sunburst-l { left: -28px; }
+.spin-sunburst-r { right: -28px; }
+
+/* Subtitle in Calligraphic Serif Italic */
+.spin-subtitle {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #4b1420;
+  margin: 0 0 24px;
+  line-height: 1.35;
+}
+
+/* Form Container */
+.spin-form-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 390px;
+  margin: 0 auto;
+}
+
+/* Form Input Row */
+.spin-input-group {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1.5px solid #d8b479;
+  border-radius: 50px;
+  height: 50px;
+  padding: 0 18px;
+  box-shadow: 0 3px 8px rgba(99, 17, 36, 0.05), inset 0 1px 2px rgba(0,0,0,0.03);
+  transition: all 0.25s ease;
+}
+
+.spin-input-group:focus-within {
+  border-color: #631124;
+  box-shadow: 0 0 0 3px rgba(99, 17, 36, 0.15), 0 4px 12px rgba(99, 17, 36, 0.1);
+}
+
+.spin-input-icon {
+  color: #8c6e4e;
+  font-size: 0.95rem;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Country Selector */
+.spin-country-select {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #4b1420;
+  padding-right: 10px;
+  border-right: 1.5px solid #e5d2b8;
+  margin-right: 10px;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+}
+
+.spin-country-select select {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.spin-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.92rem;
+  color: #331118;
+}
+
+.spin-input::placeholder {
+  color: #9c8a82;
+  font-size: 0.9rem;
+}
+
+/* CTA Pill Button (Deep Burgundy with Gold Glow) */
+.spin-btn-submit {
+  position: relative;
+  overflow: hidden;
+  height: 52px;
+  border-radius: 50px;
+  border: 1.5px solid #d4a75b;
+  background: linear-gradient(135deg, #74162a 0%, #580d1e 100%);
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 
+    0 8px 24px rgba(88, 13, 30, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.3, 1);
+  margin-top: 4px;
+}
+
+.spin-btn-submit:hover {
+  background: linear-gradient(135deg, #871a32 0%, #681124 100%);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 28px rgba(88, 13, 30, 0.55),
+    0 0 20px rgba(212, 167, 91, 0.4);
+}
+
+.spin-btn-submit:active {
+  transform: translateY(0);
+}
+
+.spin-btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Shimmer shine effect */
+.spin-btn-submit::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: rotate(25deg);
+  animation: spinBtnShine 3.5s infinite;
+}
+
+@keyframes spinBtnShine {
+  0%   { left: -60%; }
+  30%  { left: 140%; }
+  100% { left: 140%; }
+}
+
+.spin-btn-icon {
+  font-size: 1.15rem;
+}
+
+.spin-btn-arrow {
+  font-size: 1.15rem;
+  transition: transform 0.2s ease;
+}
+
+.spin-btn-submit:hover .spin-btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Legal disclaimer */
+.spin-disclaimer {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.74rem;
+  line-height: 1.4;
+  color: #8c7870;
+  margin: 10px 0 0;
+}
+
+.spin-disclaimer a {
+  color: #631124;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   WINNER REVEAL CONTAINER (Fades in when wheel settles on a prize)
+   ========================================================================== */
+.spin-winner-card {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: winnerSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes winnerSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.spin-winner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #74162a, #540c1d);
+  color: #fce7ba;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: 1px solid #d4a75b;
+  box-shadow: 0 4px 15px rgba(84, 12, 29, 0.3);
+  margin-bottom: 12px;
+}
+
+.spin-winner-title {
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #5d1222;
+  margin: 0 0 6px;
+  letter-spacing: 1px;
+}
+
+.spin-winner-desc {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #3f101a;
+  margin: 0 0 18px;
+}
+
+/* Royal Coupon Ticket Box */
+.spin-coupon-ticket {
+  background: #ffffff;
+  border: 2px dashed #cfa052;
+  border-radius: 14px;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 6px 20px rgba(99, 17, 36, 0.08);
+  margin-bottom: 16px;
+}
+
+.spin-coupon-code {
+  font-family: 'Cinzel', monospace, sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #631124;
+}
+
+.spin-coupon-copy-btn {
+  background: #fbf3ea;
+  border: 1.5px solid #d4a75b;
+  color: #631124;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.spin-coupon-copy-btn:hover {
+  background: #631124;
+  color: #ffffff;
+  border-color: #631124;
+}
+
+.spin-winner-cta-btn {
+  width: 100%;
+  max-width: 360px;
+  height: 50px;
+  border-radius: 50px;
+  border: 1.5px solid #d4a75b;
+  background: linear-gradient(135deg, #74162a 0%, #580d1e 100%);
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(88, 13, 30, 0.4);
+  transition: all 0.25s ease;
+  margin-bottom: 12px;
+}
+
+.spin-winner-cta-btn:hover {
+  background: linear-gradient(135deg, #871a32 0%, #681124 100%);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+/* 15 Minute Countdown Urgency */
+.spin-timer-badge {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #8c6e4e;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.spin-timer-badge span {
+  color: #c0293e;
+  font-weight: 700;
+  font-family: monospace;
+  font-size: 0.95rem;
+}
+
+/* --- Floating Side Trigger (Docked at edge so users can open anytime) --- */
+.spin-floating-trigger {
+  position: fixed;
+  right: 24px;
+  bottom: 95px; /* Sits right above WhatsApp button */
+  z-index: 999990;
+  background: linear-gradient(135deg, #74162a 0%, #540c1d 100%);
+  color: #fde8bc;
+  border: 2px solid #e2be79;
+  border-radius: 50px;
+  padding: 10px 18px 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 
+    0 10px 28px rgba(70, 10, 20, 0.4),
+    0 0 20px rgba(226, 190, 121, 0.35);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.3, 1);
+  user-select: none;
+  animation: floatingBounce 4s ease-in-out infinite;
+}
+
+.spin-floating-trigger:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 
+    0 14px 34px rgba(70, 10, 20, 0.55),
+    0 0 28px rgba(226, 190, 121, 0.6);
+  color: #ffffff;
+}
+
+.spin-floating-wheel-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fce7ba;
+  color: #631124;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  animation: iconSpin 8s linear infinite;
+}
+
+@keyframes iconSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes floatingBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.spin-floating-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* --- Confetti & Silk Petals Canvas --- */
+#spinConfettiCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Tablets & Mobile Phones)
+   ========================================================================== */
+@media (max-width: 880px) {
+  .spin-popup-card {
+    flex-direction: column;
+    width: 95vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 20px;
+  }
+
+  .spin-wheel-col {
+    padding: 24px 16px 10px;
+  }
+
+  .spin-wheel-stage {
+    width: 290px;
+    height: 290px;
+  }
+
+  #spinCanvas {
+    width: 280px;
+    height: 280px;
+  }
+
+  .spin-pointer-wrap {
+    right: -4px;
+    width: 48px;
+    height: 38px;
+    transform-origin: 36px 19px;
+  }
+
+  .spin-form-col {
+    padding: 10px 24px 28px;
+  }
+
+  .spin-title {
+    font-size: 1.8rem;
+  }
+
+  .spin-subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 16px;
+  }
+
+  .spin-input-group {
+    height: 44px;
+  }
+
+  .spin-btn-submit {
+    height: 46px;
+    font-size: 0.95rem;
+  }
+
+  .spin-corner-br {
+    width: 140px;
+  }
+
+  .spin-floating-trigger {
+    right: 14px;
+    bottom: 85px;
+    padding: 8px 14px 8px 10px;
+  }
+}
+
