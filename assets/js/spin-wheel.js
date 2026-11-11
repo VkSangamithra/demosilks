@@ -282,14 +282,15 @@
               <span>Apply to Cart & Shop Sarees →</span>
             </button>
 
-            <button type="button" class="spin-again-btn" id="spinAgainBtn" onclick="window.resetAndSpinAgain()">
-              <i class="fa-solid fa-rotate-right"></i>
-              <span>Spin Again</span>
-            </button>
-
-            <div class="spin-timer-badge">
-              <i class="fa-regular fa-clock"></i>
-              <span>Offer expires in: <strong id="spinCountdown">14:59</strong></span>
+            <div class="spin-winner-footer-row">
+              <button type="button" class="spin-again-btn" id="spinAgainBtn" onclick="window.resetAndSpinAgain()">
+                <i class="fa-solid fa-rotate-right"></i>
+                <span>Spin Again</span>
+              </button>
+              <div class="spin-timer-badge">
+                <i class="fa-regular fa-clock"></i>
+                <span>Offer expires: <strong id="spinCountdown">14:59</strong></span>
+              </div>
             </div>
           </div>
         </div>
