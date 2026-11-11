@@ -261,20 +261,27 @@
             <div><i class="fa-solid fa-certificate" style="color:var(--color-gold);"></i> 100% Pure Silk Mark</div>
             <div><i class="fa-solid fa-shield-halved" style="color:var(--color-emerald);"></i> 7-Day Easy Exchange</div>
           </div>
+
+          <!-- Quick Jump To Specifications -->
+          <div style="margin-top:14px; padding-top:12px; border-top:1px dashed rgba(197, 155, 39, 0.3); text-align:center;">
+            <a href="#specsSection" style="font-size:0.82rem; color:var(--color-primary-maroon); font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:6px; transition:var(--transition);">
+              <i class="fa-solid fa-circle-info" style="color:var(--color-gold-dark);"></i> View Weaving, Care & Delivery Specifications ↓
+            </a>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Tabbed Specifications & Saree Care -->
-    <div class="royal-card" style="padding:40px; margin-bottom:60px;">
-      <div style="display:flex; gap:24px; border-bottom:2px solid var(--color-gold-border); padding-bottom:12px; margin-bottom:28px;">
-        <button class="nav-link active" onclick="switchTab('specsTab', this)" style="background:none; border:none; cursor:pointer; font-size:1.05rem;">
+    <section id="specsSection" class="royal-card product-specs-section" style="padding:40px; margin-bottom:60px;">
+      <div class="product-specs-tabs-header">
+        <button class="product-spec-tab-btn active" onclick="switchTab('specsTab', this)">
           Detailed Specifications
         </button>
-        <button class="nav-link" onclick="switchTab('careTab', this)" style="background:none; border:none; cursor:pointer; font-size:1.05rem;">
+        <button class="product-spec-tab-btn" onclick="switchTab('careTab', this)">
           Care & Heirloom Preservation
         </button>
-        <button class="nav-link" onclick="switchTab('deliveryTab', this)" style="background:none; border:none; cursor:pointer; font-size:1.05rem;">
+        <button class="product-spec-tab-btn" onclick="switchTab('deliveryTab', this)">
           Shipping, Blouse Stitching & Returns
         </button>
       </div>
@@ -313,7 +320,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Related Sarees Section -->
     <div style="margin-bottom:60px;">
