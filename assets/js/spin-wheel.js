@@ -90,14 +90,18 @@
 
   // Initialize Web Audio API for zero-latency realistic sound effects
   function getAudioContext() {
-    if (!audioContext) {
-      const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      if (AudioCtx) audioContext = new AudioCtx();
+    try {
+      if (!audioContext) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) audioContext = new AudioCtx();
+      }
+      if (audioContext && audioContext.state === 'suspended') {
+        audioContext.resume().catch(() => {});
+      }
+      return audioContext;
+    } catch (e) {
+      return null;
     }
-    if (audioContext && audioContext.state === 'suspended') {
-      audioContext.resume();
-    }
-    return audioContext;
   }
 
   // Mechanical Ticker Sound (clicks when divider peg passes pointer)
@@ -168,11 +172,16 @@
 
         <!-- Left Column: The Interactive Spinning Wheel -->
         <div class="spin-wheel-col">
-          <div class="spin-wheel-stage">
-            <canvas id="spinCanvas" width="840" height="840"></canvas>
+          <div class="spin-wheel-stage" id="spinWheelStage" onclick="window.startSpinAndWin()" title="Click to Spin the Royal Wheel!">
+            <canvas id="spinCanvas" width="840" height="840" onclick="window.startSpinAndWin()"></canvas>
             
+            <!-- Metallic Golden Center Spin Button -->
+            <button type="button" class="spin-center-btn" id="spinCenterBtn" onclick="event.stopPropagation(); window.startSpinAndWin();" title="Click to Spin!">
+              <span class="spin-center-text">SPIN</span>
+            </button>
+
             <!-- Metallic Golden Pointer Mounted at 3 O'Clock -->
-            <div class="spin-pointer-wrap" id="spinPointer">
+            <div class="spin-pointer-wrap" id="spinPointer" onclick="window.startSpinAndWin()">
               <svg class="spin-pointer-svg" viewBox="0 0 70 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="pointerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -230,17 +239,17 @@
                 <span>IN +91</span>
                 <i class="fa-solid fa-chevron-down" style="font-size:0.7rem; color:#8c6e4e;"></i>
               </div>
-              <input type="tel" id="spinPhone" class="spin-input" placeholder="Enter your mobile number" maxlength="14" required>
+              <input type="tel" id="spinPhone" class="spin-input" placeholder="Enter your mobile number" maxlength="14">
             </div>
 
             <!-- Email Input -->
             <div class="spin-input-group">
               <span class="spin-input-icon"><i class="fa-solid fa-envelope"></i></span>
-              <input type="email" id="spinEmail" class="spin-input" placeholder="Enter your email address" required>
+              <input type="email" id="spinEmail" class="spin-input" placeholder="Enter your email address">
             </div>
 
             <!-- CTA Submit Button -->
-            <button type="submit" id="spinSubmitBtn" class="spin-btn-submit">
+            <button type="button" id="spinSubmitBtn" class="spin-btn-submit" onclick="window.startSpinAndWin()">
               <span class="spin-btn-icon"><i class="fa-solid fa-gift"></i></span>
               <span>Get My Coupon</span>
               <span class="spin-btn-arrow">→</span>
@@ -273,6 +282,11 @@
               <span>Apply to Cart & Shop Sarees →</span>
             </button>
 
+            <button type="button" class="spin-again-btn" id="spinAgainBtn" onclick="window.resetAndSpinAgain()">
+              <i class="fa-solid fa-rotate-right"></i>
+              <span>Spin Again</span>
+            </button>
+
             <div class="spin-timer-badge">
               <i class="fa-regular fa-clock"></i>
               <span>Offer expires in: <strong id="spinCountdown">14:59</strong></span>
@@ -293,7 +307,7 @@
       <div class="spin-floating-wheel-icon"><i class="fa-solid fa-gift"></i></div>
       <span class="spin-floating-text">SPIN & WIN</span>
     `;
-    trigger.onclick = () => window.openSpinModal();
+    trigger.onclick = () => window.openSpinModal(true);
     document.body.appendChild(trigger);
 
     // Setup event listeners
@@ -315,6 +329,8 @@
 
   // Draw High-DPI Canvas Wheel with Metallic Gold Rim, Studs, and Elegant Slices
   function drawWheel(rotationDeg = 0) {
+    if (!canvas) canvas = document.getElementById('spinCanvas');
+    if (canvas && !ctx) ctx = canvas.getContext('2d');
     if (!ctx || !canvas) return;
 
     const width = canvas.width;
@@ -654,9 +670,16 @@
   window.startSpinAndWin = function () {
     if (isSpinning) return;
 
+    const formEl = document.getElementById('spinForm');
+    const winnerCard = document.getElementById('spinWinnerCard');
+    const centerBtn = document.getElementById('spinCenterBtn');
     const phoneInput = document.getElementById('spinPhone');
     const emailInput = document.getElementById('spinEmail');
     const submitBtn = document.getElementById('spinSubmitBtn');
+
+    // If winner card is currently showing, switch back to form view
+    if (winnerCard) winnerCard.style.display = 'none';
+    if (formEl) formEl.style.display = 'flex';
 
     let phone = phoneInput ? phoneInput.value.trim() : '';
     let email = emailInput ? emailInput.value.trim() : '';
@@ -679,6 +702,10 @@
       submitBtn.disabled = true;
       submitBtn.innerHTML = `<span>Spinning...</span>`;
     }
+    if (centerBtn) {
+      centerBtn.disabled = true;
+      centerBtn.classList.add('spinning');
+    }
 
     // Pick winning slice:
     // Weighted to exciting prizes: Slice 0 (30% Off) is top favorite, Slice 3 (20% Off), Slice 2 (Free Shipping)
@@ -688,11 +715,9 @@
 
     // Compute target angle:
     // Pointer is at 0 deg. Slice k center is at k * 60 deg.
-    // To land slice k under pointer:
-    // (360 - (targetDeg % 360)) % 360 must be in [k*60 - 20, k*60 + 20]
     const sliceCenterAngle = winningSliceIndex * 60;
-    // Add small random jitter (+/- 14 deg) within wedge for realism
-    const jitter = (Math.random() - 0.5) * 26;
+    // Add small random jitter (+/- 11 deg) within wedge for realism
+    const jitter = (Math.random() - 0.5) * 22;
     const targetSliceAngle = (sliceCenterAngle + jitter + 360) % 360;
 
     // Number of full 360 spins (6 to 8 full revolutions)
@@ -706,8 +731,10 @@
     const totalSpinDelta = fullSpins * 360 + deltaAngle;
     const finalTargetAngle = startAngle + totalSpinDelta;
 
+    lastPinIndex = Math.floor((startAngle + 30) / 60);
+
     // Animation physics parameters
-    const duration = 5200; // 5.2 seconds for dramatic suspense
+    const duration = 4800; // 4.8 seconds for dramatic suspense
     const startTime = performance.now();
 
     function animateSpin(currentTime) {
@@ -736,11 +763,42 @@
         currentRotation = finalTargetAngle;
         drawWheel(currentRotation);
         isSpinning = false;
+        if (centerBtn) {
+          centerBtn.disabled = false;
+          centerBtn.classList.remove('spinning');
+        }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `
+            <span class="spin-btn-icon"><i class="fa-solid fa-gift"></i></span>
+            <span>Get My Coupon</span>
+            <span class="spin-btn-arrow">→</span>
+          `;
+        }
         handleSpinCompletion(chosenSlice);
       }
     }
 
     requestAnimationFrame(animateSpin);
+  };
+
+  // Reset and trigger a fresh spin
+  window.resetAndSpinAgain = function () {
+    const formEl = document.getElementById('spinForm');
+    const winnerCard = document.getElementById('spinWinnerCard');
+    const submitBtn = document.getElementById('spinSubmitBtn');
+
+    if (winnerCard) winnerCard.style.display = 'none';
+    if (formEl) formEl.style.display = 'flex';
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `
+        <span class="spin-btn-icon"><i class="fa-solid fa-gift"></i></span>
+        <span>Get My Coupon</span>
+        <span class="spin-btn-arrow">→</span>
+      `;
+    }
+    window.startSpinAndWin();
   };
 
   // Handle Win: Confetti, Fanfare, Reveal Reward, Save to Session
@@ -999,7 +1057,12 @@
     // Automatically slide in on every page refresh / load
     setTimeout(() => {
       window.openSpinModal(true); // fresh spin ready on refresh!
-    }, 600);
+
+      // Automatically spin the wheel during refreshing time!
+      setTimeout(() => {
+        window.startSpinAndWin();
+      }, 700);
+    }, 500);
   }
 
   // Hook into DOM ready

@@ -126,6 +126,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 /* Canvas Wheel */
@@ -138,6 +139,66 @@
   filter: drop-shadow(0 15px 30px rgba(70, 15, 25, 0.35));
   will-change: transform;
   user-select: none;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+
+#spinCanvas:hover {
+  filter: drop-shadow(0 18px 36px rgba(114, 21, 40, 0.45)) drop-shadow(0 0 16px rgba(226, 190, 121, 0.55));
+}
+
+/* Interactive Metallic Golden Center Spin Button */
+.spin-center-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff6d6 0%, #e0b45d 35%, #966116 80%, #543306 100%);
+  border: 3.5px solid #ffe9af;
+  color: #5c0f1e;
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 0.96rem;
+  letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 12;
+  box-shadow: 
+    0 4px 15px rgba(50, 8, 16, 0.45),
+    0 0 20px rgba(226, 190, 121, 0.75),
+    inset 0 2px 4px rgba(255, 255, 255, 0.85);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.3, 1);
+  animation: spinBtnPulse 2.2s infinite ease-in-out;
+  outline: none;
+}
+
+.spin-center-btn:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  box-shadow: 
+    0 6px 20px rgba(50, 8, 16, 0.6),
+    0 0 30px rgba(245, 215, 140, 0.95),
+    inset 0 2px 6px rgba(255, 255, 255, 0.95);
+  color: #3b0610;
+}
+
+.spin-center-btn:active {
+  transform: translate(-50%, -50%) scale(0.96);
+}
+
+@keyframes spinBtnPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 4px 15px rgba(50, 8, 16, 0.45), 0 0 14px rgba(226, 190, 121, 0.65);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.04);
+    box-shadow: 0 4px 20px rgba(50, 8, 16, 0.55), 0 0 26px rgba(245, 215, 140, 0.95);
+  }
 }
 
 /* Realistic Golden Pointer Mounted at 3 O'Clock */
@@ -559,6 +620,32 @@
   color: #ffffff;
 }
 
+.spin-again-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: 1.5px solid #d4a75b;
+  color: #631124;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.86rem;
+  padding: 8px 22px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: all 0.25s ease;
+}
+
+.spin-again-btn:hover {
+  background: #631124;
+  color: #fae29c;
+  border-color: #631124;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(99, 17, 36, 0.25);
+}
+
 /* 15 Minute Countdown Urgency */
 .spin-timer-badge {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -673,6 +760,14 @@
   #spinCanvas {
     width: 280px;
     height: 280px;
+  }
+
+  .spin-center-btn {
+    width: 56px;
+    height: 56px;
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+    border-width: 2.5px;
   }
 
   .spin-pointer-wrap {
