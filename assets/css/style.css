@@ -3054,3 +3054,196 @@ section[id], footer[id] {
     border-radius: 18px;
   }
 }
+
+
+/* ==========================================================================
+   DIVAN RAJ PARALLAX SLIDER ANIMATION (Dribbble Reference)
+   ========================================================================== */
+
+.divan-slider-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 28px;
+}
+
+.divan-slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.divan-slider-counter {
+  font-family: var(--font-royal);
+  font-size: 0.92rem;
+  letter-spacing: 2px;
+  color: var(--color-maroon-dark);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.divan-slider-counter .active-num {
+  color: var(--color-gold-dark);
+  font-size: 1.35rem;
+  font-weight: 800;
+  min-width: 28px;
+}
+
+.divan-slider-counter .sep {
+  color: rgba(197, 155, 39, 0.4);
+}
+
+.divan-slider-counter .total-num {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.divan-mode-label {
+  font-size: 0.68rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  color: var(--color-gold-dark);
+  background: rgba(212, 167, 91, 0.14);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 167, 91, 0.35);
+  margin-left: 8px;
+  text-transform: uppercase;
+}
+
+.divan-progress-rail {
+  flex: 1;
+  max-width: 280px;
+  height: 4px;
+  background: rgba(197, 155, 39, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.divan-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #c59b27, #e5b869, #fae29c);
+  border-radius: 999px;
+  transition: width 0.08s linear;
+}
+
+.divan-slider-nav-btns {
+  display: flex;
+  gap: 12px;
+}
+
+.divan-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid var(--color-gold-border);
+  color: var(--color-maroon-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(88, 12, 27, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  font-size: 0.95rem;
+}
+
+.divan-nav-btn:hover {
+  background: var(--color-maroon-dark);
+  color: #fae29c;
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(88, 12, 27, 0.18);
+}
+
+.divan-slider-viewport {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 14px 4px 28px 4px;
+  cursor: grab;
+}
+
+.divan-slider-viewport:active {
+  cursor: grabbing;
+}
+
+/* Track layout */
+.divan-slider-track {
+  display: flex !important;
+  gap: 26px !important;
+  transition: transform 1.15s cubic-bezier(0.25, 1, 0.35, 1);
+  will-change: transform;
+  width: max-content;
+}
+
+/* Card sizing inside New Arrivals track */
+#newArrivalsGrid.divan-slider-track .saree-card {
+  flex: 0 0 295px !important;
+  width: 295px !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Card sizing inside Collections track */
+.collections-grid.divan-slider-track .collection-card {
+  flex: 0 0 350px !important;
+  width: 350px !important;
+  height: 450px !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Parallax Layer for Saree Card Thumb */
+.divan-slider-track .saree-thumb-wrapper {
+  overflow: hidden !important;
+  position: relative;
+}
+
+.divan-slider-track .saree-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.18) translateX(var(--divan-img-parallax, 0px));
+  transition: transform 1.15s cubic-bezier(0.25, 1, 0.35, 1);
+  will-change: transform;
+}
+
+/* Parallax Layer for Collection Card Bg */
+.divan-slider-track .collection-card {
+  overflow: hidden !important;
+}
+
+.divan-slider-track .collection-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.18) translateX(var(--divan-img-parallax, 0px));
+  transition: transform 1.15s cubic-bezier(0.25, 1, 0.35, 1);
+  will-change: transform;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #newArrivalsGrid.divan-slider-track .saree-card {
+    flex: 0 0 260px !important;
+    width: 260px !important;
+  }
+  .collections-grid.divan-slider-track .collection-card {
+    flex: 0 0 280px !important;
+    width: 280px !important;
+    height: 390px !important;
+  }
+  .divan-progress-rail {
+    max-width: 160px;
+  }
+}

@@ -227,8 +227,29 @@
         <p class="section-desc">Hand-picked drapes straight from the artisan looms of Kanchipuram, Varanasi, and Chanderi.</p>
       </div>
 
-      <div id="newArrivalsGrid" class="products-grid">
-        <!-- Rendered by JS -->
+      <!-- Divan Raj Parallax Slider for New Arrivals -->
+      <div class="divan-slider-wrapper" id="newArrivalsSlider">
+        <div class="divan-slider-controls">
+          <div class="divan-slider-counter">
+            <span class="active-num" id="arrivalsActiveNum">01</span>
+            <span class="sep">/</span>
+            <span class="total-num" id="arrivalsTotalNum">12</span>
+            <span class="divan-mode-label">PARALLAX RAIL</span>
+          </div>
+          <div class="divan-progress-rail">
+            <div class="divan-progress-fill" id="arrivalsProgressFill"></div>
+          </div>
+          <div class="divan-slider-nav-btns">
+            <button class="divan-nav-btn prev" id="arrivalsPrevBtn" title="Previous"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="divan-nav-btn next" id="arrivalsNextBtn" title="Next"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="divan-slider-viewport" id="arrivalsViewport">
+          <div id="newArrivalsGrid" class="divan-slider-track">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
       </div>
 
       <div style="text-align: center; margin-top: 36px;">
@@ -291,73 +312,94 @@
         <p class="section-desc">Each weave tells a distinct story of geography, ancestral techniques, and sublime aesthetic harmony.</p>
       </div>
 
-      <div class="collections-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 28px;">
-        <!-- Collection 1: Kanchipuram Silk -->
-        <div class="collection-card" onclick="window.location.href='shop.html?category=kanjivaram'">
-          <img src="assets/images/collection-kanchipuram.jpg" alt="Kanchipuram Silk" class="collection-bg">
-          <div class="collection-overlay">
-            <span class="collection-tag">Royal Muhurtham Edit</span>
-            <h3 class="collection-title">Kanchipuram Silk</h3>
-            <p class="collection-tagline">Authentic 3-ply mulberry silk with 24K electroplated gold zari and sacred temple spires.</p>
-            <div class="collection-link-row">
-              <span class="collection-count">48 Masterpieces</span>
-              <span class="collection-explore">Explore Realm <i class="fa-solid fa-arrow-right"></i></span>
-            </div>
+      <!-- Divan Raj Parallax Slider for Signature Collections -->
+      <div class="divan-slider-wrapper" id="collectionsSlider">
+        <div class="divan-slider-controls">
+          <div class="divan-slider-counter">
+            <span class="active-num" id="colActiveNum">01</span>
+            <span class="sep">/</span>
+            <span class="total-num" id="colTotalNum">05</span>
+            <span class="divan-mode-label">PARALLAX RAIL</span>
+          </div>
+          <div class="divan-progress-rail">
+            <div class="divan-progress-fill" id="colProgressFill"></div>
+          </div>
+          <div class="divan-slider-nav-btns">
+            <button class="divan-nav-btn prev" id="colPrevBtn" title="Previous"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="divan-nav-btn next" id="colNextBtn" title="Next"><i class="fa-solid fa-arrow-right"></i></button>
           </div>
         </div>
 
-        <!-- Collection 2: Banarasi Silk -->
-        <div class="collection-card" onclick="window.location.href='shop.html?category=banarasi'">
-          <img src="assets/images/collection-banarasi.jpg" alt="Banarasi Silk" class="collection-bg">
-          <div class="collection-overlay">
-            <span class="collection-tag">Imperial Brocade</span>
-            <h3 class="collection-title">Banarasi Silk</h3>
-            <p class="collection-tagline">Varanasi Kadwa Katan brocades featuring Shikargah hunting jaals and meenakari motifs.</p>
-            <div class="collection-link-row">
-              <span class="collection-count">36 Sarees</span>
-              <span class="collection-explore">Explore Realm <i class="fa-solid fa-arrow-right"></i></span>
+        <div class="divan-slider-viewport" id="colViewport">
+          <div class="collections-grid divan-slider-track">
+            <!-- Collection 1: Kanchipuram Silk -->
+            <div class="collection-card" onclick="window.location.href='shop.html?category=kanjivaram'">
+              <img src="assets/images/collection-kanchipuram.jpg" alt="Kanchipuram Silk" class="collection-bg">
+              <div class="collection-overlay">
+                <span class="collection-tag">Royal Muhurtham Edit</span>
+                <h3 class="collection-title">Kanchipuram Silk</h3>
+                <p class="collection-tagline">Authentic 3-ply mulberry silk with 24K electroplated gold zari and sacred temple spires.</p>
+                <div class="collection-link-row">
+                  <span class="collection-count">48 Masterpieces</span>
+                  <span class="collection-explore">Explore Realm <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Collection 3: Soft Silk -->
-        <div class="collection-card" onclick="window.location.href='shop.html?category=softsilk'">
-          <img src="assets/images/collection-softsilk.jpg" alt="Soft Silk" class="collection-bg">
-          <div class="collection-overlay">
-            <span class="collection-tag">Ethereal Pastel Grace</span>
-            <h3 class="collection-title">Soft Silk</h3>
-            <p class="collection-tagline">Featherlight pure mulberry silk with subtle pastel hues and fluid drape for all-day comfort.</p>
-            <div class="collection-link-row">
-              <span class="collection-count">32 Sarees</span>
-              <span class="collection-explore">Explore Realm <i class="fa-solid fa-arrow-right"></i></span>
+            <!-- Collection 2: Banarasi Silk -->
+            <div class="collection-card" onclick="window.location.href='shop.html?category=banarasi'">
+              <img src="assets/images/collection-banarasi.jpg" alt="Banarasi Silk" class="collection-bg">
+              <div class="collection-overlay">
+                <span class="collection-tag">Imperial Brocade</span>
+                <h3 class="collection-title">Banarasi Silk</h3>
+                <p class="collection-tagline">Varanasi Kadwa Katan brocades featuring Shikargah hunting jaals and meenakari motifs.</p>
+                <div class="collection-link-row">
+                  <span class="collection-count">36 Sarees</span>
+                  <span class="collection-explore">Explore Realm <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Collection 4: Mysore Silk -->
-        <div class="collection-card" onclick="window.location.href='shop.html?category=mysoresilk'">
-          <img src="assets/images/collection-mysoresilk.jpg" alt="Mysore Silk" class="collection-bg">
-          <div class="collection-overlay">
-            <span class="collection-tag">Royal Heritage Crepe</span>
-            <h3 class="collection-title">Mysore Silk</h3>
-            <p class="collection-tagline">Legendary Mysore royal crepe silk with hallmarked pure gold zari borders and lustrous sheen.</p>
-            <div class="collection-link-row">
-              <span class="collection-count">28 Sarees</span>
-              <span class="collection-explore">Explore Realm <i class="fa-solid fa-arrow-right"></i></span>
+            <!-- Collection 3: Soft Silk -->
+            <div class="collection-card" onclick="window.location.href='shop.html?category=softsilk'">
+              <img src="assets/images/collection-softsilk.jpg" alt="Soft Silk" class="collection-bg">
+              <div class="collection-overlay">
+                <span class="collection-tag">Ethereal Pastel Grace</span>
+                <h3 class="collection-title">Soft Silk</h3>
+                <p class="collection-tagline">Featherlight pure mulberry silk with subtle pastel hues and fluid drape for all-day comfort.</p>
+                <div class="collection-link-row">
+                  <span class="collection-count">32 Sarees</span>
+                  <span class="collection-explore">Explore Realm <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Collection 5: Organza -->
-        <div class="collection-card" onclick="window.location.href='shop.html?category=organza'">
-          <img src="assets/images/collection-organza.jpg" alt="Organza" class="collection-bg">
-          <div class="collection-overlay">
-            <span class="collection-tag">Luminous Sheer Flora</span>
-            <h3 class="collection-title">Organza</h3>
-            <p class="collection-tagline">Ethereal silk tissue organza with delicate floral embroidery and modern scalloped borders.</p>
-            <div class="collection-link-row">
-              <span class="collection-count">29 Creations</span>
-              <span class="collection-explore">Explore Realm <i class="fa-solid fa-arrow-right"></i></span>
+            <!-- Collection 4: Mysore Silk -->
+            <div class="collection-card" onclick="window.location.href='shop.html?category=mysoresilk'">
+              <img src="assets/images/collection-mysoresilk.jpg" alt="Mysore Silk" class="collection-bg">
+              <div class="collection-overlay">
+                <span class="collection-tag">Royal Heritage Crepe</span>
+                <h3 class="collection-title">Mysore Silk</h3>
+                <p class="collection-tagline">Legendary Mysore royal crepe silk with hallmarked pure gold zari borders and lustrous sheen.</p>
+                <div class="collection-link-row">
+                  <span class="collection-count">28 Sarees</span>
+                  <span class="collection-explore">Explore Realm <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Collection 5: Organza -->
+            <div class="collection-card" onclick="window.location.href='shop.html?category=organza'">
+              <img src="assets/images/collection-organza.jpg" alt="Organza" class="collection-bg">
+              <div class="collection-overlay">
+                <span class="collection-tag">Luminous Sheer Flora</span>
+                <h3 class="collection-title">Organza</h3>
+                <p class="collection-tagline">Ethereal silk tissue organza with delicate floral embroidery and modern scalloped borders.</p>
+                <div class="collection-link-row">
+                  <span class="collection-count">29 Creations</span>
+                  <span class="collection-explore">Explore Realm <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -682,6 +724,7 @@
   <script src="assets/js/products-data.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/spin-wheel.js"></script>
+  <script src="assets/js/divan-parallax-slider.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       renderGlobalComponents('home');
@@ -689,6 +732,11 @@
       // Populate New Arrivals (All authentic signature sarees)
       const newArrivalsGrid = document.getElementById('newArrivalsGrid');
       if (newArrivalsGrid) newArrivalsGrid.innerHTML = SAREE_PRODUCTS.map(p => createSareeCardHTML(p)).join('');
+
+      // Initialize Divan Raj Parallel/Parallax Card Sliders
+      if (window.initDivanParallaxSliders) {
+        window.initDivanParallaxSliders();
+      }
 
       // Populate Home Reels Preview (First 3 reels)
       const homeReelsGrid = document.getElementById('homeReelsGrid');
