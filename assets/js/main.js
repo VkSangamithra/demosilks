@@ -689,9 +689,63 @@ function toggleMobileNav() {
   }
 }
 
+// Sticky Stacking Cards Scroll Physics & Animation (PGNexa-Style Adapted to Royal Silks)
+function initStackingCardsAnimation() {
+  const container = document.getElementById('stackingCardsContainer');
+  if (!container) return;
+  const cards = Array.from(container.querySelectorAll('.stack-card'));
+  if (cards.length < 2) return;
+
+  function onScroll() {
+    const vh = window.innerHeight;
+    const isMobile = window.innerWidth <= 600;
+    const headerOffset = isMobile ? 76 : 92;
+    const stepOffset = isMobile ? 16 : 22;
+
+    cards.forEach((card, index) => {
+      const nextCard = cards[index + 1];
+      if (!nextCard) {
+        card.style.transform = '';
+        card.style.filter = '';
+        return;
+      }
+
+      const nextRect = nextCard.getBoundingClientRect();
+      const targetTop = headerOffset + (index + 1) * stepOffset;
+      const startOverlap = vh * 0.88;
+      const fullOverlap = targetTop;
+
+      let progress = (startOverlap - nextRect.top) / (startOverlap - fullOverlap);
+      progress = Math.max(0, Math.min(1, progress));
+
+      const scale = 1 - (progress * 0.05);
+      const translateY = - (progress * 8);
+      const brightness = 1 - (progress * 0.08);
+
+      card.style.transform = `scale(${scale.toFixed(3)}) translateY(${translateY.toFixed(1)}px)`;
+      card.style.filter = `brightness(${brightness.toFixed(3)})`;
+    });
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        onScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll();
+}
+
 // Initialise on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
   DemoStore.updateBadges();
+  initStackingCardsAnimation();
 
   // Close modals when clicking overlay
   document.addEventListener('click', (e) => {
