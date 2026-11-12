@@ -1788,7 +1788,7 @@ section[id], footer[id] {
   max-width: 100vw;
   box-sizing: border-box;
   height: 340px;
-  background-image: url('../images/contact-banner-exact.jpg');
+  background-image: url('../images/contact-banner-exact.jpg?v=2');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100% 100%;
