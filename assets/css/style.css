@@ -2622,9 +2622,10 @@ section[id], footer[id] {
     left: 0 !important;
     width: 100% !important;
     width: 100vw !important;
-    min-height: 100vh !important;
+    height: 100vh !important;
     height: 100svh !important;
     height: 100dvh !important;
+    min-height: 100vh !important;
     margin: 0 !important;
     padding: 0 !important;
     border: none !important;
@@ -2641,7 +2642,12 @@ section[id], footer[id] {
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
+    width: 100vw !important;
     height: 100% !important;
+    height: 100vh !important;
+    height: 100svh !important;
+    height: 100dvh !important;
+    min-height: 100vh !important;
     object-fit: cover !important;
     margin: 0 !important;
     padding: 0 !important;

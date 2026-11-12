@@ -819,9 +819,19 @@
 
       function resizeCanvas() {
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        const parent = canvas.parentElement || scrollContainer;
-        const targetW = Math.round(parent.clientWidth * dpr);
-        const targetH = Math.round(parent.clientHeight * dpr);
+        let targetW, targetH;
+        if (window.innerWidth <= 768) {
+          // Mobile: Always use full viewport dimensions directly with zero gaps or cutoffs
+          const vpW = window.innerWidth || document.documentElement.clientWidth;
+          const vpH = window.innerHeight || document.documentElement.clientHeight;
+          targetW = Math.round(vpW * dpr);
+          targetH = Math.round(vpH * dpr);
+        } else {
+          // Desktop: exactly keep the original desktop sizing logic
+          const parent = canvas.parentElement || scrollContainer;
+          targetW = Math.round(parent.clientWidth * dpr);
+          targetH = Math.round(parent.clientHeight * dpr);
+        }
         if (canvas.width !== targetW || canvas.height !== targetH) {
           canvas.width = targetW;
           canvas.height = targetH;
@@ -837,20 +847,20 @@
         if (!image || !image.complete || image.naturalWidth <= 0) return false;
 
         if (window.innerWidth <= 768) {
-          // Mobile: proportional centered cover with zero stretch, distortion, or blur
+          // Mobile: proportional centered cover with zero stretch, distortion, or blank gaps
           const imgRatio = image.naturalWidth / image.naturalHeight;
           const canvasRatio = canvas.width / canvas.height;
           let renderW, renderH, offsetX, offsetY;
 
           if (canvasRatio > imgRatio) {
             renderW = canvas.width;
-            renderH = canvas.width / imgRatio;
+            renderH = Math.ceil(canvas.width / imgRatio);
             offsetX = 0;
-            offsetY = (canvas.height - renderH) / 2;
+            offsetY = Math.round((canvas.height - renderH) / 2);
           } else {
             renderH = canvas.height;
-            renderW = canvas.height * imgRatio;
-            offsetX = (canvas.width - renderW) / 2;
+            renderW = Math.ceil(canvas.height * imgRatio);
+            offsetX = Math.round((canvas.width - renderW) / 2);
             offsetY = 0;
           }
 
@@ -982,6 +992,10 @@
       }
 
       window.addEventListener('resize', resizeCanvas, { passive: true });
+      window.addEventListener('orientationchange', resizeCanvas, { passive: true });
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', resizeCanvas, { passive: true });
+      }
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('touchmove', onScroll, { passive: true });
       window.addEventListener('touchstart', onScroll, { passive: true });
