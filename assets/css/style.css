@@ -2605,37 +2605,34 @@ section[id], footer[id] {
     height: 34px;
     font-size: 1.05rem;
   }
-  /* Mobile Responsive Full-Viewport Hero Video Section */
+  /* Mobile Responsive Full-Viewport Hero Scrolling Effect */
   .showroom-scroll-container {
     width: 100% !important;
-    min-height: 100vh !important;
-    height: 100svh !important;
-    height: 100dvh !important;
+    height: 240vh !important; /* Ample thumb-scroll travel for smooth 60fps scrubbing */
     position: relative !important;
-    overflow: hidden !important;
     margin: 0 !important;
     padding: 0 !important;
+    background: #0d0608 !important;
   }
   .showroom-sticky-frame {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100% !important;
+    width: 100vw !important;
     min-height: 100vh !important;
     height: 100svh !important;
     height: 100dvh !important;
-    position: absolute !important;
-    inset: 0 !important;
-    top: 0 !important;
-    left: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
     border: none !important;
     box-shadow: none !important;
     overflow: hidden !important;
+    background: #0d0608 !important;
+    z-index: 2 !important;
   }
   #showroomCanvas {
-    display: none !important;
-  }
-  .showroom-video-element,
-  #showroomVideo {
     display: block !important;
     position: absolute !important;
     inset: 0 !important;
@@ -2644,13 +2641,13 @@ section[id], footer[id] {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center center !important;
     margin: 0 !important;
     padding: 0 !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
     transform: none !important;
-    z-index: 1 !important;
+  }
+  .showroom-video-element,
+  #showroomVideo {
+    display: none !important;
   }
   .showroom-scroll-title {
     font-size: 2rem;

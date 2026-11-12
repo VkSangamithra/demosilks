@@ -798,24 +798,7 @@
     function initShowroomVideoScroll() {
       const scrollContainer = document.getElementById('showroomScrollContainer');
       const canvas = document.getElementById('showroomCanvas');
-      const video = document.getElementById('showroomVideo');
-      if (!scrollContainer) return;
-
-      // Mobile Handling: ensure video starts automatically on all mobile browsers (Android and iPhone)
-      if (window.innerWidth <= 768) {
-        if (video) {
-          video.muted = true;
-          video.play().catch(() => {});
-          const startPlayback = () => {
-            if (video.paused) video.play().catch(() => {});
-          };
-          document.addEventListener('touchstart', startPlayback, { once: true, passive: true });
-          document.addEventListener('scroll', startPlayback, { once: true, passive: true });
-        }
-        return; // Full-viewport native edge-to-edge video on mobile
-      }
-
-      if (!canvas) return;
+      if (!scrollContainer || !canvas) return;
 
       const ctx = canvas.getContext('2d');
       const totalFrames = 119;
