@@ -1776,12 +1776,12 @@ section[id], footer[id] {
 }
 
 /* ==========================================================================
-   FULL-BLEED 100% EDGE-TO-EDGE CONTACT US BANNER (Zero margins/gaps, HD cover)
+   FULL-BLEED 100% EDGE-TO-EDGE CONTACT US BANNER
+   Height-Reduced Full-Width Optimization (Desktop: 320px, Tablet: 280px, Mobile: 220px)
    ========================================================================== */
 .contact-banner-fullbleed {
   width: 100%;
-  aspect-ratio: 1024 / 341;
-  min-height: 240px;
+  height: 320px;
   background-image: url('../images/contact-banner-exact.jpg');
   background-size: cover;
   background-position: center center;
@@ -1796,15 +1796,14 @@ section[id], footer[id] {
 
 @media (max-width: 991px) {
   .contact-banner-fullbleed {
-    aspect-ratio: 1024 / 341;
-    min-height: 190px;
+    height: 280px;
+    background-position: center center;
   }
 }
 
 @media (max-width: 600px) {
   .contact-banner-fullbleed {
-    aspect-ratio: auto;
-    min-height: 155px;
+    height: 220px;
     background-size: cover;
     background-position: center center;
   }
