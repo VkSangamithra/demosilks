@@ -298,10 +298,6 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- SECTION 4: SIGNATURE COLLECTIONS -->
-  <section id="collectionsSection" style="padding: 40px 0 60px 0;">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Curated Realms of Luxury</span>
@@ -840,80 +836,53 @@
       const showroomVid = document.getElementById('showroomVideo');
       if (!scrollContainer || !showroomVid) return;
 
-      let targetProgress = 0;
-      let currentProgress = 0;
-      let isSeeking = false;
-      let pendingTime = null;
+      let targetTime = 0;
+      let rafId = null;
 
       // Ensure video is strictly paused, muted, and plays inline (ONLY scroll controls it)
       showroomVid.pause();
       showroomVid.muted = true;
+      showroomVid.playsInline = true;
 
-      // 1. Preload video into Blob URL in memory for zero-latency frame seeking
-      fetch('assets/videos/Silk_sarees_inside_shop_8653ac24_1080p.mp4')
-        .then(res => res.blob())
-        .then(blob => {
-          const blobUrl = URL.createObjectURL(blob);
-          showroomVid.src = blobUrl;
-          showroomVid.load();
-        })
-        .catch(err => console.log('Blob preload fallback:', err));
-
-      showroomVid.addEventListener('loadedmetadata', () => {
-        showroomVid.currentTime = 0.01;
-        onScroll();
-      });
-
-      showroomVid.addEventListener('seeking', () => {
-        isSeeking = true;
-      });
-
-      showroomVid.addEventListener('seeked', () => {
-        isSeeking = false;
-        if (pendingTime !== null) {
-          const next = pendingTime;
-          pendingTime = null;
-          seekTo(next);
-        }
-      });
-
-      function seekTo(time) {
+      function syncFrame() {
+        rafId = null;
         if (!showroomVid.duration || isNaN(showroomVid.duration)) return;
-        const boundedTime = Math.max(0.01, Math.min(showroomVid.duration - 0.05, time));
-        if (isSeeking) {
-          pendingTime = boundedTime;
-        } else if (Math.abs(showroomVid.currentTime - boundedTime) > 0.02) {
-          isSeeking = true;
-          if (typeof showroomVid.fastSeek === 'function') {
-            showroomVid.fastSeek(boundedTime);
-          } else {
-            showroomVid.currentTime = boundedTime;
-          }
+
+        // Instantaneous frame update with zero artificial lag/lerp delay
+        if (Math.abs(targetTime - showroomVid.currentTime) > 0.015) {
+          showroomVid.currentTime = targetTime;
         }
       }
 
-      // 2. Continuous 60fps Lerp loop: Video only progresses in direct response to scroll
-      function scrubLoop() {
-        if (showroomVid.duration && !isNaN(showroomVid.duration)) {
-          // Smoothly interpolate currentProgress toward targetProgress (lerp)
-          currentProgress += (targetProgress - currentProgress) * 0.25;
-
-          if (Math.abs(targetProgress - currentProgress) > 0.001) {
-            const desiredTime = currentProgress * showroomVid.duration;
-            seekTo(desiredTime);
-          }
-        }
-        requestAnimationFrame(scrubLoop);
-      }
-      requestAnimationFrame(scrubLoop);
-
-      // 3. Scroll handler - calculates exact percentage through scroll container
       function onScroll() {
         const rect = scrollContainer.getBoundingClientRect();
         const totalScrollable = scrollContainer.offsetHeight - window.innerHeight;
         if (totalScrollable <= 0) return;
+
+        // Only compute when visible or near viewport
+        if (rect.bottom < -50 || rect.top > window.innerHeight + 50) return;
+
         const scrolledDistance = -rect.top;
-        targetProgress = Math.max(0, Math.min(1, scrolledDistance / totalScrollable));
+        const progress = Math.max(0, Math.min(1, scrolledDistance / totalScrollable));
+
+        const duration = showroomVid.duration && !isNaN(showroomVid.duration) ? showroomVid.duration : 9.95;
+        targetTime = Math.max(0.01, Math.min(duration - 0.04, progress * duration));
+
+        if (!rafId) {
+          rafId = requestAnimationFrame(syncFrame);
+        }
+      }
+
+      // Initialize on metadata or ready state immediately
+      if (showroomVid.readyState >= 1) {
+        showroomVid.currentTime = 0.01;
+        onScroll();
+      } else {
+        showroomVid.addEventListener('loadedmetadata', () => {
+          showroomVid.currentTime = 0.01;
+          onScroll();
+        }, { once: true });
+        showroomVid.addEventListener('canplay', onScroll, { once: true });
       }
 
       window.addEventListener('scroll', onScroll, { passive: true });

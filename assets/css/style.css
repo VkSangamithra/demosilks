@@ -2353,9 +2353,12 @@ section[id], footer[id] {
   object-fit: cover;
   display: block;
   /* Scale 1.12 cleanly hides corner watermarks */
-  transform: scale(1.12);
+  transform: scale(1.12) translateZ(0);
   transform-origin: center center;
   filter: brightness(0.92) contrast(1.05);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .showroom-video-overlay {
