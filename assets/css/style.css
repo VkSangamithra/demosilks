@@ -3571,14 +3571,201 @@ section[id], footer[id] {
   border: 1px solid #25d366 !important;
 }
 
-/* Card sizing inside Collections track */
-.collections-grid.divan-slider-track .collection-card {
-  flex: 0 0 350px !important;
-  width: 350px !important;
-  height: 450px !important;
-  margin: 0 !important;
+/* ==========================================================================
+   SIGNATURE COLLECTIONS (#collectionsSection) SINGLE-VIEWPORT OPTIMIZATION
+   ========================================================================== */
+
+#collectionsSection {
+  padding: 12px 0 16px 0 !important;
   box-sizing: border-box;
-  overflow: hidden;
+}
+
+#collectionsSection .section-header {
+  margin: 0 auto 6px auto !important;
+  max-width: 600px;
+}
+
+#collectionsSection .section-tag {
+  margin-bottom: 2px !important;
+  font-size: 0.62rem !important;
+  padding: 2px 8px !important;
+  letter-spacing: 0.08em !important;
+}
+
+#collectionsSection .section-title {
+  font-size: 1.55rem !important;
+  margin-bottom: 2px !important;
+  line-height: 1.15 !important;
+}
+
+#collectionsSection .section-divider {
+  margin: 3px auto 5px auto !important;
+  gap: 6px !important;
+}
+
+#collectionsSection .section-divider span {
+  width: 28px !important;
+}
+
+#collectionsSection .section-divider i {
+  font-size: 0.70rem !important;
+}
+
+#collectionsSection .section-desc {
+  font-size: 0.80rem !important;
+  line-height: 1.3 !important;
+  margin-bottom: 0 !important;
+}
+
+#collectionsSection .divan-slider-wrapper {
+  margin-top: 4px !important;
+}
+
+#collectionsSection .divan-slider-controls {
+  margin-bottom: 6px !important;
+  gap: 10px;
+}
+
+#collectionsSection .divan-slider-counter {
+  font-size: 0.80rem !important;
+}
+
+#collectionsSection .divan-slider-counter .active-num {
+  font-size: 1.10rem !important;
+  min-width: 20px !important;
+}
+
+#collectionsSection .divan-slider-counter .total-num {
+  font-size: 0.82rem !important;
+}
+
+#collectionsSection .divan-nav-btn {
+  width: 32px !important;
+  height: 32px !important;
+  font-size: 0.78rem !important;
+}
+
+#collectionsSection .divan-slider-viewport {
+  padding: 4px 4px 10px 4px !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* Card sizing inside Collections track */
+.collections-grid.divan-slider-track {
+  gap: 14px !important;
+  align-items: stretch !important;
+}
+
+.collections-grid.divan-slider-track .collection-card {
+  flex: 0 0 255px !important;
+  width: 255px !important;
+  height: 280px !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--color-gold-border) !important;
+  box-shadow: 0 6px 18px rgba(98, 17, 34, 0.08) !important;
+  position: relative !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.collections-grid.divan-slider-track .collection-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(197, 155, 39, 0.8) !important;
+  box-shadow: 0 10px 22px rgba(98, 17, 34, 0.14) !important;
+}
+
+/* Parallax Layer for Collection Card Bg */
+.divan-slider-track .collection-card {
+  overflow: hidden !important;
+}
+
+.divan-slider-track .collection-bg {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transform: scale(1.15) translateX(var(--divan-img-parallax, 0px)) !important;
+  transition: transform 1.15s cubic-bezier(0.25, 1, 0.35, 1);
+  will-change: transform;
+}
+
+.collections-grid.divan-slider-track .collection-card:hover .collection-bg {
+  transform: scale(1.18) translateX(var(--divan-img-parallax, 0px)) !important;
+}
+
+.collections-grid .collection-overlay {
+  padding: 12px 14px 10px 14px !important;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(35, 5, 12, 0.52) 42%, rgba(15, 3, 6, 0.95) 100%) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  box-sizing: border-box !important;
+}
+
+.collections-grid .collection-tag {
+  font-size: 0.56rem !important;
+  padding: 2px 7px !important;
+  margin-bottom: 4px !important;
+  border-radius: 999px !important;
+  letter-spacing: 0.05em !important;
+  align-self: flex-start !important;
+  font-weight: 700 !important;
+  background: var(--color-gold-shimmer) !important;
+  color: var(--color-maroon-dark) !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+}
+
+.collections-grid .collection-title {
+  font-size: 1.12rem !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin-bottom: 3px !important;
+  line-height: 1.15 !important;
+  font-family: var(--font-royal) !important;
+  white-space: nowrap !important;
+}
+
+.collections-grid .collection-tagline {
+  font-size: 0.68rem !important;
+  line-height: 1.3 !important;
+  margin-bottom: 6px !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.collections-grid .collection-link-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.22) !important;
+  padding-top: 6px !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+}
+
+.collections-grid .collection-count {
+  font-size: 0.68rem !important;
+  color: #fae29c !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+}
+
+.collections-grid .collection-explore {
+  font-size: 0.68rem !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  white-space: nowrap !important;
 }
 
 /* Parallax Layer for Saree Card Thumb */
@@ -3588,20 +3775,6 @@ section[id], footer[id] {
 }
 
 .divan-slider-track .saree-thumb {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.18) translateX(var(--divan-img-parallax, 0px));
-  transition: transform 1.15s cubic-bezier(0.25, 1, 0.35, 1);
-  will-change: transform;
-}
-
-/* Parallax Layer for Collection Card Bg */
-.divan-slider-track .collection-card {
-  overflow: hidden !important;
-}
-
-.divan-slider-track .collection-bg {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -3622,18 +3795,26 @@ section[id], footer[id] {
   #newArrivalsGrid .saree-title {
     font-size: 0.80rem !important;
   }
+  .collections-grid.divan-slider-track .collection-card {
+    flex: 0 0 240px !important;
+    width: 240px !important;
+    height: 275px !important;
+  }
 }
 
 /* Tablet Screens (769px - 992px) */
 @media (max-width: 992px) {
-  #shopSection {
-    padding: 16px 0 20px 0 !important;
+  #shopSection,
+  #collectionsSection {
+    padding: 12px 0 16px 0 !important;
   }
-  #shopSection .section-title {
-    font-size: 1.55rem !important;
+  #shopSection .section-title,
+  #collectionsSection .section-title {
+    font-size: 1.45rem !important;
   }
-  #newArrivalsGrid.divan-slider-track {
-    gap: 14px !important;
+  #newArrivalsGrid.divan-slider-track,
+  .collections-grid.divan-slider-track {
+    gap: 12px !important;
   }
   #newArrivalsGrid.divan-slider-track .saree-card {
     flex: 0 0 185px !important;
@@ -3645,29 +3826,40 @@ section[id], footer[id] {
   #newArrivalsGrid .saree-content {
     padding: 8px 9px 9px 9px !important;
   }
+  .collections-grid.divan-slider-track .collection-card {
+    flex: 0 0 225px !important;
+    width: 225px !important;
+    height: 270px !important;
+  }
 }
 
 /* Mobile & Phablet Screens (max-width: 768px) */
 @media (max-width: 768px) {
-  #shopSection {
-    padding: 16px 0 20px 0 !important;
+  #shopSection,
+  #collectionsSection {
+    padding: 12px 0 16px 0 !important;
   }
-  #shopSection .section-header {
-    margin-bottom: 8px !important;
+  #shopSection .section-header,
+  #collectionsSection .section-header {
+    margin-bottom: 6px !important;
   }
-  #shopSection .section-title {
-    font-size: 1.45rem !important;
+  #shopSection .section-title,
+  #collectionsSection .section-title {
+    font-size: 1.35rem !important;
     margin-bottom: 2px !important;
   }
-  #shopSection .section-desc {
-    font-size: 0.80rem !important;
+  #shopSection .section-desc,
+  #collectionsSection .section-desc {
+    font-size: 0.78rem !important;
   }
-  #shopSection .divan-slider-controls {
-    margin-bottom: 8px !important;
+  #shopSection .divan-slider-controls,
+  #collectionsSection .divan-slider-controls {
+    margin-bottom: 6px !important;
     gap: 8px !important;
   }
-  #newArrivalsGrid.divan-slider-track {
-    gap: 12px !important;
+  #newArrivalsGrid.divan-slider-track,
+  .collections-grid.divan-slider-track {
+    gap: 10px !important;
   }
   #newArrivalsGrid.divan-slider-track .saree-card {
     flex: 0 0 180px !important;
@@ -3677,9 +3869,9 @@ section[id], footer[id] {
     height: 140px !important;
   }
   .collections-grid.divan-slider-track .collection-card {
-    flex: 0 0 280px !important;
-    width: 280px !important;
-    height: 390px !important;
+    flex: 0 0 215px !important;
+    width: 215px !important;
+    height: 265px !important;
   }
   .divan-progress-rail {
     max-width: 160px;
@@ -4267,9 +4459,9 @@ section[id], footer[id] {
   }
 
   .collections-grid.divan-slider-track .collection-card {
-    flex: 0 0 260px !important;
-    width: 260px !important;
-    height: 360px !important;
+    flex: 0 0 215px !important;
+    width: 215px !important;
+    height: 265px !important;
   }
 }
 
@@ -4287,7 +4479,8 @@ section[id], footer[id] {
     display: none;
   }
 
-  #newArrivalsGrid.divan-slider-track {
+  #newArrivalsGrid.divan-slider-track,
+  .collections-grid.divan-slider-track {
     gap: 10px !important;
   }
 
@@ -4301,9 +4494,9 @@ section[id], footer[id] {
   }
 
   .collections-grid.divan-slider-track .collection-card {
-    flex: 0 0 240px !important;
-    width: 240px !important;
-    height: 340px !important;
+    flex: 0 0 min(78vw, 250px) !important;
+    width: min(78vw, 250px) !important;
+    height: 275px !important;
   }
 }
 
