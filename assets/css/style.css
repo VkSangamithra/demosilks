@@ -3467,17 +3467,9 @@ section[id], footer[id] {
   transform: scale(1.18) translateX(var(--divan-img-parallax, 0px)) !important;
 }
 
-/* Badges inside Slider Card */
+/* Badges inside Slider Card - Hidden in New Arrivals */
 #newArrivalsGrid .saree-badges {
-  top: 6px !important;
-  left: 6px !important;
-  gap: 3px !important;
-}
-
-#newArrivalsGrid .badge-tag {
-  font-size: 0.55rem !important;
-  padding: 2px 6px !important;
-  letter-spacing: 0.03em !important;
+  display: none !important;
 }
 
 /* Wishlist Button inside Slider Card */
