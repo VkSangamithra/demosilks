@@ -3576,8 +3576,17 @@ section[id], footer[id] {
    ========================================================================== */
 
 #collectionsSection {
-  padding: 12px 0 16px 0 !important;
-  box-sizing: border-box;
+  min-height: calc(100vh - 88px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  padding: 20px 0 !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+
+#collectionsSection > .container {
+  width: 100%;
 }
 
 #collectionsSection .section-header {
@@ -3838,6 +3847,10 @@ section[id], footer[id] {
   #shopSection,
   #collectionsSection {
     padding: 12px 0 16px 0 !important;
+  }
+  #collectionsSection {
+    min-height: auto !important;
+    display: block !important;
   }
   #shopSection .section-header,
   #collectionsSection .section-header {
