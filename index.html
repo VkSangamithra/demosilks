@@ -804,6 +804,7 @@
       const totalFrames = 119;
       const frames = [];
       let lastRenderedIndex = 0;
+      let currentTargetFrame = 0;
       let isFirstFrameDrawn = false;
 
       function getFrameSrc(idx) {
@@ -812,9 +813,43 @@
 
       function resizeCanvas() {
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        canvas.width = window.innerWidth * dpr;
-        canvas.height = window.innerHeight * dpr;
+        const parent = canvas.parentElement || scrollContainer;
+        canvas.width = parent.clientWidth * dpr;
+        canvas.height = parent.clientHeight * dpr;
         drawFrame(lastRenderedIndex);
+      }
+
+      function renderImage(image, idx) {
+        if (!image || !image.complete || image.naturalWidth <= 0) return false;
+
+        if (window.innerWidth <= 768) {
+          // Mobile: proportional centered cover with zero stretch, distortion, or blur
+          const imgRatio = image.naturalWidth / image.naturalHeight;
+          const canvasRatio = canvas.width / canvas.height;
+          let renderW, renderH, offsetX, offsetY;
+
+          if (canvasRatio > imgRatio) {
+            renderW = canvas.width;
+            renderH = canvas.width / imgRatio;
+            offsetX = 0;
+            offsetY = (canvas.height - renderH) / 2;
+          } else {
+            renderH = canvas.height;
+            renderW = canvas.height * imgRatio;
+            offsetX = (canvas.width - renderW) / 2;
+            offsetY = 0;
+          }
+
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(image, offsetX, offsetY, renderW, renderH);
+        } else {
+          // Desktop: exactly keep the original desktop draw call
+          ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        }
+        lastRenderedIndex = idx;
+        return true;
       }
 
       function drawFrame(idx) {
@@ -822,20 +857,27 @@
         const img = frames[idx];
 
         if (img && img.complete && img.naturalWidth > 0) {
-          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-          lastRenderedIndex = idx;
+          renderImage(img, idx);
         } else {
-          // If the requested frame is not yet in memory, find nearest loaded frame
-          for (let dist = 1; dist < 25; dist++) {
-            const prev = frames[idx - dist];
+          // If requested frame is not yet fully loaded in memory, find nearest loaded frame
+          let drawn = false;
+          // 1. Search backward (prioritizes earlier viewed/loaded frames)
+          for (let d = 1; d <= idx; d++) {
+            const prev = frames[idx - d];
             if (prev && prev.complete && prev.naturalWidth > 0) {
-              ctx.drawImage(prev, 0, 0, canvas.width, canvas.height);
+              renderImage(prev, idx);
+              drawn = true;
               break;
             }
-            const next = frames[idx + dist];
-            if (next && next.complete && next.naturalWidth > 0) {
-              ctx.drawImage(next, 0, 0, canvas.width, canvas.height);
-              break;
+          }
+          // 2. Search forward if backward had no loaded frames
+          if (!drawn) {
+            for (let d = 1; d < totalFrames - idx; d++) {
+              const next = frames[idx + d];
+              if (next && next.complete && next.naturalWidth > 0) {
+                renderImage(next, idx);
+                break;
+              }
             }
           }
         }
@@ -843,7 +885,6 @@
 
       // 1. Immediately load frame 0 for instant visual render
       const firstImg = new Image();
-      firstImg.src = getFrameSrc(0);
       firstImg.onload = () => {
         frames[0] = firstImg;
         if (!isFirstFrameDrawn) {
@@ -851,37 +892,43 @@
           resizeCanvas();
         }
       };
+      firstImg.src = getFrameSrc(0);
 
-      // 2. Preload remaining frames in priority batches (every 4th frame first, then fill)
+      // 2. Preload remaining frames with priority ladder (every 4th, then every 2nd, then remaining)
       const priorityIndices = [];
       for (let i = 0; i < totalFrames; i += 4) priorityIndices.push(i);
+      for (let i = 0; i < totalFrames; i += 2) {
+        if (!priorityIndices.includes(i)) priorityIndices.push(i);
+      }
       for (let i = 0; i < totalFrames; i++) {
         if (!priorityIndices.includes(i)) priorityIndices.push(i);
       }
 
       let loadIdx = 0;
       function preloadNextBatch() {
-        const batchSize = 6;
+        const batchSize = 8;
         for (let b = 0; b < batchSize && loadIdx < priorityIndices.length; b++) {
           const frameNum = priorityIndices[loadIdx++];
           if (!frames[frameNum]) {
             const img = new Image();
+            img.onload = () => {
+              frames[frameNum] = img;
+              // If user is currently scrolled near this newly loaded frame, re-draw immediately
+              if (Math.abs(currentTargetFrame - frameNum) <= 4) {
+                drawFrame(currentTargetFrame);
+              }
+            };
             img.src = getFrameSrc(frameNum);
-            frames[frameNum] = img;
           }
         }
         if (loadIdx < priorityIndices.length) {
-          if (window.requestIdleCallback) {
-            requestIdleCallback(preloadNextBatch, { timeout: 100 });
-          } else {
-            setTimeout(preloadNextBatch, 20);
-          }
+          setTimeout(preloadNextBatch, 15);
         }
       }
 
-      setTimeout(preloadNextBatch, 40);
+      setTimeout(preloadNextBatch, 25);
 
-      // 3. Scroll Scrubbing Handler with ZERO Timelag (Direct 60fps tracking)
+      // 3. Scroll & Touch Scrubbing Handler with ZERO Timelag (Direct 60fps tracking)
       let rafId = null;
       function onScroll() {
         const rect = scrollContainer.getBoundingClientRect();
@@ -894,6 +941,7 @@
         const scrolledDistance = -rect.top;
         const progress = Math.max(0, Math.min(1, scrolledDistance / totalScrollable));
         const targetFrame = Math.floor(progress * (totalFrames - 1));
+        currentTargetFrame = targetFrame;
 
         if (targetFrame !== lastRenderedIndex) {
           if (!rafId) {
@@ -907,6 +955,8 @@
 
       window.addEventListener('resize', resizeCanvas, { passive: true });
       window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('touchmove', onScroll, { passive: true });
+      window.addEventListener('touchstart', onScroll, { passive: true });
 
       resizeCanvas();
       onScroll();
