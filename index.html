@@ -6,6 +6,10 @@
   <title>DEMO SILKS | Luxury Handloom Sarees, Kanjivaram & Banarasi Silk</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/spin-wheel.css">
+  <!-- Preload Showroom Entrance Door Initial Frames for Instant Mobile Scrubbing -->
+  <link rel="preload" as="image" href="assets/frames_showroom/frame_000.jpg">
+  <link rel="preload" as="image" href="assets/frames_showroom/frame_016.jpg">
+  <link rel="preload" as="image" href="assets/frames_showroom/frame_032.jpg">
   <!-- Google Fonts: Cinzel, Cormorant Garamond, Playfair Display & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +22,7 @@
   <section id="showroomScrollContainer" class="showroom-scroll-container">
     <div class="showroom-sticky-frame">
       <canvas id="showroomCanvas" class="showroom-video-bg"></canvas>
-      <video id="showroomVideo" src="assets/videos/Silk_sarees_inside_shop_8653ac24_1080p.mp4" autoplay muted loop playsinline preload="auto" class="showroom-video-element"></video>
+      <video id="showroomVideo" src="assets/videos/Silk_sarees_inside_shop_8653ac24_1080p.mp4" muted playsinline preload="none" class="showroom-video-element"></video>
     </div>
   </section>
 
@@ -802,10 +806,12 @@
 
       const ctx = canvas.getContext('2d');
       const totalFrames = 119;
-      const frames = [];
-      let lastRenderedIndex = 0;
+      const frames = new Array(totalFrames);
+      const loadingFrames = new Set();
       let currentTargetFrame = 0;
+      let currentDrawnFrame = -1;
       let isFirstFrameDrawn = false;
+      let rafId = null;
 
       function getFrameSrc(idx) {
         return `assets/frames_showroom/frame_${String(idx).padStart(3, '0')}.jpg`;
@@ -819,11 +825,15 @@
         if (canvas.width !== targetW || canvas.height !== targetH) {
           canvas.width = targetW;
           canvas.height = targetH;
-          drawFrame(lastRenderedIndex);
+          if (currentDrawnFrame >= 0 && frames[currentDrawnFrame]) {
+            renderFrame(frames[currentDrawnFrame], currentDrawnFrame);
+          } else {
+            drawFrame(currentTargetFrame);
+          }
         }
       }
 
-      function renderImage(image, idx) {
+      function renderFrame(image, actualIdx) {
         if (!image || !image.complete || image.naturalWidth <= 0) return false;
 
         if (window.innerWidth <= 768) {
@@ -852,88 +862,97 @@
           // Desktop: exactly keep the original desktop draw call
           ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
         }
-        lastRenderedIndex = idx;
+        currentDrawnFrame = actualIdx;
         return true;
       }
 
-      function drawFrame(idx) {
-        idx = Math.max(0, Math.min(totalFrames - 1, idx));
-        const img = frames[idx];
+      function findNearestLoadedFrame(targetIdx) {
+        if (frames[targetIdx] && frames[targetIdx].complete && frames[targetIdx].naturalWidth > 0) {
+          return targetIdx;
+        }
+        for (let dist = 1; dist < totalFrames; dist++) {
+          const prev = targetIdx - dist;
+          if (prev >= 0 && frames[prev] && frames[prev].complete && frames[prev].naturalWidth > 0) {
+            return prev;
+          }
+          const next = targetIdx + dist;
+          if (next < totalFrames && frames[next] && frames[next].complete && frames[next].naturalWidth > 0) {
+            return next;
+          }
+        }
+        return -1;
+      }
 
-        if (img && img.complete && img.naturalWidth > 0) {
-          renderImage(img, idx);
-        } else {
-          // If requested frame is not yet fully loaded in memory, find nearest loaded frame
-          let drawn = false;
-          // 1. Search backward (prioritizes earlier viewed/loaded frames)
-          for (let d = 1; d <= idx; d++) {
-            const prev = frames[idx - d];
-            if (prev && prev.complete && prev.naturalWidth > 0) {
-              renderImage(prev, idx);
-              drawn = true;
-              break;
-            }
-          }
-          // 2. Search forward if backward had no loaded frames
-          if (!drawn) {
-            for (let d = 1; d < totalFrames - idx; d++) {
-              const next = frames[idx + d];
-              if (next && next.complete && next.naturalWidth > 0) {
-                renderImage(next, idx);
-                break;
-              }
-            }
-          }
+      function drawFrame(targetIdx) {
+        targetIdx = Math.max(0, Math.min(totalFrames - 1, targetIdx));
+        const nearestIdx = findNearestLoadedFrame(targetIdx);
+        if (nearestIdx >= 0) {
+          renderFrame(frames[nearestIdx], nearestIdx);
         }
       }
 
-      // 1. Immediately load frame 0 for instant visual render
-      const firstImg = new Image();
-      firstImg.onload = () => {
-        frames[0] = firstImg;
-        if (!isFirstFrameDrawn) {
+      function onFrameLoaded(frameNum, img) {
+        loadingFrames.delete(frameNum);
+        frames[frameNum] = img;
+
+        if (frameNum === 0 && !isFirstFrameDrawn) {
           isFirstFrameDrawn = true;
           resizeCanvas();
+          drawFrame(0);
         }
-      };
-      firstImg.src = getFrameSrc(0);
 
-      // 2. Preload remaining frames with priority ladder (every 4th, then every 2nd, then remaining)
-      const priorityIndices = [];
-      for (let i = 0; i < totalFrames; i += 4) priorityIndices.push(i);
-      for (let i = 0; i < totalFrames; i += 2) {
-        if (!priorityIndices.includes(i)) priorityIndices.push(i);
+        // If this newly loaded frame brings the canvas closer to currentTargetFrame, redraw immediately!
+        const currentDiff = currentDrawnFrame >= 0 ? Math.abs(currentTargetFrame - currentDrawnFrame) : 9999;
+        const newDiff = Math.abs(currentTargetFrame - frameNum);
+        if (newDiff < currentDiff) {
+          drawFrame(currentTargetFrame);
+        }
       }
+
+      function loadSingleFrame(frameNum) {
+        if (frames[frameNum] || loadingFrames.has(frameNum)) return;
+        loadingFrames.add(frameNum);
+        const img = new Image();
+        img.onload = () => onFrameLoaded(frameNum, img);
+        img.onerror = () => loadingFrames.delete(frameNum);
+        img.src = getFrameSrc(frameNum);
+      }
+
+      // Priority Ladder:
+      // Tier 1: Every 4th frame (31 keyframes ~2.8MB) for immediate ultra-responsive scrubbing
+      const tier1 = [];
+      for (let i = 0; i < totalFrames; i += 4) tier1.push(i);
+      if (!tier1.includes(totalFrames - 1)) tier1.push(totalFrames - 1);
+
+      // Tier 2: Every 2nd frame (30 frames)
+      const tier2 = [];
+      for (let i = 2; i < totalFrames; i += 4) tier2.push(i);
+
+      // Tier 3: All remaining odd frames (58 frames)
+      const tier3 = [];
       for (let i = 0; i < totalFrames; i++) {
-        if (!priorityIndices.includes(i)) priorityIndices.push(i);
+        if (!tier1.includes(i) && !tier2.includes(i)) tier3.push(i);
       }
 
-      let loadIdx = 0;
-      function preloadNextBatch() {
-        const batchSize = 8;
-        for (let b = 0; b < batchSize && loadIdx < priorityIndices.length; b++) {
-          const frameNum = priorityIndices[loadIdx++];
-          if (!frames[frameNum]) {
-            const img = new Image();
-            img.onload = () => {
-              frames[frameNum] = img;
-              // If user is currently scrolled near this newly loaded frame, re-draw immediately
-              if (Math.abs(currentTargetFrame - frameNum) <= 4) {
-                drawFrame(currentTargetFrame);
-              }
-            };
-            img.src = getFrameSrc(frameNum);
-          }
+      const allPriority = [...tier1, ...tier2, ...tier3];
+      let queueIdx = 0;
+
+      function loadNextBatch() {
+        const batchSize = 6;
+        for (let b = 0; b < batchSize && queueIdx < allPriority.length; b++) {
+          loadSingleFrame(allPriority[queueIdx++]);
         }
-        if (loadIdx < priorityIndices.length) {
-          setTimeout(preloadNextBatch, 15);
+        if (queueIdx < allPriority.length) {
+          setTimeout(loadNextBatch, 35);
         }
       }
 
-      setTimeout(preloadNextBatch, 25);
+      // 1. Immediately load frame 0 for instant visual display
+      loadSingleFrame(0);
+      // 2. Start background progressive ladder loading
+      setTimeout(loadNextBatch, 25);
 
-      // 3. Scroll & Touch Scrubbing Handler with ZERO Timelag (Direct 60fps tracking)
-      let rafId = null;
+      // 3. Scroll & Touch Scrubbing Handler (Direct 60fps tracking)
       function onScroll() {
         const rect = scrollContainer.getBoundingClientRect();
         const totalScrollable = scrollContainer.offsetHeight - window.innerHeight;
@@ -944,14 +963,19 @@
 
         const scrolledDistance = -rect.top;
         const progress = Math.max(0, Math.min(1, scrolledDistance / totalScrollable));
-        const targetFrame = Math.floor(progress * (totalFrames - 1));
+        const targetFrame = Math.min(totalFrames - 1, Math.max(0, Math.floor(progress * totalFrames)));
         currentTargetFrame = targetFrame;
 
-        if (targetFrame !== lastRenderedIndex) {
+        // Demand-driven prefetch: prioritize loading the frame directly under the user's thumb
+        if (!frames[targetFrame]) {
+          loadSingleFrame(targetFrame);
+        }
+
+        if (targetFrame !== currentDrawnFrame) {
           if (!rafId) {
             rafId = requestAnimationFrame(() => {
               rafId = null;
-              drawFrame(targetFrame);
+              drawFrame(currentTargetFrame);
             });
           }
         }

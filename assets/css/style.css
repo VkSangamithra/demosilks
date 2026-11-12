@@ -2613,6 +2613,7 @@ section[id], footer[id] {
     margin: 0 !important;
     padding: 0 !important;
     background: #0d0608 !important;
+    touch-action: pan-y !important;
   }
   .showroom-sticky-frame {
     position: -webkit-sticky !important;
@@ -2631,6 +2632,7 @@ section[id], footer[id] {
     overflow: hidden !important;
     background: #0d0608 !important;
     z-index: 2 !important;
+    touch-action: pan-y !important;
   }
   #showroomCanvas {
     display: block !important;
@@ -2644,6 +2646,7 @@ section[id], footer[id] {
     margin: 0 !important;
     padding: 0 !important;
     transform: none !important;
+    touch-action: pan-y !important;
   }
   .showroom-video-element,
   #showroomVideo {
