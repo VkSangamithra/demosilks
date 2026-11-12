@@ -1776,36 +1776,49 @@ section[id], footer[id] {
 }
 
 /* ==========================================================================
-   FULL-BLEED 100% EDGE-TO-EDGE CONTACT US BANNER
-   Height-Reduced Full-Width Optimization (Desktop: 320px, Tablet: 280px, Mobile: 220px)
+   FULL-BLEED 100% CONTACT US BANNER – CENTER ALIGNED & ZERO CROPPING
+   Desktop: 340px (320px–360px) | Tablet: 300px (280px–320px) | Mobile: 250px (240px–280px)
    ========================================================================== */
 .contact-banner-fullbleed {
   width: 100%;
-  height: 320px;
+  height: 340px;
+  background-color: #fae3cc;
   background-image: url('../images/contact-banner-exact.jpg');
-  background-size: cover;
-  background-position: center center;
   background-repeat: no-repeat;
-  margin: 0;
+  background-position: center center;
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 44px 0;
   padding: 0;
-  display: block;
   border-top: 1px solid rgba(212, 167, 91, 0.35);
   border-bottom: 1px solid rgba(212, 167, 91, 0.35);
   box-shadow: 0 4px 20px rgba(58, 8, 19, 0.06);
 }
 
+@media (min-width: 1600px) {
+  .contact-banner-fullbleed {
+    height: 350px;
+    background-size: contain;
+    background-color: #fae3cc;
+  }
+}
+
 @media (max-width: 991px) {
   .contact-banner-fullbleed {
-    height: 280px;
-    background-position: center center;
+    height: 300px;
+    background-size: 100% 100%;
+    margin-bottom: 32px;
   }
 }
 
 @media (max-width: 600px) {
   .contact-banner-fullbleed {
-    height: 220px;
+    height: 250px;
     background-size: cover;
     background-position: center center;
+    margin-bottom: 24px;
   }
 }
 
