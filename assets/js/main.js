@@ -683,11 +683,62 @@ function renderGlobalComponents(activePageKey = "") {
 // Mobile Navigation Drawer Toggle
 function toggleMobileNav() {
   const menu = document.getElementById('mobileMenu');
+  const btn = document.querySelector('.mobile-menu-btn i');
   if (menu) {
     const isHidden = window.getComputedStyle(menu).display === 'none';
     menu.style.display = isHidden ? 'block' : 'none';
+    if (btn) {
+      if (isHidden) {
+        btn.classList.remove('fa-bars');
+        btn.classList.add('fa-xmark');
+      } else {
+        btn.classList.remove('fa-xmark');
+        btn.classList.add('fa-bars');
+      }
+    }
   }
 }
+
+// Mobile Filter Sidebar Toggle (Shop Page)
+function toggleMobileFilterSidebar() {
+  const sidebar = document.querySelector('.filter-sidebar');
+  if (sidebar) {
+    sidebar.classList.toggle('mobile-open');
+    if (sidebar.classList.contains('mobile-open')) {
+      sidebar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+}
+
+// Auto close mobile drawer when clicking outside or resizing to desktop
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.querySelector('.mobile-menu-btn');
+  if (menu && menu.style.display === 'block') {
+    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.style.display = 'none';
+      const icon = btn ? btn.querySelector('i') : null;
+      if (icon) {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      }
+    }
+  }
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 992) {
+    const menu = document.getElementById('mobileMenu');
+    if (menu) menu.style.display = 'none';
+    const btn = document.querySelector('.mobile-menu-btn i');
+    if (btn) {
+      btn.classList.remove('fa-xmark');
+      btn.classList.add('fa-bars');
+    }
+    const sidebar = document.querySelector('.filter-sidebar');
+    if (sidebar) sidebar.classList.remove('mobile-open');
+  }
+});
 
 // Sticky Stacking Cards Scroll Physics & Animation (PGNexa-Style Adapted to Royal Silks)
 function initStackingCardsAnimation() {

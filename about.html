@@ -203,6 +203,46 @@
       text-align: center;
       box-shadow: 0 16px 45px rgba(0,0,0,0.3);
     }
+
+    .about-hero-split {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .about-specimen-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .about-hero-split {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+      .about-specimen-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+      }
+      .milestone-track {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .about-specimen-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .milestone-track {
+        grid-template-columns: 1fr !important;
+      }
+      .cta-royal-ribbon {
+        padding: 22px 14px !important;
+      }
+    }
   </style>
 </head>
 <body style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
@@ -301,7 +341,7 @@
            1. HERO & BRAND INTRO: ASYMMETRICAL EDITORIAL SPLIT (NO BOX CARD)
            ========================================================================== -->
       <section style="margin-bottom: 34px;">
-        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 36px; align-items: center;">
+        <div class="about-hero-split">
           <div>
             <div class="royal-badge-pill" style="margin-bottom: 10px;">
               <i class="fa-solid fa-crown"></i> Heritage Atelier • Est. 1984
@@ -540,7 +580,7 @@
           <p class="c-espresso" style="font-size: 0.85rem; margin: 0;">Five distinct handloom lineages crafted with generational perfection.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;">
+        <div class="about-specimen-grid">
           
           <div class="specimen-col">
             <span style="font-size: 0.7rem; font-weight: 700; color: #9d7306; text-transform: uppercase;">1. Kanchipuram</span>

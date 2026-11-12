@@ -127,7 +127,7 @@
 
       <!-- Right: Product Info & Actions -->
       <div class="product-info-panel">
-        <div class="royal-card" style="padding: 32px;">
+        <div class="royal-card product-info-card">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
             <span id="pCategoryBadge" style="font-size:0.75rem; font-family:var(--font-royal); font-weight:700; color:var(--color-gold-dark); text-transform:uppercase; letter-spacing:0.1em;">
               KANJIVARAM SILK
@@ -149,7 +149,7 @@
           </div>
 
           <!-- Price Row -->
-          <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:20px; border-bottom:1px solid var(--color-gold-border); padding-bottom:18px;">
+          <div class="p-price-row">
             <span id="pPrice" style="font-family:var(--font-royal); font-size:2.2rem; font-weight:800; color:var(--color-primary-maroon);">₹42,500</span>
             <span id="pOriginalPrice" style="font-size:1.1rem; color:#9ca3af; text-decoration:line-through;">₹48,900</span>
             <span id="pDiscount" class="saree-discount-badge" style="font-size:0.85rem; padding:4px 10px;">13% OFF</span>
@@ -162,7 +162,7 @@
           </p>
 
           <!-- Color & Fabric Highlights Box -->
-          <div style="background:rgba(197, 155, 39, 0.08); border:1px solid var(--color-gold-border); border-radius:12px; padding:16px; margin-bottom:20px; display:grid; grid-template-columns:1fr 1fr; gap:12px; font-size:0.88rem;">
+          <div class="p-highlights-grid">
             <div><strong>Fabric:</strong> <span id="pFabric">Pure Mulberry Silk</span></div>
             <div><strong>Zari:</strong> <span id="pZari">Tested 24K Gold Zari</span></div>
             <div><strong>Color:</strong> <span id="pColor">Crimson Red</span></div>
@@ -229,7 +229,7 @@
           </div>
 
           <!-- Quantity & Action Buttons -->
-          <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
+          <div class="p-action-row">
             <div style="display:flex; align-items:center; border:1px solid var(--color-gold-border); border-radius:30px; background:#fff; padding:4px 8px;">
               <button onclick="changeQty(-1)" style="border:none; background:none; font-size:1.2rem; width:30px; cursor:pointer;">-</button>
               <span id="pQty" style="width:30px; text-align:center; font-weight:700;">1</span>
@@ -246,7 +246,7 @@
           </div>
 
           <!-- WhatsApp Enquiry & Video Shopping Buttons -->
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px;">
+          <div class="p-enquiry-row">
             <button id="btnWhatsAppEnquire" class="btn-royal-primary" style="background:#25d366; border:none; font-size:0.8rem; padding:12px;">
               <i class="fa-brands fa-whatsapp"></i> Enquire on WhatsApp
             </button>
@@ -256,7 +256,7 @@
           </div>
 
           <!-- Trust Badges -->
-          <div style="border-top:1px solid var(--color-gold-border); padding-top:18px; display:flex; justify-content:space-between; font-size:0.78rem; color:var(--color-text-muted);">
+          <div class="p-trust-badges">
             <div><i class="fa-solid fa-truck" style="color:var(--color-primary-maroon);"></i> Dispatch within 24 Hours</div>
             <div><i class="fa-solid fa-certificate" style="color:var(--color-gold);"></i> 100% Pure Silk Mark</div>
             <div><i class="fa-solid fa-shield-halved" style="color:var(--color-emerald);"></i> 7-Day Easy Exchange</div>
@@ -309,7 +309,7 @@
       <!-- Tab 3: Shipping & Custom Blouse -->
       <div id="deliveryTab" style="display:none;">
         <h3 style="font-size:1.3rem; color:var(--color-maroon-dark); margin-bottom:16px;">Delivery & Custom Tailoring</h3>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; color:var(--color-text-muted); font-size:0.95rem; line-height:1.7;">
+        <div class="delivery-tab-grid">
           <div>
             <h4 style="color:var(--color-maroon-dark); margin-bottom:8px;">Express Shipping</h4>
             <p>Pan-India orders are dispatched via BlueDart/DTDC Air Express within 24 to 48 hours (delivery in 2-4 business days). International deliveries via DHL Express take 4 to 6 business days worldwide.</p>

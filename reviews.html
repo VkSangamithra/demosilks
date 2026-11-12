@@ -114,10 +114,10 @@
       </div>
 
       <!-- Rating Overview Card -->
-      <div class="royal-card" style="padding: 40px; margin-bottom: 40px; border:2px solid var(--color-gold);">
-        <div style="display:grid; grid-template-columns: 280px 1fr 220px; gap:40px; align-items:center;">
+      <div class="royal-card reviews-overview-card" style="padding: 40px; margin-bottom: 40px; border:2px solid var(--color-gold);">
+        <div class="reviews-overview-grid">
           <!-- Score Big Box -->
-          <div style="text-align:center; border-right:1px solid var(--color-gold-border); padding-right:20px;">
+          <div class="reviews-score-box">
             <div style="font-family:var(--font-royal); font-size:3.8rem; font-weight:800; color:var(--color-primary-maroon); line-height:1;">4.9</div>
             <div style="color:var(--color-gold); font-size:1.4rem; margin:8px 0;">? ? ? ? ?</div>
             <div style="font-size:0.85rem; color:var(--color-text-muted);">Based on 2,418 Verified Buyers</div>
@@ -172,7 +172,7 @@
       </div>
 
       <!-- Reviews Grid -->
-      <div id="reviewsListGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(360px, 1fr)); gap:28px; margin-bottom:60px;">
+      <div id="reviewsListGrid" class="reviews-page-grid">
         <!-- Filled by JS -->
       </div>
     </div>
@@ -204,7 +204,7 @@
           <input type="hidden" id="reviewStarVal" value="5">
         </div>
 
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+        <div class="review-form-row">
           <div>
             <label style="display:block; font-size:0.78rem; font-weight:600; margin-bottom:4px;">Your Name *</label>
             <input type="text" id="revName" required placeholder="e.g. Shalini Menon" style="width:100%; padding:9px 12px; border:1px solid var(--color-gold-border); border-radius:8px;">

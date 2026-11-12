@@ -114,7 +114,7 @@
       </div>
 
       <!-- Contact 2-Column Grid: Info & Form -->
-      <div style="display:grid; grid-template-columns: 1fr 1.2fr; gap:40px; margin-bottom:60px;">
+      <div class="contact-page-layout">
         <!-- Left: Boutique Details & Direct WhatsApp Card -->
         <div style="display:flex; flex-direction:column; gap:24px;">
           <!-- WhatsApp Priority Box -->
@@ -200,7 +200,7 @@
           </p>
 
           <form onsubmit="handleContactSubmit(event)">
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+            <div class="contact-form-row">
               <div>
                 <label style="display:block; font-size:0.8rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:6px;">Your Name *</label>
                 <input type="text" id="contactName" required placeholder="e.g. Priyamvada Rao" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--color-gold-border); outline:none;">
@@ -211,7 +211,7 @@
               </div>
             </div>
 
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+            <div class="contact-form-row">
               <div>
                 <label style="display:block; font-size:0.8rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:6px;">Email Address *</label>
                 <input type="email" id="contactEmail" required placeholder="yourname@gmail.com" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--color-gold-border); outline:none;">
@@ -227,7 +227,7 @@
               </div>
             </div>
 
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+            <div class="contact-form-row">
               <div>
                 <label style="display:block; font-size:0.8rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:6px;">Saree Interest *</label>
                 <select id="contactInterest" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--color-gold-border); background:#fff; outline:none;">

@@ -832,3 +832,39 @@
   }
 }
 
+@media (max-width: 480px) {
+  .spin-popup-card {
+    width: 95vw;
+    max-height: 94vh;
+  }
+
+  .spin-wheel-stage {
+    width: min(270px, 78vw);
+    height: min(270px, 78vw);
+    margin: 0 auto;
+  }
+
+  #spinCanvas {
+    width: min(260px, 76vw);
+    height: min(260px, 76vw);
+  }
+
+  .spin-form-col {
+    padding: 10px 16px 24px;
+  }
+
+  .spin-title {
+    font-size: 1.45rem;
+  }
+
+  .spin-subtitle {
+    font-size: 0.92rem;
+    margin-bottom: 14px;
+  }
+
+  .spin-floating-trigger {
+    bottom: 78px !important;
+    right: 16px !important;
+  }
+}
+

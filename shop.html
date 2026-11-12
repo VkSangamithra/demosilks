@@ -134,6 +134,20 @@
         </div>
       </div>
 
+      <!-- Mobile Filter Bar (Visible on tablets and mobile phones) -->
+      <div class="mobile-filter-bar">
+        <button type="button" class="btn-mobile-filter-toggle" onclick="toggleMobileFilterSidebar()">
+          <i class="fa-solid fa-sliders"></i> Filter Sarees (<span id="mobileFilterLabel">Filters</span>)
+        </button>
+        <select class="sort-select-mobile" onchange="document.getElementById('shopSortSelect').value=this.value; applyFilters();">
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Top Rated</option>
+          <option value="newest">New Arrivals</option>
+        </select>
+      </div>
+
       <!-- Main Shop Layout: Sidebar + Grid -->
       <div class="shop-layout">
         <!-- Filter Sidebar -->
@@ -253,6 +267,10 @@
               <i class="fa-brands fa-whatsapp"></i> Live Video Call
             </button>
           </div>
+
+          <button type="button" class="btn-royal-primary mobile-apply-btn" onclick="toggleMobileFilterSidebar()" style="display:none; width:100%; margin-top:14px; padding:12px; font-size:0.85rem;">
+            ✓ Apply &amp; Show Sarees
+          </button>
         </aside>
 
         <!-- Product Grid Area -->

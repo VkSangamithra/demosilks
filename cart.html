@@ -135,7 +135,7 @@
 
       <!-- Right Column: Price Summary Card -->
       <div>
-        <div class="royal-card" style="padding: 32px; border: 2px solid var(--color-gold); position:sticky; top:104px;">
+        <div class="royal-card cart-summary-card" style="border: 2px solid var(--color-gold);">
           <h3 style="font-size:1.3rem; color:var(--color-maroon-dark); margin-bottom:18px; border-bottom:1px solid var(--color-gold-border); padding-bottom:12px;">
             Order Summary
           </h3>
@@ -234,7 +234,7 @@
 
       <form id="checkoutForm" onsubmit="handlePlaceOrder(event)">
         <h4 style="font-size:1rem; color:var(--color-maroon-dark); margin-bottom:12px;">1. Shipping Address</h4>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+        <div class="checkout-form-row">
           <div>
             <label style="display:block; font-size:0.78rem; font-weight:600; margin-bottom:4px;">Full Name *</label>
             <input type="text" required value="Ananya Sharma" style="width:100%; padding:9px 12px; border:1px solid var(--color-gold-border); border-radius:8px;">
@@ -250,7 +250,7 @@
           <input type="text" required value="Villa 14, Royal Palm Enclave, Indiranagar" style="width:100%; padding:9px 12px; border:1px solid var(--color-gold-border); border-radius:8px;">
         </div>
 
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+        <div class="checkout-form-row">
           <div>
             <label style="display:block; font-size:0.78rem; font-weight:600; margin-bottom:4px;">City & State *</label>
             <input type="text" required value="Bangalore, Karnataka" style="width:100%; padding:9px 12px; border:1px solid var(--color-gold-border); border-radius:8px;">
