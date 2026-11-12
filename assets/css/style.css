@@ -1776,6 +1776,41 @@ section[id], footer[id] {
 }
 
 /* ==========================================================================
+   FULL-BLEED 100% EDGE-TO-EDGE CONTACT US BANNER (Zero margins/gaps, HD cover)
+   ========================================================================== */
+.contact-banner-fullbleed {
+  width: 100%;
+  aspect-ratio: 1024 / 341;
+  min-height: 240px;
+  background-image: url('../images/contact-banner-exact.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  display: block;
+  border-top: 1px solid rgba(212, 167, 91, 0.35);
+  border-bottom: 1px solid rgba(212, 167, 91, 0.35);
+  box-shadow: 0 4px 20px rgba(58, 8, 19, 0.06);
+}
+
+@media (max-width: 991px) {
+  .contact-banner-fullbleed {
+    aspect-ratio: 1024 / 341;
+    min-height: 190px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-banner-fullbleed {
+    aspect-ratio: auto;
+    min-height: 155px;
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+/* ==========================================================================
    VNILA CONTACT SECTION & FOOTER (Matches Reference Image)
    ========================================================================== */
 .vnila-contact-hero-banner {
