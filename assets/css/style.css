@@ -3810,23 +3810,91 @@ section[id], footer[id] {
 }
 
 /* Homepage Brand Heritage / Assurance (#aboutSection) */
+.home-about-card {
+  padding: 44px 48px !important;
+  background: rgba(255, 252, 247, 0.96) !important;
+  border: 2px solid var(--color-gold) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 16px 40px rgba(98, 17, 34, 0.08), 0 2px 12px rgba(197, 155, 39, 0.15) !important;
+  box-sizing: border-box !important;
+  position: relative;
+  overflow: hidden;
+}
+
 .home-about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 44px;
   align-items: center;
+  box-sizing: border-box;
+}
+
+.home-about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.home-about-card h2 {
+  font-size: 2.2rem;
+  color: var(--color-maroon-dark);
+  margin-bottom: 16px;
+  line-height: 1.25;
 }
 
 .home-about-features {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 18px;
+  margin-bottom: 26px;
+  width: 100%;
+}
+
+.home-about-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid var(--color-gold);
+  box-shadow: 0 8px 24px rgba(98, 17, 34, 0.12);
+  display: flex;
+}
+
+.home-about-media img,
+.home-about-grid img {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+}
+
+.home-about-badge {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(45, 10, 20, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fae29c;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 0.82rem;
+  font-family: var(--font-royal);
+  border: 1px solid rgba(197, 155, 39, 0.4);
+  letter-spacing: 0.4px;
+  z-index: 2;
 }
 
 @media (max-width: 992px) {
   .home-about-card {
-    padding: 28px 20px !important;
+    padding: 32px 24px !important;
+    border-radius: 20px !important;
   }
 
   .home-about-grid {
@@ -3834,23 +3902,56 @@ section[id], footer[id] {
     gap: 28px !important;
   }
 
+  .home-about-card h2 {
+    font-size: 1.8rem;
+  }
+
+  .home-about-media {
+    min-height: auto;
+  }
+
+  .home-about-media img,
   .home-about-grid img {
+    min-height: auto;
     height: 280px !important;
   }
 }
 
 @media (max-width: 576px) {
   .home-about-card {
-    padding: 22px 14px !important;
+    padding: 24px 18px !important;
+    border-radius: 16px !important;
+  }
+
+  .home-about-card h2 {
+    font-size: 1.45rem;
+    margin-bottom: 12px;
   }
 
   .home-about-features {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
+    margin-bottom: 22px;
   }
 
+  .home-about-media img,
   .home-about-grid img {
     height: 220px !important;
+  }
+
+  .home-about-badge {
+    bottom: 10px !important;
+    right: 10px !important;
+    left: 10px !important;
+    text-align: center;
+    font-size: 0.74rem !important;
+    padding: 8px 12px !important;
+  }
+
+  .home-about-card .btn-royal-primary {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 }
 
