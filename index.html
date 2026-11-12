@@ -19,6 +19,11 @@
     <div class="showroom-sticky-frame">
       <canvas id="showroomCanvas" class="showroom-video-bg"></canvas>
       <video id="showroomVideo" src="assets/videos/Silk_sarees_inside_shop_8653ac24_1080p.mp4" muted playsinline preload="auto" style="position:absolute; width:1px; height:1px; opacity:0; pointer-events:none;"></video>
+
+      <!-- MOBILE RESPONSIVE CRYSTAL CLEAR APT HERO VIDEO (AUTOPLAYING ROYAL SILK SAREE REEL) -->
+      <div class="mobile-hero-video-wrap">
+        <video id="mobileHeroVideo" src="assets/videos/sabari_silks_1.mp4" autoplay muted playsinline loop preload="auto" class="mobile-hero-video"></video>
+      </div>
     </div>
   </section>
 
@@ -796,15 +801,47 @@
     }
 
     function initShowroomVideoScroll() {
+      // 1. Mobile Hero Video Carousel Setup (Ultra-Clear Native HD Video Decoding)
+      const mobileVideo = document.getElementById('mobileHeroVideo');
+      if (mobileVideo) {
+        const mobilePlaylist = [
+          'assets/videos/sabari_silks_1.mp4',
+          'assets/videos/sabari_silks_2.mp4',
+          'assets/videos/sabari_silks_3.mp4'
+        ];
+        let currentVideoIdx = 0;
+
+        mobileVideo.addEventListener('ended', () => {
+          currentVideoIdx = (currentVideoIdx + 1) % mobilePlaylist.length;
+          mobileVideo.src = mobilePlaylist[currentVideoIdx];
+          mobileVideo.play().catch(e => console.log('Autoplay caught:', e));
+        });
+
+        const startMobileAutoplay = () => {
+          if (window.innerWidth <= 768 && mobileVideo.paused) {
+            mobileVideo.play().catch(() => {});
+          }
+        };
+
+        document.addEventListener('touchstart', startMobileAutoplay, { once: true, passive: true });
+        document.addEventListener('scroll', startMobileAutoplay, { once: true, passive: true });
+        startMobileAutoplay();
+      }
+
+      // 2. Desktop Canvas Scrubbing (Only active on Desktop > 768px, completely preserves original desktop logic)
       const scrollContainer = document.getElementById('showroomScrollContainer');
       const canvas = document.getElementById('showroomCanvas');
       if (!scrollContainer || !canvas) return;
+
+      if (window.innerWidth <= 768) {
+        // On mobile, native HTML5 video handles playback with crystal clarity and perfect vertical portrait framing
+        return;
+      }
 
       const ctx = canvas.getContext('2d');
       const totalFrames = 119;
       const frames = [];
       let lastRenderedIndex = 0;
-      let currentTargetFrame = 0;
       let isFirstFrameDrawn = false;
 
       function getFrameSrc(idx) {
@@ -818,61 +855,25 @@
         drawFrame(lastRenderedIndex);
       }
 
-      function renderImage(image, idx) {
-        if (!image || !image.complete || image.naturalWidth <= 0) return false;
-
-        const isMobile = window.innerWidth <= 768;
-        if (isMobile) {
-          // Centered cover calculation for portrait/mobile screen aspect ratio (no stretch or distortion)
-          const imgRatio = image.naturalWidth / image.naturalHeight;
-          const canvasRatio = canvas.width / canvas.height;
-          let renderW, renderH, offsetX, offsetY;
-          if (canvasRatio > imgRatio) {
-            renderW = canvas.width;
-            renderH = canvas.width / imgRatio;
-            offsetX = 0;
-            offsetY = (canvas.height - renderH) / 2;
-          } else {
-            renderH = canvas.height;
-            renderW = canvas.height * imgRatio;
-            offsetX = (canvas.width - renderW) / 2;
-            offsetY = 0;
-          }
-          ctx.drawImage(image, offsetX, offsetY, renderW, renderH);
-        } else {
-          // Desktop: exactly preserve original desktop rendering
-          ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-        }
-        lastRenderedIndex = idx;
-        return true;
-      }
-
       function drawFrame(idx) {
         idx = Math.max(0, Math.min(totalFrames - 1, idx));
         const img = frames[idx];
 
         if (img && img.complete && img.naturalWidth > 0) {
-          renderImage(img, idx);
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          lastRenderedIndex = idx;
         } else {
-          // If requested frame is not yet fully loaded in memory, find nearest loaded frame
-          let drawn = false;
-          // 1. Search backward (prioritizes earlier viewed/loaded frames)
-          for (let d = 1; d <= idx; d++) {
-            const prev = frames[idx - d];
+          // If the requested frame is not yet in memory, find nearest loaded frame
+          for (let dist = 1; dist < 25; dist++) {
+            const prev = frames[idx - dist];
             if (prev && prev.complete && prev.naturalWidth > 0) {
-              renderImage(prev, idx);
-              drawn = true;
+              ctx.drawImage(prev, 0, 0, canvas.width, canvas.height);
               break;
             }
-          }
-          // 2. Search forward if backward had no loaded frames
-          if (!drawn) {
-            for (let d = 1; d < totalFrames - idx; d++) {
-              const next = frames[idx + d];
-              if (next && next.complete && next.naturalWidth > 0) {
-                renderImage(next, idx);
-                break;
-              }
+            const next = frames[idx + dist];
+            if (next && next.complete && next.naturalWidth > 0) {
+              ctx.drawImage(next, 0, 0, canvas.width, canvas.height);
+              break;
             }
           }
         }
@@ -880,6 +881,7 @@
 
       // 1. Immediately load frame 0 for instant visual render
       const firstImg = new Image();
+      firstImg.src = getFrameSrc(0);
       firstImg.onload = () => {
         frames[0] = firstImg;
         if (!isFirstFrameDrawn) {
@@ -887,43 +889,37 @@
           resizeCanvas();
         }
       };
-      firstImg.src = getFrameSrc(0);
 
-      // 2. Preload remaining frames with priority ladder (every 4th, then every 2nd, then remaining)
+      // 2. Preload remaining frames in priority batches (every 4th frame first, then fill)
       const priorityIndices = [];
       for (let i = 0; i < totalFrames; i += 4) priorityIndices.push(i);
-      for (let i = 0; i < totalFrames; i += 2) {
-        if (!priorityIndices.includes(i)) priorityIndices.push(i);
-      }
       for (let i = 0; i < totalFrames; i++) {
         if (!priorityIndices.includes(i)) priorityIndices.push(i);
       }
 
       let loadIdx = 0;
       function preloadNextBatch() {
-        const batchSize = 8;
+        const batchSize = 6;
         for (let b = 0; b < batchSize && loadIdx < priorityIndices.length; b++) {
           const frameNum = priorityIndices[loadIdx++];
           if (!frames[frameNum]) {
             const img = new Image();
-            img.onload = () => {
-              frames[frameNum] = img;
-              // If user is currently scrolled near this newly loaded frame, re-draw immediately
-              if (Math.abs(currentTargetFrame - frameNum) <= 4) {
-                drawFrame(currentTargetFrame);
-              }
-            };
             img.src = getFrameSrc(frameNum);
+            frames[frameNum] = img;
           }
         }
         if (loadIdx < priorityIndices.length) {
-          setTimeout(preloadNextBatch, 15);
+          if (window.requestIdleCallback) {
+            requestIdleCallback(preloadNextBatch, { timeout: 100 });
+          } else {
+            setTimeout(preloadNextBatch, 20);
+          }
         }
       }
 
-      setTimeout(preloadNextBatch, 25);
+      setTimeout(preloadNextBatch, 40);
 
-      // 3. Scroll & Touch Scrubbing Handler with ZERO Timelag (Direct 60fps tracking)
+      // 3. Scroll Scrubbing Handler with ZERO Timelag (Direct 60fps tracking)
       let rafId = null;
       function onScroll() {
         const rect = scrollContainer.getBoundingClientRect();
@@ -936,7 +932,6 @@
         const scrolledDistance = -rect.top;
         const progress = Math.max(0, Math.min(1, scrolledDistance / totalScrollable));
         const targetFrame = Math.floor(progress * (totalFrames - 1));
-        currentTargetFrame = targetFrame;
 
         if (targetFrame !== lastRenderedIndex) {
           if (!rafId) {
@@ -950,8 +945,6 @@
 
       window.addEventListener('resize', resizeCanvas, { passive: true });
       window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('touchmove', onScroll, { passive: true });
-      window.addEventListener('touchstart', onScroll, { passive: true });
 
       resizeCanvas();
       onScroll();

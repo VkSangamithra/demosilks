@@ -2398,6 +2398,10 @@ section[id], footer[id] {
   cursor: default;
 }
 
+.mobile-hero-video-wrap {
+  display: none;
+}
+
 .showroom-video-bg {
   width: 100%;
   height: 100%;
@@ -2599,14 +2603,36 @@ section[id], footer[id] {
     font-size: 1.05rem;
   }
   .showroom-scroll-container {
-    height: 240vh;
+    height: 100vh;
+    height: 100dvh;
+    margin-bottom: 0;
   }
   .showroom-sticky-frame {
-    position: -webkit-sticky;
-    position: sticky;
+    position: relative;
     top: 0;
     height: 100vh;
     height: 100dvh;
+  }
+  #showroomCanvas {
+    display: none !important;
+  }
+  .mobile-hero-video-wrap {
+    display: block !important;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    z-index: 2;
+  }
+  .mobile-hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: brightness(0.96) contrast(1.04);
   }
   .showroom-scroll-title {
     font-size: 2rem;
