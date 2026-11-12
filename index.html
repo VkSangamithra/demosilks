@@ -814,9 +814,13 @@
       function resizeCanvas() {
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
         const parent = canvas.parentElement || scrollContainer;
-        canvas.width = parent.clientWidth * dpr;
-        canvas.height = parent.clientHeight * dpr;
-        drawFrame(lastRenderedIndex);
+        const targetW = Math.round(parent.clientWidth * dpr);
+        const targetH = Math.round(parent.clientHeight * dpr);
+        if (canvas.width !== targetW || canvas.height !== targetH) {
+          canvas.width = targetW;
+          canvas.height = targetH;
+          drawFrame(lastRenderedIndex);
+        }
       }
 
       function renderImage(image, idx) {
