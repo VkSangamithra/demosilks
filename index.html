@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
+<body class="home-page" style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
 
   <!-- CINEMATIC SHOWROOM DOOR REVEAL SCROLL EXPERIENCE (PURE VIDEO ALONE - NO WORDS, NO BARS AT TOP) -->
   <section id="showroomScrollContainer" class="showroom-scroll-container">
@@ -99,14 +99,14 @@
   <!-- Mobile Drawer Menu -->
   <div id="mobileMenu" class="mobile-nav-drawer" style="display:none;">
     <ul class="mobile-nav-list">
-      <li><a href="index.html" class="active-mobile-link">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="collections.html">Collections</a></li>
-      <li><a href="videos.html">Videos & Reels</a></li>
-      <li><a href="reviews.html">Customer Reviews</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="index.html" class="active-mobile-link" onclick="closeMobileNav()">Home</a></li>
+      <li><a href="about.html" onclick="closeMobileNav()">About Us</a></li>
+      <li><a href="collections.html" onclick="closeMobileNav()">Collections</a></li>
+      <li><a href="videos.html" onclick="closeMobileNav()">Videos & Reels</a></li>
+      <li><a href="reviews.html" onclick="closeMobileNav()">Customer Reviews</a></li>
+      <li><a href="contact.html" onclick="closeMobileNav()">Contact Us</a></li>
       <li style="margin-top:6px;">
-        <a href="shop.html" class="nav-btn-shop mobile-shop-btn">
+        <a href="shop.html" class="nav-btn-shop mobile-shop-btn" onclick="closeMobileNav()">
           <i class="fa-solid fa-bag-shopping"></i> Shop All Sarees →
         </a>
       </li>
@@ -1006,7 +1006,12 @@
 
     function toggleMobileNav() {
       const menu = document.getElementById('mobileMenu');
-      menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+      if (menu) menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function closeMobileNav() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu) menu.style.display = 'none';
     }
   </script>
 </body>
