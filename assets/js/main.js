@@ -793,9 +793,66 @@ function initStackingCardsAnimation() {
   onScroll();
 }
 
+// Sticky Header Guardian: guarantees navbar is always visible while moving to next next stages
+function initStickyHeader() {
+  const header = document.getElementById('mainHeader');
+  if (!header) return;
+
+  const showroom = document.getElementById('showroomScrollContainer');
+
+  // Spacer ensures zero visual content jump when header enters fixed mode
+  let spacer = document.getElementById('mainHeaderSpacer');
+  if (!spacer) {
+    spacer = document.createElement('div');
+    spacer.id = 'mainHeaderSpacer';
+    spacer.style.display = 'none';
+    spacer.style.width = '100%';
+    header.parentNode.insertBefore(spacer, header.nextSibling);
+  }
+
+  function updateStickyHeader() {
+    const h = header.offsetHeight || 68;
+    spacer.style.height = h + 'px';
+
+    if (showroom) {
+      // On index.html: showroom video covers the viewport until scrolled through
+      const rect = showroom.getBoundingClientRect();
+      if (rect.bottom <= 2) {
+        if (!header.classList.contains('nav-sticky-pinned')) {
+          header.classList.add('nav-sticky-pinned');
+          spacer.style.display = 'block';
+        }
+      } else {
+        if (header.classList.contains('nav-sticky-pinned')) {
+          header.classList.remove('nav-sticky-pinned');
+          spacer.style.display = 'none';
+        }
+      }
+    } else {
+      // On all other pages (shop, about, collections, etc.)
+      if (window.scrollY > 15) {
+        if (!header.classList.contains('nav-sticky-pinned')) {
+          header.classList.add('nav-sticky-pinned');
+          spacer.style.display = 'block';
+        }
+      } else {
+        if (header.classList.contains('nav-sticky-pinned')) {
+          header.classList.remove('nav-sticky-pinned');
+          spacer.style.display = 'none';
+        }
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateStickyHeader, { passive: true });
+  window.addEventListener('resize', updateStickyHeader, { passive: true });
+  updateStickyHeader();
+}
+
 // Initialise on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
   DemoStore.updateBadges();
+  initStickyHeader();
   initStackingCardsAnimation();
 
   // Close modals when clicking overlay
