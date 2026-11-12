@@ -14,12 +14,6 @@
 </head>
 <body style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
 
-  <!-- CINEMATIC SHOWROOM DOOR REVEAL SCROLL EXPERIENCE (PURE VIDEO ALONE - NO WORDS, NO BARS AT TOP) -->
-  <section id="showroomScrollContainer" class="showroom-scroll-container">
-    <div class="showroom-sticky-frame">
-      <video id="showroomVideo" src="assets/videos/Silk_sarees_inside_shop_8653ac24_1080p.mp4" muted playsinline preload="auto" class="showroom-video-bg"></video>
-    </div>
-  </section>
 
         <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR (PURE CLEAN DESIGN - NO OVERLAYS) -->
     <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR -->
@@ -755,9 +749,6 @@
       `).join('');
 
 
-      // Showroom Door Video Scroll Scrubbing
-      initShowroomVideoScroll();
-
       // Real-Time Dynamic Navbar ScrollSpy & Smooth Glide
       initScrollSpy();
     });
@@ -828,71 +819,6 @@
 
       window.addEventListener('scroll', onScrollSpy, { passive: true });
       onScrollSpy();
-    }
-
-
-    function initShowroomVideoScroll() {
-      const scrollContainer = document.getElementById('showroomScrollContainer');
-      const showroomVid = document.getElementById('showroomVideo');
-      if (!scrollContainer || !showroomVid) return;
-
-      let targetTime = 0;
-      let rafId = null;
-
-      // Ensure video is strictly paused, muted, and plays inline (ONLY scroll controls it)
-      showroomVid.pause();
-      showroomVid.muted = true;
-      showroomVid.playsInline = true;
-
-      function syncFrame() {
-        rafId = null;
-        if (!showroomVid.duration || isNaN(showroomVid.duration)) return;
-
-        // Instantaneous frame update with zero artificial lag/lerp delay
-        if (Math.abs(targetTime - showroomVid.currentTime) > 0.015) {
-          showroomVid.currentTime = targetTime;
-        }
-      }
-
-      function onScroll() {
-        const rect = scrollContainer.getBoundingClientRect();
-        const totalScrollable = scrollContainer.offsetHeight - window.innerHeight;
-        if (totalScrollable <= 0) return;
-
-        // Only compute when visible or near viewport
-        if (rect.bottom < -50 || rect.top > window.innerHeight + 50) return;
-
-        const scrolledDistance = -rect.top;
-        const progress = Math.max(0, Math.min(1, scrolledDistance / totalScrollable));
-
-        const duration = showroomVid.duration && !isNaN(showroomVid.duration) ? showroomVid.duration : 9.95;
-        targetTime = Math.max(0.01, Math.min(duration - 0.04, progress * duration));
-
-        if (!rafId) {
-          rafId = requestAnimationFrame(syncFrame);
-        }
-      }
-
-      // Initialize on metadata or ready state immediately
-      if (showroomVid.readyState >= 1) {
-        showroomVid.currentTime = 0.01;
-        onScroll();
-      } else {
-        showroomVid.addEventListener('loadedmetadata', () => {
-          showroomVid.currentTime = 0.01;
-          onScroll();
-        }, { once: true });
-        showroomVid.addEventListener('canplay', onScroll, { once: true });
-      }
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll, { passive: true });
-      onScroll(); // Initial position trigger
-    }
-
-    function scrollPastShowroom() {
-      const hero = document.getElementById('heroMain');
-      if (hero) hero.scrollIntoView({ behavior: 'smooth' });
     }
 
     function toggleMobileNav() {
