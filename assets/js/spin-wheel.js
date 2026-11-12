@@ -163,10 +163,6 @@
         <!-- Close Button -->
         <button type="button" class="spin-close-btn" id="spinCloseBtn" title="Close Spin & Win" aria-label="Close">✕</button>
 
-        <!-- Decorative Corner Lotus -->
-        <img src="assets/images/spin-win-lotus-br.png" alt="" class="spin-corner-art spin-corner-br" onerror="this.style.display='none'">
-        <img src="assets/images/spin-win-lotus-br.png" alt="" class="spin-corner-art spin-corner-tl" onerror="this.style.display='none'">
-
         <!-- Confetti Canvas -->
         <canvas id="spinConfettiCanvas"></canvas>
 
