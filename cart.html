@@ -140,15 +140,18 @@
             Order Summary
           </h3>
 
-          <!-- Coupon Code Input -->
+          <!-- Coupon Code Input (Single Spin & Win Offer per Customer) -->
           <div style="margin-bottom:20px;">
-            <label style="display:block; font-size:0.8rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:6px;">Have a Privilege Coupon?</label>
+            <label style="display:block; font-size:0.8rem; font-weight:700; color:var(--color-maroon-dark); margin-bottom:6px;">Have a Spin & Win Privilege Coupon?</label>
             <div style="display:flex; gap:8px;">
-              <input type="text" id="couponInput" placeholder="Try code: ROYAL10" style="flex:1; padding:10px 12px; border-radius:8px; border:1px solid var(--color-gold-border); font-family:monospace; font-weight:700; text-transform:uppercase; outline:none;">
+              <input type="text" id="couponInput" placeholder="Enter your won coupon code" style="flex:1; padding:10px 12px; border-radius:8px; border:1px solid var(--color-gold-border); font-family:monospace; font-weight:700; text-transform:uppercase; outline:none;">
               <button onclick="applyCoupon()" class="btn-royal-gold" style="padding:8px 16px; font-size:0.75rem;">Apply</button>
             </div>
             <div id="couponAppliedMsg" style="display:none; font-size:0.78rem; color:var(--color-emerald); font-weight:700; margin-top:6px;">
-              ? 10% Royal Privilege Discount Applied!
+              ✓ Exclusive Spin & Win Offer Applied!
+            </div>
+            <div style="font-size:0.74rem; color:var(--color-text-muted); margin-top:6px;">
+              1 Customer • 1 Spin • 1 Offer. <a href="javascript:void(0)" onclick="window.openSpinModal(true)" style="color:var(--color-gold-dark); font-weight:700; text-decoration:underline;">Spin to claim your offer →</a>
             </div>
           </div>
 
@@ -398,8 +401,8 @@
 
       renderCart();
 
-      // Check for won coupon from Spin & Win
-      const savedCoupon = sessionStorage.getItem('Demo_applied_coupon');
+      // Check for won coupon from Spin & Win (Single offer per customer)
+      const savedCoupon = localStorage.getItem('Demo_applied_coupon') || sessionStorage.getItem('Demo_applied_coupon');
       if (savedCoupon) {
         const input = document.getElementById('couponInput');
         if (input) {
@@ -547,7 +550,7 @@
         DemoStore.showToast("🥻 Free Saree Care Kit Added to Order!");
         renderCart();
       } else {
-        DemoStore.showToast("Invalid code. Use SILK30, ROYAL20 or ROYAL10!");
+        DemoStore.showToast("Please enter your valid Spin & Win coupon code!");
       }
     }
 

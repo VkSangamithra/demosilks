@@ -282,11 +282,11 @@
               <span>Apply to Cart & Shop Sarees →</span>
             </button>
 
-            <div class="spin-winner-footer-row">
-              <button type="button" class="spin-again-btn" id="spinAgainBtn" onclick="window.resetAndSpinAgain()">
-                <i class="fa-solid fa-rotate-right"></i>
-                <span>Spin Again</span>
-              </button>
+            <div class="spin-winner-footer-row" style="display:flex; justify-content:space-between; align-items:center; width:100%; gap:12px; flex-wrap:wrap;">
+              <div class="spin-single-offer-badge" style="display:flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:700; color:#580c1b; background:rgba(212,167,91,0.22); padding:6px 14px; border-radius:20px; border:1px solid #d4a75b;">
+                <i class="fa-solid fa-lock"></i>
+                <span>1 Customer • 1 Spin • 1 Offer</span>
+              </div>
               <div class="spin-timer-badge">
                 <i class="fa-regular fa-clock"></i>
                 <span>Offer expires: <strong id="spinCountdown">14:59</strong></span>
@@ -667,9 +667,22 @@
     lastPinIndex = pinIndex;
   }
 
-  // Spin Engine with High-Fidelity Physics Deceleration
+  // Spin Engine with High-Fidelity Physics Deceleration (1 Customer • 1 Spin • 1 Offer)
   window.startSpinAndWin = function () {
     if (isSpinning) return;
+
+    // Strict Rule: 1 Customer, 1 Spin, 1 Offer
+    const existingOfferStr = localStorage.getItem('Demo_customer_offer') || sessionStorage.getItem('Demo_customer_offer');
+    if (existingOfferStr) {
+      try {
+        const existing = JSON.parse(existingOfferStr);
+        if (typeof DemoStore !== 'undefined' && DemoStore.showToast) {
+          DemoStore.showToast(`✨ 1 Offer per customer: You already have unlocked ${existing.coupon}!`);
+        }
+        showClaimedOfferCard(existing);
+        return;
+      } catch (e) {}
+    }
 
     const formEl = document.getElementById('spinForm');
     const winnerCard = document.getElementById('spinWinnerCard');
@@ -783,31 +796,45 @@
     requestAnimationFrame(animateSpin);
   };
 
-  // Reset and trigger a fresh spin
+  // Reset and trigger a fresh spin (Disabled: 1 Customer • 1 Spin • 1 Offer)
   window.resetAndSpinAgain = function () {
-    const formEl = document.getElementById('spinForm');
-    const winnerCard = document.getElementById('spinWinnerCard');
-    const submitBtn = document.getElementById('spinSubmitBtn');
-
-    if (winnerCard) winnerCard.style.display = 'none';
-    if (formEl) formEl.style.display = 'flex';
-    if (submitBtn) {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = `
-        <span class="spin-btn-icon"><i class="fa-solid fa-gift"></i></span>
-        <span>Get My Coupon</span>
-        <span class="spin-btn-arrow">→</span>
-      `;
+    if (typeof DemoStore !== 'undefined' && DemoStore.showToast) {
+      DemoStore.showToast("Exclusive Privilege: 1 customer receives 1 exclusive offer!");
     }
-    window.startSpinAndWin();
   };
 
-  // Handle Win: Confetti, Fanfare, Reveal Reward, Save to Session
+  // Display locked claimed offer card for the single offer rule
+  function showClaimedOfferCard(prize) {
+    if (!prize) return;
+    const formEl = document.getElementById('spinForm');
+    const winnerCard = document.getElementById('spinWinnerCard');
+    const headlineEl = document.getElementById('winnerHeadline');
+    const descEl = document.getElementById('winnerDesc');
+    const codeEl = document.getElementById('winnerCouponCode');
+    const centerBtn = document.getElementById('spinCenterBtn');
+
+    if (formEl) formEl.style.display = 'none';
+    if (headlineEl) headlineEl.textContent = prize.headline || 'Exclusive Privilege Discount';
+    if (descEl) descEl.textContent = prize.desc || prize.description || 'Valid on all Silk Mark certified handloom sarees';
+    if (codeEl) codeEl.textContent = prize.coupon || 'SILK30';
+    if (winnerCard) winnerCard.style.display = 'flex';
+
+    if (centerBtn) {
+      centerBtn.disabled = true;
+      centerBtn.innerHTML = `<span class="spin-center-text" style="font-size:0.7rem; letter-spacing:0.5px;">CLAIMED</span>`;
+      centerBtn.style.cursor = 'default';
+      centerBtn.style.opacity = '0.9';
+    }
+
+    startUrgencyCountdown(15 * 60);
+  }
+
+  // Handle Win: Confetti, Fanfare, Reveal Reward, Save to Local & Session Storage
   function handleSpinCompletion(prize) {
     playFanfareSound();
     launchConfetti();
 
-    // Store user spin victory
+    // Store user spin victory permanently (1 Customer • 1 Spin • 1 Offer)
     const spinRecord = {
       prizeId: prize.id,
       headline: prize.headline,
@@ -816,27 +843,27 @@
       timestamp: Date.now()
     };
     try {
+      localStorage.setItem('Demo_customer_offer', JSON.stringify(spinRecord));
+      sessionStorage.setItem('Demo_customer_offer', JSON.stringify(spinRecord));
       sessionStorage.setItem('Demo_spin_winner', JSON.stringify(spinRecord));
       if (prize.coupon) {
+        localStorage.setItem('Demo_applied_coupon', prize.coupon);
         sessionStorage.setItem('Demo_applied_coupon', prize.coupon);
       }
     } catch (e) {}
 
+    // Disable center spin button permanently for this customer
+    const centerBtn = document.getElementById('spinCenterBtn');
+    if (centerBtn) {
+      centerBtn.disabled = true;
+      centerBtn.innerHTML = `<span class="spin-center-text" style="font-size:0.7rem; letter-spacing:0.5px;">CLAIMED</span>`;
+      centerBtn.style.cursor = 'default';
+      centerBtn.style.opacity = '0.9';
+    }
+
     // Transition form to Winner Reveal Card
     setTimeout(() => {
-      const formEl = document.getElementById('spinForm');
-      const winnerCard = document.getElementById('spinWinnerCard');
-      const headlineEl = document.getElementById('winnerHeadline');
-      const descEl = document.getElementById('winnerDesc');
-      const codeEl = document.getElementById('winnerCouponCode');
-
-      if (formEl) formEl.style.display = 'none';
-      if (headlineEl) headlineEl.textContent = prize.headline;
-      if (descEl) descEl.textContent = prize.description;
-      if (codeEl) codeEl.textContent = prize.coupon || 'SILK30';
-      if (winnerCard) winnerCard.style.display = 'flex';
-
-      startUrgencyCountdown(15 * 60); // 15 minutes timer
+      showClaimedOfferCard(spinRecord);
     }, 450);
   }
 
@@ -995,7 +1022,7 @@
     requestAnimationFrame(renderParticles);
   }
 
-  // Modal Open / Close handlers
+  // Modal Open / Close handlers (1 Customer • 1 Spin • 1 Offer)
   window.openSpinModal = function (freshSpin = false) {
     const backdrop = document.getElementById('spinPopupBackdrop');
     if (!backdrop) return;
@@ -1005,41 +1032,29 @@
     const winnerCard = document.getElementById('spinWinnerCard');
     const submitBtn = document.getElementById('spinSubmitBtn');
 
-    // On page load or fresh spin request, always show fresh spin form
-    if (freshSpin) {
-      if (formEl) formEl.style.display = 'flex';
-      if (winnerCard) winnerCard.style.display = 'none';
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = `
-          <span class="spin-btn-icon"><i class="fa-solid fa-gift"></i></span>
-          <span>Get My Coupon</span>
-          <span class="spin-btn-arrow">→</span>
-        `;
-      }
-      isSpinning = false;
-    } else {
-      // If user clicked floating button and had previously won, show their voucher
+    // Check if customer already spun and locked in their 1 offer
+    const existingOfferStr = localStorage.getItem('Demo_customer_offer') || sessionStorage.getItem('Demo_customer_offer');
+    if (existingOfferStr) {
       try {
-        const savedWin = sessionStorage.getItem('Demo_spin_winner');
-        if (savedWin) {
-          const prize = JSON.parse(savedWin);
-          const headlineEl = document.getElementById('winnerHeadline');
-          const descEl = document.getElementById('winnerDesc');
-          const codeEl = document.getElementById('winnerCouponCode');
-
-          if (formEl) formEl.style.display = 'none';
-          if (headlineEl) headlineEl.textContent = prize.headline;
-          if (descEl) descEl.textContent = prize.desc;
-          if (codeEl) codeEl.textContent = prize.coupon;
-          if (winnerCard) winnerCard.style.display = 'flex';
-          startUrgencyCountdown(15 * 60);
-        } else {
-          if (formEl) formEl.style.display = 'flex';
-          if (winnerCard) winnerCard.style.display = 'none';
-        }
+        const prize = JSON.parse(existingOfferStr);
+        showClaimedOfferCard(prize);
+        drawWheel(currentRotation);
+        return;
       } catch (e) {}
     }
+
+    // Otherwise show fresh spin form for first-time customer
+    if (formEl) formEl.style.display = 'flex';
+    if (winnerCard) winnerCard.style.display = 'none';
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `
+        <span class="spin-btn-icon"><i class="fa-solid fa-gift"></i></span>
+        <span>Get My Coupon</span>
+        <span class="spin-btn-arrow">→</span>
+      `;
+    }
+    isSpinning = false;
 
     // Redraw wheel to ensure sharp rendering
     drawWheel(currentRotation);
@@ -1050,20 +1065,33 @@
     if (backdrop) backdrop.classList.remove('active');
   };
 
-  // Auto-trigger during refreshing or page loading time!
+  // 1 Customer • 1 Spin • 1 Offer Initialization
   function initOnPageLoad() {
     injectModalHTML();
     drawWheel(currentRotation);
 
-    // Automatically slide in on every page refresh / load
-    setTimeout(() => {
-      window.openSpinModal(true); // fresh spin ready on refresh!
+    const existingOfferStr = localStorage.getItem('Demo_customer_offer') || sessionStorage.getItem('Demo_customer_offer');
 
-      // Automatically spin the wheel during refreshing time!
+    // If customer already claimed their 1 offer:
+    // Update center button to CLAIMED state and do not auto-popup or auto-spin on refresh!
+    if (existingOfferStr) {
+      try {
+        const centerBtn = document.getElementById('spinCenterBtn');
+        if (centerBtn) {
+          centerBtn.disabled = true;
+          centerBtn.innerHTML = `<span class="spin-center-text" style="font-size:0.7rem; letter-spacing:0.5px;">CLAIMED</span>`;
+          centerBtn.style.cursor = 'default';
+          centerBtn.style.opacity = '0.9';
+        }
+      } catch (e) {}
+    } else {
+      // First-time visitor: present the Spin & Win invitation smoothly after 1.5 seconds (no auto-spin)
       setTimeout(() => {
-        window.startSpinAndWin();
-      }, 700);
-    }, 500);
+        if (!localStorage.getItem('Demo_customer_offer')) {
+          window.openSpinModal(true);
+        }
+      }, 1500);
+    }
   }
 
   // Hook into DOM ready
