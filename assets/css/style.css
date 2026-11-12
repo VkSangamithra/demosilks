@@ -3340,84 +3340,113 @@ section[id], footer[id] {
    ========================================================================== */
 
 #shopSection {
-  padding: 32px 0 36px 0;
+  padding: 18px 0 22px 0 !important;
   box-sizing: border-box;
 }
 
 #shopSection .section-header {
-  margin: 0 auto 16px auto !important;
-  max-width: 640px;
+  margin: 0 auto 10px auto !important;
+  max-width: 580px;
 }
 
 #shopSection .section-tag {
-  margin-bottom: 6px;
-  font-size: 0.72rem;
-  padding: 3px 12px;
+  margin-bottom: 4px !important;
+  font-size: 0.65rem !important;
+  padding: 2px 10px !important;
+  letter-spacing: 0.08em !important;
 }
 
 #shopSection .section-title {
-  font-size: 2.1rem !important;
-  margin-bottom: 6px !important;
-  line-height: 1.25;
+  font-size: 1.7rem !important;
+  margin-bottom: 4px !important;
+  line-height: 1.15 !important;
 }
 
 #shopSection .section-divider {
-  margin: 6px auto 10px auto !important;
+  margin: 4px auto 6px auto !important;
+  gap: 8px !important;
+}
+
+#shopSection .section-divider span {
+  width: 32px !important;
+}
+
+#shopSection .section-divider i {
+  font-size: 0.72rem !important;
 }
 
 #shopSection .section-desc {
-  font-size: 0.92rem !important;
-  line-height: 1.5 !important;
+  font-size: 0.84rem !important;
+  line-height: 1.35 !important;
   margin-bottom: 0 !important;
 }
 
 #shopSection .divan-slider-wrapper {
-  margin-top: 10px !important;
+  margin-top: 6px !important;
 }
 
 #shopSection .divan-slider-controls {
-  margin-bottom: 12px !important;
-  gap: 16px;
+  margin-bottom: 8px !important;
+  gap: 12px;
+}
+
+#shopSection .divan-slider-counter {
+  font-size: 0.82rem !important;
+}
+
+#shopSection .divan-slider-counter .active-num {
+  font-size: 1.15rem !important;
+  min-width: 22px !important;
+}
+
+#shopSection .divan-slider-counter .total-num {
+  font-size: 0.85rem !important;
+}
+
+#shopSection .divan-nav-btn {
+  width: 34px !important;
+  height: 34px !important;
+  font-size: 0.82rem !important;
 }
 
 #shopSection .divan-slider-viewport {
-  padding: 8px 4px 22px 4px !important;
+  padding: 6px 4px 16px 4px !important;
   overflow: hidden !important;
   box-sizing: border-box !important;
 }
 
 /* Card sizing inside New Arrivals track */
 #newArrivalsGrid.divan-slider-track {
-  gap: 20px !important;
+  gap: 16px !important;
   align-items: stretch !important;
 }
 
 #newArrivalsGrid.divan-slider-track .saree-card {
-  flex: 0 0 240px !important;
-  width: 240px !important;
+  flex: 0 0 195px !important;
+  width: 195px !important;
   margin: 0 !important;
   box-sizing: border-box !important;
   display: flex !important;
   flex-direction: column !important;
-  border-radius: var(--radius-royal) !important;
+  border-radius: 14px !important;
   background: var(--color-card-bg) !important;
   border: 1px solid var(--color-gold-border) !important;
   overflow: hidden !important;
-  box-shadow: 0 4px 14px rgba(98, 17, 34, 0.06);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  box-shadow: 0 4px 12px rgba(98, 17, 34, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 #newArrivalsGrid.divan-slider-track .saree-card:hover {
-  transform: translateY(-5px) !important;
+  transform: translateY(-4px) !important;
   border-color: rgba(197, 155, 39, 0.75) !important;
-  box-shadow: 0 10px 24px rgba(98, 17, 34, 0.14) !important;
+  box-shadow: 0 8px 18px rgba(98, 17, 34, 0.12) !important;
 }
 
 /* Thumbnail wrapper & image in New Arrivals */
 #newArrivalsGrid .saree-thumb-wrapper {
   position: relative !important;
   width: 100% !important;
-  height: 235px !important;
+  height: 155px !important;
   aspect-ratio: unset !important;
   overflow: hidden !important;
   background: #f7f3ee !important;
@@ -3429,47 +3458,47 @@ section[id], footer[id] {
   height: 100% !important;
   object-fit: cover !important;
   display: block !important;
-  transform: scale(1.16) translateX(var(--divan-img-parallax, 0px));
+  transform: scale(1.15) translateX(var(--divan-img-parallax, 0px));
   transition: transform 1.15s cubic-bezier(0.25, 1, 0.35, 1);
   will-change: transform;
 }
 
 #newArrivalsGrid .saree-card:hover .saree-thumb {
-  transform: scale(1.2) translateX(var(--divan-img-parallax, 0px)) !important;
+  transform: scale(1.18) translateX(var(--divan-img-parallax, 0px)) !important;
 }
 
 /* Badges inside Slider Card */
 #newArrivalsGrid .saree-badges {
-  top: 8px !important;
-  left: 8px !important;
-  gap: 4px !important;
+  top: 6px !important;
+  left: 6px !important;
+  gap: 3px !important;
 }
 
 #newArrivalsGrid .badge-tag {
-  font-size: 0.62rem !important;
-  padding: 3px 8px !important;
-  letter-spacing: 0.04em !important;
+  font-size: 0.55rem !important;
+  padding: 2px 6px !important;
+  letter-spacing: 0.03em !important;
 }
 
 /* Wishlist Button inside Slider Card */
 #newArrivalsGrid .saree-wish-btn {
-  top: 8px !important;
-  right: 8px !important;
-  width: 32px !important;
-  height: 32px !important;
-  font-size: 0.82rem !important;
+  top: 6px !important;
+  right: 6px !important;
+  width: 28px !important;
+  height: 28px !important;
+  font-size: 0.72rem !important;
 }
 
 /* Quick View Button inside Slider Card */
 #newArrivalsGrid .saree-quick-view {
-  font-size: 0.68rem !important;
-  padding: 6px 14px !important;
-  bottom: 8px !important;
+  font-size: 0.62rem !important;
+  padding: 4px 10px !important;
+  bottom: 6px !important;
 }
 
 /* Card Content Area inside Slider Card */
 #newArrivalsGrid .saree-content {
-  padding: 12px 14px 14px 14px !important;
+  padding: 8px 10px 10px 10px !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
@@ -3479,16 +3508,16 @@ section[id], footer[id] {
 }
 
 #newArrivalsGrid .saree-category {
-  font-size: 0.66rem !important;
-  letter-spacing: 0.06em !important;
-  margin-bottom: 3px !important;
+  font-size: 0.60rem !important;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 2px !important;
 }
 
 #newArrivalsGrid .saree-title {
-  font-size: 0.92rem !important;
-  line-height: 1.3 !important;
-  margin-bottom: 6px !important;
-  height: 2.6em !important;
+  font-size: 0.82rem !important;
+  line-height: 1.25 !important;
+  margin-bottom: 4px !important;
+  height: 2.5em !important;
   display: -webkit-box !important;
   -webkit-line-clamp: 2 !important;
   -webkit-box-orient: vertical !important;
@@ -3496,52 +3525,52 @@ section[id], footer[id] {
 }
 
 #newArrivalsGrid .saree-specs-mini {
-  font-size: 0.72rem !important;
-  margin-bottom: 8px !important;
-  padding-bottom: 6px !important;
-  gap: 8px !important;
+  font-size: 0.66rem !important;
+  margin-bottom: 5px !important;
+  padding-bottom: 4px !important;
+  gap: 6px !important;
 }
 
 #newArrivalsGrid .saree-price-row {
   margin-top: auto !important;
-  margin-bottom: 10px !important;
-  gap: 8px !important;
+  margin-bottom: 6px !important;
+  gap: 6px !important;
   align-items: baseline !important;
 }
 
 #newArrivalsGrid .saree-current-price {
-  font-size: 1.12rem !important;
+  font-size: 1.02rem !important;
   font-weight: 800 !important;
 }
 
 #newArrivalsGrid .saree-original-price {
-  font-size: 0.78rem !important;
+  font-size: 0.72rem !important;
 }
 
 #newArrivalsGrid .saree-discount-badge {
-  font-size: 0.66rem !important;
-  padding: 1px 5px !important;
+  font-size: 0.60rem !important;
+  padding: 1px 4px !important;
 }
 
 #newArrivalsGrid .saree-actions {
   display: grid !important;
   grid-template-columns: 1fr auto !important;
-  gap: 6px !important;
+  gap: 5px !important;
 }
 
 #newArrivalsGrid .btn-add-cart {
-  padding: 8px 12px !important;
-  font-size: 0.78rem !important;
+  padding: 6px 10px !important;
+  font-size: 0.72rem !important;
   font-weight: 600 !important;
-  letter-spacing: 0.03em !important;
+  letter-spacing: 0.02em !important;
   border-radius: 9999px !important;
   white-space: nowrap !important;
 }
 
 #newArrivalsGrid .btn-wa-inquire {
-  width: 36px !important;
-  height: 36px !important;
-  font-size: 0.85rem !important;
+  width: 30px !important;
+  height: 30px !important;
+  font-size: 0.76rem !important;
   border-radius: 50% !important;
   display: flex !important;
   align-items: center !important;
@@ -3592,68 +3621,68 @@ section[id], footer[id] {
 /* Laptop Screens (1024px - 1200px) */
 @media (max-width: 1200px) {
   #newArrivalsGrid.divan-slider-track .saree-card {
-    flex: 0 0 225px !important;
-    width: 225px !important;
+    flex: 0 0 190px !important;
+    width: 190px !important;
   }
   #newArrivalsGrid .saree-thumb-wrapper {
-    height: 220px !important;
+    height: 150px !important;
   }
   #newArrivalsGrid .saree-title {
-    font-size: 0.88rem !important;
+    font-size: 0.80rem !important;
   }
 }
 
 /* Tablet Screens (769px - 992px) */
 @media (max-width: 992px) {
   #shopSection {
-    padding: 28px 0 32px 0 !important;
+    padding: 16px 0 20px 0 !important;
   }
   #shopSection .section-title {
-    font-size: 1.85rem !important;
+    font-size: 1.55rem !important;
   }
   #newArrivalsGrid.divan-slider-track {
-    gap: 16px !important;
+    gap: 14px !important;
   }
   #newArrivalsGrid.divan-slider-track .saree-card {
-    flex: 0 0 215px !important;
-    width: 215px !important;
+    flex: 0 0 185px !important;
+    width: 185px !important;
   }
   #newArrivalsGrid .saree-thumb-wrapper {
-    height: 210px !important;
+    height: 145px !important;
   }
   #newArrivalsGrid .saree-content {
-    padding: 10px 12px 12px 12px !important;
+    padding: 8px 9px 9px 9px !important;
   }
 }
 
 /* Mobile & Phablet Screens (max-width: 768px) */
 @media (max-width: 768px) {
   #shopSection {
-    padding: 24px 0 28px 0 !important;
+    padding: 16px 0 20px 0 !important;
   }
   #shopSection .section-header {
-    margin-bottom: 12px !important;
+    margin-bottom: 8px !important;
   }
   #shopSection .section-title {
-    font-size: 1.65rem !important;
-    margin-bottom: 4px !important;
+    font-size: 1.45rem !important;
+    margin-bottom: 2px !important;
   }
   #shopSection .section-desc {
-    font-size: 0.86rem !important;
+    font-size: 0.80rem !important;
   }
   #shopSection .divan-slider-controls {
-    margin-bottom: 10px !important;
-    gap: 10px !important;
+    margin-bottom: 8px !important;
+    gap: 8px !important;
   }
   #newArrivalsGrid.divan-slider-track {
-    gap: 14px !important;
+    gap: 12px !important;
   }
   #newArrivalsGrid.divan-slider-track .saree-card {
-    flex: 0 0 210px !important;
-    width: 210px !important;
+    flex: 0 0 180px !important;
+    width: 180px !important;
   }
   #newArrivalsGrid .saree-thumb-wrapper {
-    height: 205px !important;
+    height: 140px !important;
   }
   .collections-grid.divan-slider-track .collection-card {
     flex: 0 0 280px !important;
@@ -4224,8 +4253,8 @@ section[id], footer[id] {
 /* Divan Card Parallax Sliders Controls & Sizing */
 @media (max-width: 768px) {
   .divan-slider-controls {
-    gap: 12px;
-    margin-bottom: 12px !important;
+    gap: 10px;
+    margin-bottom: 8px !important;
   }
 
   .divan-progress-rail {
@@ -4233,16 +4262,16 @@ section[id], footer[id] {
   }
 
   #newArrivalsGrid.divan-slider-track {
-    gap: 14px !important;
+    gap: 12px !important;
   }
 
   #newArrivalsGrid.divan-slider-track .saree-card {
-    flex: 0 0 210px !important;
-    width: 210px !important;
+    flex: 0 0 180px !important;
+    width: 180px !important;
   }
 
   #newArrivalsGrid .saree-thumb-wrapper {
-    height: 205px !important;
+    height: 140px !important;
   }
 
   .collections-grid.divan-slider-track .collection-card {
@@ -4255,7 +4284,7 @@ section[id], footer[id] {
 @media (max-width: 480px) {
   .divan-slider-controls {
     justify-content: space-between;
-    margin-bottom: 8px !important;
+    margin-bottom: 6px !important;
   }
 
   .divan-mode-label {
@@ -4267,16 +4296,16 @@ section[id], footer[id] {
   }
 
   #newArrivalsGrid.divan-slider-track {
-    gap: 12px !important;
+    gap: 10px !important;
   }
 
   #newArrivalsGrid.divan-slider-track .saree-card {
-    flex: 0 0 min(80vw, 245px) !important;
-    width: min(80vw, 245px) !important;
+    flex: 0 0 min(76vw, 220px) !important;
+    width: min(76vw, 220px) !important;
   }
 
   #newArrivalsGrid .saree-thumb-wrapper {
-    height: 220px !important;
+    height: 155px !important;
   }
 
   .collections-grid.divan-slider-track .collection-card {
