@@ -826,7 +826,25 @@
       centerBtn.style.opacity = '0.9';
     }
 
-    startUrgencyCountdown(15 * 60);
+    // Align wheel visually with the won slice
+    if (typeof prize.rotation === 'number') {
+      currentRotation = prize.rotation;
+    } else {
+      const sliceIdx = WHEEL_SLICES.findIndex(s => (prize.prizeId && s.id === prize.prizeId) || (prize.coupon && s.coupon === prize.coupon));
+      if (sliceIdx !== -1) {
+        currentRotation = (360 - sliceIdx * 60) % 360;
+      }
+    }
+    drawWheel(currentRotation);
+
+    let remainingSec = 15 * 60;
+    if (prize.timestamp) {
+      const elapsed = Math.floor((Date.now() - prize.timestamp) / 1000);
+      if (elapsed > 0 && elapsed < 15 * 60) {
+        remainingSec = (15 * 60) - elapsed;
+      }
+    }
+    startUrgencyCountdown(remainingSec);
   }
 
   // Handle Win: Confetti, Fanfare, Reveal Reward, Save to Local & Session Storage
@@ -840,6 +858,7 @@
       headline: prize.headline,
       desc: prize.description,
       coupon: prize.coupon || 'SILK30',
+      rotation: currentRotation,
       timestamp: Date.now()
     };
     try {
@@ -1070,28 +1089,21 @@
     injectModalHTML();
     drawWheel(currentRotation);
 
-    const existingOfferStr = localStorage.getItem('Demo_customer_offer') || sessionStorage.getItem('Demo_customer_offer');
+    // Automatically slide in pop-up on page load / refresh
+    setTimeout(() => {
+      // Pop up the modal: if already claimed, shows the SAME locked offer!
+      window.openSpinModal();
 
-    // If customer already claimed their 1 offer:
-    // Update center button to CLAIMED state and do not auto-popup or auto-spin on refresh!
-    if (existingOfferStr) {
-      try {
-        const centerBtn = document.getElementById('spinCenterBtn');
-        if (centerBtn) {
-          centerBtn.disabled = true;
-          centerBtn.innerHTML = `<span class="spin-center-text" style="font-size:0.7rem; letter-spacing:0.5px;">CLAIMED</span>`;
-          centerBtn.style.cursor = 'default';
-          centerBtn.style.opacity = '0.9';
-        }
-      } catch (e) {}
-    } else {
-      // First-time visitor: present the Spin & Win invitation smoothly after 1.5 seconds (no auto-spin)
-      setTimeout(() => {
-        if (!localStorage.getItem('Demo_customer_offer')) {
-          window.openSpinModal(true);
-        }
-      }, 1500);
-    }
+      // Only for first-time visitor who has not spun yet: spin once to reveal their 1 offer
+      const existingOfferStr = localStorage.getItem('Demo_customer_offer') || sessionStorage.getItem('Demo_customer_offer');
+      if (!existingOfferStr) {
+        setTimeout(() => {
+          if (!localStorage.getItem('Demo_customer_offer')) {
+            window.startSpinAndWin();
+          }
+        }, 700);
+      }
+    }, 600);
   }
 
   // Hook into DOM ready
