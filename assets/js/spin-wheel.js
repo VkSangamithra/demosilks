@@ -1082,6 +1082,9 @@
   window.closeSpinModal = function () {
     const backdrop = document.getElementById('spinPopupBackdrop');
     if (backdrop) backdrop.classList.remove('active');
+    try {
+      sessionStorage.setItem('Demo_spin_shown_session', 'true');
+    } catch (e) {}
   };
 
   // 1 Customer • 1 Spin • 1 Offer Initialization
@@ -1089,21 +1092,50 @@
     injectModalHTML();
     drawWheel(currentRotation);
 
-    // Automatically slide in pop-up on page load / refresh
-    setTimeout(() => {
-      // Pop up the modal: if already claimed, shows the SAME locked offer!
-      window.openSpinModal();
-
-      // Only for first-time visitor who has not spun yet: spin once to reveal their 1 offer
-      const existingOfferStr = localStorage.getItem('Demo_customer_offer') || sessionStorage.getItem('Demo_customer_offer');
-      if (!existingOfferStr) {
-        setTimeout(() => {
-          if (!localStorage.getItem('Demo_customer_offer')) {
-            window.startSpinAndWin();
-          }
-        }, 700);
+    // Check if the user refreshed the page (browser refresh / reload / pull-to-refresh)
+    let isReload = false;
+    try {
+      const navEntries = performance.getEntriesByType && performance.getEntriesByType('navigation');
+      if (navEntries && navEntries.length > 0) {
+        isReload = navEntries[0].type === 'reload';
+      } else if (performance.navigation) {
+        isReload = performance.navigation.type === 1;
       }
-    }, 600);
+    } catch (e) {}
+
+    const path = window.location.pathname.toLowerCase();
+    const isHomePage = path === '/' || path.endsWith('/index.html') || path === '' || path.endsWith('/');
+
+    // Check if popup was already shown or dismissed during this navigation session
+    let hasSeenInSession = false;
+    try {
+      hasSeenInSession = !!sessionStorage.getItem('Demo_spin_shown_session');
+    } catch (e) {}
+
+    // USER REQUIREMENT: Spin & Win popup for refresh alone; remove for every section popup!
+    // Auto-open ONLY on explicit page refresh/reload, or initial first-time homepage visit.
+    // NEVER on section-to-section navigation across the site!
+    const allowAutoPopup = isReload || (isHomePage && !hasSeenInSession);
+
+    if (allowAutoPopup) {
+      try {
+        sessionStorage.setItem('Demo_spin_shown_session', 'true');
+      } catch (e) {}
+
+      setTimeout(() => {
+        window.openSpinModal();
+
+        // Only for first-time visitor who has not spun yet: spin once to reveal their 1 offer
+        const existingOfferStr = localStorage.getItem('Demo_customer_offer') || sessionStorage.getItem('Demo_customer_offer');
+        if (!existingOfferStr) {
+          setTimeout(() => {
+            if (!localStorage.getItem('Demo_customer_offer')) {
+              window.startSpinAndWin();
+            }
+          }, 700);
+        }
+      }, 700);
+    }
   }
 
   // Hook into DOM ready
