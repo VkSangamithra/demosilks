@@ -52,13 +52,12 @@ body {
   color: var(--color-text-dark);
   line-height: 1.6;
   background-color: #fffcf7;
-  /* Luxury Royal Mandala, Arch & Jasmine Floral Full-Page Background - 4K Ultra HD (Crystal Clear, No Blur) */
-  background-image: url('../images/page-bg-luxury-hd.jpg');
+  /* User-uploaded Luxury Royal Diya, Jasmine & Silk Zari Background - Full HD 16:9 */
+  background-image: url('../images/bg-luxury.jpg');
   background-size: cover;
-  background-position: center top;
+  background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  image-rendering: -webkit-optimize-contrast;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
