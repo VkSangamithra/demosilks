@@ -761,110 +761,269 @@
 /* ==========================================================================
    RESPONSIVE DESIGN (Tablets & Mobile Phones)
    ========================================================================== */
+/* ==========================================================================
+   RESPONSIVE DESIGN (Tablets & Mobile Phones - Perfectly Centered, Never Clipped)
+   ========================================================================== */
 @media (max-width: 880px) {
+  /* Keep background overlay covering the entire viewport */
+  .spin-popup-backdrop {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    overflow: hidden !important;
+    z-index: 999999 !important;
+  }
+
+  /* Fixed positioning exactly in center of mobile screen */
   .spin-popup-card {
-    flex-direction: column;
-    width: 95vw;
-    max-height: 90vh;
-    overflow-y: auto;
-    border-radius: 20px;
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: calc(100% - 32px) !important;
+    max-width: 520px !important;
+    max-height: calc(100vh - 40px) !important;
+    max-height: calc(100dvh - 40px) !important;
+    height: auto !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    display: flex !important;
+    flex-direction: column !important;
+    border-radius: 20px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
   }
 
+  .spin-popup-backdrop.active .spin-popup-card {
+    transform: translate(-50%, -50%) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  /* Close button visible at top-right corner */
+  .spin-close-btn {
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    z-index: 100 !important;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 1.05rem !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 2px 8px rgba(99, 17, 36, 0.2) !important;
+  }
+
+  /* Wheel Container column */
   .spin-wheel-col {
-    padding: 24px 16px 10px;
+    width: 100% !important;
+    padding: 24px 14px 10px 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto !important;
+    flex: none !important;
+    box-sizing: border-box !important;
   }
 
+  /* Wheel responsive using width: min(100%, 340px) and aspect-ratio: 1 */
   .spin-wheel-stage {
-    width: 290px;
-    height: 290px;
+    width: min(100%, 340px) !important;
+    height: auto !important;
+    aspect-ratio: 1 !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   #spinCanvas {
-    width: 280px;
-    height: 280px;
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: 1 !important;
+    display: block !important;
   }
 
   .spin-center-btn {
-    width: 56px;
-    height: 56px;
-    font-size: 0.78rem;
-    letter-spacing: 1px;
-    border-width: 2.5px;
+    width: 56px !important;
+    height: 56px !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 1px !important;
+    border-width: 2.5px !important;
   }
 
   .spin-pointer-wrap {
-    right: -4px;
-    width: 48px;
-    height: 38px;
-    transform-origin: 36px 19px;
+    right: -4px !important;
+    width: 48px !important;
+    height: 38px !important;
+    transform-origin: 36px 19px !important;
   }
 
+  /* Form & Rewards column */
   .spin-form-col {
-    padding: 10px 24px 28px;
+    width: 100% !important;
+    padding: 10px 20px 26px 20px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    flex: none !important;
+  }
+
+  .spin-header-lotus {
+    margin-bottom: 8px !important;
+    justify-content: center !important;
+  }
+
+  .spin-title-wrap {
+    justify-content: center !important;
   }
 
   .spin-title {
-    font-size: 1.8rem;
+    font-size: 1.65rem !important;
+    text-align: center !important;
   }
 
   .spin-subtitle {
-    font-size: 1.05rem;
-    margin-bottom: 16px;
+    font-size: 0.98rem !important;
+    margin-bottom: 16px !important;
+    text-align: center !important;
+  }
+
+  .spin-form-wrap {
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
   }
 
   .spin-input-group {
-    height: 44px;
+    height: 44px !important;
   }
 
   .spin-btn-submit {
-    height: 46px;
-    font-size: 0.95rem;
+    height: 46px !important;
+    font-size: 0.95rem !important;
+    width: 100% !important;
+  }
+
+  /* Centered Winner Details */
+  .spin-winner-card {
+    width: 100% !important;
+    max-width: 420px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  .spin-winner-badge {
+    margin: 0 auto 10px auto !important;
+    display: inline-flex !important;
+  }
+
+  .spin-winner-title {
+    font-size: 1.45rem !important;
+    text-align: center !important;
+    margin-bottom: 8px !important;
+  }
+
+  .spin-winner-desc {
+    font-size: 0.92rem !important;
+    text-align: center !important;
+    margin-bottom: 14px !important;
+  }
+
+  .spin-coupon-ticket {
+    justify-content: center !important;
+    margin: 12px auto !important;
+    max-width: 300px !important;
+  }
+
+  .spin-winner-cta-btn {
+    width: 100% !important;
+    margin: 0 auto 14px auto !important;
+  }
+
+  .spin-winner-footer-row {
+    justify-content: center !important;
+    gap: 8px !important;
   }
 
   .spin-corner-br {
-    width: 140px;
+    width: 120px !important;
   }
 
   .spin-floating-trigger {
-    right: 14px;
-    bottom: 85px;
-    padding: 8px 14px 8px 10px;
+    right: 14px !important;
+    bottom: 82px !important;
+    padding: 8px 13px 8px 10px !important;
   }
 }
 
 @media (max-width: 480px) {
   .spin-popup-card {
-    width: 95vw;
-    max-height: 94vh;
+    width: calc(100% - 24px) !important;
+    max-height: calc(100vh - 28px) !important;
+    max-height: calc(100dvh - 28px) !important;
+    border-radius: 18px !important;
+  }
+
+  .spin-wheel-col {
+    padding: 20px 10px 8px 10px !important;
   }
 
   .spin-wheel-stage {
-    width: min(270px, 78vw);
-    height: min(270px, 78vw);
-    margin: 0 auto;
-  }
-
-  #spinCanvas {
-    width: min(260px, 76vw);
-    height: min(260px, 76vw);
+    width: min(100%, 290px) !important;
+    height: auto !important;
+    aspect-ratio: 1 !important;
   }
 
   .spin-form-col {
-    padding: 10px 16px 24px;
+    padding: 8px 16px 22px 16px !important;
   }
 
   .spin-title {
-    font-size: 1.45rem;
+    font-size: 1.42rem !important;
   }
 
   .spin-subtitle {
-    font-size: 0.92rem;
-    margin-bottom: 14px;
+    font-size: 0.88rem !important;
+    margin-bottom: 12px !important;
   }
 
   .spin-floating-trigger {
     bottom: 78px !important;
-    right: 16px !important;
+    right: 14px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .spin-popup-card {
+    width: calc(100% - 16px) !important;
+    max-height: calc(100vh - 20px) !important;
+    max-height: calc(100dvh - 20px) !important;
+    border-radius: 16px !important;
+  }
+
+  .spin-wheel-stage {
+    width: min(100%, 240px) !important;
+  }
+
+  .spin-form-col {
+    padding: 6px 12px 18px 12px !important;
+  }
+
+  .spin-title {
+    font-size: 1.25rem !important;
+  }
+
+  .spin-subtitle {
+    font-size: 0.82rem !important;
   }
 }
 
