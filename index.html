@@ -14,6 +14,13 @@
 </head>
 <body style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
 
+  <!-- CINEMATIC SHOWROOM DOOR REVEAL SCROLL EXPERIENCE (PURE VIDEO ALONE - NO WORDS, NO BARS AT TOP) -->
+  <section id="showroomScrollContainer" class="showroom-scroll-container">
+    <div class="showroom-sticky-frame">
+      <canvas id="showroomCanvas" class="showroom-video-bg"></canvas>
+      <video id="showroomVideo" src="assets/videos/Silk_sarees_inside_shop_8653ac24_1080p.mp4" muted playsinline preload="auto" style="position:absolute; width:1px; height:1px; opacity:0; pointer-events:none;"></video>
+    </div>
+  </section>
 
         <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR (PURE CLEAN DESIGN - NO OVERLAYS) -->
     <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR -->
@@ -749,6 +756,9 @@
       `).join('');
 
 
+      // Cinematic Showroom Video Scroll Reveal (Instant Zero-Timelag Canvas Engine)
+      initShowroomVideoScroll();
+
       // Real-Time Dynamic Navbar ScrollSpy & Smooth Glide
       initScrollSpy();
     });
@@ -819,6 +829,123 @@
 
       window.addEventListener('scroll', onScrollSpy, { passive: true });
       onScrollSpy();
+    }
+
+    function initShowroomVideoScroll() {
+      const scrollContainer = document.getElementById('showroomScrollContainer');
+      const canvas = document.getElementById('showroomCanvas');
+      if (!scrollContainer || !canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      const totalFrames = 119;
+      const frames = [];
+      let lastRenderedIndex = 0;
+      let isFirstFrameDrawn = false;
+
+      function getFrameSrc(idx) {
+        return `assets/frames_showroom/frame_${String(idx).padStart(3, '0')}.jpg`;
+      }
+
+      function resizeCanvas() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        drawFrame(lastRenderedIndex);
+      }
+
+      function drawFrame(idx) {
+        idx = Math.max(0, Math.min(totalFrames - 1, idx));
+        const img = frames[idx];
+
+        if (img && img.complete && img.naturalWidth > 0) {
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          lastRenderedIndex = idx;
+        } else {
+          // If the requested frame is not yet in memory, find nearest loaded frame
+          for (let dist = 1; dist < 25; dist++) {
+            const prev = frames[idx - dist];
+            if (prev && prev.complete && prev.naturalWidth > 0) {
+              ctx.drawImage(prev, 0, 0, canvas.width, canvas.height);
+              break;
+            }
+            const next = frames[idx + dist];
+            if (next && next.complete && next.naturalWidth > 0) {
+              ctx.drawImage(next, 0, 0, canvas.width, canvas.height);
+              break;
+            }
+          }
+        }
+      }
+
+      // 1. Immediately load frame 0 for instant visual render
+      const firstImg = new Image();
+      firstImg.src = getFrameSrc(0);
+      firstImg.onload = () => {
+        frames[0] = firstImg;
+        if (!isFirstFrameDrawn) {
+          isFirstFrameDrawn = true;
+          resizeCanvas();
+        }
+      };
+
+      // 2. Preload remaining frames in priority batches (every 4th frame first, then fill)
+      const priorityIndices = [];
+      for (let i = 0; i < totalFrames; i += 4) priorityIndices.push(i);
+      for (let i = 0; i < totalFrames; i++) {
+        if (!priorityIndices.includes(i)) priorityIndices.push(i);
+      }
+
+      let loadIdx = 0;
+      function preloadNextBatch() {
+        const batchSize = 6;
+        for (let b = 0; b < batchSize && loadIdx < priorityIndices.length; b++) {
+          const frameNum = priorityIndices[loadIdx++];
+          if (!frames[frameNum]) {
+            const img = new Image();
+            img.src = getFrameSrc(frameNum);
+            frames[frameNum] = img;
+          }
+        }
+        if (loadIdx < priorityIndices.length) {
+          if (window.requestIdleCallback) {
+            requestIdleCallback(preloadNextBatch, { timeout: 100 });
+          } else {
+            setTimeout(preloadNextBatch, 20);
+          }
+        }
+      }
+
+      setTimeout(preloadNextBatch, 40);
+
+      // 3. Scroll Scrubbing Handler with ZERO Timelag (Direct 60fps tracking)
+      let rafId = null;
+      function onScroll() {
+        const rect = scrollContainer.getBoundingClientRect();
+        const totalScrollable = scrollContainer.offsetHeight - window.innerHeight;
+        if (totalScrollable <= 0) return;
+
+        // Skip calculations if completely out of view
+        if (rect.bottom < -50 || rect.top > window.innerHeight + 50) return;
+
+        const scrolledDistance = -rect.top;
+        const progress = Math.max(0, Math.min(1, scrolledDistance / totalScrollable));
+        const targetFrame = Math.floor(progress * (totalFrames - 1));
+
+        if (targetFrame !== lastRenderedIndex) {
+          if (!rafId) {
+            rafId = requestAnimationFrame(() => {
+              rafId = null;
+              drawFrame(targetFrame);
+            });
+          }
+        }
+      }
+
+      window.addEventListener('resize', resizeCanvas, { passive: true });
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      resizeCanvas();
+      onScroll();
     }
 
     function toggleMobileNav() {
