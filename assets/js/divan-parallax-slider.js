@@ -102,14 +102,41 @@ class DivanParallaxSlider {
 
   measure() {
     if (!this.cards || this.cards.length === 0) return;
+
+    const isMobile = window.innerWidth <= 768;
+
+    // Mobile single-card width calculation: guarantee 1 card alone fills 100% of the viewport width
+    if (isMobile && this.viewport) {
+      const vWidth = Math.round(this.viewport.getBoundingClientRect().width || this.viewport.clientWidth);
+      if (vWidth > 0) {
+        this.track.style.setProperty('--divan-card-w', `${vWidth}px`);
+        this.wrapper.style.setProperty('--divan-card-w', `${vWidth}px`);
+        if (this.allCards) {
+          for (let i = 0; i < this.allCards.length; i++) {
+            this.allCards[i].style.width = `${vWidth}px`;
+            this.allCards[i].style.minWidth = `${vWidth}px`;
+            this.allCards[i].style.maxWidth = `${vWidth}px`;
+            this.allCards[i].style.flex = `0 0 ${vWidth}px`;
+          }
+        }
+      }
+    } else if (this.allCards) {
+      for (let i = 0; i < this.allCards.length; i++) {
+        this.allCards[i].style.width = '';
+        this.allCards[i].style.minWidth = '';
+        this.allCards[i].style.maxWidth = '';
+        this.allCards[i].style.flex = '';
+      }
+    }
+
     const firstCard = this.cards[0];
     const rect = firstCard.getBoundingClientRect();
-    this.cardWidth = rect.width || 300;
+    this.cardWidth = Math.round(rect.width) || 300;
 
     // Calculate gap from margin/flex gap
     const style = window.getComputedStyle(this.track);
-    const gapVal = parseFloat(style.gap) || 26;
-    this.cardStep = this.cardWidth + gapVal;
+    const gapVal = parseFloat(style.gap) || 0;
+    this.cardStep = this.cardWidth + (isMobile ? 0 : gapVal);
   }
 
   goTo(index, animate = true) {
@@ -169,6 +196,15 @@ class DivanParallaxSlider {
   }
 
   next() {
+    // If rapid-clicking when at or past the clone threshold, immediately snap to 0 first
+    if (this.currentIndex >= this.originalCount) {
+      this.track.style.transition = 'none';
+      this.currentIndex = 0;
+      this.currentTranslate = 0;
+      this.prevTranslate = 0;
+      this.track.style.transform = 'translateX(0px)';
+      void this.track.offsetHeight;
+    }
     this.progress = 0;
     if (this.progressFillEl) this.progressFillEl.style.width = '0%';
     this.measure();
@@ -192,8 +228,11 @@ class DivanParallaxSlider {
       const delta = currentTime - this.lastTime;
       this.lastTime = currentTime;
 
+      const isMobile = window.innerWidth <= 768;
+      const holdDuration = isMobile ? Math.max(this.duration, 4800) : this.duration;
+
       if (!this.isHovered && !this.isDragging && !this.isAnimating) {
-        this.progress += (delta / this.duration) * 100;
+        this.progress += (delta / holdDuration) * 100;
         if (this.progressFillEl) {
           this.progressFillEl.style.width = `${Math.min(100, this.progress)}%`;
         }
@@ -210,38 +249,55 @@ class DivanParallaxSlider {
   }
 
   setupDragEvents() {
-    let startPos = 0;
-    let diff = 0;
+    let startX = 0;
+    let startY = 0;
+    let diffX = 0;
+    let diffY = 0;
+    let isHorizontal = null;
     let hasMoved = false;
 
     const onStart = (e) => {
       // Don't intercept if clicking wishlist or action buttons directly
-      if (e.target.closest('.saree-wish-btn, .btn-add-cart, .btn-whatsapp-cart, .saree-quick-view, .divan-nav-btn')) {
+      if (e.target.closest('.saree-wish-btn, .btn-add-cart, .btn-whatsapp-cart, .saree-quick-view, .divan-nav-btn, .reel-play-btn, a, button')) {
         return;
       }
       this.isDragging = true;
       hasMoved = false;
-      startPos = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-      diff = 0;
-      this.track.style.transition = 'none';
+      isHorizontal = null;
+      const touch = e.type.includes('touch') ? e.touches[0] : e;
+      startX = touch.clientX;
+      startY = touch.clientY;
+      diffX = 0;
+      diffY = 0;
+      this.isHovered = true; // Pause auto loop during swipe
     };
 
     const onMove = (e) => {
       if (!this.isDragging) return;
-      const currentPos = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-      diff = currentPos - startPos;
-      if (Math.abs(diff) > 6) {
-        hasMoved = true;
+      const touch = e.type.includes('touch') ? e.touches[0] : e;
+      diffX = touch.clientX - startX;
+      diffY = touch.clientY - startY;
+
+      // Determine gesture direction once movement threshold reached
+      if (isHorizontal === null && (Math.abs(diffX) > 6 || Math.abs(diffY) > 6)) {
+        isHorizontal = Math.abs(diffX) >= Math.abs(diffY);
+        if (isHorizontal) {
+          this.track.style.transition = 'none';
+        }
       }
-      const moveX = this.currentTranslate + diff;
-      this.track.style.transform = `translateX(${moveX}px)`;
+
+      if (isHorizontal) {
+        hasMoved = true;
+        const moveX = this.currentTranslate + diffX;
+        this.track.style.transform = `translateX(${moveX}px)`;
+      }
     };
 
-    const onEnd = (e) => {
+    const onEnd = () => {
       if (!this.isDragging) return;
       this.isDragging = false;
-      if (hasMoved && Math.abs(diff) > 50) {
-        if (diff < -50) {
+      if (isHorizontal && hasMoved && Math.abs(diffX) > 40) {
+        if (diffX < -40) {
           this.next();
         } else {
           this.prev();
@@ -249,8 +305,8 @@ class DivanParallaxSlider {
       } else {
         this.goTo(this.currentIndex, true);
       }
-      // If dragged significantly, prevent accidental navigation clicks
-      if (hasMoved) {
+
+      if (hasMoved && isHorizontal) {
         const preventClick = (clickEvent) => {
           clickEvent.stopPropagation();
           clickEvent.preventDefault();
@@ -258,8 +314,15 @@ class DivanParallaxSlider {
         };
         window.addEventListener('click', preventClick, true);
       }
-      diff = 0;
+
+      diffX = 0;
+      diffY = 0;
       hasMoved = false;
+      isHorizontal = null;
+
+      setTimeout(() => {
+        this.isHovered = false;
+      }, 3500);
     };
 
     this.viewport.addEventListener('mousedown', onStart);
@@ -302,6 +365,22 @@ window.initDivanParallaxSliders = function() {
       totalNum: '#colTotalNum',
       progressFill: '#colProgressFill',
       duration: 3600,
+      slideDuration: 1150
+    });
+  }
+
+  // 3. Initialize Sarees In Motion & Styling Reels Slider
+  const reelsWrap = document.getElementById('reelsSlider');
+  if (reelsWrap) {
+    new DivanParallaxSlider({
+      wrapper: reelsWrap,
+      track: '#homeReelsGrid',
+      prevBtn: '#reelsPrevBtn',
+      nextBtn: '#reelsNextBtn',
+      activeNum: '#reelsActiveNum',
+      totalNum: '#reelsTotalNum',
+      progressFill: '#reelsProgressFill',
+      duration: 3800,
       slideDuration: 1150
     });
   }

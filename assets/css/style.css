@@ -4051,7 +4051,7 @@ section[id], footer[id] {
   }
 }
 
-/* Mobile & Phablet Screens (max-width: 768px) */
+/* Mobile & Phablet Screens (max-width: 768px) - Single Card Alone Display */
 @media (max-width: 768px) {
   #shopSection,
   #collectionsSection,
@@ -4061,12 +4061,12 @@ section[id], footer[id] {
   #shopSection .section-header,
   #collectionsSection .section-header,
   #videosSection .section-header {
-    margin-bottom: 6px !important;
+    margin-bottom: 8px !important;
   }
   #shopSection .section-title,
   #collectionsSection .section-title,
   #videosSection .section-title {
-    font-size: 1.35rem !important;
+    font-size: 1.4rem !important;
     margin-bottom: 2px !important;
   }
   #shopSection .section-desc,
@@ -4075,45 +4075,117 @@ section[id], footer[id] {
     font-size: 0.78rem !important;
   }
   #shopSection .divan-slider-controls,
-  #collectionsSection .divan-slider-controls {
-    margin-bottom: 6px !important;
+  #collectionsSection .divan-slider-controls,
+  #reelsSlider .divan-slider-controls {
+    margin-bottom: 8px !important;
     gap: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
   }
-  #newArrivalsGrid.divan-slider-track,
-  .collections-grid.divan-slider-track {
-    gap: 10px !important;
+  #shopSection .divan-slider-counter,
+  #collectionsSection .divan-slider-counter,
+  #reelsSlider .divan-slider-counter {
+    font-size: 0.84rem !important;
   }
-  #newArrivalsGrid.divan-slider-track .saree-card {
-    flex: 0 0 180px !important;
-    width: 180px !important;
-  }
-  #newArrivalsGrid .saree-thumb-wrapper {
-    height: 140px !important;
-  }
-  .collections-grid.divan-slider-track .collection-card {
-    flex: 0 0 225px !important;
-    width: 225px !important;
-    height: 280px !important;
+  #shopSection .divan-nav-btn,
+  #collectionsSection .divan-nav-btn,
+  #reelsSlider .divan-nav-btn {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 0.88rem !important;
   }
   .divan-progress-rail {
-    max-width: 160px;
+    max-width: 140px !important;
+    flex: 1 1 auto !important;
   }
-  #videosSection .reels-grid,
-  #homeReelsGrid {
+
+  /* Viewport and Tracks for 1 Card Alone */
+  #newArrivalsSlider .divan-slider-viewport,
+  #collectionsSlider .divan-slider-viewport,
+  #reelsSlider .divan-slider-viewport {
+    width: 100% !important;
+    overflow: hidden !important;
+    padding: 4px 0 14px 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  #newArrivalsGrid.divan-slider-track,
+  .collections-grid.divan-slider-track,
+  #homeReelsGrid.divan-slider-track {
+    gap: 0px !important;
     display: flex !important;
-    justify-content: flex-start !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-    gap: 12px !important;
-    padding: 4px 16px 12px 16px !important;
-    -webkit-overflow-scrolling: touch !important;
+    flex-wrap: nowrap !important;
+    width: max-content !important;
+    overflow: visible !important;
+    scroll-snap-type: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
-  #videosSection .reel-card,
-  #homeReelsGrid .reel-card {
-    flex: 0 0 min(72vw, 240px) !important;
-    width: min(72vw, 240px) !important;
-    height: 340px !important;
-    scroll-snap-align: center !important;
+
+  /* 1. NEW ARRIVALS: ONE CARD ALONE */
+  #newArrivalsGrid.divan-slider-track .saree-card {
+    flex: 0 0 var(--divan-card-w, calc(100vw - 32px)) !important;
+    width: var(--divan-card-w, calc(100vw - 32px)) !important;
+    max-width: var(--divan-card-w, calc(100vw - 32px)) !important;
+    min-width: var(--divan-card-w, calc(100vw - 32px)) !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 16px !important;
+  }
+  #newArrivalsGrid .saree-thumb-wrapper {
+    height: 250px !important;
+  }
+  #newArrivalsGrid .saree-content {
+    padding: 12px 14px 14px 14px !important;
+  }
+  #newArrivalsGrid .saree-title {
+    font-size: 0.98rem !important;
+    line-height: 1.35 !important;
+    height: auto !important;
+    margin-bottom: 6px !important;
+  }
+  #newArrivalsGrid .saree-specs-mini {
+    font-size: 0.74rem !important;
+    margin-bottom: 8px !important;
+  }
+  #newArrivalsGrid .saree-current-price {
+    font-size: 1.25rem !important;
+  }
+  #newArrivalsGrid .saree-add-cart-btn {
+    padding: 10px 16px !important;
+    font-size: 0.82rem !important;
+  }
+
+  /* 2. SIGNATURE COLLECTIONS: ONE CARD ALONE */
+  .collections-grid.divan-slider-track .collection-card {
+    flex: 0 0 var(--divan-card-w, calc(100vw - 32px)) !important;
+    width: var(--divan-card-w, calc(100vw - 32px)) !important;
+    max-width: var(--divan-card-w, calc(100vw - 32px)) !important;
+    min-width: var(--divan-card-w, calc(100vw - 32px)) !important;
+    height: 390px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 18px !important;
+  }
+
+  /* 3. SAREES IN MOTION & STYLING REELS: ONE CARD ALONE */
+  #homeReelsGrid.divan-slider-track .reel-card {
+    flex: 0 0 var(--divan-card-w, calc(100vw - 32px)) !important;
+    width: var(--divan-card-w, calc(100vw - 32px)) !important;
+    max-width: var(--divan-card-w, calc(100vw - 32px)) !important;
+    min-width: var(--divan-card-w, calc(100vw - 32px)) !important;
+    height: 440px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 18px !important;
+  }
+  #homeReelsGrid .reel-overlay-bottom {
+    padding: 18px 16px 14px 16px !important;
+  }
+  #homeReelsGrid .reel-title {
+    font-size: 0.96rem !important;
+    line-height: 1.35 !important;
   }
 }
 
@@ -4673,69 +4745,35 @@ section[id], footer[id] {
   }
 }
 
-/* Divan Card Parallax Sliders Controls & Sizing */
+/* Divan Card Parallax Sliders Mobile Consistency */
 @media (max-width: 768px) {
   .divan-slider-controls {
-    gap: 10px;
     margin-bottom: 8px !important;
   }
-
-  .divan-progress-rail {
-    max-width: 110px;
+  #newArrivalsGrid.divan-slider-track,
+  .collections-grid.divan-slider-track,
+  #homeReelsGrid.divan-slider-track {
+    gap: 0px !important;
   }
-
-  #newArrivalsGrid.divan-slider-track {
-    gap: 12px !important;
-  }
-
-  #newArrivalsGrid.divan-slider-track .saree-card {
-    flex: 0 0 180px !important;
-    width: 180px !important;
-  }
-
-  #newArrivalsGrid .saree-thumb-wrapper {
-    height: 140px !important;
-  }
-
-  .collections-grid.divan-slider-track .collection-card {
-    flex: 0 0 215px !important;
-    width: 215px !important;
-    height: 265px !important;
+  #newArrivalsGrid.divan-slider-track .saree-card,
+  .collections-grid.divan-slider-track .collection-card,
+  #homeReelsGrid.divan-slider-track .reel-card {
+    margin: 0 !important;
   }
 }
 
 @media (max-width: 480px) {
-  .divan-slider-controls {
-    justify-content: space-between;
-    margin-bottom: 6px !important;
-  }
-
   .divan-mode-label {
-    display: none;
+    display: none !important;
   }
-
   .divan-progress-rail {
-    display: none;
+    display: block !important;
+    max-width: 100px !important;
   }
-
   #newArrivalsGrid.divan-slider-track,
-  .collections-grid.divan-slider-track {
-    gap: 10px !important;
-  }
-
-  #newArrivalsGrid.divan-slider-track .saree-card {
-    flex: 0 0 min(76vw, 220px) !important;
-    width: min(76vw, 220px) !important;
-  }
-
-  #newArrivalsGrid .saree-thumb-wrapper {
-    height: 155px !important;
-  }
-
-  .collections-grid.divan-slider-track .collection-card {
-    flex: 0 0 min(78vw, 250px) !important;
-    width: min(78vw, 250px) !important;
-    height: 275px !important;
+  .collections-grid.divan-slider-track,
+  #homeReelsGrid.divan-slider-track {
+    gap: 0px !important;
   }
 }
 

@@ -394,8 +394,29 @@
         <p class="section-desc">Experience the liquid drape, zari shimmer, and pleating tutorials straight from our Instagram reels.</p>
       </div>
 
-      <div class="reels-grid" id="homeReelsGrid">
-        <!-- Rendered by JS -->
+      <!-- Divan Raj Parallax Slider for Sarees in Motion & Styling Reels -->
+      <div class="divan-slider-wrapper" id="reelsSlider">
+        <div class="divan-slider-controls">
+          <div class="divan-slider-counter">
+            <span class="active-num" id="reelsActiveNum">01</span>
+            <span class="sep">/</span>
+            <span class="total-num" id="reelsTotalNum">05</span>
+            <span class="divan-mode-label">PARALLAX RAIL</span>
+          </div>
+          <div class="divan-progress-rail">
+            <div class="divan-progress-fill" id="reelsProgressFill"></div>
+          </div>
+          <div class="divan-slider-nav-btns">
+            <button class="divan-nav-btn prev" id="reelsPrevBtn" title="Previous"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="divan-nav-btn next" id="reelsNextBtn" title="Next"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="divan-slider-viewport" id="reelsViewport">
+          <div class="reels-grid divan-slider-track" id="homeReelsGrid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
       </div>
 
       <div style="text-align: center; margin-top: 14px;">
@@ -701,30 +722,32 @@
       const newArrivalsGrid = document.getElementById('newArrivalsGrid');
       if (newArrivalsGrid) newArrivalsGrid.innerHTML = SAREE_PRODUCTS.map(p => createSareeCardHTML(p)).join('');
 
-      // Initialize Divan Raj Parallel/Parallax Card Sliders
+      // Populate Home Reels Preview (First 5 reels)
+      const homeReelsGrid = document.getElementById('homeReelsGrid');
+      if (homeReelsGrid) {
+        homeReelsGrid.innerHTML = REELS_DATA.slice(0, 5).map(reel => `
+          <div class="reel-card" onclick="window.location.href='videos.html'">
+            <img src="${reel.videoPoster}" alt="${reel.title}" class="reel-poster">
+            <div class="reel-play-btn"><i class="fa-solid fa-play"></i></div>
+            <div class="reel-overlay-bottom">
+              <div class="reel-stats-bar">
+                <span><i class="fa-regular fa-eye"></i> ${reel.views}</span>
+                <span><i class="fa-regular fa-heart"></i> ${reel.likes}</span>
+                <span><i class="fa-regular fa-clock"></i> ${reel.duration}</span>
+              </div>
+              <h4 class="reel-title">${reel.title}</h4>
+              <div class="reel-product-pill">
+                <i class="fa-solid fa-bag-shopping"></i> ${reel.productName}
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Initialize Divan Raj Parallel/Parallax Card Sliders for all 3 sections
       if (window.initDivanParallaxSliders) {
         window.initDivanParallaxSliders();
       }
-
-      // Populate Home Reels Preview (First 3 reels)
-      const homeReelsGrid = document.getElementById('homeReelsGrid');
-      homeReelsGrid.innerHTML = REELS_DATA.slice(0, 3).map(reel => `
-        <div class="reel-card" onclick="window.location.href='videos.html'">
-          <img src="${reel.videoPoster}" alt="${reel.title}" class="reel-poster">
-          <div class="reel-play-btn"><i class="fa-solid fa-play"></i></div>
-          <div class="reel-overlay-bottom">
-            <div class="reel-stats-bar">
-              <span><i class="fa-regular fa-eye"></i> ${reel.views}</span>
-              <span><i class="fa-regular fa-heart"></i> ${reel.likes}</span>
-              <span><i class="fa-regular fa-clock"></i> ${reel.duration}</span>
-            </div>
-            <h4 class="reel-title">${reel.title}</h4>
-            <div class="reel-product-pill">
-              <i class="fa-solid fa-bag-shopping"></i> ${reel.productName}
-            </div>
-          </div>
-        </div>
-      `).join('');
 
 
       // Cinematic Showroom Video Scroll Reveal (Instant Zero-Timelag Canvas Engine)
