@@ -4839,7 +4839,7 @@ section[id], footer[id] {
   flex-direction: column !important;
   justify-content: center !important;
   box-sizing: border-box !important;
-  padding: 22px 0 26px 0 !important;
+  padding: 18px 0 22px 0 !important;
   position: relative !important;
   scroll-snap-align: start !important;
   scroll-snap-stop: always !important;
@@ -4848,189 +4848,32 @@ section[id], footer[id] {
 
 #reviewsSection > .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1200px;
 }
 
-#reviewsSection .section-header {
-  margin: 0 auto 14px auto !important;
-  max-width: 640px;
-}
-
-#reviewsSection .section-title {
-  font-size: 1.75rem !important;
-  margin-bottom: 3px !important;
-  line-height: 1.16 !important;
-}
-
-/* Big Luxury Review Cards Grid */
 .home-reviews-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 22px;
   align-items: stretch;
 }
 
 .home-review-card {
-  background: #ffffff !important;
-  border: 1.5px solid var(--color-gold-border) !important;
-  border-radius: 20px !important;
-  padding: 30px 28px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  min-height: 330px !important;
-  box-shadow: 0 10px 30px rgba(98, 17, 34, 0.08), 0 2px 8px rgba(197, 155, 39, 0.10) !important;
-  position: relative !important;
-  overflow: hidden !important;
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease !important;
-  box-sizing: border-box !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
 }
 
 .home-review-card:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: 0 18px 40px rgba(98, 17, 34, 0.14), 0 4px 14px rgba(197, 155, 39, 0.22) !important;
-  border-color: rgba(197, 155, 39, 0.9) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 28px rgba(98, 17, 34, 0.12) !important;
+  border-color: rgba(197, 155, 39, 0.75) !important;
 }
 
-.home-review-card .quote-watermark {
-  position: absolute;
-  top: 14px;
-  right: 20px;
-  font-size: 2.8rem;
-  color: rgba(197, 155, 39, 0.13);
-  font-family: 'Playfair Display', Georgia, serif;
-  line-height: 1;
-  pointer-events: none;
-}
-
-.home-review-card .review-stars-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #df9e2c;
-  font-size: 1.15rem;
-  margin-bottom: 12px;
-}
-
-.home-review-card .review-stars-row .rating-pill {
-  background: rgba(197, 155, 39, 0.12);
-  color: var(--color-maroon-dark);
-  font-weight: 700;
-  font-size: 0.74rem;
-  padding: 2px 8px;
-  border-radius: 999px;
-  margin-left: 6px;
-  border: 1px solid rgba(197, 155, 39, 0.3);
-  letter-spacing: 0.04em;
-}
-
-.home-review-card .review-headline {
-  font-family: var(--font-royal);
-  font-size: 1.16rem !important;
-  font-weight: 700;
-  color: var(--color-maroon-dark);
-  line-height: 1.35;
-  margin-bottom: 10px;
-}
-
-.home-review-card .review-body {
-  font-size: 0.92rem !important;
-  line-height: 1.65;
-  color: #5d4842;
-  margin-bottom: 18px;
-  font-style: italic;
-  flex: 1 1 auto;
-}
-
-.home-review-card .review-footer {
-  border-top: 1px solid rgba(197, 155, 39, 0.22);
-  padding-top: 14px;
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.home-review-card .reviewer-profile {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.home-review-card .reviewer-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--color-maroon-dark);
-  color: #fae29c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-family: var(--font-royal);
-  border: 2px solid var(--color-gold);
-  font-size: 1.05rem;
-  box-shadow: 0 4px 10px rgba(98, 17, 34, 0.18);
-  flex-shrink: 0;
-}
-
-.home-review-card .reviewer-name {
-  font-weight: 700;
-  font-size: 0.96rem;
-  color: var(--color-maroon-dark);
-  margin-bottom: 2px;
-  font-family: var(--font-royal);
-}
-
-.home-review-card .reviewer-verified {
-  font-size: 0.76rem;
-  color: var(--color-emerald);
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.home-review-card .saree-bought-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255, 250, 242, 0.95);
-  border: 1px solid rgba(197, 155, 39, 0.35);
-  padding: 3px 9px;
-  border-radius: 7px;
-  font-size: 0.74rem;
-  color: #6a443a;
-  font-weight: 500;
-  width: fit-content;
-}
-
-.home-review-card .saree-bought-tag i {
-  color: var(--color-gold);
-}
-
-@media (max-width: 1024px) {
-  .home-reviews-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
-  .home-review-card {
-    padding: 24px 22px !important;
-    min-height: auto !important;
-  }
-}
-
-@media (max-width: 768px) {
-  #reviewsSection {
-    min-height: auto !important;
-    padding: 20px 0 !important;
-  }
+@media (max-width: 900px) {
   .home-reviews-grid {
     grid-template-columns: 1fr !important;
     gap: 16px !important;
-  }
-  .home-review-card {
-    padding: 20px 18px !important;
+    max-width: 520px;
+    margin: 0 auto;
   }
 }
 
