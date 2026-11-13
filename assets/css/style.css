@@ -3658,14 +3658,14 @@ section[id], footer[id] {
 
 /* Card sizing inside Collections track */
 .collections-grid.divan-slider-track {
-  gap: 16px !important;
+  gap: 18px !important;
   align-items: stretch !important;
 }
 
 .collections-grid.divan-slider-track .collection-card {
-  flex: 0 0 260px !important;
-  width: 260px !important;
-  height: 310px !important;
+  flex: 0 0 270px !important;
+  width: 270px !important;
+  height: 325px !important;
   margin: 0 !important;
   box-sizing: border-box !important;
   border-radius: 14px !important;
@@ -3841,22 +3841,22 @@ section[id], footer[id] {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  gap: 22px !important;
-  margin-top: 6px !important;
+  gap: 28px !important;
+  margin-top: 8px !important;
   margin-bottom: 0 !important;
   flex-wrap: nowrap !important;
 }
 
 #videosSection .reel-card,
 #homeReelsGrid .reel-card {
-  flex: 0 0 200px !important;
-  width: 200px !important;
-  height: 315px !important;
+  flex: 0 0 260px !important;
+  width: 260px !important;
+  height: 375px !important;
   aspect-ratio: unset !important;
-  border-radius: 16px !important;
+  border-radius: 18px !important;
   overflow: hidden !important;
   border: 1.5px solid var(--color-gold-border) !important;
-  box-shadow: 0 6px 18px rgba(98, 17, 34, 0.12) !important;
+  box-shadow: 0 8px 24px rgba(98, 17, 34, 0.14) !important;
   position: relative !important;
   cursor: pointer !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
@@ -3864,9 +3864,9 @@ section[id], footer[id] {
 
 #videosSection .reel-card:hover,
 #homeReelsGrid .reel-card:hover {
-  transform: translateY(-4px) !important;
-  border-color: rgba(197, 155, 39, 0.9) !important;
-  box-shadow: 0 10px 24px rgba(98, 17, 34, 0.2) !important;
+  transform: translateY(-5px) !important;
+  border-color: rgba(197, 155, 39, 0.95) !important;
+  box-shadow: 0 12px 28px rgba(98, 17, 34, 0.22) !important;
 }
 
 #videosSection .reel-poster,
@@ -3879,32 +3879,32 @@ section[id], footer[id] {
 
 #videosSection .reel-play-btn,
 #homeReelsGrid .reel-play-btn {
-  width: 44px !important;
-  height: 44px !important;
-  font-size: 1.05rem !important;
-  border: 1.5px solid var(--color-gold) !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+  width: 50px !important;
+  height: 50px !important;
+  font-size: 1.18rem !important;
+  border: 2px solid var(--color-gold) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45) !important;
 }
 
 #videosSection .reel-overlay-bottom,
 #homeReelsGrid .reel-overlay-bottom {
-  padding: 12px 12px 10px 12px !important;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 40%, rgba(15, 3, 6, 0.96) 100%) !important;
+  padding: 16px 14px 12px 14px !important;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 35%, rgba(15, 3, 6, 0.96) 100%) !important;
 }
 
 #videosSection .reel-stats-bar,
 #homeReelsGrid .reel-stats-bar {
-  gap: 10px !important;
-  font-size: 0.68rem !important;
-  margin-bottom: 4px !important;
+  gap: 12px !important;
+  font-size: 0.72rem !important;
+  margin-bottom: 5px !important;
 }
 
 #videosSection .reel-title,
 #homeReelsGrid .reel-title {
-  font-size: 0.80rem !important;
+  font-size: 0.86rem !important;
   font-weight: 600 !important;
-  line-height: 1.25 !important;
-  margin-bottom: 6px !important;
+  line-height: 1.3 !important;
+  margin-bottom: 8px !important;
   color: #fff !important;
   display: -webkit-box !important;
   -webkit-line-clamp: 1 !important;
@@ -3915,9 +3915,9 @@ section[id], footer[id] {
 
 #videosSection .reel-product-pill,
 #homeReelsGrid .reel-product-pill {
-  padding: 3px 8px !important;
-  font-size: 0.66rem !important;
-  gap: 5px !important;
+  padding: 4px 10px !important;
+  font-size: 0.70rem !important;
+  gap: 6px !important;
   border-radius: 999px !important;
   white-space: nowrap !important;
   display: inline-flex !important;
@@ -3936,15 +3936,15 @@ section[id], footer[id] {
     font-size: 0.80rem !important;
   }
   .collections-grid.divan-slider-track .collection-card {
-    flex: 0 0 240px !important;
-    width: 240px !important;
-    height: 275px !important;
+    flex: 0 0 250px !important;
+    width: 250px !important;
+    height: 300px !important;
   }
   #videosSection .reel-card,
   #homeReelsGrid .reel-card {
-    flex: 0 0 190px !important;
-    width: 190px !important;
-    height: 300px !important;
+    flex: 0 0 240px !important;
+    width: 240px !important;
+    height: 350px !important;
   }
 }
 
@@ -3975,19 +3975,19 @@ section[id], footer[id] {
     padding: 8px 9px 9px 9px !important;
   }
   .collections-grid.divan-slider-track .collection-card {
-    flex: 0 0 225px !important;
-    width: 225px !important;
-    height: 270px !important;
+    flex: 0 0 235px !important;
+    width: 235px !important;
+    height: 285px !important;
   }
   #videosSection .reels-grid,
   #homeReelsGrid {
-    gap: 16px !important;
+    gap: 18px !important;
   }
   #videosSection .reel-card,
   #homeReelsGrid .reel-card {
-    flex: 0 0 180px !important;
-    width: 180px !important;
-    height: 285px !important;
+    flex: 0 0 215px !important;
+    width: 215px !important;
+    height: 320px !important;
   }
 }
 
@@ -4031,9 +4031,9 @@ section[id], footer[id] {
     height: 140px !important;
   }
   .collections-grid.divan-slider-track .collection-card {
-    flex: 0 0 215px !important;
-    width: 215px !important;
-    height: 265px !important;
+    flex: 0 0 225px !important;
+    width: 225px !important;
+    height: 280px !important;
   }
   .divan-progress-rail {
     max-width: 160px;
@@ -4050,9 +4050,9 @@ section[id], footer[id] {
   }
   #videosSection .reel-card,
   #homeReelsGrid .reel-card {
-    flex: 0 0 min(68vw, 210px) !important;
-    width: min(68vw, 210px) !important;
-    height: 300px !important;
+    flex: 0 0 min(72vw, 240px) !important;
+    width: min(72vw, 240px) !important;
+    height: 340px !important;
     scroll-snap-align: center !important;
   }
 }
