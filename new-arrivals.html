@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Arrivals & Fresh Handloom Weaves | DEMO SILKS</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/spin-wheel.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-image: url('assets/images/bg-luxury.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-color: #fffcf7;">
+
+  <!-- ROYAL LUXURY FULL-WIDTH NAVIGATION BAR -->
+  <header class="main-header" id="mainHeader">
+    <div class="nav-fullwidth-container">
+      <!-- 1. Brand Logo -->
+      <a href="index.html" class="nav-brand-logo" title="Demo Silks Royal Heritage Weaves">
+        <img src="assets/images/navbar-logo-clean.png" alt="Demo Silks" class="nav-logo-img">
+      </a>
+
+      <!-- 2. Navigation Menu Items (Single Horizontal Row) -->
+      <nav class="nav-menu-wrapper">
+        <ul class="nav-menu-royal">
+          <li class="nav-item-royal">
+            <a href="index.html" class="nav-link-royal">Home</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="about.html" class="nav-link-royal">About Us</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="new-arrivals.html" class="nav-link-royal active-pill">New Arrivals</a>
+          </li>
+          <li class="nav-item-royal has-dropdown">
+            <a href="collections.html" class="nav-link-royal">Collections <i class="fa-solid fa-chevron-down nav-chevron"></i></a>
+            <div class="nav-dropdown">
+              <a href="collections.html#kanchipuram">Kanchipuram Silk</a>
+              <a href="collections.html#banarasi">Banarasi Silk</a>
+              <a href="collections.html#softsilk">Soft Silk</a>
+              <a href="collections.html#mysoresilk">Mysore Silk</a>
+              <a href="collections.html#organza">Organza</a>
+              <div class="dropdown-divider"></div>
+              <a href="collections.html" class="dropdown-highlight">Explore All Collections →</a>
+            </div>
+          </li>
+          <li class="nav-item-royal">
+            <a href="videos.html" class="nav-link-royal">Videos & Reels</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="reviews.html" class="nav-link-royal">Customer Reviews</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="contact.html" class="nav-link-royal">Contact Us</a>
+          </li>
+          <li class="nav-item-royal">
+            <a href="shop.html" class="nav-btn-shop" title="Shop All Sarees">
+              <i class="fa-solid fa-bag-shopping"></i> Shop
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- 3. Right Action Icons -->
+      <div class="nav-actions-royal">
+        <button type="button" class="royal-icon-btn" onclick="openSearchModal()" title="Search Sarees">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <a href="wishlist.html" class="royal-icon-btn" title="Saved Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-pill wish-badge">2</span>
+        </a>
+        <a href="cart.html" class="royal-icon-btn" title="Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-pill cart-badge">3</span>
+        </a>
+        <a href="contact.html" class="royal-icon-btn" title="Account / Concierge">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button type="button" class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileMenu" class="mobile-nav-drawer" style="display:none;">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="new-arrivals.html" style="color:var(--color-gold); font-weight:700;">✨ New Arrivals</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="videos.html">Videos & Reels</a></li>
+      <li><a href="reviews.html">Customer Reviews</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li style="margin-top:6px;">
+        <a href="shop.html" class="nav-btn-shop mobile-shop-btn">
+          <i class="fa-solid fa-bag-shopping"></i> Shop All Sarees →
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Page Header -->
+  <section style="padding: 36px 0 20px 0;">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 24px;">
+        <span class="section-tag">Fresh Off The Master Looms</span>
+        <h1 class="section-title">New Arrivals &amp; Heirloom Editions</h1>
+        <div class="section-divider">
+          <span></span><i class="fa-solid fa-sparkles"></i><span></span>
+        </div>
+        <p class="section-desc">
+          Hand-picked drapes straight from the artisan looms of Kanchipuram, Varanasi, Chanderi, and Mysore. Discover our latest festive and bridal weaves.
+        </p>
+      </div>
+
+      <!-- Top Controls & Search Bar -->
+      <div class="shop-top-controls">
+        <div class="search-box-wrap">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="shopSearchInput" class="search-input" placeholder="Search by saree name, fabric, motif, or color (e.g. Kanjivaram, Pink, Gold)...">
+        </div>
+
+        <div style="display:flex; align-items:center; gap:16px;">
+          <span id="shopProductCount" style="font-size:0.85rem; font-weight:600; color:var(--color-maroon-dark);">
+            Showing Sarees
+          </span>
+          <select id="shopSortSelect" class="sort-select">
+            <option value="newest" selected>Sort by: Newest Arrivals</option>
+            <option value="featured">Featured Editions</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Mobile Filter Bar -->
+      <div class="mobile-filter-bar">
+        <button type="button" class="btn-mobile-filter-toggle" onclick="toggleMobileFilterSidebar()">
+          <i class="fa-solid fa-sliders"></i> Filter New Arrivals (<span id="mobileFilterLabel">Filters</span>)
+        </button>
+        <select class="sort-select-mobile" onchange="document.getElementById('shopSortSelect').value=this.value; applyFilters();">
+          <option value="newest">Newest Arrivals</option>
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Top Rated</option>
+        </select>
+      </div>
+
+      <!-- Main Shop Layout: Sidebar + Grid -->
+      <div class="shop-layout">
+        <!-- Filter Sidebar -->
+        <aside class="filter-sidebar">
+          <div class="filter-header">
+            <span style="font-family:var(--font-royal); font-weight:700; color:var(--color-maroon-dark); font-size:1.05rem;">
+              <i class="fa-solid fa-sliders"></i> Filter Weaves
+            </span>
+            <button class="filter-reset-btn" onclick="resetAllFilters()">Reset All</button>
+          </div>
+
+          <!-- Filter: Category / Fabric -->
+          <div class="filter-group">
+            <h4 class="filter-title">Fabric &amp; Weave</h4>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="all" checked onchange="handleCategoryFilter(this)">
+                <span>All Handlooms</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="kanjivaram" onchange="handleCategoryFilter(this)">
+                <span>1. Kanchipuram Silk</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="banarasi" onchange="handleCategoryFilter(this)">
+                <span>2. Banarasi Silk</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="softsilk" onchange="handleCategoryFilter(this)">
+                <span>3. Soft Silk</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="mysoresilk" onchange="handleCategoryFilter(this)">
+                <span>4. Mysore Silk</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="organza" onchange="handleCategoryFilter(this)">
+                <span>5. Silk Organza</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Filter: Occasion -->
+          <div class="filter-group">
+            <h4 class="filter-title">Occasion</h4>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="radio" name="occasion" value="all" checked onchange="applyFilters()">
+                <span>All Occasions</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="occasion" value="Bridal" onchange="applyFilters()">
+                <span>Bridal Muhurtham</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="occasion" value="Festive" onchange="applyFilters()">
+                <span>Festive &amp; Celebrations</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="occasion" value="Party" onchange="applyFilters()">
+                <span>Receptions &amp; Parties</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Filter: Price Range -->
+          <div class="filter-group">
+            <h4 class="filter-title">Price Range</h4>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="radio" name="priceRange" value="all" checked onchange="applyFilters()">
+                <span>All Prices</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="priceRange" value="under-25k" onchange="applyFilters()">
+                <span>Under ₹25,000</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="priceRange" value="25k-40k" onchange="applyFilters()">
+                <span>₹25,000 — ₹40,000</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="priceRange" value="above-40k" onchange="applyFilters()">
+                <span>Above ₹40,000</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Video Shopping CTA in Sidebar -->
+          <div style="background:rgba(197, 155, 39, 0.12); border:1px dashed var(--color-gold); padding:16px; border-radius:12px; text-align:center;">
+            <div style="font-family:var(--font-royal); font-weight:700; font-size:0.85rem; color:var(--color-maroon-dark); margin-bottom:6px;">Can't decide?</div>
+            <p style="font-size:0.75rem; color:var(--color-text-muted); margin-bottom:10px;">Our draping specialists will display sarees on a live WhatsApp video call.</p>
+            <button onclick="DemoStore.openWhatsApp('Hello DEMO SILKS! Please schedule a live video call to show new arrivals.')" class="btn-royal-primary" style="padding:6px 14px; font-size:0.75rem; width:100%;">
+              <i class="fa-brands fa-whatsapp"></i> Live Video Call
+            </button>
+          </div>
+
+          <button type="button" class="btn-royal-primary mobile-apply-btn" onclick="toggleMobileFilterSidebar()" style="display:none; width:100%; margin-top:14px; padding:12px; font-size:0.85rem;">
+            ✓ Apply &amp; Show Sarees
+          </button>
+        </aside>
+
+        <!-- Product Grid Area -->
+        <main>
+          <div id="shopGrid" class="products-grid">
+            <!-- Dynamic Saree Cards rendered here -->
+          </div>
+
+          <!-- Empty State (hidden by default) -->
+          <div id="shopEmptyState" style="display:none; text-align:center; padding:60px 20px;" class="royal-card">
+            <div style="font-size:3rem; color:var(--color-gold); margin-bottom:12px;"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <h3 style="font-size:1.4rem; color:var(--color-maroon-dark); margin-bottom:8px;">No matching sarees found</h3>
+            <p style="color:var(--color-text-muted); font-size:0.9rem; margin-bottom:20px;">Try clearing filters or searching for terms like "Kanjivaram", "Silk", or "Gold".</p>
+            <button class="btn-royal-primary" onclick="resetAllFilters()">Reset All Filters</button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- Master Royal Footer -->
+  <footer class="vnila-site-footer" style="background: #3a0813; color: #d6c6b8; padding: 48px 0 24px; border-top: 2px solid #cfa052;">
+    <div class="container">
+      <div class="vnila-footer-grid">
+        
+        <!-- Col 1: Brand Logo -->
+        <div style="padding-right: 18px; border-right: 1px solid rgba(212, 167, 91, 0.25); display: flex; flex-direction: column; align-items: flex-start;">
+          <img src="assets/images/spin-win-top-lotus-clean.png" alt="Lotus Logo" style="height: 30px; margin-bottom: 6px; filter: brightness(1.2);">
+          <div style="font-family:'Cinzel', serif; font-size:1.35rem; font-weight:800; letter-spacing:2px; color:#ffffff; line-height:1;">DEMO SILKS</div>
+          <div style="font-family:'Cinzel', serif; font-size:0.65rem; font-weight:600; letter-spacing:3px; color:#fae29c; margin-top:3px;">HERITAGE WEAVES</div>
+        </div>
+
+        <!-- Col 2: About Demo Silks -->
+        <div>
+          <h4 style="font-family:'Cinzel', serif; font-size:1rem; font-weight:700; color:#fae29c; margin:0 0 10px;">About Demo Silks</h4>
+          <p style="font-size:0.84rem; color:#cfbeb0; line-height:1.65; margin:0;">
+            Handloom sarees, a legacy of tradition and timeless elegance.
+          </p>
+        </div>
+
+        <!-- Col 3: Quick Links -->
+        <div>
+          <h4 style="font-family:'Cinzel', serif; font-size:1rem; font-weight:700; color:#fae29c; margin:0 0 10px;">Quick Links</h4>
+          <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:7px; font-size:0.84rem;">
+            <li><a href="index.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Home</a></li>
+            <li><a href="about.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">About Us</a></li>
+            <li><a href="new-arrivals.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">New Arrivals</a></li>
+            <li><a href="collections.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Collections</a></li>
+            <li><a href="shop.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Shop</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Customer Care -->
+        <div>
+          <h4 style="font-family:'Cinzel', serif; font-size:1rem; font-weight:700; color:#fae29c; margin:0 0 10px;">Customer Care</h4>
+          <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:7px; font-size:0.84rem;">
+            <li><a href="wishlist.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Wishlist</a></li>
+            <li><a href="cart.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Shopping Cart</a></li>
+            <li><a href="videos.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Videos &amp; Reels</a></li>
+            <li><a href="contact.html" style="color:#d6c6b8; text-decoration:none;" onmouseover="this.style.color='#fae29c'" onmouseout="this.style.color='#d6c6b8'">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Join Our Newsletter -->
+        <div>
+          <h4 style="font-family:'Cinzel', serif; font-size:1rem; font-weight:700; color:#fae29c; margin:0 0 10px;">Join Our Newsletter</h4>
+          <p style="font-size:0.82rem; color:#cfbeb0; line-height:1.5; margin:0 0 12px;">
+            Be the first to know about new arrivals, exclusive offers and more.
+          </p>
+          <form onsubmit="event.preventDefault(); DemoStore.showToast('✨ Thank you for subscribing to DEMO SILKS!'); this.reset();" style="display:flex; align-items:center; background:#ffffff; border-radius:6px; overflow:hidden; border:1px solid #d4a75b;">
+            <input type="email" placeholder="Your email address" required style="flex:1; border:none; outline:none; padding:9px 12px; font-size:0.82rem; font-family:'Plus Jakarta Sans', sans-serif; color:#333;">
+            <button type="submit" style="background:#e5b869; border:none; color:#4a0e1c; padding:9px 14px; font-size:0.95rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s;" onmouseover="this.style.background='#f3c97e'" onmouseout="this.style.background='#e5b869'">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Col 6: Follow Us -->
+        <div>
+          <h4 style="font-family:'Cinzel', serif; font-size:1rem; font-weight:700; color:#fae29c; margin:0 0 10px;">Follow Us</h4>
+          <div style="display:flex; gap:10px; margin-bottom:12px;">
+            <a href="https://instagram.com" target="_blank" style="width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid #cfa052; color:#fae29c; display:flex; align-items:center; justify-content:center; text-decoration:none;"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" style="width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid #cfa052; color:#fae29c; display:flex; align-items:center; justify-content:center; text-decoration:none;"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://youtube.com" target="_blank" style="width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid #cfa052; color:#fae29c; display:flex; align-items:center; justify-content:center; text-decoration:none;"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://pinterest.com" target="_blank" style="width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,0.08); border:1px solid #cfa052; color:#fae29c; display:flex; align-items:center; justify-content:center; text-decoration:none;"><i class="fa-brands fa-pinterest-p"></i></a>
+          </div>
+          <div style="font-size:0.75rem; color:#fae29c; font-style:italic;">— @demosilks —</div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div style="display:flex; justify-content:space-between; align-items:center; padding-top:20px; font-size:0.8rem; color:#bfaea0; flex-wrap:wrap; gap:12px;">
+        <div>© 2026 DEMO SILKS Private Limited. All Rights Reserved.</div>
+        <div style="display:flex; align-items:center; gap:8px; color:#fae29c; font-family:'Cinzel', serif; font-size:0.82rem;">
+          <span>—</span>
+          <span>Elegance in Every Thread</span>
+          <span>—</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/spin-wheel.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGlobalComponents('shop');
+
+      applyFilters();
+
+      // Search input live event
+      document.getElementById('shopSearchInput').addEventListener('input', applyFilters);
+      document.getElementById('shopSortSelect').addEventListener('change', applyFilters);
+    });
+
+    function handleCategoryFilter(changedCheckbox) {
+      if (changedCheckbox.value === 'all') {
+        if (changedCheckbox.checked) {
+          document.querySelectorAll('input[name="category"]').forEach(cb => {
+            if (cb.value !== 'all') cb.checked = false;
+          });
+        }
+      } else {
+        const allCb = document.querySelector('input[name="category"][value="all"]');
+        if (allCb) allCb.checked = false;
+      }
+      applyFilters();
+    }
+
+    function resetAllFilters() {
+      document.getElementById('shopSearchInput').value = '';
+      document.querySelectorAll('input[name="category"]').forEach(cb => {
+        cb.checked = (cb.value === 'all');
+      });
+      document.querySelector('input[name="occasion"][value="all"]').checked = true;
+      document.querySelector('input[name="priceRange"][value="all"]').checked = true;
+      document.getElementById('shopSortSelect').value = 'newest';
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const searchVal = document.getElementById('shopSearchInput').value.toLowerCase().trim();
+      
+      const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(cb => cb.value);
+      const allSelected = selectedCategories.includes('all') || selectedCategories.length === 0;
+
+      const selectedOccasion = document.querySelector('input[name="occasion"]:checked').value;
+      const selectedPriceRange = document.querySelector('input[name="priceRange"]:checked').value;
+      const sortVal = document.getElementById('shopSortSelect').value;
+
+      let filtered = SAREE_PRODUCTS.filter(p => {
+        // Prioritize new weaves
+        if (searchVal) {
+          const matchName = p.name.toLowerCase().includes(searchVal);
+          const matchFabric = p.fabric.toLowerCase().includes(searchVal);
+          const matchCat = p.categoryName.toLowerCase().includes(searchVal);
+          const matchColor = p.color.toLowerCase().includes(searchVal);
+          if (!matchName && !matchFabric && !matchCat && !matchColor) return false;
+        }
+
+        if (!allSelected && !selectedCategories.includes(p.category)) {
+          return false;
+        }
+
+        if (selectedOccasion !== 'all' && p.occasion !== selectedOccasion) {
+          return false;
+        }
+
+        if (selectedPriceRange === 'under-25k' && p.price >= 25000) return false;
+        if (selectedPriceRange === '25k-40k' && (p.price < 25000 || p.price > 40000)) return false;
+        if (selectedPriceRange === 'above-40k' && p.price <= 40000) return false;
+
+        return true;
+      });
+
+      // Sorting
+      if (sortVal === 'newest') {
+        filtered.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+      } else if (sortVal === 'price-low') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortVal === 'price-high') {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sortVal === 'rating') {
+        filtered.sort((a, b) => b.rating - a.rating);
+      }
+
+      const grid = document.getElementById('shopGrid');
+      const empty = document.getElementById('shopEmptyState');
+      const countLabel = document.getElementById('shopProductCount');
+
+      countLabel.textContent = `Showing ${filtered.length} of ${SAREE_PRODUCTS.length} New Arrival Sarees`;
+
+      if (filtered.length === 0) {
+        grid.style.display = 'none';
+        empty.style.display = 'block';
+      } else {
+        empty.style.display = 'none';
+        grid.style.display = 'grid';
+        grid.innerHTML = filtered.map(p => createSareeCardHTML(p)).join('');
+      }
+
+      DemoStore.updateBadges();
+    }
+  </script>
+</body>
+</html>

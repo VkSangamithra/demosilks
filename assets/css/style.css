@@ -3377,8 +3377,31 @@ section[id], footer[id] {
    ========================================================================== */
 
 #shopSection {
-  padding: 18px 0 22px 0 !important;
+  min-height: calc(100vh - 88px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   box-sizing: border-box;
+  padding: 24px 0 28px 0 !important;
+  position: relative !important;
+}
+
+#shopSection > .container {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  #shopSection {
+    min-height: auto;
+    padding: 20px 0 24px 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #shopSection {
+    min-height: auto;
+    padding: 16px 0 20px 0 !important;
+  }
 }
 
 #shopSection .section-header {
