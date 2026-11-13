@@ -44,10 +44,22 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 15px;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+}
+
+@media (max-width: 1440px) {
+  html {
+    font-size: 14.5px;
+  }
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 body {
@@ -1871,14 +1883,14 @@ section[id], footer[id] {
 .vnila-contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1.35fr;
-  gap: 32px;
-  align-items: start;
+  gap: 22px;
+  align-items: stretch;
 }
 
 .vnila-contact-inputs-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 8px;
 }
 
 .vnila-footer-grid {
