@@ -1880,17 +1880,33 @@ section[id], footer[id] {
   overflow: hidden;
 }
 
+.vnila-contact-section {
+  min-height: calc(100vh - 88px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 32px 0 38px 0;
+  background: #fffcf7;
+  position: relative;
+}
+
+.vnila-contact-section > .container {
+  max-width: 1340px;
+  width: 93%;
+}
+
 .vnila-contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1.35fr;
-  gap: 22px;
+  gap: 28px;
   align-items: stretch;
 }
 
 .vnila-contact-inputs-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  gap: 10px;
 }
 
 .vnila-footer-grid {
@@ -1903,8 +1919,13 @@ section[id], footer[id] {
 }
 
 @media (max-width: 1024px) {
+  .vnila-contact-section {
+    min-height: auto;
+    padding: 28px 0 32px 0;
+  }
   .vnila-contact-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 22px;
   }
   .vnila-contact-form-col {
     grid-column: span 2;
@@ -1916,9 +1937,13 @@ section[id], footer[id] {
 }
 
 @media (max-width: 768px) {
+  .vnila-contact-section {
+    min-height: auto;
+    padding: 22px 0 26px 0;
+  }
   .vnila-contact-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
   }
   .vnila-contact-form-col {
     grid-column: span 1;
